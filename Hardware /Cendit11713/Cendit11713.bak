@@ -1,0 +1,152 @@
+EESchema Schematic File Version 2
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:eSim_Analog
+LIBS:eSim_Devices
+LIBS:eSim_Digital
+LIBS:eSim_Hybrid
+LIBS:eSim_Miscellaneous
+LIBS:eSim_Power
+LIBS:eSim_Sources
+LIBS:eSim_Subckt
+LIBS:eSim_User
+LIBS:eSim_Plot
+LIBS:eSim_PSpice
+LIBS:LPC1768FBD100_551
+LIBS:Cendit11713-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 9
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Sheet
+S 700  1900 900  800 
+U 59149DBB
+F0 "PowerSupplyMain" 60
+F1 "PowerSupplyMain.sch" 60
+F2 "+3.3_VDC" O R 1600 2050 60 
+F3 "+5.0_VDV" O R 1600 2200 60 
+F4 "I2C_BUS" B R 1600 2400 60 
+$EndSheet
+$Sheet
+S 2600 1950 1600 1500
+U 59149FF9
+F0 "MCUCore" 60
+F1 "MCUCore.sch" 60
+F2 "MAIN_BUS" B R 4200 2700 60 
+F3 "+3.3_VDC" I L 2600 2050 60 
+F4 "+5.0_VDC" I L 2600 2200 60 
+F5 "I2C_BUS" B L 2600 2450 60 
+F6 "SPI_BUS" B L 2600 2600 60 
+F7 "USB" B R 4200 3050 60 
+$EndSheet
+$Sheet
+S 750  3050 800  950 
+U 5914A033
+F0 "PowerSupplyExternal" 60
+F1 "PowerSupplyExternal.sch" 60
+F2 "ADJ_VDC_OUT" O R 1550 3250 60 
+F3 "+5.0_VDC_OUT" O R 1550 3400 60 
+F4 "+3.0_VDC_OUT" O R 1550 3550 60 
+F5 "I2C_BUS" B R 1550 3750 60 
+$EndSheet
+$Sheet
+S 2550 650  1300 950 
+U 5914A10C
+F0 "EthernetController" 60
+F1 "EthernetController.sch" 60
+F2 "+3.3_VDC" B L 2550 850 60 
+F3 "SPI_BUS" B L 2550 1100 60 
+$EndSheet
+$Sheet
+S 5300 1800 1200 1000
+U 5914A963
+F0 "GPIBInterface" 60
+F1 "GPIBInterface.sch" 60
+F2 "+5.0_VDC" I L 5300 2100 60 
+F3 "+3.0_VDC" I L 5300 1950 60 
+F4 "MAIN_BUS" B L 5300 2450 60 
+$EndSheet
+$Sheet
+S 5300 3100 1200 1000
+U 5914A9B7
+F0 "GPIOInterface" 60
+F1 "GPIOInterface.sch" 60
+F2 "+3.0_VDC" I L 5300 3250 60 
+F3 "+5.0_VDC" I L 5300 3400 60 
+F4 "MAIN_BUS" B L 5300 3700 60 
+$EndSheet
+$Sheet
+S 4800 4650 1350 1100
+U 5914AA0A
+F0 "UIPanelController" 60
+F1 "UIPanelController.sch" 60
+$EndSheet
+$Sheet
+S 2500 4650 1450 1100
+U 5914AA1B
+F0 "ScreenController" 60
+F1 "ScreenController.sch" 60
+F2 "+3.3_VDC" I L 2500 4800 60 
+F3 "MAIN_BUS" B R 3950 4900 60 
+F4 "LCD_BUS" B R 3950 5100 60 
+$EndSheet
+Text GLabel 4950 1950 0    60   BiDi ~ 0
++3.0_VDC
+Wire Wire Line
+	1600 2050 2600 2050
+Wire Wire Line
+	1600 2200 2600 2200
+Wire Bus Line
+	1600 2400 2050 2400
+Wire Bus Line
+	2050 1100 2050 3750
+Wire Bus Line
+	2050 2450 2600 2450
+Wire Bus Line
+	2050 3750 1550 3750
+Wire Bus Line
+	2050 1100 2550 1100
+Wire Wire Line
+	2550 850  1900 850 
+Wire Wire Line
+	1900 850  1900 2050
+Connection ~ 1900 2050
+Wire Wire Line
+	4950 1950 5300 1950
+$EndSCHEMATC

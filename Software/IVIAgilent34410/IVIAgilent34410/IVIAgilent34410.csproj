@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{7825ED52-A6F0-40D6-AEB6-20A63355569E}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>IVIAgilent34410</RootNamespace>
+    <AssemblyName>IVIAgilent34410</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Agilent.AgXSAn.Interop" />
+    <Reference Include="Agilent.AgXSAn.Interop" />
+    <Reference Include="Agilent.TMFramework" />
+    <Reference Include="Agilent.TMFramework.Configuration.SectionHandler" />
+    <Reference Include="Agilent.TMFramework.DataAnalysis" />
+    <Reference Include="Agilent.TMFramework.DataVisualization" />
+    <Reference Include="Agilent.TMFramework.InstrumentIO" />
+    <Reference Include="Ivi.Driver" />
+    <Reference Include="Ivi.Driver.Interop" />
+    <Reference Include="Ivi.LxiSync.Interop" />
+    <Reference Include="Ivi.PwrMeter.Interop" />
+    <Reference Include="Ivi.Scope" />
+    <Reference Include="Ivi.SpecAn.Interop" />
+    <Reference Include="Ivi.Visa" />
+    <Reference Include="Ivi.Visa.Interop" />
+    <Reference Include="Keysight.KtXSAnNoiseFigure.Interop" />
+    <Reference Include="NationalInstruments.Common" />
+    <Reference Include="NationalInstruments.Visa" />
+    <Reference Include="NationalInstruments.VisaNS" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
