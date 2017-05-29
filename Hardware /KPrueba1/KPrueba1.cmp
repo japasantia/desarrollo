@@ -1,0 +1,59 @@
+Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = sáb 27 may 2017 17:31:37 VET
+
+BeginCmp
+TimeStamp = /5929D3C8;
+Reference = D1;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /5929D825;
+Reference = J1;
+ValeurCmp = MYCONN3;
+IdModule  = 3PIN_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /5929E79B;
+Reference = P1;
+ValeurCmp = CONN_4;
+IdModule  = PIN_ARRAY_4x1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5929E7CA;
+Reference = P2;
+ValeurCmp = CONN_4;
+IdModule  = PIN_ARRAY_4x1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5929E7BF;
+Reference = P4;
+ValeurCmp = CONN_4;
+IdModule  = PIN_ARRAY_4x1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5929D056;
+Reference = R1;
+ValeurCmp = 100;
+IdModule  = R1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5929CEA0;
+Reference = R2;
+ValeurCmp = 1k;
+IdModule  = R1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5929D392;
+Reference = U1;
+ValeurCmp = PIC12F508;
+IdModule  = DIP-8__300;
+EndCmp
+
+EndListe
