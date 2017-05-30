@@ -9,7 +9,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using NationalInstruments;
 
 
 using Agilent.TMFramework.InstrumentIO;
@@ -19,6 +18,7 @@ using Ivi.PwrMeter;
 using Ivi.Driver.Interop;
 using Ivi.LxiSync.Interop;
 using Ivi.SpecAn.Interop;
+using Ivi.Visa;
 using Ivi.Visa.Interop;
 using Ivi.PwrMeter.Interop;
 using Ivi.Scope;
@@ -39,7 +39,7 @@ namespace IVIAgilent34410
 			Console.WriteLine("Hello World!");
 			
 			// VisaNetTest();
-			NiVisaNetTest();
+			// NiVisaNetTest();
 			
 			// TODO: Implement Functionality Here
 			
@@ -118,26 +118,20 @@ namespace IVIAgilent34410
 		
 		public static void VisaNetTest()
 		{
-			
-			List<string> resourceList = new List<string>(Ivi.Visa.GlobalResourceManager.Find());
-			
-			Ivi.Visa.IMessageBasedSession mbSession =
-				(Ivi.Visa.IMessageBasedSession)Ivi.Visa.GlobalResourceManager
-					.Open(resourceList[0]);
-			
-			mbSession.Dispose();			
+			ResourceManagerClass resourceManage = new ResourceManagerClass();
+			string[] resources = resourceManage.FindRsrc("*");	
 		}
 		
-		public static void NiVisaNetTest()
-		{
-
-			NationalInstruments.VisaNS.MessageBasedSession mbSession =
-				(NationalInstruments.VisaNS.MessageBasedSession) NationalInstruments.VisaNS.ResourceManager.GetLocalManager().Open("ASRL1::INSTR");
-			string response = mbSession.Query("*IDN?");
-			
-			NationalInstruments.VisaNS.ResourceManager rm = NationalInstruments.VisaNS.ResourceManager.GetLocalManager();
-			rm.Open("ASRL1::INTSR");
-		}
+//		public static void NiVisaNetTest()
+//		{
+//
+//			NationalInstruments.VisaNS.MessageBasedSession mbSession =
+//				(NationalInstruments.VisaNS.MessageBasedSession) NationalInstruments.VisaNS.ResourceManager.GetLocalManager().Open("ASRL1::INSTR");
+//			string response = mbSession.Query("*IDN?");
+//			
+//			NationalInstruments.VisaNS.ResourceManager rm = NationalInstruments.VisaNS.ResourceManager.GetLocalManager();
+//			rm.Open("ASRL1::INTSR");
+//		}
 		
 	}
 }

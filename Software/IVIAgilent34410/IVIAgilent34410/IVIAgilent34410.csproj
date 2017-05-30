@@ -7,13 +7,27 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>IVIAgilent34410</RootNamespace>
     <AssemblyName>IVIAgilent34410</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <SignAssembly>False</SignAssembly>
+    <DelaySign>False</DelaySign>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\Administrador\Datos de programa\ICSharpCode/SharpDevelop4\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <BaseAddress>4194304</BaseAddress>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <FileAlignment>4096</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -22,6 +36,8 @@
     <Optimize>False</Optimize>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <StartAction>Project</StartAction>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -33,24 +49,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Agilent.AgXSAn.Interop" />
-    <Reference Include="Agilent.AgXSAn.Interop" />
     <Reference Include="Agilent.TMFramework" />
+    <Reference Include="Agilent.TMFramework.ComponentModel, Version=2.1.8910.0, Culture=neutral, PublicKeyToken=7a01cdb2a9131f73" />
     <Reference Include="Agilent.TMFramework.Configuration.SectionHandler" />
     <Reference Include="Agilent.TMFramework.DataAnalysis" />
     <Reference Include="Agilent.TMFramework.DataVisualization" />
     <Reference Include="Agilent.TMFramework.InstrumentIO" />
+    <Reference Include="Agilent.TMFramework.InstrumentIO.VisaInterop" />
     <Reference Include="Ivi.Driver" />
     <Reference Include="Ivi.Driver.Interop" />
     <Reference Include="Ivi.LxiSync.Interop" />
     <Reference Include="Ivi.PwrMeter.Interop" />
     <Reference Include="Ivi.Scope" />
     <Reference Include="Ivi.SpecAn.Interop" />
-    <Reference Include="Ivi.Visa" />
     <Reference Include="Ivi.Visa.Interop" />
     <Reference Include="Keysight.KtXSAnNoiseFigure.Interop" />
-    <Reference Include="NationalInstruments.Common" />
-    <Reference Include="NationalInstruments.Visa" />
-    <Reference Include="NationalInstruments.VisaNS" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
