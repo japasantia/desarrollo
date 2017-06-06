@@ -31,15 +31,18 @@ void MainWindow::visaOpenSession()
     ViStatus status;
     status = viOpenDefaultRM(&m_defaultRM);
 
+    if (status != VI_SUCCESS)
+        ui->outputText->appendPlainText("Visa open resource manager error");
+
     /*
     status = viOpen(m_defaultRM, "TCPIP0::192.168.1.10::GPIB0,10::INSTR",
            VI_NULL, VI_NULL, &m_vi);
     */
 
     status = viOpen(m_defaultRM, "GPIB0::10::INSTR",
-           VI_NULL, VI_NULL, &m_vi);
+           VI_NO_LOCK, 0, &m_vi);
 
-    if (status < 0)
+    if (status != VI_SUCCESS)
         ui->outputText->appendPlainText("Visa open error");
 
     /*
@@ -96,7 +99,16 @@ void MainWindow::visaListResources()
     ViUInt32  matchesCount = 0;
     ViFindList resourceList;
 
-    ViStatus status = viFindRsrc(m_defaultRM, NULL, &resourceList,
+    /*
+   ViUInt32 count;
+        ViFindList findList;
+        ViChar rsrc[256];
+
+        if(viFindRsrc(rmgr, VI_NULL, &findList, &count, rsrc) != VI_SUCCESS)
+                return 1;
+    */
+
+    ViStatus status = viFindRsrc(m_defaultRM, ".*", &resourceList,
                &matchesCount, buffer);
 
     ui->outputText->appendPlainText(matchesCount > 0 ?
