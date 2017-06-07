@@ -66,8 +66,8 @@ please contact mla_licensing@microchip.com
     #define mDeInitSwitch2()    {ADCON1 = 0x07;} 
     */
     // BEGIN MOD Jose Arias
-    #define mInitSwitch2()      {ADCON1 = 0x0F; TRISAbits.TRISA0 = 1;}   
-    #define sw2                 PORTAbits.RA0
+    #define mInitSwitch2()      {ADCON0bits.ADON = 0; ADCON1 = 0x0F; CMCON = 0x07; TRISAbits.TRISA0 = 1; LATAbits.LATA0 = 1;}   
+    #define sw2                 LATAbits.LATA0
     #define mDeInitSwitch2()    {ADCON1 = 0x07;} 
     // END MOD
 

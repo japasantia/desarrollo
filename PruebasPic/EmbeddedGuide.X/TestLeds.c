@@ -316,8 +316,8 @@ void Test_LedLoopProcess()
 
 void Test_UsbDataProcess(const char* usbData)
 {
-    LATB &= 0b11000000;
-    LATB |= 0b00111111 & usbData[0];
+    LATB &= 0b00111100;
+    LATB |= 0b11000011 & usbData[0];
 }
 
 /*********************************************************************
