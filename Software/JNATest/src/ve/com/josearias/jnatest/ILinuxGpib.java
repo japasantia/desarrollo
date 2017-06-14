@@ -45,6 +45,4 @@ public interface ILinuxGpib extends Library {
     int ibstop(int ud);
     int ibwait(int ud, int status_mask);
 
-
-
 }
