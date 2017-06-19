@@ -91,40 +91,18 @@ public class VisaAddress
         return interfaceType;
     }
 
+ 
+
     public static boolean TryParseVisaAddress(String address, VisaAddress visaAddress)
     {
-        return false;
-    }
-}
 
-class VisaAddressFields
-{
-    public static final int INTERFACE_TYPE = 1;
-    public static final int BOARD_INDEX = 2;
-    public static final int LOGICAL_ADDRESS = 2;
-    public static final int MAINFRAME_LOGICAL_ADDRESS = 3;
-    public static final int RESOURCE_TYPE = 4;
-    public static final int PRIMARY_ADDRESS = 2;
-    public static final int SECONDARY_ADDRESS = 3;
-    public static final int TCPIP_ADDRESS = 2;
-    public static final int TCPIP_PORT = 3;
-    public static final int LAN_DEVICE_NAME = 2;
-    public static final int MANUFACTURER_ID = 2;
-    public static final int MODEL_CODE = 3;
-    public static final int SERIAL_NUMBER = 4;
-    public static final int INTERFACE_NUMBER = 5;
+    }
 }
 
 class VisaAddressPatterns 
 {
-    /*Colocar nombre a los grupos regex
-    https://stackoverflow.com/questions/415580/regex-named-groups-in-java
-    "(?<login>\\w+) (?<id>\\d+)"
-    matcher.group("login") ==> TEST
-    */
-
     public final static String VXI_INSTR_PATTERN =
-            "(?<INTERFACE>VXI)(?<BOARD>\\d+)?::(?<LOGICAL_ADDRESS>\\d+)(::(?<RESOURCE>INSTR))?";
+            "(VXI)(\\d+)?::(\\d+)(::(INSTR))?";
     public final  static String VXI_MEMACC_PATTERN =
             "(VXI)(\\d+)?::(MEMACC)";
     public final static String VXI_BACKPLANE_PATTERN =
@@ -167,126 +145,36 @@ class VisaAddressPatterns
             "(USB)(\\d+)?::(::([^:]*))::(::([^:]*))::(::([^:]*))(::(\\d+))?(::(RAW))?";
 }
 
-class VisaAddressParseFunctions
-{
-    static VisaAddress parseVxiInstrAddress(String address)
-    {
-        Pattern pattern = Pattern.compile(VisaAddressPatterns.GPIB_VXI_INSTR_PATTERN);
-        Matcher matcher = pattern.matcher(address);
-
-        try {
-            if (matcher.find()) {
-                String interfaceType = matcher.group(VisaAddressFields.INTERFACE_TYPE);
-                String board = matcher.group(VisaAddressFields.BOARD_INDEX);
-                String logicalAddress = matcher.group(VisaAddressFields.LOGICAL_ADDRESS);
-                String resourceType = matcher.group(VisaAddressFields.RESOURCE_TYPE);
-
-                return new VisaAddress(address);
-            }
-        }
-        catch (Exception ex)
-        {
-
-        }
-        return null;
-    }
-
-    static Function<String, VisaAddress> vxiInstrParseAddress = a -> parse(a);
-}
-
-interface IVisaAddressParserFunction
+interface IVisaAddressParser
 {
     VisaAddress parse(String address);
     boolean tryParse(String address, VisaAddress visaAddress);
 }
 
-class VisaAddressParseFunction implements Function<String, VisaAddress>
-{
-
-    @Override
-    public VisaAddress apply(String s)
-    {
-        return null;
-    }
-
-    @Override
-    public <V> Function<V, VisaAddress> compose(Function<? super V, ? extends String> before)
-    {
-        return null;
-    }
-
-    @Override
-    public <V> Function<String, V> andThen(Function<? super VisaAddress, ? extends V> after) {
-        return null;
-    }
-}
-
-class PatternParseFunctionPair
-{
-    public String addressPattern;
-    public Function<Matcher, VisaAddress> addressExtractFunction;
-
-    public PatternParseFunctionPair(String addressPattern,
-                                    Function<Matcher, VisaAddress> addressExtractFunction)
-    {
-        this.addressPattern = addressPattern;
-        this.addressExtractFunction = addressExtractFunction;
-    }
-}
-
-
-
-class VisaAddressParser
-{
-    private String address;
-
-    private static String[] patterns;
-    private static Function<String, VisaAddress>[] addressFieldExtractFunctions;
-
-    static
-    {
-        patterns = new String[]
-        {
-            VisaAddressPatterns.GPIB_INSTR_PATTERN
-        };
-
-        addressFieldExtractFunctions = new Function[]
-        {
-                (a) -> VisaAddressParseFunctions.parse((String)a)
-        };
-    }
-
-    public void tets()
-    {
-        for(int i = 0; i < patterns.length; ++i)
-        {
-            Function<String, VisaAddress> f = addressFieldExtractFunctions[i];
-            f.apply(patterns[i]);
-        }
-
-        Arrays.stream(patterns).filter(a -> a.matches("\\d+"));
-        addressFieldExtractFunctions[i].apply(patterns[i]);
-    }
-
-
-}
-
-/*class GpibVisaAddressParser implements IVisaAddressParser
+class GpibVisaAddressParser implements IVisaAddressParser
 {
     private String address;
     private class PatternParseFunction
     {
         public String pattern;
-        public Function<Matcher, VisaAddress> parseFunction;
+        public Function<String, VisaAddress> parseFunction;
 
         public PatternParseFunction(String p,
-                    Function<Matcher, VisaAddress> pf)
+                    Function<String, VisaAddress> pf)
         {
             pattern = p;
             parseFunction = pf;
         }
     }
 
+    private PatternParseFunction[] ppf =
+    {
+        new PatternParseFunction(VisaAddressPatterns.GPIB_INSTR_PATTERN,
+                (pattern) -> {
+
+
+                })
+    };
 
     private final static String[] ADDRESS_PATTERNS =
     {
@@ -299,9 +187,9 @@ class VisaAddressParser
     public VisaAddress parse(String address)
     {
 
-    }*/
+    }
 
-/*    @Override
+    @Override
     public boolean tryParse(String address, VisaAddress visaAddress)
     {
         for (String pattern : ADDRESS_PATTERNS)
@@ -316,9 +204,9 @@ class VisaAddressParser
         }
 
         return false;
-    }*/
+    }
 
-/*    private boolean extractAddressFields(Matcher matches)
+    private boolean extractAddressFields(Matcher matches)
     {
         Arrays.stream(ADDRESS_PATTERNS).filter((pattern)-> "".matches(pattern)).map();
 
@@ -331,7 +219,7 @@ class VisaAddressParser
         return true;
     }
 }
-*/
+
 enum VisaInterfaceType
 {
     VXI,
