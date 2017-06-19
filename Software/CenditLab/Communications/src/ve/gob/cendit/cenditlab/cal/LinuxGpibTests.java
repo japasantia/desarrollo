@@ -34,6 +34,7 @@ public class LinuxGpibTests
         pointerBuffer.setString(0, "*IDN?\n");
         stb = lib1.ibwrt(ud1, pointerBuffer, 6);
         printStatusByte(stb);
+        printStatusByte(lib1.ibsta);
 
         pointerBuffer.clear(1024);
         stb = lib1.ibrd(ud1, pointerBuffer, 1024);

@@ -9,8 +9,15 @@ public class LinuxGpibLoader
 {
     private static ILinuxGpib library;
 
-    static
+    public static ILinuxGpib getLibrary()
     {
+        if (library != null)
+        {
+            // Si la libreria ya ha sido cargada
+            return library;
+        }
+
+        // Se carga la libreria por primera vez
         try
         {
             library = Native.loadLibrary("gpib", ILinuxGpib.class);
@@ -20,10 +27,7 @@ public class LinuxGpibLoader
             System.err.println(ex.getMessage());
             System.exit(0);
         }
-    }
 
-    public static ILinuxGpib getLibrary()
-    {
         return library;
     }
 }

@@ -5,9 +5,12 @@ package ve.gob.cendit.cenditlab.cal;
  */
 public interface IGpibConnection
 {
-    int write(byte[] buffer);
+    void open();
+    void close();
+
+    int write(byte[] buffer, int size);
     int write(String data);
 
-    int read(byte[] buffer);
-    String readString();
+    int read(byte[] buffer, int size);
+    String read();
 }

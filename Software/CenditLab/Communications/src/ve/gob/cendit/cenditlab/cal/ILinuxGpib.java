@@ -8,13 +8,103 @@ import com.sun.jna.Pointer;
 /**
  * Created by jarias on 06/06/17.
  */
+/*
+    MODELO JAVADOC
+    http://www.oracle.com/technetwork/articles/java/index-137868.html
+
+
+    * Draws as much of the specified image as is currently available
+     * with its northwest corner at the specified coordinate (x, y).
+     * This method will return immediately in all cases, even if the
+     * entire image has not yet been scaled, dithered and converted
+     * for the current output device.
+     * <p>
+     * If the current output representation is not yet complete then
+     * the method will return false and the indicated
+     * {@link ImageObserver} object will be notified as the
+     * conversion process progresses.
+     *
+     * @param img       the image to be drawn
+     * @param x         the x-coordinate of the northwest corner
+     *                  of the destination rectangle in pixels
+     * @param y         the y-coordinate of the northwest corner
+     *                  of the destination rectangle in pixels
+     * @param observer  the image observer to be notified as more
+     *                  of the image is converted.  May be
+     *                  <code>null</code>
+     * @return          <code>true</code> if the image is completely
+     *                  loaded and was painted successfully;
+     *                  <code>false</code> otherwise.
+     * @see             Image
+     * @see             ImageObserver
+     * @since           1.0
+
+
+    public Image getImage(URL url, String name) {
+            try {
+            return getImage(new URL(url, name));
+            } catch (MalformedURLException e) {
+            return null;
+            }
+            }
+*/
+
+/**
+ * ILinuxGpib es una interfaz que sirve de envoltorio para las
+ * funciones de la libreria <code>linux-gpib</code>
+ *
+ * @author      Jose Arias [correo@JoseArias.com.ve]
+ * @version     %I%, %G%
+ * @since       1.0
+ */
 public interface ILinuxGpib extends Library
 {
+    /**
+     * Contiene el numero de bytes transmitidos, o depués
+     * de un error <code>EDVR</code> o <code>EFSO</code>
+     * contiene el valor de <code>errno</code>
+     * @see ThreadIbcnt()
+     */
+    int ibcnt  = 0;
 
+    /**
+     * Contiene el numero de bytes transmitidos, o depués
+     * de un error <code>EDVR</code> o <code>EFSO</code>
+     * contiene el valor de <code>errno</code>
+     * @see ThreadIbcntl()
+     */
+    long ibcntl = 0;
+
+    /**
+     * Contiene el codigo de error
+     * @see ThreadIberr()
+     */
+    int iberr = 0;
+    /**
+     * Contiene el estado del bus
+     * @see ThreadIbsta();
+     */
+    int ibsta = 0;
+
+    /**
+     * Consulta las configuraciones asociadas con una tarjeta
+     * o un descriptor de dispositivo <code>ul</code>.
+     * El argumento <code>option</code> especifica la configuracion
+     * particular que se desea consultar. El resultado de la consulta
+     * es escrito en el lugar especificado por <code>result</code>.
+     *
+     * @param ud        descritptor de dispositivo
+     * @param option    la opción a consultar
+     * @param result    lugar donde se almacena el valor consultado
+     *
+     * @return          el valor de {@link ibsta} es retornado
+     */
     int ibask(int ud, int option, Pointer value);
 
     int ibdev(int board_index, int pad, int sad, int timeout,
               int send_eoi, int eos);
+
+    int ibbna(int udm, Pointer name);
 
     int ibconfig(int ui, int option, int setting);
 
