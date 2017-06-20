@@ -2,7 +2,6 @@ package ve.gob.cendit.cenditlab.cal;
 
 
 import com.sun.jna.Library;
-import com.sun.jna.Native;
 import com.sun.jna.Pointer;
 
 /**
@@ -128,6 +127,7 @@ public interface ILinuxGpib extends Library
     int ibrda(int ud, /* void* */ Pointer buffer, long num_bytes);
     int ibrdf(int ud, /* const char* */ Pointer file_path);
     int ibwrt(int ud, /* void* */ Pointer buffer, long num_bytes);
+    int ibwrt(int ud, byte[] buffer, long num_bytes);
     int ibwrta(int ud, /* void* */ Pointer buffer, long num_bytes);
     int ibwrtf(int ud, /* const char* */ Pointer file_path);
 

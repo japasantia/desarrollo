@@ -4,8 +4,11 @@ package ve.gob.cendit.cenditlab.cal;
  * Created by jsars on 17/06/17.
  */
 
-import java.util.Arrays;
-import java.util.function.Function;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -74,65 +77,188 @@ import java.util.regex.Pattern;
                                 SN999.This uses the device’s interface number 1.
  */
 
-
-
 public class VisaAddress
 {
     private String visaAddress;
-    private VisaInterfaceType interfaceType;
+    private Map<String, String> addressFieldsMap;
 
     public VisaAddress(String address)
     {
-        interfaceType = VisaInterfaceType.GPIB;
+        // this(VisaAddress.ParseAddress(address));
+
+        VisaAddress va = VisaAddress.ParseAddress(address);
+
+        this.visaAddress = va.visaAddress;
+        this.addressFieldsMap = va.addressFieldsMap;
     }
 
-    public VisaInterfaceType getInterfaceType()
+    public VisaAddress(VisaAddress address)
     {
-        return interfaceType;
+        this.visaAddress = new String(address.visaAddress);
+        this.addressFieldsMap = new HashMap<>(address.addressFieldsMap);
     }
 
-    public static boolean TryParseVisaAddress(String address, VisaAddress visaAddress)
+    private VisaAddress()
     {
+        addressFieldsMap = new HashMap<>();
+    }
+
+    private void setAddressField(String fieldName, String fieldValue)
+    {
+        if (fieldName != null)
+        {
+            addressFieldsMap.put(fieldName, fieldValue);
+        }
+    }
+
+    @Nullable
+    @Contract("null -> fail")
+    public String getName(VisaAddressFields fieldName)
+    {
+        if (fieldName == null)
+        {
+            throw new IllegalArgumentException("fieldName must not be null");
+        }
+
+        if (addressFieldsMap.containsKey(fieldName))
+        {
+            return addressFieldsMap.get(VisaAddressFields.INTERFACE);
+        }
+
+        return null;
+    }
+
+    public String getInterface()
+    {
+        return getName(VisaAddressFields.INTERFACE);
+    }
+
+    public String getBoard()
+    {
+        return getName(VisaAddressFields.BOARD);
+    }
+
+    public String getLogicalAddress()
+    {
+        return getName(VisaAddressFields.LOGICAL_ADDRESS);
+    }
+
+    public String getResource()
+    {
+        return getName(VisaAddressFields.RESOURCE);
+    }
+
+    public String getPrimaryAddress()
+    {
+        return getName(VisaAddressFields.PRIMARY_ADDRESS);
+    }
+
+    public String getSecondaryAddress()
+    {
+        return getName(VisaAddressFields.SECONDARY_ADDRESS);
+    }
+
+    public String getDevice()
+    {
+        return getName(VisaAddressFields.DEVICE);
+    }
+
+    public String getFunction()
+    {
+        return getName(VisaAddressFields.FUNCTION);
+    }
+
+    public String getDeviceName()
+    {
+        return getName(VisaAddressFields.DEVICE_NAME);
+    }
+
+    public String getPort()
+    {
+        return getName(VisaAddressFields.PORT);
+    }
+
+    public String getManufacturerId()
+    {
+        return getName(VisaAddressFields.MANUFACTURER_ID);
+    }
+
+    public String getModelCode()
+    {
+        return getName(VisaAddressFields.MODEL_CODE);
+    }
+
+    public String getSerialNumber()
+    {
+        return getName(VisaAddressFields.SERIAL_NUMBER);
+    }
+
+    public String getInterfaceNumber()
+    {
+        return getName(VisaAddressFields.INTERFACE_NUMBER);
+    }
+
+ /*   public static boolean tryParseAddress(String address, VisaAddress visaAddress)
+    {
+        try
+        {
+            visaAddress = ParseAddress(address);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            // Direccion visa invalida
+        }
+
         return false;
+    }*/
+
+    public static VisaAddress ParseAddress(String address)
+    {
+        if (address == null)
+        {
+            throw new IllegalArgumentException("address must be a not null string");
+        }
+
+        for (String pattern : VisaAddressPatterns.getAsArray())
+        {
+            Pattern regex = Pattern.compile(pattern);
+            Matcher matcher = regex.matcher(address);
+
+            if (matcher.find())
+            {
+                return generateVisaAddress(address, matcher);
+            }
+        }
+
+        // TODO: generar clase de Excepcion Visa
+       // La direccion no es valida. Se lanza excepcion
+        throw new InvalidVisaAddressException("Invalid visa address");
+    }
+
+    private static VisaAddress generateVisaAddress(String address, Matcher matcher)
+    {
+        VisaAddress visaAddress = new VisaAddress();
+        // TODO: revisar esta asignacion
+        visaAddress.visaAddress = address;
+
+        for (String fieldName : VisaAddressFields.getAsArray())
+        {
+            try
+            {
+                String fieldValue = matcher.group(fieldName);
+                visaAddress.setAddressField(fieldName, fieldValue);
+            }
+            catch (Exception ex)
+            {
+                // El campo de direccion no existe
+                // continuar
+            }
+        }
+
+        return visaAddress;
     }
 }
-
-class VisaAddressFields
-{
-    public static final int INTERFACE_TYPE = 1;
-    public static final int BOARD_INDEX = 2;
-    public static final int LOGICAL_ADDRESS = 2;
-    public static final int MAINFRAME_LOGICAL_ADDRESS = 3;
-    public static final int RESOURCE_TYPE = 4;
-    public static final int PRIMARY_ADDRESS = 2;
-    public static final int SECONDARY_ADDRESS = 3;
-    public static final int TCPIP_ADDRESS = 2;
-    public static final int TCPIP_PORT = 3;
-    public static final int LAN_DEVICE_NAME = 2;
-    public static final int MANUFACTURER_ID = 2;
-    public static final int MODEL_CODE = 3;
-    public static final int SERIAL_NUMBER = 4;
-    public static final int INTERFACE_NUMBER = 5;
-}
-
-class VisaAddressFieldNames
-{
-    public static final String INTERFACE = "INTERFACE";
-    public static final String BOARD = "BOARD";
-    public static final String LOGICAL_ADDRESS = "LOGICALADDRESS";
-    public static final String RESOURCE = "RESOURCE";
-    public static final String PRIMARY_ADDRESS = "PRIMARYADDRESS";
-    public static final String SECONDARY_ADDRESS = "SECONDARYADDRESS";
-    public static final String DEVICE = "DEVICE";
-    public static final String FUNCTION = "FUNCTION";
-    public static final String DEVICE_NAME = "DEVICENAME";
-    public static final String PORT = "PORT";
-    public static final String MANUFACTURER_ID = "MANUFACTURERID";
-    public static final String MODEL_CODE = "MODELCODE";
-    public static final String SERIAL_NUMBER = "SERIALNUMBER";
-    public static final String INTERFACE_NUMBER = "INTERFACE_NUMBER";
-}
-
 class VisaAddressPatterns
 {
     /*Colocar nombre a los grupos regex
@@ -183,220 +309,63 @@ class VisaAddressPatterns
             "(?<INTERFACE>USB)(?<BOARD>\\d+)?::(?<MANUFACTURERID>[^:]*)::(?<MODELCODE>[^:]*)::(?<SERIALNUMBER>[^:]*)(::(?<INTERFACENUMBER>\\d+))?(::(?<RESOURCE>INSTR))?";
     public final  static String USB_INSTR_RAW =
             "(?<INTERFACE>USB)(?<BOARD>\\d+)?::(?<MANUFACTURERID>[^:]*)::(?<MODELCODE>[^:]*)::(?<SERIALNUMBER>[^:]*)(::(?<INTERFACENUMBER>\\d+))?(::(?<RESOURCE>RAW))?";
-}
 
-
-class VisaAddressParseFunctions
-{
-    static VisaAddress parseVxiInstrAddress(String address)
+    private static final String[] patterns = new String[]
     {
-        Pattern pattern = Pattern.compile(VisaAddressPatterns.GPIB_INSTR);
-        Matcher matcher = pattern.matcher(address);
+        VisaAddressPatterns.VXI_INSTR,
+        VisaAddressPatterns.VXI_MEMACC,
+        VisaAddressPatterns.VXI_BACKPLANE,
+        VisaAddressPatterns.VXI_SERVANT,
 
-        try {
-            if (matcher.find()) {
-                String interfaceType = matcher.group(VisaAddressFields.INTERFACE_TYPE);
-                String board = matcher.group(VisaAddressFields.BOARD_INDEX);
-                String logicalAddress = matcher.group(VisaAddressFields.LOGICAL_ADDRESS);
-                String resourceType = matcher.group(VisaAddressFields.RESOURCE_TYPE);
+        VisaAddressPatterns.GPIB_VXI_INSTR,
+        VisaAddressPatterns.GPIB_VXI_MEMACC,
+        VisaAddressPatterns.GPIB_VXI_BACKPLANE,
 
-                return new VisaAddress(address);
-            }
-        }
-        catch (Exception ex)
-        {
+        VisaAddressPatterns.GPIB_INSTR,
+        VisaAddressPatterns.GPIB_INTFC,
+        VisaAddressPatterns.GPIB_SERVANT,
 
-        }
-        return null;
-    }
+        VisaAddressPatterns.PXI_INSTR_1,
+        VisaAddressPatterns.PXI_INSTR_2,
+        VisaAddressPatterns.PXI_MEMACC,
 
-    static Function<String, VisaAddress> vxiInstrParseAddress = a -> parse(a);
-}
+        VisaAddressPatterns.SERIAL_INSTR,
 
-interface IVisaAddressParserFunction
-{
-    VisaAddress parse(String address);
-    boolean tryParse(String address, VisaAddress visaAddress);
-}
+        VisaAddressPatterns.TCPIP_INSTR_1,
+        VisaAddressPatterns.TCPIP_INSTR_2,
 
-class VisaAddressParseFunction implements Function<String, VisaAddress>
-{
-
-    @Override
-    public VisaAddress apply(String s)
-    {
-        return null;
-    }
-
-    @Override
-    public <V> Function<V, VisaAddress> compose(Function<? super V, ? extends String> before)
-    {
-        return null;
-    }
-
-    @Override
-    public <V> Function<String, V> andThen(Function<? super VisaAddress, ? extends V> after) {
-        return null;
-    }
-}
-
-class PatternParseFunctionPair
-{
-    public String addressPattern;
-    public Function<Matcher, VisaAddress> addressExtractFunction;
-
-    public PatternParseFunctionPair(String addressPattern,
-                                    Function<Matcher, VisaAddress> addressExtractFunction)
-    {
-        this.addressPattern = addressPattern;
-        this.addressExtractFunction = addressExtractFunction;
-    }
-}
-
-
-
-class VisaAddressParser
-{
-    private static String[] patterns;
-    private static String[] fieldNames;
-
-    private static Function<String, VisaAddress>[] addressFieldExtractFunctions;
-
-    static
-    {
-        patterns = new String[]
-        {
-            VisaAddressPatterns.VXI_INSTR,
-            VisaAddressPatterns.VXI_MEMACC,
-            VisaAddressPatterns.VXI_BACKPLANE,
-            VisaAddressPatterns.VXI_SERVANT,
-
-            VisaAddressPatterns.GPIB_VXI_INSTR,
-            VisaAddressPatterns.GPIB_VXI_MEMACC,
-            VisaAddressPatterns.GPIB_VXI_BACKPLANE,
-
-            VisaAddressPatterns.GPIB_INSTR,
-            VisaAddressPatterns.GPIB_INTFC,
-            VisaAddressPatterns.GPIB_SERVANT,
-
-            VisaAddressPatterns.PXI_INSTR_1,
-            VisaAddressPatterns.PXI_INSTR_2,
-            VisaAddressPatterns.PXI_MEMACC,
-
-            VisaAddressPatterns.SERIAL_INSTR,
-
-            VisaAddressPatterns.TCPIP_INSTR_1,
-            VisaAddressPatterns.TCPIP_INSTR_2,
-
-            VisaAddressPatterns.USB_INSTR,
-            VisaAddressPatterns.USB_INSTR_RAW
-        };
-
-        fieldNames = new String[]
-        {
-            VisaAddressFieldNames.INTERFACE,
-            VisaAddressFieldNames.BOARD,
-            VisaAddressFieldNames.LOGICAL_ADDRESS,
-            VisaAddressFieldNames.RESOURCE,
-            VisaAddressFieldNames.PRIMARY_ADDRESS,
-            VisaAddressFieldNames.SECONDARY_ADDRESS,
-            VisaAddressFieldNames.DEVICE,
-            VisaAddressFieldNames.FUNCTION,
-            VisaAddressFieldNames.DEVICE_NAME,
-            VisaAddressFieldNames.PORT,
-            VisaAddressFieldNames.MANUFACTURER_ID,
-            VisaAddressFieldNames.MODEL_CODE,
-            VisaAddressFieldNames.SERIAL_NUMBER,
-            VisaAddressFieldNames.INTERFACE_NUMBER
-        };
-    }
-
-    public void tets()
-    {
-        for(int i = 0; i < patterns.length; ++i)
-        {
-            Function<String, VisaAddress> f = addressFieldExtractFunctions[i];
-            f.apply(patterns[i]);
-        }
-
-        Arrays.stream(patterns).filter(a -> a.matches("\\d+"));
-        addressFieldExtractFunctions[i].apply(patterns[i]);
-    }
-
-
-}
-
-/*class GpibVisaAddressParser implements IVisaAddressParser
-{
-    private String address;
-    private class PatternParseFunction
-    {
-        public String pattern;
-        public Function<Matcher, VisaAddress> parseFunction;
-
-        public PatternParseFunction(String p,
-                    Function<Matcher, VisaAddress> pf)
-        {
-            pattern = p;
-            parseFunction = pf;
-        }
-    }
-
-
-    private final static String[] ADDRESS_PATTERNS =
-    {
-        VisaAddressPatterns.GPIB_INSTR_PATTERN,
-        VisaAddressPatterns.GPIB_INTFC_PATTERN,
-        VisaAddressPatterns.GPIB_SERVANT_PATTERN,
+        VisaAddressPatterns.USB_INSTR,
+        VisaAddressPatterns.USB_INSTR_RAW
     };
 
-    @Override
-    public VisaAddress parse(String address)
+    @Contract(pure = true)
+    public static String[] getAsArray()
     {
-
-    }*/
-
-/*    @Override
-    public boolean tryParse(String address, VisaAddress visaAddress)
-    {
-        for (String pattern : ADDRESS_PATTERNS)
-        {
-            Pattern regex = Pattern.compile(pattern);
-            Matcher matches = regex.matcher(address);
-
-            if (matches.find())
-            {
-                extractAddressFields(matches);
-            }
-        }
-
-        return false;
-    }*/
-
-/*    private boolean extractAddressFields(Matcher matches)
-    {
-        Arrays.stream(ADDRESS_PATTERNS).filter((pattern)-> "".matches(pattern)).map();
-
-        Function<String, String> f = (X) -> {
-            return "Hola" + X;
-        };
-
-        f.apply("Hola");
-
-        return true;
+        return patterns;
     }
 }
-*/
+
+
+
+
 enum VisaInterfaceType
 {
-    VXI,
-    GPIB_VXI,
-    GPIB,
-    PXI,
-    TCPIP,
-    ASRL,
-    USB,
-    NONE
+    VXI("VXI"),
+    GPIB_VXI("GPIBVXI"),
+    GPIB("GPIB"),
+    PXI("PXI"),
+    TCPIP("TCPIP"),
+    ASRL("ASRL"),
+    USB("USB"),
+    NONE("NONE");
+
+    private String type;
+
+    VisaInterfaceType(String type)
+    {
+        this.type = type;
+    }
+
 }
 
 enum VisaResourceType
