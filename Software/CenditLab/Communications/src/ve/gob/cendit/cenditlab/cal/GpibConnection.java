@@ -7,6 +7,9 @@ import com.sun.jna.ptr.ByteByReference;
 import com.sun.jna.ptr.PointerByReference;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 /**
  * Created by root on 16/06/17.
  */
@@ -16,11 +19,11 @@ public class GpibConnection implements IGpibConnection
     private ILinuxGpib linuxGpib;
     private int deviceDescriptor;
 
-    static IGpibConnection CreateConnection(String address)
+    public static IGpibConnection CreateConnection(String address)
             throws Exception
     {
         // TODO: revisar generacion exceptciones. Crear excepcion GpibConnectionException
-        VisaAddress va = VisaAddress.ParseAddress(address);
+        VisaAddress va = VisaAddress.parseAddress(address);
 
         if (Platform.isWindows())
         {
@@ -29,7 +32,7 @@ public class GpibConnection implements IGpibConnection
         else if (Platform.isLinux())
         {
             ILinuxGpib linuxGpib =  LinuxGpibLoader.getLibrary();
-            return new GpibConnection(va, linuxGpib);
+            return new GpibConnection(va);
         }
         else
         {
@@ -42,54 +45,86 @@ public class GpibConnection implements IGpibConnection
 
     }
 
-    private GpibConnection(VisaAddress address, ILinuxGpib library)
+    private GpibConnection(VisaAddress address)
     {
+        linuxGpib = LinuxGpibLoader.getLibrary();
         visaAddress = address;
-        linuxGpib = library;
     }
 
     @Override
     public void open()
+            throws Exception
     {
-        int board = Integer.parseInt(visaAddress.getBoard());
-        int primaryAddress = Integer.parseInt(visaAddress.getPrimaryAddress());
-        int secondaryAddress = Integer.parseInt(visaAddress.getSecondaryAddress());
+        int board = visaAddress.getBoard();
+        int primaryAddress = visaAddress.getPrimaryAddress();
+        int secondaryAddress = 0;
+
+        if (visaAddress.hasField(VisaAddressFields.SECONDARY_ADDRESS))
+        {
+            secondaryAddress = visaAddress.getSecondaryAddress();
+        }
+
         deviceDescriptor = linuxGpib.ibdev(board, primaryAddress, secondaryAddress,
                 ILinuxGpib.T3s, 1, 0);
+
+        if (deviceDescriptor < 0)
+        {
+            throw new Exception("Unable to open connection");
+        }
     }
 
     @Override
     public void close()
     {
-
+        int status = linuxGpib.ibonl(deviceDescriptor, 0);
     }
 
     @Override
-    public int write(byte[] buffer, int size)
+    public int write(byte[] buffer)
     {
-        PointerByReference p = new PointerByReference();
-
-        Pointer pointer = Pointer.createConstant(100);
-        pointer.write(0, buffer,0, buffer.length);
-
-        return linuxGpib.ibwrt(deviceDescriptor, pointer, buffer.length);
+        return linuxGpib.ibwrt(deviceDescriptor,
+                buffer, buffer.length);
     }
 
     @Override
-    public int write(String data)
+    public int write(String buffer)
     {
-
+        return linuxGpib.ibwrt(deviceDescriptor, buffer, buffer.length());
     }
 
     @Override
-    public int read(byte[] buffer, int size)
+    public int read(byte[] buffer)
     {
-        return 0;
+        return linuxGpib.ibrd(deviceDescriptor, buffer, buffer.length);
     }
 
     @Override
     public String read()
     {
-        return null;
+        ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+
+        byte[] buffer = new byte[1024];
+        int bytesRead = 0;
+        int status;
+
+        do
+        {
+            status = read(buffer);
+            bytesRead = linuxGpib.ThreadIbcnt();
+            byteStream.write(buffer,
+                    byteStream.size(),
+                    bytesRead);
+        }
+        while(bytesRead >= 1024);
+
+        String dataRead = byteStream.toString();
+        try
+        {
+            byteStream.close();
+        }
+        catch (IOException ex)
+        { }
+
+        return dataRead;
     }
 }

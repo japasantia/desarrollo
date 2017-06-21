@@ -80,13 +80,13 @@ import java.util.regex.Pattern;
 public class VisaAddress
 {
     private String visaAddress;
-    private Map<String, String> addressFieldsMap;
+    private Map<VisaAddressFields, String> addressFieldsMap;
 
     public VisaAddress(String address)
     {
         // this(VisaAddress.ParseAddress(address));
 
-        VisaAddress va = VisaAddress.ParseAddress(address);
+        VisaAddress va = VisaAddress.parseAddress(address);
 
         this.visaAddress = va.visaAddress;
         this.addressFieldsMap = va.addressFieldsMap;
@@ -94,7 +94,7 @@ public class VisaAddress
 
     public VisaAddress(VisaAddress address)
     {
-        this.visaAddress = new String(address.visaAddress);
+        this.visaAddress = address.visaAddress;
         this.addressFieldsMap = new HashMap<>(address.addressFieldsMap);
     }
 
@@ -103,99 +103,131 @@ public class VisaAddress
         addressFieldsMap = new HashMap<>();
     }
 
-    private void setAddressField(String fieldName, String fieldValue)
+    private void setField(VisaAddressFields field, String fieldValue)
     {
-        if (fieldName != null)
+        if (field == null)
         {
-            addressFieldsMap.put(fieldName, fieldValue);
+            throw new IllegalArgumentException("field must not be null");
         }
+
+        addressFieldsMap.put(field, fieldValue);
     }
 
     @Nullable
     @Contract("null -> fail")
-    public String getName(VisaAddressFields fieldName)
+    public String getField(VisaAddressFields field)
     {
-        if (fieldName == null)
+        if (field== null)
         {
-            throw new IllegalArgumentException("fieldName must not be null");
+            throw new IllegalArgumentException("field must not be null");
         }
 
-        if (addressFieldsMap.containsKey(fieldName))
+
+        if (hasField(field))
         {
-            return addressFieldsMap.get(VisaAddressFields.INTERFACE);
+            return addressFieldsMap.get(field);
+        }
+        else
+        {
+            // TODO: revisar si se debe lanzar excepcion
         }
 
         return null;
     }
 
-    public String getInterface()
+    public boolean hasField(VisaAddressFields field)
     {
-        return getName(VisaAddressFields.INTERFACE);
+        if (field == null)
+        {
+            throw new IllegalArgumentException("field must not be null");
+        }
+
+        return addressFieldsMap.containsKey(field);
     }
 
-    public String getBoard()
+    public String getInterface()
+    {
+        return getField(VisaAddressFields.INTERFACE);
+    }
+
+/*    public String getBoard()
     {
         return getName(VisaAddressFields.BOARD);
+    }*/
+
+    public int getBoard()
+    {
+        return Integer.parseInt(
+                getField(VisaAddressFields.BOARD));
     }
 
     public String getLogicalAddress()
     {
-        return getName(VisaAddressFields.LOGICAL_ADDRESS);
+        return getField(VisaAddressFields.LOGICAL_ADDRESS);
     }
 
     public String getResource()
     {
-        return getName(VisaAddressFields.RESOURCE);
+        return getField(VisaAddressFields.RESOURCE);
     }
 
+    /*
     public String getPrimaryAddress()
     {
         return getName(VisaAddressFields.PRIMARY_ADDRESS);
     }
+    */
 
-    public String getSecondaryAddress()
+    public int getPrimaryAddress()
     {
-        return getName(VisaAddressFields.SECONDARY_ADDRESS);
+        return Integer.parseInt(
+                getField(VisaAddressFields.PRIMARY_ADDRESS));
+    }
+
+    public int getSecondaryAddress()
+    {
+        return Integer.parseInt(
+                getField(VisaAddressFields.SECONDARY_ADDRESS));
     }
 
     public String getDevice()
     {
-        return getName(VisaAddressFields.DEVICE);
+        return getField(VisaAddressFields.DEVICE);
     }
 
     public String getFunction()
     {
-        return getName(VisaAddressFields.FUNCTION);
+        return getField(VisaAddressFields.FUNCTION);
     }
 
     public String getDeviceName()
     {
-        return getName(VisaAddressFields.DEVICE_NAME);
+        return getField(VisaAddressFields.DEVICE_NAME);
     }
 
     public String getPort()
     {
-        return getName(VisaAddressFields.PORT);
+        return getField(VisaAddressFields.PORT);
     }
 
     public String getManufacturerId()
     {
-        return getName(VisaAddressFields.MANUFACTURER_ID);
+        return getField(VisaAddressFields.MANUFACTURER_ID);
     }
 
     public String getModelCode()
     {
-        return getName(VisaAddressFields.MODEL_CODE);
+        return getField(VisaAddressFields.MODEL_CODE);
     }
 
     public String getSerialNumber()
     {
-        return getName(VisaAddressFields.SERIAL_NUMBER);
+        return getField(VisaAddressFields.SERIAL_NUMBER);
     }
 
     public String getInterfaceNumber()
     {
-        return getName(VisaAddressFields.INTERFACE_NUMBER);
+        return getField(VisaAddressFields.INTERFACE_NUMBER);
     }
 
  /*   public static boolean tryParseAddress(String address, VisaAddress visaAddress)
@@ -213,7 +245,7 @@ public class VisaAddress
         return false;
     }*/
 
-    public static VisaAddress ParseAddress(String address)
+    public static VisaAddress parseAddress(String address)
     {
         if (address == null)
         {
@@ -242,12 +274,16 @@ public class VisaAddress
         // TODO: revisar esta asignacion
         visaAddress.visaAddress = address;
 
-        for (String fieldName : VisaAddressFields.getAsArray())
+        for (VisaAddressFields field : VisaAddressFields.values())
         {
             try
             {
+                String fieldName = field.getName();
                 String fieldValue = matcher.group(fieldName);
-                visaAddress.setAddressField(fieldName, fieldValue);
+                if (fieldValue != null)
+                {
+                    visaAddress.setField(field, fieldValue);
+                }
             }
             catch (Exception ex)
             {
@@ -268,7 +304,7 @@ class VisaAddressPatterns
     */
 
     public final static String VXI_INSTR =
-            "(?<INTERFACE>VXI)(?<BOARD>\\d+)?::(?<LOGICAL_ADDRESS>\\d+)(::(?<RESOURCE>INSTR))?";
+            "(?<INTERFACE>VXI)(?<BOARD>\\d+)?::(?<LOGICALADDRESS>\\d+)(::(?<RESOURCE>INSTR))?";
     public final  static String VXI_MEMACC =
             "(?<INTERFACE>VXI)(?<BOARD>\\d+)?::(?<RESOURCE>MEMACC)";
     public final static String VXI_BACKPLANE =

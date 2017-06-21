@@ -99,35 +99,49 @@ public interface ILinuxGpib extends Library
      * @return          el valor de {@link ibsta} es retornado
      */
     int ibask(int ud, int option, Pointer value);
+    int ibask(int ud, int option, int[] result);
 
     int ibdev(int board_index, int pad, int sad, int timeout,
               int send_eoi, int eos);
+    int ibonl(int ud, int online);
 
-    int ibbna(int udm, Pointer name);
+    int ibbna(int ud, Pointer name);
+    int ibbna(int ud, byte[] name);
+    int ibbna(int ud, String name);
+
+    int ibcac(int ud, int synchronous);
 
     int ibconfig(int ui, int option, int setting);
 
     int ibeos(int ud, int eosmode);
     int ibot(int ud, int send_eoi);
     int ibevent(int ud, /* short */ Pointer event);
+    int ibevent(int ud, short[] event);
     int ibfind(/* const char* name */ Pointer name);
+    int ibfind(byte[] name);
+    int ibfind(String name);
+
 
     int iblines(int ud, /* short* */Pointer line_status);
+    int iblines(int ud, short[] line_status);
     int ibln(int ud, int pad, int sad, /* short* */Pointer found_listener);
+    int ibln(int ud, int pad, int sad, short[] found_listener);
     int ibloc(int ud);
     int ibpct(int ud);
 
-    int ibonl(int ud, int online);
+
 
     // ibpad
     // ibpct
     // ibppc
 
     int ibrd(int ud, /* void* */ Pointer buffer, long num_bytes);
+    int ibrd(int ud, byte[] buffer, long num_bytes);
     int ibrda(int ud, /* void* */ Pointer buffer, long num_bytes);
     int ibrdf(int ud, /* const char* */ Pointer file_path);
     int ibwrt(int ud, /* void* */ Pointer buffer, long num_bytes);
     int ibwrt(int ud, byte[] buffer, long num_bytes);
+    int ibwrt(int ud, String buffer, long num_bytes);
     int ibwrta(int ud, /* void* */ Pointer buffer, long num_bytes);
     int ibwrtf(int ud, /* const char* */ Pointer file_path);
 
@@ -138,6 +152,9 @@ public interface ILinuxGpib extends Library
     int ibsre(int ud, int enable);
     int ibstop(int ud);
     int ibwait(int ud, int status_mask);
+
+    int ThreadIbcnt();
+    long ThreadIbcntl();
 
     /** Constantes para timeout */
 
@@ -159,4 +176,12 @@ public interface ILinuxGpib extends Library
      int T100s = 15;
      int T300s = 16;
      int T1000 = 15;
+
+     /** Constantes para ibln */
+     int NO_SAD = 0;
+     int ALL_SAD = -1;
+
+     int NULL_END = 0;
+     int DAB_END = 1;
+     int NL_END = 2;
 }
