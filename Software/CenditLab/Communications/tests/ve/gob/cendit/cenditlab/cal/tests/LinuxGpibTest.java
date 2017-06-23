@@ -11,7 +11,7 @@ import java.util.Arrays;
 /**
  * Created by jsars on 05/06/17.
  */
-public class LinuxGpibTests
+public class LinuxGpibTest
 {
     public static void main(String[] args)
     {

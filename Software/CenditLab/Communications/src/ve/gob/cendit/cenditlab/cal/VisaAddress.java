@@ -7,10 +7,12 @@ package ve.gob.cendit.cenditlab.cal;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 /**
         INTERFACE           SYNTAX
@@ -171,13 +173,6 @@ public class VisaAddress
         return getField(VisaAddressFields.RESOURCE);
     }
 
-    /*
-    public String getPrimaryAddress()
-    {
-        return getName(VisaAddressFields.PRIMARY_ADDRESS);
-    }
-    */
-
     public int getPrimaryAddress()
     {
         return Integer.parseInt(
@@ -230,20 +225,18 @@ public class VisaAddress
         return getField(VisaAddressFields.INTERFACE_NUMBER);
     }
 
- /*   public static boolean tryParseAddress(String address, VisaAddress visaAddress)
+    public static boolean isValid(String address)
     {
-        try
+        if (address == null)
         {
-            visaAddress = ParseAddress(address);
-            return true;
-        }
-        catch (Exception ex)
-        {
-            // Direccion visa invalida
+            throw new IllegalArgumentException("address must be a not null string");
         }
 
-        return false;
-    }*/
+        Stream<String> patternsStream =
+                Arrays.asList(VisaAddressPatterns.getAsArray()).stream();
+
+        return patternsStream.anyMatch(pattern -> address.matches(pattern));
+    }
 
     public static VisaAddress parseAddress(String address)
     {
@@ -334,12 +327,12 @@ class VisaAddressPatterns
             "(?<INTERFACE>PXI)(?<BOARD>\\d+)?::(?<RESOURCE>MEMACC)";
 
     public final static String SERIAL_INSTR =
-            "(?<INTERFACE>ASRL)(?<BOARD>\\d)?(::(?<RESOURCE>INSTR))?";
+            "(?<INTERFACE>ASRL)(?<BOARD>\\d+)?(::(?<RESOURCE>INSTR))?";
 
     public final static String TCPIP_INSTR_1 =
-            "(?<INTERFACE>TCPIP)(?<BOARD>\\d)?::(?<HOSTADDRESS>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})(::(?<DEVICENAME>[^:]*))?(::(?<RESOURCE>INSTR))?";
+            "(?<INTERFACE>TCPIP)(?<BOARD>\\d+)?::(?<HOSTADDRESS>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})(::(?<DEVICENAME>[^:]*))?(::(?<RESOURCE>INSTR))?";
     public final static String TCPIP_INSTR_2 =
-            "(?<INTERFACE>TCPIP)(?<BOARD>\\d)?::(?<HOSTADDRESS>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})::(?<PORT>\\d{1,5})::(?<RESOURCE>SOCKET)";
+            "(?<INTERFACE>TCPIP)(?<BOARD>\\d+)?::(?<HOSTADDRESS>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})::(?<PORT>\\d{1,5})::(?<RESOURCE>SOCKET)";
 
     public final static String USB_INSTR =
             "(?<INTERFACE>USB)(?<BOARD>\\d+)?::(?<MANUFACTURERID>[^:]*)::(?<MODELCODE>[^:]*)::(?<SERIALNUMBER>[^:]*)(::(?<INTERFACENUMBER>\\d+))?(::(?<RESOURCE>INSTR))?";
@@ -381,9 +374,6 @@ class VisaAddressPatterns
     }
 }
 
-
-
-
 enum VisaInterfaceType
 {
     VXI("VXI"),
@@ -401,7 +391,6 @@ enum VisaInterfaceType
     {
         this.type = type;
     }
-
 }
 
 enum VisaResourceType
