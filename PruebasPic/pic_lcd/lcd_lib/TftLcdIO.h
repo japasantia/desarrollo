@@ -1,46 +1,11 @@
 #ifndef TFT_LCD_IO_H
 #define TFT_LCD_IO_H
 
+
 // #include "Arduino.h"
 #include "TftLcdDef.h"
 
 #define INLINE inline
-
-#if !defined(RST)
-  #define RST   A4
-#endif 
-
-#if !defined(CS)
-  #define CS    A3
-#endif 
-
-#if !defined(CD)  
-  #define CD    A2
-#endif 
-
-#if !defined(WR)  
-  #define WR    A1
-#endif   
-  
-#if !defined(RD)  
-  #define RD    A0
-#endif 
-
-#if !defined(YP)  
-  #define YP    A1
-#endif 
-
-#if !defined(XM)  
-  #define XM    A2
-#endif 
-
-#if !defined(YM)  
-  #define YM    7
-#endif 
-
-#if !defined(XP)  
-  #define XP    6
-#endif 
 
 /*
 void setControlIdle();
@@ -51,29 +16,7 @@ void setWrIdle();
 void setRdIdle();
 */
 
-typedef struct tagTftLcdIO 
-{
-	uint8_t _cs;
-	uint8_t _cd;
-	uint8_t _wr;
-	uint8_t _rd;
-	uint8_t _rst;
-	
-	uint8_t _xm;
-	uint8_t _xp;	
-	uint8_t _yp;
-	uint8_t _ym;
-
-} TftLcdIO;
-
-
-TftLcdIO* TftLcdIO_Init(TftLcdIO* pTftLcdIO, 
-	uint8_t cs, uint8_t cd, uint8_t wr, uint8_t rd,
-	uint8_t rst, 
-	uint8_t xm, uint8_t xp, uint8_t yp, uint8_t ym);
-
-TftLcdIO* TftLcdIO_Set(TftLcdIO* pTftLcdIO);
-INLINE TftLcdIO* TftLcdIO_Get();
+int TftLcdIO_Init();
 
 void TftLcdIO_SetControlIdle();
 

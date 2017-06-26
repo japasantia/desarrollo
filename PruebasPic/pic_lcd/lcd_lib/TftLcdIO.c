@@ -1,61 +1,31 @@
 #include "TftLcdIO.h"
 
+#define CS_PORT     PORTC
+#define RST_PORT    PORTC
+#define RD_PORT     PORTC
+#define WR_PORT     PORTA
+
+#define CS_BIT      PORTCbits.RC1
+#define RST_BIT     PORTCbits.RC2
+#define RD_BIT      PORTCbits.RC0
+#define WR_BIT      PORTAbits.RA1
+#define CD_BIT      PORTAbits.RA0
+
+#define LOW         0
+#define HIGH        1
+
 /*
-void setControlIdle();
-void TftLcdIO_SetRstIdle();
-void TftLcdIO_SetCsIdle();
-void TftLcdIO_SetRsIdle();
-void TftLcdIO_SetWrIdle();
-void TftLcdIO_SetRdIdle();
-*/
-
-static TftLcdIO* g_pTftLcdIO = NULL;
-
 TftLcdIO* TftLcdIO_Init(TftLcdIO* pTftLcdIO, 
 	uint8_t cs, uint8_t cd, uint8_t wr, uint8_t rd,
 	uint8_t rst, 
 	uint8_t xm, uint8_t xp, uint8_t yp, uint8_t ym)
+ */
+
+int TftLcdIO_Init()
 {
-    /*
-	pTftLcdIO->_cs = cs;
-	pTftLcdIO->_cd = cd;
-	pTftLcdIO->_wr = wr;
-	pTftLcdIO->_rd = rd;
-	pTftLcdIO->_rst = rst; 
-	
-	pTftLcdIO->_xm = xm;
-	pTftLcdIO->_xp = xp;
-	pTftLcdIO->_yp = yp;
-	pTftLcdIO->_ym = ym;	
-
-	pinMode(pTftLcdIO->_rst, 	OUTPUT);
-	pinMode(pTftLcdIO->_cs, 	OUTPUT);
-	pinMode(pTftLcdIO->_rd, 	OUTPUT);
-	pinMode(pTftLcdIO->_wr, 	OUTPUT);
-	pinMode(pTftLcdIO->_cd, 	OUTPUT);
-
-	// DDRB |= 0x3C;
-	// DDRD = 0xFE;
-	TftLcdIO_SetWriteDir();
-
-	// setControlIdle();
-	TftLcdIO_SetCsIdle();
-
-    */ 
-	return TftLcdIO_Set(pTftLcdIO);    
-}
-
-TftLcdIO* TftLcdIO_Set(TftLcdIO* pTftLcdIO)
-{
-	TftLcdIO* pOld =  g_pTftLcdIO;
-	g_pTftLcdIO = pTftLcdIO;
-
-	return pOld;
-}
-
-INLINE TftLcdIO* TftLcdIO_Get()
-{
-	return g_pTftLcdIO;	
+    TRISB = 0x00;    
+    TRISA &= 0b11111100;    // RS WR
+    TRISC &= 0b11111000;    // RST CS RD     
 }
 
 void TftLcdIO_SetControlIdle()
@@ -70,75 +40,83 @@ void TftLcdIO_SetControlIdle()
 INLINE void TftLcdIO_SetCsActive()
 {
 	//digitalWrite(TftLcdIO_Get()->_cs, LOW);
+    CS_BIT = LOW;
 }
 
 INLINE void TftLcdIO_SetWrActive()
 {
 	//digitalWrite(TftLcdIO_Get()->_wr, LOW);
+    WR_BIT = LOW;
 }
 
 INLINE void TftLcdIO_SetRdActive()
 {
 	//digitalWrite(TftLcdIO_Get()->_rd, LOW);
+    RD_BIT = LOW;
 }
 
 INLINE void TftLcdIO_SetCdActive()
 {
 	//digitalWrite(TftLcdIO_Get()->_cd, LOW);
+    CD_BIT = LOW;
 }
 
 INLINE void TftLcdIO_SetRstActive()
 {	
 	//digitalWrite(TftLcdIO_Get()->_rst, LOW);
+    RST_BIT = LOW;
 }
 
 INLINE void TftLcdIO_SetCsIdle()
 {
 	//digitalWrite(TftLcdIO_Get()->_cs, HIGH);
+    CS_BIT = HIGH;
 }
 
 INLINE void TftLcdIO_SetWrIdle()
 {
 	//digitalWrite(TftLcdIO_Get()->_wr, HIGH);
+    WR_BIT = HIGH;
 }
 
 INLINE void TftLcdIO_SetRdIdle()
 {
 	//digitalWrite(TftLcdIO_Get()->_rd, HIGH);
+    RD_BIT = HIGH;
 }
 
 INLINE void TftLcdIO_SetCdIdle()
 {
 	//digitalWrite(TftLcdIO_Get()->_cd, HIGH);
+    CD_BIT = HIGH;
 }
 
 INLINE void TftLcdIO_SetRstIdle()
 {	
 	//digitalWrite(TftLcdIO_Get()->_rst, HIGH);
+    RST_BIT = HIGH;
 }
 
 INLINE void TftLcdIO_SetCdCommand()
 {
 	//digitalWrite(TftLcdIO_Get()->_cd, LOW);
+    CD_BIT = LOW;
 }
 
 INLINE void TftLcdIO_SetCdData()
 {
 	//digitalWrite(TftLcdIO_Get()->_cd, HIGH);
+    CD_BIT = HIGH;
 }
 
 void TftLcdIO_SetWriteDir()
 {
-	//DDRD = B11111110;
-	//DDRB = B00111111;
-	//DDRB |= B00000011;
+    TRISB = 0x00;
 }
 
 void TftLcdIO_SetReadDir()
 {
-	//DDRD = B00000010;
-	//DDRB = B00111100;
-	//DDRB &= B11111100;
+    TRISB = 0xFF;    
 }
 
 INLINE void TftLcdIO_WrStrobe()
@@ -149,25 +127,9 @@ INLINE void TftLcdIO_WrStrobe()
 }
 
 INLINE void TftLcdIO_Write8(byte d)
-{
-    /*
-	PORTD = d << 2;		
-	PORTB &= B11111100;
-	PORTB |= ( 0x03 & ( ( (unsigned)d ) >> 6 ) );	
-	*/
-	
-	/*
-	if (d & B10000000)
-		digitalWrite(9, HIGH);
-	else
-		digitalWrite(9, LOW);
-
-	if (d & B01000000)
-		digitalWrite(8, HIGH);
-	else
-		digitalWrite(8, LOW);
-	*/
-
+{   
+    PORTB = d;
+    
 	TftLcdIO_WrStrobe();
 }
 

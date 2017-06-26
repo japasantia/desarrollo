@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=system.c user_commands.c ../../src/usb_descriptors.c ../../src/usb_device.c ../../src/usb_device_cdc.c ../../src/usb_events.c ../../src/app_device_cdc_basic.c ../../src/app_led_usb_status.c ../../src/main.c ../../src/leds.c ../../src/adc.c ../../src/buttons.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c
+SOURCEFILES_QUOTED_IF_SPACED=../../src/leds.c ../../src/buttons.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c ../../src/usb_descriptors.c ../../src/usb_device.c ../../src/usb_device_cdc.c ../../src/usb_events.c system.c user_commands.c ../../src/app_device_cdc_basic.c ../../src/app_led_usb_status.c ../../src/main.c ../../src/adc.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/system.p1 ${OBJECTDIR}/user_commands.p1 ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1 ${OBJECTDIR}/_ext/1445274692/usb_device.p1 ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1 ${OBJECTDIR}/_ext/1445274692/usb_events.p1 ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1 ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1 ${OBJECTDIR}/_ext/1445274692/main.p1 ${OBJECTDIR}/_ext/1445274692/leds.p1 ${OBJECTDIR}/_ext/1445274692/adc.p1 ${OBJECTDIR}/_ext/1445274692/buttons.p1 ${OBJECTDIR}/_ext/1454693305/glcdfont.p1 ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1 ${OBJECTDIR}/_ext/1454693305/TftLcd.p1 ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1 ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/system.p1.d ${OBJECTDIR}/user_commands.p1.d ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1.d ${OBJECTDIR}/_ext/1445274692/usb_device.p1.d ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1.d ${OBJECTDIR}/_ext/1445274692/usb_events.p1.d ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1.d ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1.d ${OBJECTDIR}/_ext/1445274692/main.p1.d ${OBJECTDIR}/_ext/1445274692/leds.p1.d ${OBJECTDIR}/_ext/1445274692/adc.p1.d ${OBJECTDIR}/_ext/1445274692/buttons.p1.d ${OBJECTDIR}/_ext/1454693305/glcdfont.p1.d ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1.d ${OBJECTDIR}/_ext/1454693305/TftLcd.p1.d ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1.d ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1445274692/leds.p1 ${OBJECTDIR}/_ext/1445274692/buttons.p1 ${OBJECTDIR}/_ext/1454693305/glcdfont.p1 ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1 ${OBJECTDIR}/_ext/1454693305/TftLcd.p1 ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1 ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1 ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1 ${OBJECTDIR}/_ext/1445274692/usb_device.p1 ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1 ${OBJECTDIR}/_ext/1445274692/usb_events.p1 ${OBJECTDIR}/system.p1 ${OBJECTDIR}/user_commands.p1 ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1 ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1 ${OBJECTDIR}/_ext/1445274692/main.p1 ${OBJECTDIR}/_ext/1445274692/adc.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1445274692/leds.p1.d ${OBJECTDIR}/_ext/1445274692/buttons.p1.d ${OBJECTDIR}/_ext/1454693305/glcdfont.p1.d ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1.d ${OBJECTDIR}/_ext/1454693305/TftLcd.p1.d ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1.d ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1.d ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1.d ${OBJECTDIR}/_ext/1445274692/usb_device.p1.d ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1.d ${OBJECTDIR}/_ext/1445274692/usb_events.p1.d ${OBJECTDIR}/system.p1.d ${OBJECTDIR}/user_commands.p1.d ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1.d ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1.d ${OBJECTDIR}/_ext/1445274692/main.p1.d ${OBJECTDIR}/_ext/1445274692/adc.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/system.p1 ${OBJECTDIR}/user_commands.p1 ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1 ${OBJECTDIR}/_ext/1445274692/usb_device.p1 ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1 ${OBJECTDIR}/_ext/1445274692/usb_events.p1 ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1 ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1 ${OBJECTDIR}/_ext/1445274692/main.p1 ${OBJECTDIR}/_ext/1445274692/leds.p1 ${OBJECTDIR}/_ext/1445274692/adc.p1 ${OBJECTDIR}/_ext/1445274692/buttons.p1 ${OBJECTDIR}/_ext/1454693305/glcdfont.p1 ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1 ${OBJECTDIR}/_ext/1454693305/TftLcd.p1 ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1 ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1
+OBJECTFILES=${OBJECTDIR}/_ext/1445274692/leds.p1 ${OBJECTDIR}/_ext/1445274692/buttons.p1 ${OBJECTDIR}/_ext/1454693305/glcdfont.p1 ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1 ${OBJECTDIR}/_ext/1454693305/TftLcd.p1 ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1 ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1 ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1 ${OBJECTDIR}/_ext/1445274692/usb_device.p1 ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1 ${OBJECTDIR}/_ext/1445274692/usb_events.p1 ${OBJECTDIR}/system.p1 ${OBJECTDIR}/user_commands.p1 ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1 ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1 ${OBJECTDIR}/_ext/1445274692/main.p1 ${OBJECTDIR}/_ext/1445274692/adc.p1
 
 # Source Files
-SOURCEFILES=system.c user_commands.c ../../src/usb_descriptors.c ../../src/usb_device.c ../../src/usb_device_cdc.c ../../src/usb_events.c ../../src/app_device_cdc_basic.c ../../src/app_led_usb_status.c ../../src/main.c ../../src/leds.c ../../src/adc.c ../../src/buttons.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c
+SOURCEFILES=../../src/leds.c ../../src/buttons.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c ../../src/usb_descriptors.c ../../src/usb_device.c ../../src/usb_device_cdc.c ../../src/usb_events.c system.c user_commands.c ../../src/app_device_cdc_basic.c ../../src/app_led_usb_status.c ../../src/main.c ../../src/adc.c
 
 
 CFLAGS=
@@ -87,78 +87,6 @@ MP_PROCESSOR_OPTION=18F4550
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/system.p1: system.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/system.p1.d 
-	@${RM} ${OBJECTDIR}/system.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/system.p1  system.c 
-	@-${MV} ${OBJECTDIR}/system.d ${OBJECTDIR}/system.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/system.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/user_commands.p1: user_commands.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/user_commands.p1.d 
-	@${RM} ${OBJECTDIR}/user_commands.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/user_commands.p1  user_commands.c 
-	@-${MV} ${OBJECTDIR}/user_commands.d ${OBJECTDIR}/user_commands.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/user_commands.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1: ../../src/usb_descriptors.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1  ../../src/usb_descriptors.c 
-	@-${MV} ${OBJECTDIR}/_ext/1445274692/usb_descriptors.d ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/1445274692/usb_device.p1: ../../src/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_device.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_device.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_device.p1  ../../src/usb_device.c 
-	@-${MV} ${OBJECTDIR}/_ext/1445274692/usb_device.d ${OBJECTDIR}/_ext/1445274692/usb_device.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/usb_device.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1: ../../src/usb_device_cdc.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1  ../../src/usb_device_cdc.c 
-	@-${MV} ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.d ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/1445274692/usb_events.p1: ../../src/usb_events.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_events.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_events.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_events.p1  ../../src/usb_events.c 
-	@-${MV} ${OBJECTDIR}/_ext/1445274692/usb_events.d ${OBJECTDIR}/_ext/1445274692/usb_events.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/usb_events.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1: ../../src/app_device_cdc_basic.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1  ../../src/app_device_cdc_basic.c 
-	@-${MV} ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.d ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1: ../../src/app_led_usb_status.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1  ../../src/app_led_usb_status.c 
-	@-${MV} ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.d ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/1445274692/main.p1: ../../src/main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/main.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/main.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/main.p1  ../../src/main.c 
-	@-${MV} ${OBJECTDIR}/_ext/1445274692/main.d ${OBJECTDIR}/_ext/1445274692/main.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/_ext/1445274692/leds.p1: ../../src/leds.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/leds.p1.d 
@@ -166,14 +94,6 @@ ${OBJECTDIR}/_ext/1445274692/leds.p1: ../../src/leds.c  nbproject/Makefile-${CND
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/leds.p1  ../../src/leds.c 
 	@-${MV} ${OBJECTDIR}/_ext/1445274692/leds.d ${OBJECTDIR}/_ext/1445274692/leds.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/leds.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/1445274692/adc.p1: ../../src/adc.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/adc.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/adc.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/adc.p1  ../../src/adc.c 
-	@-${MV} ${OBJECTDIR}/_ext/1445274692/adc.d ${OBJECTDIR}/_ext/1445274692/adc.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/adc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/1445274692/buttons.p1: ../../src/buttons.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
@@ -223,28 +143,11 @@ ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1: /media/jsars/74D0704FD0701996/Pasan
 	@-${MV} ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.d ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-else
-${OBJECTDIR}/system.p1: system.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/system.p1.d 
-	@${RM} ${OBJECTDIR}/system.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/system.p1  system.c 
-	@-${MV} ${OBJECTDIR}/system.d ${OBJECTDIR}/system.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/system.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/user_commands.p1: user_commands.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/user_commands.p1.d 
-	@${RM} ${OBJECTDIR}/user_commands.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/user_commands.p1  user_commands.c 
-	@-${MV} ${OBJECTDIR}/user_commands.d ${OBJECTDIR}/user_commands.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/user_commands.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1: ../../src/usb_descriptors.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1  ../../src/usb_descriptors.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1  ../../src/usb_descriptors.c 
 	@-${MV} ${OBJECTDIR}/_ext/1445274692/usb_descriptors.d ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -252,7 +155,7 @@ ${OBJECTDIR}/_ext/1445274692/usb_device.p1: ../../src/usb_device.c  nbproject/Ma
 	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_device.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_device.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_device.p1  ../../src/usb_device.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_device.p1  ../../src/usb_device.c 
 	@-${MV} ${OBJECTDIR}/_ext/1445274692/usb_device.d ${OBJECTDIR}/_ext/1445274692/usb_device.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/usb_device.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -260,7 +163,7 @@ ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1: ../../src/usb_device_cdc.c  nbpr
 	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1  ../../src/usb_device_cdc.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1  ../../src/usb_device_cdc.c 
 	@-${MV} ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.d ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -268,15 +171,31 @@ ${OBJECTDIR}/_ext/1445274692/usb_events.p1: ../../src/usb_events.c  nbproject/Ma
 	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_events.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_events.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_events.p1  ../../src/usb_events.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_events.p1  ../../src/usb_events.c 
 	@-${MV} ${OBJECTDIR}/_ext/1445274692/usb_events.d ${OBJECTDIR}/_ext/1445274692/usb_events.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/usb_events.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/system.p1: system.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/system.p1.d 
+	@${RM} ${OBJECTDIR}/system.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/system.p1  system.c 
+	@-${MV} ${OBJECTDIR}/system.d ${OBJECTDIR}/system.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/system.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/user_commands.p1: user_commands.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/user_commands.p1.d 
+	@${RM} ${OBJECTDIR}/user_commands.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/user_commands.p1  user_commands.c 
+	@-${MV} ${OBJECTDIR}/user_commands.d ${OBJECTDIR}/user_commands.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/user_commands.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1: ../../src/app_device_cdc_basic.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1  ../../src/app_device_cdc_basic.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1  ../../src/app_device_cdc_basic.c 
 	@-${MV} ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.d ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -284,7 +203,7 @@ ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1: ../../src/app_led_usb_status
 	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1  ../../src/app_led_usb_status.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1  ../../src/app_led_usb_status.c 
 	@-${MV} ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.d ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -292,10 +211,19 @@ ${OBJECTDIR}/_ext/1445274692/main.p1: ../../src/main.c  nbproject/Makefile-${CND
 	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/main.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/main.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/main.p1  ../../src/main.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/main.p1  ../../src/main.c 
 	@-${MV} ${OBJECTDIR}/_ext/1445274692/main.d ${OBJECTDIR}/_ext/1445274692/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/_ext/1445274692/adc.p1: ../../src/adc.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/adc.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/adc.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/adc.p1  ../../src/adc.c 
+	@-${MV} ${OBJECTDIR}/_ext/1445274692/adc.d ${OBJECTDIR}/_ext/1445274692/adc.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/adc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+else
 ${OBJECTDIR}/_ext/1445274692/leds.p1: ../../src/leds.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
 	@${RM} ${OBJECTDIR}/_ext/1445274692/leds.p1.d 
@@ -303,14 +231,6 @@ ${OBJECTDIR}/_ext/1445274692/leds.p1: ../../src/leds.c  nbproject/Makefile-${CND
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/leds.p1  ../../src/leds.c 
 	@-${MV} ${OBJECTDIR}/_ext/1445274692/leds.d ${OBJECTDIR}/_ext/1445274692/leds.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/leds.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/1445274692/adc.p1: ../../src/adc.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/adc.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1445274692/adc.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/adc.p1  ../../src/adc.c 
-	@-${MV} ${OBJECTDIR}/_ext/1445274692/adc.d ${OBJECTDIR}/_ext/1445274692/adc.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/adc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/1445274692/buttons.p1: ../../src/buttons.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
@@ -359,6 +279,86 @@ ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1: /media/jsars/74D0704FD0701996/Pasan
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1  /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c 
 	@-${MV} ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.d ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1: ../../src/usb_descriptors.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1  ../../src/usb_descriptors.c 
+	@-${MV} ${OBJECTDIR}/_ext/1445274692/usb_descriptors.d ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1445274692/usb_device.p1: ../../src/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_device.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_device.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_device.p1  ../../src/usb_device.c 
+	@-${MV} ${OBJECTDIR}/_ext/1445274692/usb_device.d ${OBJECTDIR}/_ext/1445274692/usb_device.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/usb_device.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1: ../../src/usb_device_cdc.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1  ../../src/usb_device_cdc.c 
+	@-${MV} ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.d ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1445274692/usb_events.p1: ../../src/usb_events.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_events.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/usb_events.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/usb_events.p1  ../../src/usb_events.c 
+	@-${MV} ${OBJECTDIR}/_ext/1445274692/usb_events.d ${OBJECTDIR}/_ext/1445274692/usb_events.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/usb_events.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/system.p1: system.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/system.p1.d 
+	@${RM} ${OBJECTDIR}/system.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/system.p1  system.c 
+	@-${MV} ${OBJECTDIR}/system.d ${OBJECTDIR}/system.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/system.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/user_commands.p1: user_commands.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/user_commands.p1.d 
+	@${RM} ${OBJECTDIR}/user_commands.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/user_commands.p1  user_commands.c 
+	@-${MV} ${OBJECTDIR}/user_commands.d ${OBJECTDIR}/user_commands.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/user_commands.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1: ../../src/app_device_cdc_basic.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1  ../../src/app_device_cdc_basic.c 
+	@-${MV} ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.d ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1: ../../src/app_led_usb_status.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1  ../../src/app_led_usb_status.c 
+	@-${MV} ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.d ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1445274692/main.p1: ../../src/main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/main.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/main.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/main.p1  ../../src/main.c 
+	@-${MV} ${OBJECTDIR}/_ext/1445274692/main.d ${OBJECTDIR}/_ext/1445274692/main.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1445274692/adc.p1: ../../src/adc.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/adc.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1445274692/adc.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/adc.p1  ../../src/adc.c 
+	@-${MV} ${OBJECTDIR}/_ext/1445274692/adc.d ${OBJECTDIR}/_ext/1445274692/adc.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/adc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

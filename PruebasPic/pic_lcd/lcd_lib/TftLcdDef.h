@@ -13,6 +13,8 @@
 #include <stdlib.h>
 #include <stddef.h>
 
+#include <xc.h>
+
 // #define NULL    0
 #define true    1
 #define false   0
@@ -22,8 +24,7 @@ extern "C" {
 #endif
 
 typedef uint8_t boolean;
-typedef uint8_t byte;
-    
+typedef uint8_t byte;    
 
 #ifdef	__cplusplus
 }
