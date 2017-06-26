@@ -24,6 +24,10 @@ import com.sun.jna.Library;
  */
 public interface IVxi11 extends Library
 {
-    int vxi11_open_device(byte[] ip, long[] clink);
-    int vxi11_close_device(byte[] ip, long[] clink);
+    // int vxi11_open_device(byte[] ip, long[] clink);
+    // int vxi11_close_device(byte[] ip, long[] clink);
+    int	vxi11_open_device(String ip, long[] clink, String device);
+    int vxi11_close_device(String ip, long[] clink);
+    int	vxi11_send(long[] clink, String cmd, long len);
+    long vxi11_receive(long[] clink, byte[] buffer, long len, long timeout);
 }

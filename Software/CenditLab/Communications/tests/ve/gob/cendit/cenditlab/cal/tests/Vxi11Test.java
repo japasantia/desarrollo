@@ -12,8 +12,13 @@ public class Vxi11Test
     {
         IVxi11 library = Vxi11Loader.getLibrary();
 
-        long[] clink = new long[2];
+        long[] clink = new long[8];
+        byte[] buffer = new byte[256];
 
-        library.vxi11_open_device("192.168.45.10".getBytes(), clink);
+        long ret = library.vxi11_open_device("192.168.1.10", clink, "gpib0,10");
+        ret = library.vxi11_send(clink, "*IDN?\n", 5);
+        ret = library.vxi11_receive(clink, buffer, 256, 1000);
+
+        System.out.printf("Response: %s", new String(buffer));
     }
 }

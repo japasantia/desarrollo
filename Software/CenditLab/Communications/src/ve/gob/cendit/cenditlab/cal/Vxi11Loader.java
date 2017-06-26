@@ -1,6 +1,7 @@
 package ve.gob.cendit.cenditlab.cal;
 
 import com.sun.jna.Native;
+import com.sun.jna.NativeLibrary;
 
 /**
  * Created by jarias on 6/23/17.
@@ -20,8 +21,15 @@ public class Vxi11Loader
         // Se carga la libreria por primera vez
         try
         {
-            library = Native.loadLibrary("/home/jarias/Escritorio/Pasantia/Aplicaciones/Linux/vxi11_1.10/vxi11.so",
-                    IVxi11.class);
+            // Primero carga libreria, segun
+            // https://stackoverflow.com/questions/25978763/jna-library-and-native-library-not-found-error
+            //NativeLibrary.addSearchPath("vxi11", "/usr/local/lib");
+            System.setProperty("java.library.path",
+                    "/usr/local/lib:"
+                            + System.getProperty("java.library.path"));
+            //System.loadLibrary("vxi11");
+            library =
+                Native.loadLibrary("vxi11", IVxi11.class);
         }
         catch (Exception ex)
         {
