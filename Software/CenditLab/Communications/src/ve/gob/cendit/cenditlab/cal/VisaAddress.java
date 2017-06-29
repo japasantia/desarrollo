@@ -200,6 +200,8 @@ public class VisaAddress
         return getField(VisaAddressFields.DEVICE_NAME);
     }
 
+    public String getHostAddress() { return getField(VisaAddressFields.HOST_ADDRESS); }
+
     public String getPort()
     {
         return getField(VisaAddressFields.PORT);

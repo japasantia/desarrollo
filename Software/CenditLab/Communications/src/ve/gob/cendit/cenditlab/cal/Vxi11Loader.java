@@ -21,6 +21,7 @@ public class Vxi11Loader
         // Se carga la libreria por primera vez
         try
         {
+            // TODO: revisar el proceso de carga libreria
             // Primero carga libreria, segun
             // https://stackoverflow.com/questions/25978763/jna-library-and-native-library-not-found-error
             //NativeLibrary.addSearchPath("vxi11", "/usr/local/lib");
