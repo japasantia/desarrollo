@@ -24,11 +24,13 @@ please contact mla_licensing@microchip.com
 /** I N C L U D E S *************************************************/
 #include "usb_config.h"
 
+#define __18F4550
 
 //Make sure board/platform specific definitions (like config bit settings and
 //I/O pin definitions are correct for your hardware platform).
 #if defined(__18F4550)
     #define PIC18F4550_PICDEM_FS_USB
+    #warning Pic18F4550 Selected
 #elif defined(__18F45K50)
     #define PIC18F4550_PICDEM_FS_USB_K50
 #elif defined(__18F14K50)
@@ -60,15 +62,17 @@ please contact mla_licensing@microchip.com
     #define mLED1       LATDbits.LATD0
     #define mLED1Tris   TRISDbits.TRISD0
     /** SWITCH *********************************************************/
-    /*
-    #define mInitSwitch2()      {ADCON1 = 0x0F; TRISBbits.TRISB4 = 1;}   
-    #define sw2                 PORTBbits.RB4
-    #define mDeInitSwitch2()    {ADCON1 = 0x07;} 
-    */
+    
+//    #warning SW2 is RB4
+//    #define mInitSwitch2()      {ADCON1 = 0x0F; TRISBbits.TRISB4 = 1; PORTBbits.RB4 = 1;}   
+//    #define sw2                 PORTBbits.RB4
+//    #define mDeInitSwitch2()    {ADCON1 = 0x07;} 
+    
     // BEGIN MOD Jose Arias
-    #define mInitSwitch2()      {ADCON0bits.ADON = 0; ADCON1 = 0x0F; CMCON = 0x07; TRISAbits.TRISA0 = 1; LATAbits.LATA0 = 1;}   
-    #define sw2                 LATAbits.LATA0
-    #define mDeInitSwitch2()    {ADCON1 = 0x07;} 
+     #warning SW2 is RA0
+     #define mInitSwitch2()      {ADCON0bits.ADON = 0; ADCON1 = 0x0F; CMCON = 0x07; TRISAbits.TRISA0 = 1; PORTAbits.RA0 = 1;}   
+     #define sw2                 PORTAbits.RA0
+     #define mDeInitSwitch2()    {ADCON1 = 0x07;} 
     // END MOD
 
 #elif defined(PIC18F4550_PICDEM_FS_USB_K50)  //Section for PIC18F45K50 when on the PICDEM FS USB Demo Board

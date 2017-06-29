@@ -411,7 +411,7 @@ void main(void)
     
             //Before going to application image however, make sure the image
             //is properly signed and is intact.
-            goto DoFlashSignatureCheck;
+            // goto DoFlashSignatureCheck;
         }
         else
         {

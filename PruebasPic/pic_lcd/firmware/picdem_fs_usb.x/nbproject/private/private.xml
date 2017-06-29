@@ -3,36 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.h</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TestLcd.c</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdDef.h</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.h</file>
             <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/buttons.c</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/firmware/picdem_fs_usb.x/user_commands.c</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/fixed_address_memory.h</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/system.h</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/firmware/picdem_fs_usb.x/Makefile</file>
             <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIOLatch.h</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.h</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.h</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/registers.h</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIOLatch.c</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/leds.h</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/firmware/picdem_fs_usb.x/io_mapping.h</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/app_led_usb_status.c</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/firmware/picdem_fs_usb.x/fixed_address_memory.h</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/app_device_cdc_basic.c</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/buttons.h</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/firmware/picdem_fs_usb.x/system.c</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/main.c</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/usb.h</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/app_device_cdc_basic.h</file>
-            <file>file:/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/firmware/picdem_fs_usb.x/system.h</file>
         </group>
     </open-files>
 </project-private>

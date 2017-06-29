@@ -138,7 +138,7 @@ int main(int argc, char** argv)
         // Process cdc tranfers per loop
         UsbCdc_LoopProcess();
         // Process led status
-        Test_LedLoopProcess();
+        //Test_LedLoopProcess();
 
     }
     
