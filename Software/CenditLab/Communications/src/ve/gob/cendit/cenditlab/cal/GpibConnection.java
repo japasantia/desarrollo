@@ -2,9 +2,6 @@ package ve.gob.cendit.cenditlab.cal;
 
 
 import com.sun.jna.Platform;
-import com.sun.jna.Pointer;
-import com.sun.jna.ptr.ByteByReference;
-import com.sun.jna.ptr.PointerByReference;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.io.ByteArrayOutputStream;
@@ -16,7 +13,7 @@ import java.io.IOException;
 public class GpibConnection implements IGpibConnection
 {
     private VisaAddress visaAddress;
-    private ILinuxGpib linuxGpib;
+    private ILinuxGpib library;
     private int deviceDescriptor;
 
     public static IGpibConnection CreateConnection(String address)
@@ -31,7 +28,7 @@ public class GpibConnection implements IGpibConnection
         }
         else if (Platform.isLinux())
         {
-            ILinuxGpib linuxGpib =  LinuxGpibLoader.getLibrary();
+            ILinuxGpib library =  LinuxGpibLoader.getLibrary();
             return new GpibConnection(va);
         }
         else
@@ -47,7 +44,7 @@ public class GpibConnection implements IGpibConnection
 
     private GpibConnection(VisaAddress address)
     {
-        linuxGpib = LinuxGpibLoader.getLibrary();
+        library = LinuxGpibLoader.getLibrary();
         visaAddress = address;
     }
 
@@ -64,7 +61,7 @@ public class GpibConnection implements IGpibConnection
             secondaryAddress = visaAddress.getSecondaryAddress();
         }
 
-        deviceDescriptor = linuxGpib.ibdev(board, primaryAddress, secondaryAddress,
+        deviceDescriptor = library.ibdev(board, primaryAddress, secondaryAddress,
                 ILinuxGpib.T3s, 1, 0);
 
         if (deviceDescriptor < 0)
@@ -76,50 +73,53 @@ public class GpibConnection implements IGpibConnection
     @Override
     public void close()
     {
-        int status = linuxGpib.ibonl(deviceDescriptor, 0);
+        int status = library.ibonl(deviceDescriptor, 0);
     }
 
     @Override
     public int write(byte[] buffer)
     {
-        return linuxGpib.ibwrt(deviceDescriptor,
+        return library.ibwrt(deviceDescriptor,
                 buffer, buffer.length);
     }
 
     @Override
     public int write(String buffer)
     {
-        return linuxGpib.ibwrt(deviceDescriptor, buffer, buffer.length());
+        return library.ibwrt(deviceDescriptor, buffer, buffer.length());
     }
 
     @Override
     public int read(byte[] buffer)
     {
-        return linuxGpib.ibrd(deviceDescriptor, buffer, buffer.length);
+        return library.ibrd(deviceDescriptor, buffer, buffer.length);
     }
 
     @Override
     public String read()
     {
-        ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+        ByteArrayOutputStream byteStream =
+                new ByteArrayOutputStream();
 
         byte[] buffer = new byte[1024];
         int bytesRead = 0;
         int status;
+        String dataRead = null;
 
-        do
-        {
-            status = read(buffer);
-            bytesRead = linuxGpib.ThreadIbcnt();
-            byteStream.write(buffer,
-                    byteStream.size(),
-                    bytesRead);
-        }
-        while(bytesRead >= 1024);
-
-        String dataRead = byteStream.toString();
         try
         {
+            do
+            {
+                status = read(buffer);
+                bytesRead = library.ThreadIbcnt();
+                byteStream.write(buffer,
+                        byteStream.size(),
+                        bytesRead);
+            }
+            while(bytesRead >= 1024);
+
+            dataRead = byteStream.toString();
+
             byteStream.close();
         }
         catch (IOException ex)
