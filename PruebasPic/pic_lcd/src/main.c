@@ -27,11 +27,14 @@ please contact mla_licensing@microchip.com
 #include "usb_device.h"
 #include "usb_device_cdc.h"
 
-// BEGIN_MOD
-// #include "user_commands."
-// #include "../firmware/picdem_fs_usb.x/user_commands.h"
-// #include "user_commands.h"
-// END_MOD
+#include "../lcd_lib/TftLcd.h"
+#include "../lcd_lib/AdafruitGfx.h"
+
+
+/**
+ *  Inicializa la pantalla Tft Lcd
+ */
+void InitializeScreen();
 
 /********************************************************************
  * Function:        void main(void)
@@ -56,8 +59,11 @@ MAIN_RETURN main(void)
     USBDeviceAttach();
     
     // BEGIN_MOD    
-    userInit();
+    // userInit();
     // END_MOD
+    
+    // Inicializa pantala Tft Lcd
+    InitializeScreen();
     
     while(1)
     {
@@ -84,6 +90,23 @@ MAIN_RETURN main(void)
 
     }//end while
 }//end main
+
+/**
+ Objeto global manejador del modulo  rutinas graficas para pantalla
+ */
+
+Gfx g_gfx;
+
+static const char msg1[] = "In: InitializeScreen";
+void InitializeScreen()
+{
+    putrsUSBUSART(msg1);
+    
+    TftLcdIO_Init();
+    Gfx_Init(&g_gfx, TFTWIDTH, TFTHEIGHT, &TftLcd_DrawPixel);
+    TftLcd_Init();
+} // end InitializeScreen
+
 
 /*******************************************************************************
  End of File

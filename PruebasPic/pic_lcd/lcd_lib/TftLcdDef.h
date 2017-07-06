@@ -26,6 +26,8 @@ extern "C" {
 typedef uint8_t boolean;
 typedef uint8_t byte;    
 
+ #define _XTAL_FREQ     16000000
+
 #ifdef	__cplusplus
 }
 #endif

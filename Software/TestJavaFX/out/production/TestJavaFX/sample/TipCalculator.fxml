@@ -24,7 +24,8 @@
    <children>
       <Label text="Amount" />
       <Label fx:id="tipPercentageLabel" text="15%" GridPane.rowIndex="1" />
-      <Label text="Tip" GridPane.rowIndex="2" />
+      <Label
+              text="Tip" GridPane.rowIndex="2" />
       <Label text="Total" GridPane.rowIndex="3" />
      
       <TextField fx:id="amountTextField" GridPane.columnIndex="1" />

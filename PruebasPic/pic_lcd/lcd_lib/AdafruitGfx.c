@@ -34,6 +34,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 
 #include "TftLcdDef.h"
+#include "usb_device.h"
 
 // *** SPFD5408 change -- Begin
 #include "AdafruitGfx.h"
@@ -55,6 +56,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 Gfx* Gfx_Init(Gfx* pGfx, int16_t w, int16_t h, Gfx_DrawPixelFunc pDrawPixelFunc)
 {
+    //putrsUSBUSART("In: Gfx_Init");
+    
 	pGfx->WIDTH = w;
 	pGfx->HEIGHT = h;
 
@@ -70,7 +73,7 @@ Gfx* Gfx_Init(Gfx* pGfx, int16_t w, int16_t h, Gfx_DrawPixelFunc pDrawPixelFunc)
 	pGfx->wrap = true;
 	pGfx->_cp437 = false;
 
-	// Gfx_SetDrawPixelFunction(pDrawPixelFunc);	
+	Gfx_SetDrawPixelFunction(pDrawPixelFunc);	
 
 	return Gfx_Set(pGfx);
 }

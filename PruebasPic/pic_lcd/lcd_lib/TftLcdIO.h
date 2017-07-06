@@ -1,11 +1,35 @@
 #ifndef TFT_LCD_IO_H
 #define TFT_LCD_IO_H
 
-
 // #include "Arduino.h"
 #include "TftLcdDef.h"
 
 #define INLINE inline
+
+#define CS_PORT     PORTC
+#define RST_PORT    PORTC
+#define RD_PORT     PORTC
+#define WR_PORT     PORTA
+
+#define YP_BIT      WR_BIT
+#define YM_BIT      PORTBbits.RB7
+#define XP_BIT      PORTBbits.RB6
+#define XM_BIT      CD_BIT
+
+#define YP_TRIS_BIT      TRISAbits.RA1
+#define YM_TRIS_BIT      TRISBbits.RB7
+#define XP_TRIS_BIT      TRISBbits.RB6
+#define XM_TRIS_BIT      TRISAbits.RA0
+
+#define CS_BIT      PORTCbits.RC1
+#define RST_BIT     PORTCbits.RC2
+#define RD_BIT      PORTCbits.RC0
+#define WR_BIT      PORTAbits.RA1
+#define CD_BIT      PORTAbits.RA0
+
+#define LOW         0
+#define HIGH        1
+
 
 /*
 void setControlIdle();

@@ -30,8 +30,6 @@ please contact mla_licensing@microchip.com
 #include "fixed_address_memory.h"
 #include "usb_config.h"
 
-#define _XTAL_FREQ  16000000
-
 #define MAIN_RETURN void
 
 /*** System States **************************************************/

@@ -1,7 +1,7 @@
 package ve.gob.cendit.cenditlab.cal.tests;
 
-import ve.gob.cendit.cenditlab.cal.GpibConnection;
-import ve.gob.cendit.cenditlab.cal.IGpibConnection;
+import ve.gob.cendit.cenditlab.io.GpibConnection;
+import ve.gob.cendit.cenditlab.io.IGpibConnection;
 
 /**
  * Created by jarias on 21/06/17.

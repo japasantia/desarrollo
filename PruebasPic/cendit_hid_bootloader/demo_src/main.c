@@ -337,7 +337,6 @@ void InitializeSystem(void);
 void BlinkUSBStatus(void);
 
 
-
 //Special "flash signature" located in the application program memory space (not
 //part of the bootloader firmware program space).  This flash signature is used
 //to improve application recoverability/robustness, in the event the user unplugs

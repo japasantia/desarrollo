@@ -12,6 +12,14 @@
 #endif
 */
 
+/*
+ * Ejemplo de inicializacion 
+ * 
+ *   TftLcdIO_Init(&g_tftLcdIO);
+ *   Gfx_Init(&g_gfx, TFTWIDTH, TFTHEIGHT, &TftLcd_DrawPixel);
+ *   TftLcd_Init();
+ */
+
 #define swap(a, b) { int16_t t = a; a = b; b = t; }
 
 /*
@@ -47,7 +55,7 @@ typedef struct tagGfx
 		_cp437; // If set, use correct CP437 charset (default is off)
 } Gfx;
 
-static Gfx* g_pGfx;
+Gfx* g_pGfx;
 Gfx* Gfx_Set(Gfx* pGfx);
 Gfx* Gfx_Get();
 
@@ -55,7 +63,7 @@ Gfx* Gfx_Get();
 // This MUST be defined by the subclass:
 /*virtual void drawPixel(int16_t x, int16_t y, uint16_t color) = 0;*/
 typedef void (Gfx_DrawPixelFunc)(int16_t x, int16_t y, uint16_t color);
-static Gfx_DrawPixelFunc* g_pDrawPixelFunc = NULL;
+Gfx_DrawPixelFunc* g_pDrawPixelFunc = NULL;
 
 Gfx_DrawPixelFunc* Gfx_SetDrawPixelFunction(Gfx_DrawPixelFunc* pDrawPixelFunc);
 Gfx_DrawPixelFunc* Gfx_GetDrawPixelFunction();

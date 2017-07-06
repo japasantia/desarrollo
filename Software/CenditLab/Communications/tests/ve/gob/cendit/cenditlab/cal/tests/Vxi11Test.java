@@ -2,8 +2,8 @@ package ve.gob.cendit.cenditlab.cal.tests;
 
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
-import ve.gob.cendit.cenditlab.cal.IVxi11;
-import ve.gob.cendit.cenditlab.cal.Vxi11Loader;
+import ve.gob.cendit.cenditlab.io.IVxi11;
+import ve.gob.cendit.cenditlab.io.Vxi11Loader;
 
 import java.util.Arrays;
 

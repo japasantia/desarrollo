@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import ve.gob.cendit.cenditlab.cal.VisaAddress;
+import ve.gob.cendit.cenditlab.io.VisaAddress;
 
 /**
  * Created by jarias on 6/23/17.

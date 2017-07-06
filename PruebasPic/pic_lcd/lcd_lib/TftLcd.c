@@ -1,6 +1,7 @@
 // *** SPFD5408 change -- Begin
 #include "TftLcd.h"
 #include "TftLcdIO.h"
+#include "usb_device.h"
 
 // -- End
 
@@ -21,6 +22,7 @@ void TftLcd_Init()
 	// pTftLcd->_driver = driver;
 
 	// Serial.println("On TftLcd::init");
+    // putrsUSBUSART("In: TftLcd_Init");
 
 	TftLcdIO_SetCsIdle(); // Set all control bits to idle state
 	TftLcdIO_SetWrIdle();
@@ -41,7 +43,7 @@ void TftLcd_Init()
 	Gfx_SetWidth(TFTWIDTH);
 	Gfx_SetHeight(TFTHEIGHT);	
 	
-	Gfx_SetDrawPixelFunction(&TftLcd_DrawPixel);
+	// Gfx_SetDrawPixelFunction(&TftLcd_DrawPixel);
 
 	TftLcd_Begin();
 
@@ -58,12 +60,14 @@ void TftLcd_Begin()
 	TftLcd_Reset();
 
 	// delay(200);	
+    __delay_ms(2);
 
 	uint16_t a, d;
 	
 	TftLcdIO_SetCsActive();
 	TftLcdIO_WriteRegister8(ILI9341_SOFTRESET, 0);
 	// delay(50);
+    __delay_ms(50);
 	TftLcdIO_WriteRegister8(ILI9341_DISPLAYOFF, 0);
 
 	TftLcdIO_WriteRegister8(ILI9341_POWERCONTROL1, 0x23);
@@ -80,6 +84,7 @@ void TftLcd_Begin()
 
 	TftLcdIO_WriteRegister8(ILI9341_SLEEPOUT, 0);
 	// delay(150);
+    __delay_ms(150);
 	TftLcdIO_WriteRegister8(ILI9341_DISPLAYON, 0);
 	// delay(500);
 	// *** SPFD5408 change -- Begin
@@ -110,8 +115,9 @@ void TftLcd_Reset(void)
 	delay(2);
 	digitalWrite(5, HIGH);
 	*/
-	TftLcdIO_SetRdIdle();
+	TftLcdIO_SetRdActive();
 	// delay(2);
+    __delay_ms(2);
 	TftLcdIO_SetRstIdle();
 
 	// Data transfer sync

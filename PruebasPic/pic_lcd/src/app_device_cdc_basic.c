@@ -165,7 +165,7 @@ void APP_DeviceCDCBasicDemoTasks()
             putUSBUSART(writeBuffer,numBytesRead);
         }
         // BEGIN_MOD
-        userProcess(readBuffer, 64);
+        // userProcess(readBuffer, 64);
         // END_MOD
     }
 

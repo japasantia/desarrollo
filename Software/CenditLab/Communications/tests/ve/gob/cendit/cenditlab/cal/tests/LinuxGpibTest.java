@@ -3,8 +3,8 @@ package ve.gob.cendit.cenditlab.cal.tests;
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
 
-import ve.gob.cendit.cenditlab.cal.ILinuxGpib;
-import ve.gob.cendit.cenditlab.cal.LinuxGpibLoader;
+import ve.gob.cendit.cenditlab.io.ILinuxGpib;
+import ve.gob.cendit.cenditlab.io.LinuxGpibLoader;
 
 import java.util.Arrays;
 

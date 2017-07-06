@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ve.gob.cendit.cenditlab.gui.SelectionWindowController">
+   <left>
+      <VBox prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <TitledPane animated="false" maxHeight="1.7976931348623157E308" text="Instrumentos" />
+            <TitledPane animated="false" text="Tareas" />
+         </children></VBox>
+   </left>
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="268.0" minWidth="10.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="395.0" minWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox fx:id="programmingSCPI" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onProgrammingSCPIPressed" prefHeight="96.0">
+               <children>
+                  <ImageView fitHeight="70.0" fitWidth="70.0" onMouseClicked="#onProgrammingSCPIPressed" pickOnBounds="true" preserveRatio="true" style="-fx-hpos: center;">
+                     <image>
+                        <Image url="@../../../../../../../../../Escritorio/Pasantia/Desarrollo/Software/TestJavaFX/images/code.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Programación SCPI">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" GridPane.columnIndex="1">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../Escritorio/Pasantia/Desarrollo/Software/TestJavaFX/images/temperature.png" />
+                     </image>
+                  </ImageView>
+                  <Label style="-fx-text-wrap: true; -fx-alignment: center;" text="Temperatura de Ruido ">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" style="-fx-hpos: center;">
+                     <image>
+                        <Image url="@../../../../../../../../../Escritorio/Pasantia/Desarrollo/Software/TestJavaFX/images/oscilloscope.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Potencia de Ruido">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../Escritorio/Pasantia/Desarrollo/Software/TestJavaFX/images/oscilloscope.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Figura de Ruido">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" GridPane.rowIndex="2">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../Escritorio/Pasantia/Desarrollo/Software/TestJavaFX/images/oscilloscope.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Carga de ENR">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../Escritorio/Pasantia/Desarrollo/Software/TestJavaFX/images/oscilloscope.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Figura de Ruido">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="rootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="412.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ve.gob.cendit.cenditlab.gui.ScpiControlController">
+   <children>
+      <TextField fx:id="commandText" layoutX="14.0" layoutY="8.0" prefHeight="25.0" prefWidth="206.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="2.0" />
+      <ProgressIndicator fx:id="progressIndicator" layoutX="267.0" layoutY="6.0" maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="26.0" prefWidth="29.0" visible="false" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
+      <Button fx:id="execButton" layoutX="222.0" layoutY="1.0" mnemonicParsing="false" onAction="#execButtonPressed" text="&gt;" AnchorPane.bottomAnchor="2.0" AnchorPane.topAnchor="2.0" />
+      <Button fx:id="deleteButton" layoutX="259.0" layoutY="2.0" mnemonicParsing="false" onAction="#deleteButtonPressed" text="x" AnchorPane.bottomAnchor="2.0" AnchorPane.topAnchor="2.0" />
+   </children>
+</AnchorPane>
