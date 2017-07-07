@@ -34,7 +34,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 
 #include "TftLcdDef.h"
-#include "usb_device.h"
+#include "../src/usb_device.h"
 
 // *** SPFD5408 change -- Begin
 #include "AdafruitGfx.h"

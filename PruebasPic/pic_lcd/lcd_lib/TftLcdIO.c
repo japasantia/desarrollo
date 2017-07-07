@@ -1,5 +1,5 @@
 #include "TftLcdIO.h"
-#include "usb_device.h"
+#include "../src/usb_device.h"
 
 /*
 TftLcdIO* TftLcdIO_Init(TftLcdIO* pTftLcdIO, 

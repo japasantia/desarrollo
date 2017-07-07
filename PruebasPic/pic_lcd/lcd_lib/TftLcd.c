@@ -1,7 +1,7 @@
 // *** SPFD5408 change -- Begin
 #include "TftLcd.h"
 #include "TftLcdIO.h"
-#include "usb_device.h"
+#include "../src/usb_device.h"
 
 // -- End
 

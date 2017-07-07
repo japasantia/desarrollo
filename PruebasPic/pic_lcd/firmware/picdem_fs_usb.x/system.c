@@ -18,7 +18,7 @@ please contact mla_licensing@microchip.com
 *******************************************************************************/
 
 #include "system.h"
-#include "usb.h"
+#include "../../src/usb.h"
 
 /** CONFIGURATION Bits **********************************************/
 // BEGIN_MOD

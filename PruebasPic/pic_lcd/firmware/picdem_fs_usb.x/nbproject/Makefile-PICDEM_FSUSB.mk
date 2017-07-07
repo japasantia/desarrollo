@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../../src/leds.c ../../src/buttons.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c ../../src/usb_descriptors.c ../../src/usb_device.c ../../src/usb_device_cdc.c ../../src/usb_events.c system.c user_commands.c ../../src/app_device_cdc_basic.c ../../src/app_led_usb_status.c ../../src/main.c ../../src/adc.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIOLatch.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c
+SOURCEFILES_QUOTED_IF_SPACED=../../src/leds.c ../../src/buttons.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c ../../src/usb_descriptors.c ../../src/usb_device.c ../../src/usb_device_cdc.c ../../src/usb_events.c system.c user_commands.c ../../src/app_device_cdc_basic.c ../../src/app_led_usb_status.c ../../src/main.c ../../src/adc.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1445274692/leds.p1 ${OBJECTDIR}/_ext/1445274692/buttons.p1 ${OBJECTDIR}/_ext/1454693305/glcdfont.p1 ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1 ${OBJECTDIR}/_ext/1454693305/TftLcd.p1 ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1 ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1 ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1 ${OBJECTDIR}/_ext/1445274692/usb_device.p1 ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1 ${OBJECTDIR}/_ext/1445274692/usb_events.p1 ${OBJECTDIR}/system.p1 ${OBJECTDIR}/user_commands.p1 ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1 ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1 ${OBJECTDIR}/_ext/1445274692/main.p1 ${OBJECTDIR}/_ext/1445274692/adc.p1 ${OBJECTDIR}/_ext/634422929/TftLcd.p1 ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1 ${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.p1 ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1 ${OBJECTDIR}/_ext/634422929/glcdfont.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1445274692/leds.p1.d ${OBJECTDIR}/_ext/1445274692/buttons.p1.d ${OBJECTDIR}/_ext/1454693305/glcdfont.p1.d ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1.d ${OBJECTDIR}/_ext/1454693305/TftLcd.p1.d ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1.d ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1.d ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1.d ${OBJECTDIR}/_ext/1445274692/usb_device.p1.d ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1.d ${OBJECTDIR}/_ext/1445274692/usb_events.p1.d ${OBJECTDIR}/system.p1.d ${OBJECTDIR}/user_commands.p1.d ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1.d ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1.d ${OBJECTDIR}/_ext/1445274692/main.p1.d ${OBJECTDIR}/_ext/1445274692/adc.p1.d ${OBJECTDIR}/_ext/634422929/TftLcd.p1.d ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1.d ${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.p1.d ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1.d ${OBJECTDIR}/_ext/634422929/glcdfont.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1445274692/leds.p1 ${OBJECTDIR}/_ext/1445274692/buttons.p1 ${OBJECTDIR}/_ext/634422929/glcdfont.p1 ${OBJECTDIR}/_ext/634422929/TftLcd.p1 ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1 ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1 ${OBJECTDIR}/_ext/634422929/AdafruitGfx.p1 ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1 ${OBJECTDIR}/_ext/1445274692/usb_device.p1 ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1 ${OBJECTDIR}/_ext/1445274692/usb_events.p1 ${OBJECTDIR}/system.p1 ${OBJECTDIR}/user_commands.p1 ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1 ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1 ${OBJECTDIR}/_ext/1445274692/main.p1 ${OBJECTDIR}/_ext/1445274692/adc.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1445274692/leds.p1.d ${OBJECTDIR}/_ext/1445274692/buttons.p1.d ${OBJECTDIR}/_ext/634422929/glcdfont.p1.d ${OBJECTDIR}/_ext/634422929/TftLcd.p1.d ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1.d ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1.d ${OBJECTDIR}/_ext/634422929/AdafruitGfx.p1.d ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1.d ${OBJECTDIR}/_ext/1445274692/usb_device.p1.d ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1.d ${OBJECTDIR}/_ext/1445274692/usb_events.p1.d ${OBJECTDIR}/system.p1.d ${OBJECTDIR}/user_commands.p1.d ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1.d ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1.d ${OBJECTDIR}/_ext/1445274692/main.p1.d ${OBJECTDIR}/_ext/1445274692/adc.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1445274692/leds.p1 ${OBJECTDIR}/_ext/1445274692/buttons.p1 ${OBJECTDIR}/_ext/1454693305/glcdfont.p1 ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1 ${OBJECTDIR}/_ext/1454693305/TftLcd.p1 ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1 ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1 ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1 ${OBJECTDIR}/_ext/1445274692/usb_device.p1 ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1 ${OBJECTDIR}/_ext/1445274692/usb_events.p1 ${OBJECTDIR}/system.p1 ${OBJECTDIR}/user_commands.p1 ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1 ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1 ${OBJECTDIR}/_ext/1445274692/main.p1 ${OBJECTDIR}/_ext/1445274692/adc.p1 ${OBJECTDIR}/_ext/634422929/TftLcd.p1 ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1 ${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.p1 ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1 ${OBJECTDIR}/_ext/634422929/glcdfont.p1
+OBJECTFILES=${OBJECTDIR}/_ext/1445274692/leds.p1 ${OBJECTDIR}/_ext/1445274692/buttons.p1 ${OBJECTDIR}/_ext/634422929/glcdfont.p1 ${OBJECTDIR}/_ext/634422929/TftLcd.p1 ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1 ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1 ${OBJECTDIR}/_ext/634422929/AdafruitGfx.p1 ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1 ${OBJECTDIR}/_ext/1445274692/usb_device.p1 ${OBJECTDIR}/_ext/1445274692/usb_device_cdc.p1 ${OBJECTDIR}/_ext/1445274692/usb_events.p1 ${OBJECTDIR}/system.p1 ${OBJECTDIR}/user_commands.p1 ${OBJECTDIR}/_ext/1445274692/app_device_cdc_basic.p1 ${OBJECTDIR}/_ext/1445274692/app_led_usb_status.p1 ${OBJECTDIR}/_ext/1445274692/main.p1 ${OBJECTDIR}/_ext/1445274692/adc.p1
 
 # Source Files
-SOURCEFILES=../../src/leds.c ../../src/buttons.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c ../../src/usb_descriptors.c ../../src/usb_device.c ../../src/usb_device_cdc.c ../../src/usb_events.c system.c user_commands.c ../../src/app_device_cdc_basic.c ../../src/app_led_usb_status.c ../../src/main.c ../../src/adc.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIOLatch.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c
+SOURCEFILES=../../src/leds.c ../../src/buttons.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c ../../src/usb_descriptors.c ../../src/usb_device.c ../../src/usb_device_cdc.c ../../src/usb_events.c system.c user_commands.c ../../src/app_device_cdc_basic.c ../../src/app_led_usb_status.c ../../src/main.c ../../src/adc.c
 
 
 CFLAGS=
@@ -103,45 +103,45 @@ ${OBJECTDIR}/_ext/1445274692/buttons.p1: ../../src/buttons.c  nbproject/Makefile
 	@-${MV} ${OBJECTDIR}/_ext/1445274692/buttons.d ${OBJECTDIR}/_ext/1445274692/buttons.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/buttons.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1454693305/glcdfont.p1: /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1454693305" 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/glcdfont.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/glcdfont.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1454693305/glcdfont.p1  /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c 
-	@-${MV} ${OBJECTDIR}/_ext/1454693305/glcdfont.d ${OBJECTDIR}/_ext/1454693305/glcdfont.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1454693305/glcdfont.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/634422929/glcdfont.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
+	@${RM} ${OBJECTDIR}/_ext/634422929/glcdfont.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/634422929/glcdfont.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/glcdfont.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c 
+	@-${MV} ${OBJECTDIR}/_ext/634422929/glcdfont.d ${OBJECTDIR}/_ext/634422929/glcdfont.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/glcdfont.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1: /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1454693305" 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1  /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c 
-	@-${MV} ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.d ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/634422929/TftLcd.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
+	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcd.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcd.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/TftLcd.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c 
+	@-${MV} ${OBJECTDIR}/_ext/634422929/TftLcd.d ${OBJECTDIR}/_ext/634422929/TftLcd.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/TftLcd.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1454693305/TftLcd.p1: /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1454693305" 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/TftLcd.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/TftLcd.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1454693305/TftLcd.p1  /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c 
-	@-${MV} ${OBJECTDIR}/_ext/1454693305/TftLcd.d ${OBJECTDIR}/_ext/1454693305/TftLcd.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1454693305/TftLcd.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/634422929/TftLcdIO.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
+	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/TftLcdIO.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c 
+	@-${MV} ${OBJECTDIR}/_ext/634422929/TftLcdIO.d ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1: /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1454693305" 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1  /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c 
-	@-${MV} ${OBJECTDIR}/_ext/1454693305/TftLcdIO.d ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
+	@${RM} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c 
+	@-${MV} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.d ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1: /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1454693305" 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1  /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c 
-	@-${MV} ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.d ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/634422929/AdafruitGfx.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
+	@${RM} ${OBJECTDIR}/_ext/634422929/AdafruitGfx.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/634422929/AdafruitGfx.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/AdafruitGfx.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c 
+	@-${MV} ${OBJECTDIR}/_ext/634422929/AdafruitGfx.d ${OBJECTDIR}/_ext/634422929/AdafruitGfx.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/AdafruitGfx.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1: ../../src/usb_descriptors.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
@@ -223,46 +223,6 @@ ${OBJECTDIR}/_ext/1445274692/adc.p1: ../../src/adc.c  nbproject/Makefile-${CND_C
 	@-${MV} ${OBJECTDIR}/_ext/1445274692/adc.d ${OBJECTDIR}/_ext/1445274692/adc.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/adc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/634422929/TftLcd.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcd.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcd.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/TftLcd.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c 
-	@-${MV} ${OBJECTDIR}/_ext/634422929/TftLcd.d ${OBJECTDIR}/_ext/634422929/TftLcd.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/TftLcd.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/634422929/TftLcdIO.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/TftLcdIO.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c 
-	@-${MV} ${OBJECTDIR}/_ext/634422929/TftLcdIO.d ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIOLatch.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIOLatch.c 
-	@-${MV} ${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.d ${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c 
-	@-${MV} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.d ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/634422929/glcdfont.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
-	@${RM} ${OBJECTDIR}/_ext/634422929/glcdfont.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/634422929/glcdfont.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/glcdfont.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c 
-	@-${MV} ${OBJECTDIR}/_ext/634422929/glcdfont.d ${OBJECTDIR}/_ext/634422929/glcdfont.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/glcdfont.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 else
 ${OBJECTDIR}/_ext/1445274692/leds.p1: ../../src/leds.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
@@ -280,45 +240,45 @@ ${OBJECTDIR}/_ext/1445274692/buttons.p1: ../../src/buttons.c  nbproject/Makefile
 	@-${MV} ${OBJECTDIR}/_ext/1445274692/buttons.d ${OBJECTDIR}/_ext/1445274692/buttons.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/buttons.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1454693305/glcdfont.p1: /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1454693305" 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/glcdfont.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/glcdfont.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1454693305/glcdfont.p1  /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c 
-	@-${MV} ${OBJECTDIR}/_ext/1454693305/glcdfont.d ${OBJECTDIR}/_ext/1454693305/glcdfont.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1454693305/glcdfont.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/634422929/glcdfont.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
+	@${RM} ${OBJECTDIR}/_ext/634422929/glcdfont.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/634422929/glcdfont.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/glcdfont.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c 
+	@-${MV} ${OBJECTDIR}/_ext/634422929/glcdfont.d ${OBJECTDIR}/_ext/634422929/glcdfont.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/glcdfont.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1: /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1454693305" 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1  /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c 
-	@-${MV} ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.d ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1454693305/TftTouchScreen.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/634422929/TftLcd.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
+	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcd.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcd.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/TftLcd.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c 
+	@-${MV} ${OBJECTDIR}/_ext/634422929/TftLcd.d ${OBJECTDIR}/_ext/634422929/TftLcd.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/TftLcd.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1454693305/TftLcd.p1: /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1454693305" 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/TftLcd.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/TftLcd.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1454693305/TftLcd.p1  /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c 
-	@-${MV} ${OBJECTDIR}/_ext/1454693305/TftLcd.d ${OBJECTDIR}/_ext/1454693305/TftLcd.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1454693305/TftLcd.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/634422929/TftLcdIO.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
+	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/TftLcdIO.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c 
+	@-${MV} ${OBJECTDIR}/_ext/634422929/TftLcdIO.d ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1: /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1454693305" 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1  /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c 
-	@-${MV} ${OBJECTDIR}/_ext/1454693305/TftLcdIO.d ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1454693305/TftLcdIO.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
+	@${RM} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c 
+	@-${MV} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.d ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1: /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1454693305" 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1  /media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c 
-	@-${MV} ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.d ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1454693305/AdafruitGfx.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/634422929/AdafruitGfx.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
+	@${RM} ${OBJECTDIR}/_ext/634422929/AdafruitGfx.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/634422929/AdafruitGfx.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/AdafruitGfx.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c 
+	@-${MV} ${OBJECTDIR}/_ext/634422929/AdafruitGfx.d ${OBJECTDIR}/_ext/634422929/AdafruitGfx.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/AdafruitGfx.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/1445274692/usb_descriptors.p1: ../../src/usb_descriptors.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1445274692" 
@@ -399,46 +359,6 @@ ${OBJECTDIR}/_ext/1445274692/adc.p1: ../../src/adc.c  nbproject/Makefile-${CND_C
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1445274692/adc.p1  ../../src/adc.c 
 	@-${MV} ${OBJECTDIR}/_ext/1445274692/adc.d ${OBJECTDIR}/_ext/1445274692/adc.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1445274692/adc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/634422929/TftLcd.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcd.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcd.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/TftLcd.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c 
-	@-${MV} ${OBJECTDIR}/_ext/634422929/TftLcd.d ${OBJECTDIR}/_ext/634422929/TftLcd.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/TftLcd.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/634422929/TftLcdIO.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/TftLcdIO.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c 
-	@-${MV} ${OBJECTDIR}/_ext/634422929/TftLcdIO.d ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/TftLcdIO.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIOLatch.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIOLatch.c 
-	@-${MV} ${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.d ${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/TftLcdIOLatch.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c 
-	@-${MV} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.d ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/TftTouchScreen.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/634422929/glcdfont.p1: /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/634422929" 
-	@${RM} ${OBJECTDIR}/_ext/634422929/glcdfont.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/634422929/glcdfont.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=bytewrite --rom=default,-0-FFF,-1006-1007,-1016-1017 --opt=-asm,-asmfile,-speed,+space,-debug,-local --addrqual=require --mode=pro -P -N255 -I"/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src" --warn=0 --asmlist -DXPRJ_PICDEM_FSUSB=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --codeoffset=0x2000 --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-download,-config,-clib,+plib $(COMPARISON_BUILD)  --output=+mcof,-elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/634422929/glcdfont.p1  /home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c 
-	@-${MV} ${OBJECTDIR}/_ext/634422929/glcdfont.d ${OBJECTDIR}/_ext/634422929/glcdfont.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/634422929/glcdfont.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

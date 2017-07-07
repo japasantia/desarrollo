@@ -77,5 +77,7 @@ extern "C" {
 void userInit();
 void userProcess(const char* inputBuffer, char size);
 
+void Screen_Initialize();
+
 #endif	/* XC_HEADER_TEMPLATE_H */
 

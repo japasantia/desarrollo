@@ -23,11 +23,11 @@ please contact mla_licensing@microchip.com
 #include <xc.h>
 #include <stdbool.h>
 
-#include "leds.h"
+#include "../../src/leds.h"
 
 #include "io_mapping.h"
 #include "fixed_address_memory.h"
-#include "usb_config.h"
+#include "../../src/usb_config.h"
 
 #define MAIN_RETURN void
 
