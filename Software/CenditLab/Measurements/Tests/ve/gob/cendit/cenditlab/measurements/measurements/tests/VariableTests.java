@@ -66,17 +66,22 @@ public class VariableTests
 
     private static void gen()
     {
-        List<C<? extends Number>> list = new LinkedList<>();
+        List<C<? extends Object>> list = new LinkedList<>();
 
         list.add(new C<Integer>(1));
         list.add(new C<Float>(12.5f));
 
-        Iterator<C<? extends Number>> it = list.iterator();
+        Iterator<C<? extends Object>> it = list.iterator();
 
         while (it.hasNext())
         {
-            C<? extends Number> c = it.next();
+            C<? extends Object> c = it.next();
             System.out.printf("%s", c.toString());
+
+            if (c instanceof C)
+            {
+
+            }
         }
     }
 }

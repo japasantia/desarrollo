@@ -28,6 +28,12 @@ public class Variable
         this.value = value;
     }
 
+    @Override
+    public String toString()
+    {
+        return value.toString();
+    }
+
     public void setValue(Object value)
     {
         if (changeListeners != null)
@@ -106,10 +112,6 @@ public class Variable
 
     protected void validateThrowExceptionIfFail(Object oldValue, Object newValue)
     {
-        if (changeListeners == null)
-        {
-            return;
-        }
         /*
         boolean success = changeListeners.stream()
                 .noneMatch(listener -> listener.validate(this, oldValue, newValue) == false);
@@ -130,5 +132,3 @@ public class Variable
         }
     }
 }
-
-

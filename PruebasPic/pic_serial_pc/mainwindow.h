@@ -1,8 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QtCore/QtGlobal>
+
 #include <QMainWindow>
 #include <QtSerialPort/QSerialPort>
+
+QT_USE_NAMESPACE
 
 namespace Ui {
 class MainWindow;

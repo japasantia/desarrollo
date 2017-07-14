@@ -1,8 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QtSerialPort/QSerialPort>
 #include <QMessageBox>
+#include <QtSerialPort/QSerialPort>
+
+QT_USE_NAMESPACE
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -33,8 +36,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(serial, SIGNAL(readyRead()),
                 this, SLOT(serialReceive()));
-
-
 }
 
 void MainWindow::openSerialPort()
