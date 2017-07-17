@@ -36,19 +36,14 @@ public class Variable
 
     public void setValue(Object value)
     {
-        if (changeListeners != null)
-        {
-            // Preserva momentaneamente el antiguo valor
-            Object oldValue = this.value;
-            // Actualiza con nuevo valor
-            this.value = value;
+        // Preserva momentaneamente el antiguo valor
+        Object oldValue = this.value;
+        // Actualiza con nuevo valor
+        this.value = value;
 
-            // Ejecuta validacion, lanza excepcion si falla
-            validateThrowExceptionIfFail(oldValue, this.value);
+        // Reportar a cada escucha que ha cambiado el valor
+        callChangeListeners(oldValue, this.value);
 
-            // Reportar a cada escucha que ha cambiado el valor
-            callChangeListeners(oldValue, this.value);
-        }
     }
 
     public Object getValue()
@@ -104,6 +99,7 @@ public class Variable
         {
             return;
         }
+
         changeListeners.stream()
             .forEach(listener ->
                 listener.changed(this, oldValue, newValue));
