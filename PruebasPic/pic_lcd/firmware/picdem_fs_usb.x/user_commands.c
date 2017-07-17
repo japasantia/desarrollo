@@ -14,14 +14,6 @@
 #include "../../lcd_lib/TftLcd.h"
 #include "../../lcd_lib/TftLcdIO.h"
 
-
-void userInit()
-{
-    TRISB = 0b11110000;
-    PORTB = 0xAA;
-}
-
-
 void userProcess(const char* inputBuffer, char size)
 {
     if (inputBuffer[0] == 0x0A || inputBuffer[1] == 0x0D)
@@ -45,7 +37,8 @@ Gfx g_gfx;
 
 void Screen_Initialize()
 {
-    putrsUSBUSART("On: InitializeScreen");
+    // putrsUSBUSART("On: InitializeScreen");
+    // CDCTxService();
     
     TftLcdIO_Init();
     Gfx_Init(&g_gfx, TFTWIDTH, TFTHEIGHT, &TftLcd_DrawPixel);
@@ -79,6 +72,7 @@ void Commands_Process()
     {
         uint8_t i;
         uint8_t numBytesRead;
+        char data;
 
         numBytesRead = getsUSBUSART(readBuffer, sizeof(readBuffer));
         
@@ -88,24 +82,64 @@ void Commands_Process()
         char cmd = readBuffer[0];
 
         if (cmd == 'i') 
-        {
-            putrsUSBUSART("Rcv: Initialize screen");
+        {            
             Screen_Initialize();
+            putrsUSBUSART("Rcv: Initialize screen");
         }
         else if (cmd == 'b' && numBytesRead >= 2)
-        {
-            putrsUSBUSART("Rcv: Update PORTB");
+        {            
             PORTB = readBuffer[1];
+            putrsUSBUSART("Rcv: Update PORTB");
         }
         else if (cmd == 'c' && numBytesRead >= 2)
-        {
-            putrsUSBUSART("Rcv: Update PORTC");
+        {          
             PORTC = readBuffer[1];
+            putrsUSBUSART("Rcv: Update PORTC");            
         } 
         else 
         {
             putrsUSBUSART("Rcv: Unknown command");
         }    
+        
+        #define SET_DATA            0x10
+        #define GET_DATA            0x11
+        #define SET_CONTROL         0x12
+        #define GET_CONTROL         0x13
+        #define SET_CONTROL_BIT     0x14
+        #define CMD_OK              0xFF
+        
+        switch (cmd)
+        {
+            case SET_DATA:
+                if (numBytesRead > 1)
+                    TftLcdIO_Write8(readBuffer[1]);
+                writeBuffer[0] = SET_DATA;
+                writeBuffer[1] = CMD_OK;
+                
+                break;
+                
+            case GET_DATA:
+                data = PORTB;
+                data &= 0b11101111;
+                data |= (RD_BIT != 0) ? 0b00010000 : 0b00000000;     
+                writeBuffer[0] = GET_DATA;
+                writeBuffer[1] = CMD_OK;
+                writeBuffer[2] = data;
+                
+                break;
+                    
+            case SET_CONTROL:
+                
+                if (numBytesRead  > 1)
+                {
+                    PORTC = (readBuffer[1] >> 2);
+                    PORTA = (readBuffer[1] & 0b00000011);
+                }
+                
+                break;
+                
+                        
+        }
     }
     
     CDCTxService();

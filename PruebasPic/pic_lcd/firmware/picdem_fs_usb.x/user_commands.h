@@ -74,7 +74,6 @@ extern "C" {
 }
 #endif /* __cplusplus */
 
-void userInit();
 void userProcess(const char* inputBuffer, char size);
 
 void Screen_Initialize();

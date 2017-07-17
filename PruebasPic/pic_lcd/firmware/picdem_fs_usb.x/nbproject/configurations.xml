@@ -9,12 +9,12 @@
         <itemPath>../../src/leds.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="lcd" projectFiles="true">
-        <itemPath>/home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.h</itemPath>
-        <itemPath>/home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdDef.h</itemPath>
-        <itemPath>/home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.h</itemPath>
-        <itemPath>/home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.h</itemPath>
-        <itemPath>/home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.h</itemPath>
-        <itemPath>/home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/registers.h</itemPath>
+        <itemPath>../../lcd_lib/AdafruitGfx.h</itemPath>
+        <itemPath>../../lcd_lib/TftLcd.h</itemPath>
+        <itemPath>../../lcd_lib/TftLcdDef.h</itemPath>
+        <itemPath>../../lcd_lib/TftLcdIO.h</itemPath>
+        <itemPath>../../lcd_lib/TftTouchScreen.h</itemPath>
+        <itemPath>../../lcd_lib/registers.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="usb" projectFiles="true">
         <itemPath>../../src/usb.h</itemPath>
@@ -48,11 +48,11 @@
         <itemPath>../../src/buttons.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="lcd" projectFiles="true">
-        <itemPath>/home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/glcdfont.c</itemPath>
-        <itemPath>/home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c</itemPath>
-        <itemPath>/home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c</itemPath>
-        <itemPath>/home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftTouchScreen.c</itemPath>
-        <itemPath>/home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c</itemPath>
+        <itemPath>../../lcd_lib/AdafruitGfx.c</itemPath>
+        <itemPath>../../lcd_lib/glcdfont.c</itemPath>
+        <itemPath>../../lcd_lib/TftLcd.c</itemPath>
+        <itemPath>../../lcd_lib/TftLcdIO.c</itemPath>
+        <itemPath>../../lcd_lib/TftTouchScreen.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="usb" projectFiles="true">
         <itemPath>../../src/usb_descriptors.c</itemPath>
@@ -75,11 +75,8 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>
-    <Elem>/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib</Elem>
-    <Elem>/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src</Elem>
-    <Elem>/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/firmware/picdem_fs_usb.x</Elem>
-    <Elem>/home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/src</Elem>
-    <Elem>/home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/lcd_lib</Elem>
+    <Elem>../../lcd_lib</Elem>
+    <Elem>../../src</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -552,6 +549,10 @@
                   value="report"/>
         <property key="warningmessagebreakoptions.W9805_SCL_UNRECOGNIZED_VAR"
                   value="report"/>
+        <property key="warningmessagebreakoptions.W9901_RTSP_INVALID_OPERATION_SELECTION"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W9902_RTSP_FLASH_PROGRAM_WRITE_PROTECTED"
+                  value="report"/>
         <property key="warningmessagebreakoptions.displaywarningmessagesoption"
                   value=""/>
         <property key="warningmessagebreakoptions.warningmessages" value="holdstate"/>
@@ -605,7 +606,7 @@
         <property key="define-macros" value=""/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
-                  value="/home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/src;/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src;/media/jsars/74D0704FD0701996/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib"/>
+                  value="/home/jarias/Pasantia/Desarrollo/PruebasPic/pic_lcd/src;../../lcd_lib;../../src"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="identifier-length" value="255"/>
         <property key="local-generation" value="false"/>
@@ -992,6 +993,10 @@
         <property key="warningmessagebreakoptions.W9804_SCL_UNRECOGNIZED_LABEL"
                   value="report"/>
         <property key="warningmessagebreakoptions.W9805_SCL_UNRECOGNIZED_VAR"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W9901_RTSP_INVALID_OPERATION_SELECTION"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W9902_RTSP_FLASH_PROGRAM_WRITE_PROTECTED"
                   value="report"/>
         <property key="warningmessagebreakoptions.displaywarningmessagesoption"
                   value=""/>

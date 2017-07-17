@@ -55,14 +55,14 @@ void TftLcd_Init()
 
 void TftLcd_Begin() 
 {	
-	uint8_t i = 0;
-
+	//uint8_t i = 0;    
+    
 	TftLcd_Reset();
+    
+	 //delay(200);	
+    __delay_ms(200);
 
-	// delay(200);	
-    __delay_ms(2);
-
-	uint16_t a, d;
+	//uint16_t a, d;
 	
 	TftLcdIO_SetCsActive();
 	TftLcdIO_WriteRegister8(ILI9341_SOFTRESET, 0);
@@ -91,6 +91,7 @@ void TftLcd_Begin()
 	// Not tested yet
 	//WriteRegister8(ILI9341_INVERTOFF, 0);
 	//delay(500);
+    __delay_ms(500);
 	// *** SPFD5408 change -- End
 	TftLcd_SetAddrWindow(0, 0, TFTWIDTH - 1, TFTHEIGHT - 1);
 
@@ -115,7 +116,7 @@ void TftLcd_Reset(void)
 	delay(2);
 	digitalWrite(5, HIGH);
 	*/
-	TftLcdIO_SetRdActive();
+	TftLcdIO_SetRstActive();
 	// delay(2);
     __delay_ms(2);
 	TftLcdIO_SetRstIdle();

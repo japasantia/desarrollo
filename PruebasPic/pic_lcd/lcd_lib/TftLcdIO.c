@@ -112,6 +112,7 @@ INLINE void TftLcdIO_WrStrobe()
 {
 	TftLcdIO_SetWrActive();
 	// delayMicroseconds(50);
+    __delay_ms(1);
 	TftLcdIO_SetWrIdle();
 }
 
@@ -134,7 +135,7 @@ byte TftLcdIO_Read8()
     TftLcdIO_SetRdActive();    
     __delay_us(500);
     byte data = PORTB;
-    TftLcdIO_SetRdIdle();
+    TftLcdIO_SetRdIdle();    
     return data;
     
 }
