@@ -72,6 +72,9 @@ void Commands_Process()
     {
         uint8_t i;
         uint8_t numBytesRead;
+        uint8_t numBytesWrite;
+        unsigned long delayCount;
+        
         char data;
 
         numBytesRead = getsUSBUSART(readBuffer, sizeof(readBuffer));
@@ -80,7 +83,7 @@ void Commands_Process()
             return;
     
         char cmd = readBuffer[0];
-
+        /*
         if (cmd == 'i') 
         {            
             Screen_Initialize();
@@ -100,21 +103,28 @@ void Commands_Process()
         {
             putrsUSBUSART("Rcv: Unknown command");
         }    
-        
+        */
         #define SET_DATA            0x10
         #define GET_DATA            0x11
         #define SET_CONTROL         0x12
         #define GET_CONTROL         0x13
         #define SET_CONTROL_BIT     0x14
+        #define WR_STROBE           0x15
+        #define PULSE_1MS            0x16
+        #define PULSE_1US            0x17
+        #define CMD_UNK             0x01
         #define CMD_OK              0xFF
         
         switch (cmd)
         {
             case SET_DATA:
                 if (numBytesRead > 1)
+                {
                     TftLcdIO_Write8(readBuffer[1]);
-                writeBuffer[0] = SET_DATA;
-                writeBuffer[1] = CMD_OK;
+                    writeBuffer[0] = SET_DATA;
+                    writeBuffer[1] = CMD_OK;
+                    numBytesWrite = 2;
+                }
                 
                 break;
                 
@@ -125,6 +135,7 @@ void Commands_Process()
                 writeBuffer[0] = GET_DATA;
                 writeBuffer[1] = CMD_OK;
                 writeBuffer[2] = data;
+                numBytesWrite = 3;
                 
                 break;
                     
@@ -134,11 +145,61 @@ void Commands_Process()
                 {
                     PORTC = (readBuffer[1] >> 2);
                     PORTA = (readBuffer[1] & 0b00000011);
+                    numBytesWrite = 2;
+                }
+                
+            case WR_STROBE:
+                
+                TftLcdIO_WrStrobe();
+                
+                writeBuffer[0] =  WR_STROBE;
+                writeBuffer[1] = CMD_OK;
+                numBytesWrite = 2;
+                
+            case PULSE_1MS:
+                
+                if (numBytesRead > 4) 
+                {
+                    delayCount = *( (uint32_t*)(readBuffer + 1) );
+                    while (delayCount-- > 0)
+                    {
+                         __delay_ms(1);
+                    }
+                    writeBuffer[0] = PULSE_1MS;
+                    writeBuffer[1] = CMD_OK;
+                    numBytesWrite = 2;
                 }
                 
                 break;
                 
-                        
+            case PULSE_1US:
+                
+                if (numBytesRead > 2)
+                {
+                    delayCount = *( (uint32_t*)(readBuffer + 1) );
+                    while (delayCount-- > 0)
+                    {
+                         __delay_us(1);
+                    }
+                    writeBuffer[0] = PULSE_1US;
+                    writeBuffer[1] = CMD_OK;
+                    numBytesWrite = 2;                
+                }                
+                
+                break;     
+                
+            default:
+                
+                writeBuffer[0] = CMD_UNK;
+                numBytesWrite = 1;
+                
+                break;
+        }
+        
+        if (numBytesWrite > 0)
+        {
+            putUSBUSART(writeBuffer, numBytesWrite);
+            numBytesWrite = 0;
         }
     }
     
