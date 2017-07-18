@@ -19,7 +19,7 @@ public class ScpiCommand
         https://www.debuggex.com/
         http://myregexp.com/g
     */
-    // TODO: corregir regexp para extraer parametros y validar comando
+    // TODO: Revisar regexp para extraer parametros y validar comando
     private static final String SCPI_COMAND_WITH_ARGUMENTS_REGEX =
             "^([^$]*\\$([^$]+)\\$[^$]*)+$";
     private static final String SCPI_COMMAND_REGEX =
