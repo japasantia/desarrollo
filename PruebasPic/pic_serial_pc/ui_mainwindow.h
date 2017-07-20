@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.0
+** Created by: Qt User Interface Compiler version 5.9.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -13,8 +13,10 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QFormLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -31,175 +33,237 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QWidget *verticalLayoutWidget;
-    QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout_2;
+    QWidget *formLayoutWidget;
+    QFormLayout *formLayout;
+    QVBoxLayout *verticalLayout_2;
+    QHBoxLayout *horizontalLayout_7;
+    QLabel *pathLabel;
+    QLineEdit *devicePath;
+    QHBoxLayout *horizontalLayout_3;
     QPushButton *openSerialButton;
-    QLineEdit *portNameText;
-    QHBoxLayout *horizontalLayout_5;
+    QPushButton *closeSerialButton;
+    QVBoxLayout *commandsLayout;
+    QLabel *label;
+    QHBoxLayout *dataRow;
+    QLabel *label_2;
+    QLineEdit *inputText;
+    QLabel *label_3;
+    QHBoxLayout *commandRow1;
+    QPushButton *setDataButton;
+    QPushButton *getDataButton;
+    QHBoxLayout *commandRow2;
+    QPushButton *setControlButton;
+    QPushButton *pulse1msButton;
+    QLabel *portsLabel;
+    QHBoxLayout *commandRow3;
+    QPushButton *portAUpdateButton;
     QPushButton *initializeScreenButton;
-    QLineEdit *lineEdit_5;
-    QHBoxLayout *horizontalLayout_8;
-    QPushButton *portAUpdate;
-    QLineEdit *portAText;
-    QHBoxLayout *horizontalLayout;
-    QPushButton *portBUpdateButton;
-    QLineEdit *portBText;
-    QHBoxLayout *horizontalLayout_4;
+    QHBoxLayout *commandRow4;
     QPushButton *portCUpdateButton;
-    QLineEdit *portCText;
-    QHBoxLayout *horizontalLayout_6;
+    QPushButton *portBUpdateButton;
     QPushButton *readAnalogButton;
-    QLineEdit *channelText;
+    QVBoxLayout *outputLayout;
+    QLabel *outputLabel;
     QTextEdit *outputText;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
+    QToolBar *toolBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(400, 300);
+        MainWindow->resize(709, 506);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        verticalLayoutWidget = new QWidget(centralWidget);
-        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(20, 20, 321, 392));
-        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
-        verticalLayout->setSpacing(6);
-        verticalLayout->setContentsMargins(11, 11, 11, 11);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalLayout->setSizeConstraint(QLayout::SetMaximumSize);
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        horizontalLayout_2->setSizeConstraint(QLayout::SetFixedSize);
-        openSerialButton = new QPushButton(verticalLayoutWidget);
-        openSerialButton->setObjectName(QStringLiteral("openSerialButton"));
-
-        horizontalLayout_2->addWidget(openSerialButton);
-
-        portNameText = new QLineEdit(verticalLayoutWidget);
-        portNameText->setObjectName(QStringLiteral("portNameText"));
+        formLayoutWidget = new QWidget(centralWidget);
+        formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
+        formLayoutWidget->setGeometry(QRect(40, 30, 771, 461));
+        formLayout = new QFormLayout(formLayoutWidget);
+        formLayout->setSpacing(6);
+        formLayout->setContentsMargins(11, 11, 11, 11);
+        formLayout->setObjectName(QStringLiteral("formLayout"));
+        formLayout->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setSpacing(6);
+        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        pathLabel = new QLabel(formLayoutWidget);
+        pathLabel->setObjectName(QStringLiteral("pathLabel"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(portNameText->sizePolicy().hasHeightForWidth());
-        portNameText->setSizePolicy(sizePolicy);
-        portNameText->setMinimumSize(QSize(100, 0));
+        sizePolicy.setHeightForWidth(pathLabel->sizePolicy().hasHeightForWidth());
+        pathLabel->setSizePolicy(sizePolicy);
 
-        horizontalLayout_2->addWidget(portNameText);
+        horizontalLayout_7->addWidget(pathLabel);
+
+        devicePath = new QLineEdit(formLayoutWidget);
+        devicePath->setObjectName(QStringLiteral("devicePath"));
+
+        horizontalLayout_7->addWidget(devicePath);
 
 
-        verticalLayout->addLayout(horizontalLayout_2);
+        verticalLayout_2->addLayout(horizontalLayout_7);
 
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setSpacing(6);
-        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        initializeScreenButton = new QPushButton(verticalLayoutWidget);
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        openSerialButton = new QPushButton(formLayoutWidget);
+        openSerialButton->setObjectName(QStringLiteral("openSerialButton"));
+
+        horizontalLayout_3->addWidget(openSerialButton);
+
+        closeSerialButton = new QPushButton(formLayoutWidget);
+        closeSerialButton->setObjectName(QStringLiteral("closeSerialButton"));
+
+        horizontalLayout_3->addWidget(closeSerialButton);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_3);
+
+
+        formLayout->setLayout(0, QFormLayout::LabelRole, verticalLayout_2);
+
+        commandsLayout = new QVBoxLayout();
+        commandsLayout->setSpacing(6);
+        commandsLayout->setObjectName(QStringLiteral("commandsLayout"));
+        label = new QLabel(formLayoutWidget);
+        label->setObjectName(QStringLiteral("label"));
+        sizePolicy.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
+        label->setSizePolicy(sizePolicy);
+
+        commandsLayout->addWidget(label);
+
+        dataRow = new QHBoxLayout();
+        dataRow->setSpacing(6);
+        dataRow->setObjectName(QStringLiteral("dataRow"));
+        label_2 = new QLabel(formLayoutWidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        sizePolicy.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
+        label_2->setSizePolicy(sizePolicy);
+
+        dataRow->addWidget(label_2);
+
+        inputText = new QLineEdit(formLayoutWidget);
+        inputText->setObjectName(QStringLiteral("inputText"));
+
+        dataRow->addWidget(inputText);
+
+
+        commandsLayout->addLayout(dataRow);
+
+        label_3 = new QLabel(formLayoutWidget);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        sizePolicy.setHeightForWidth(label_3->sizePolicy().hasHeightForWidth());
+        label_3->setSizePolicy(sizePolicy);
+
+        commandsLayout->addWidget(label_3);
+
+        commandRow1 = new QHBoxLayout();
+        commandRow1->setSpacing(6);
+        commandRow1->setObjectName(QStringLiteral("commandRow1"));
+        commandRow1->setSizeConstraint(QLayout::SetDefaultConstraint);
+        setDataButton = new QPushButton(formLayoutWidget);
+        setDataButton->setObjectName(QStringLiteral("setDataButton"));
+
+        commandRow1->addWidget(setDataButton);
+
+        getDataButton = new QPushButton(formLayoutWidget);
+        getDataButton->setObjectName(QStringLiteral("getDataButton"));
+
+        commandRow1->addWidget(getDataButton);
+
+
+        commandsLayout->addLayout(commandRow1);
+
+        commandRow2 = new QHBoxLayout();
+        commandRow2->setSpacing(6);
+        commandRow2->setObjectName(QStringLiteral("commandRow2"));
+        setControlButton = new QPushButton(formLayoutWidget);
+        setControlButton->setObjectName(QStringLiteral("setControlButton"));
+
+        commandRow2->addWidget(setControlButton);
+
+        pulse1msButton = new QPushButton(formLayoutWidget);
+        pulse1msButton->setObjectName(QStringLiteral("pulse1msButton"));
+
+        commandRow2->addWidget(pulse1msButton);
+
+
+        commandsLayout->addLayout(commandRow2);
+
+        portsLabel = new QLabel(formLayoutWidget);
+        portsLabel->setObjectName(QStringLiteral("portsLabel"));
+        sizePolicy.setHeightForWidth(portsLabel->sizePolicy().hasHeightForWidth());
+        portsLabel->setSizePolicy(sizePolicy);
+
+        commandsLayout->addWidget(portsLabel);
+
+        commandRow3 = new QHBoxLayout();
+        commandRow3->setSpacing(6);
+        commandRow3->setObjectName(QStringLiteral("commandRow3"));
+        portAUpdateButton = new QPushButton(formLayoutWidget);
+        portAUpdateButton->setObjectName(QStringLiteral("portAUpdateButton"));
+
+        commandRow3->addWidget(portAUpdateButton);
+
+        initializeScreenButton = new QPushButton(formLayoutWidget);
         initializeScreenButton->setObjectName(QStringLiteral("initializeScreenButton"));
 
-        horizontalLayout_5->addWidget(initializeScreenButton);
-
-        lineEdit_5 = new QLineEdit(verticalLayoutWidget);
-        lineEdit_5->setObjectName(QStringLiteral("lineEdit_5"));
-        sizePolicy.setHeightForWidth(lineEdit_5->sizePolicy().hasHeightForWidth());
-        lineEdit_5->setSizePolicy(sizePolicy);
-        lineEdit_5->setMinimumSize(QSize(100, 0));
-
-        horizontalLayout_5->addWidget(lineEdit_5);
+        commandRow3->addWidget(initializeScreenButton);
 
 
-        verticalLayout->addLayout(horizontalLayout_5);
+        commandsLayout->addLayout(commandRow3);
 
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setSpacing(6);
-        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        portAUpdate = new QPushButton(verticalLayoutWidget);
-        portAUpdate->setObjectName(QStringLiteral("portAUpdate"));
-
-        horizontalLayout_8->addWidget(portAUpdate);
-
-        portAText = new QLineEdit(verticalLayoutWidget);
-        portAText->setObjectName(QStringLiteral("portAText"));
-        sizePolicy.setHeightForWidth(portAText->sizePolicy().hasHeightForWidth());
-        portAText->setSizePolicy(sizePolicy);
-        portAText->setMinimumSize(QSize(100, 0));
-
-        horizontalLayout_8->addWidget(portAText);
-
-
-        verticalLayout->addLayout(horizontalLayout_8);
-
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
-        portBUpdateButton = new QPushButton(verticalLayoutWidget);
-        portBUpdateButton->setObjectName(QStringLiteral("portBUpdateButton"));
-
-        horizontalLayout->addWidget(portBUpdateButton);
-
-        portBText = new QLineEdit(verticalLayoutWidget);
-        portBText->setObjectName(QStringLiteral("portBText"));
-        sizePolicy.setHeightForWidth(portBText->sizePolicy().hasHeightForWidth());
-        portBText->setSizePolicy(sizePolicy);
-        portBText->setMinimumSize(QSize(100, 0));
-
-        horizontalLayout->addWidget(portBText);
-
-
-        verticalLayout->addLayout(horizontalLayout);
-
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setSpacing(6);
-        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        portCUpdateButton = new QPushButton(verticalLayoutWidget);
+        commandRow4 = new QHBoxLayout();
+        commandRow4->setSpacing(6);
+        commandRow4->setObjectName(QStringLiteral("commandRow4"));
+        portCUpdateButton = new QPushButton(formLayoutWidget);
         portCUpdateButton->setObjectName(QStringLiteral("portCUpdateButton"));
 
-        horizontalLayout_4->addWidget(portCUpdateButton);
+        commandRow4->addWidget(portCUpdateButton);
 
-        portCText = new QLineEdit(verticalLayoutWidget);
-        portCText->setObjectName(QStringLiteral("portCText"));
-        sizePolicy.setHeightForWidth(portCText->sizePolicy().hasHeightForWidth());
-        portCText->setSizePolicy(sizePolicy);
-        portCText->setMinimumSize(QSize(100, 0));
+        portBUpdateButton = new QPushButton(formLayoutWidget);
+        portBUpdateButton->setObjectName(QStringLiteral("portBUpdateButton"));
 
-        horizontalLayout_4->addWidget(portCText);
+        commandRow4->addWidget(portBUpdateButton);
 
 
-        verticalLayout->addLayout(horizontalLayout_4);
+        commandsLayout->addLayout(commandRow4);
 
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setSpacing(6);
-        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
-        readAnalogButton = new QPushButton(verticalLayoutWidget);
+        readAnalogButton = new QPushButton(formLayoutWidget);
         readAnalogButton->setObjectName(QStringLiteral("readAnalogButton"));
 
-        horizontalLayout_6->addWidget(readAnalogButton);
-
-        channelText = new QLineEdit(verticalLayoutWidget);
-        channelText->setObjectName(QStringLiteral("channelText"));
-        sizePolicy.setHeightForWidth(channelText->sizePolicy().hasHeightForWidth());
-        channelText->setSizePolicy(sizePolicy);
-        channelText->setMinimumSize(QSize(100, 0));
-
-        horizontalLayout_6->addWidget(channelText);
+        commandsLayout->addWidget(readAnalogButton);
 
 
-        verticalLayout->addLayout(horizontalLayout_6);
+        formLayout->setLayout(0, QFormLayout::FieldRole, commandsLayout);
 
-        outputText = new QTextEdit(verticalLayoutWidget);
+        outputLayout = new QVBoxLayout();
+        outputLayout->setSpacing(6);
+        outputLayout->setObjectName(QStringLiteral("outputLayout"));
+        outputLabel = new QLabel(formLayoutWidget);
+        outputLabel->setObjectName(QStringLiteral("outputLabel"));
+
+        outputLayout->addWidget(outputLabel);
+
+        outputText = new QTextEdit(formLayoutWidget);
         outputText->setObjectName(QStringLiteral("outputText"));
+        outputText->setReadOnly(true);
 
-        verticalLayout->addWidget(outputText);
+        outputLayout->addWidget(outputText);
+
+
+        formLayout->setLayout(1, QFormLayout::LabelRole, outputLayout);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 19));
+        menuBar->setGeometry(QRect(0, 0, 709, 19));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -207,6 +271,9 @@ public:
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
+        toolBar = new QToolBar(MainWindow);
+        toolBar->setObjectName(QStringLiteral("toolBar"));
+        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
 
         retranslateUi(MainWindow);
 
@@ -215,25 +282,30 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        openSerialButton->setText(QApplication::translate("MainWindow", "Open serial port", 0));
-#ifndef QT_NO_TOOLTIP
-        portNameText->setToolTip(QApplication::translate("MainWindow", "Serial port device, e.g. /dev/ttyACM0", 0));
-#endif // QT_NO_TOOLTIP
-        initializeScreenButton->setText(QApplication::translate("MainWindow", "Initialize Screen", 0));
-        portAUpdate->setText(QApplication::translate("MainWindow", "Update PORTA", 0));
-        portBUpdateButton->setText(QApplication::translate("MainWindow", "Update PORTB", 0));
-#ifndef QT_NO_TOOLTIP
-        portBText->setToolTip(QApplication::translate("MainWindow", "Value to set on PORTB", 0));
-#endif // QT_NO_TOOLTIP
-        portCUpdateButton->setText(QApplication::translate("MainWindow", "Update PORTC", 0));
-#ifndef QT_NO_TOOLTIP
-        portCText->setToolTip(QApplication::translate("MainWindow", "Value to set on PORTC", 0));
-#endif // QT_NO_TOOLTIP
-        readAnalogButton->setText(QApplication::translate("MainWindow", "Read Analog", 0));
-#ifndef QT_NO_TOOLTIP
-        channelText->setToolTip(QApplication::translate("MainWindow", "Channel to read on PORTA", 0));
-#endif // QT_NO_TOOLTIP
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
+        pathLabel->setText(QApplication::translate("MainWindow", "Serial port path", Q_NULLPTR));
+        openSerialButton->setText(QApplication::translate("MainWindow", "Open", Q_NULLPTR));
+        closeSerialButton->setText(QApplication::translate("MainWindow", "Close", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindow", "TftLcdIO test", Q_NULLPTR));
+        label_2->setText(QApplication::translate("MainWindow", "Command data", Q_NULLPTR));
+        label_3->setText(QApplication::translate("MainWindow", "Commands", Q_NULLPTR));
+        setDataButton->setText(QApplication::translate("MainWindow", "Set Data", Q_NULLPTR));
+        getDataButton->setText(QApplication::translate("MainWindow", "Get Data", Q_NULLPTR));
+        setControlButton->setText(QApplication::translate("MainWindow", "Set Control", Q_NULLPTR));
+        pulse1msButton->setText(QApplication::translate("MainWindow", "Pulse 1MS", Q_NULLPTR));
+        portsLabel->setText(QApplication::translate("MainWindow", "Port operations", Q_NULLPTR));
+        portAUpdateButton->setText(QApplication::translate("MainWindow", "Update PORTA", Q_NULLPTR));
+        initializeScreenButton->setText(QApplication::translate("MainWindow", "Initialize Screen", Q_NULLPTR));
+        portCUpdateButton->setText(QApplication::translate("MainWindow", "Update PORTC", Q_NULLPTR));
+        portBUpdateButton->setText(QApplication::translate("MainWindow", "Update PORTB", Q_NULLPTR));
+        readAnalogButton->setText(QApplication::translate("MainWindow", "Read Analog", Q_NULLPTR));
+        outputLabel->setText(QApplication::translate("MainWindow", "Output", Q_NULLPTR));
+        outputText->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#0055ff;\">Hola</span><span style=\" font-weight:600;\"> </span><span style=\" font-weight:600; color:#55ff7f;\">que</span><span style=\" font-weight:600;\"> </span><span style=\" font-weight:600; color:#ff5500;\">tal</span></p></body></html>", Q_NULLPTR));
+        toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", Q_NULLPTR));
     } // retranslateUi
 
 };

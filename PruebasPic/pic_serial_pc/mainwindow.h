@@ -22,13 +22,22 @@ public:
 
 protected slots:
 
+    void openSerialPort();
+    void closeSerialPort();
+
     void initializeScreen();
+
+    void setData();
+    void getData();
+    void setControl();
+    void pulse1ms();
+
     void updatePortA();
     void updatePortB();
     void updatePortC();
-    void serialReceive();
+    //void serialReceive();
     void readAnalog();    
-    void openSerialPort();
+
 
 private:
     Ui::MainWindow *ui;

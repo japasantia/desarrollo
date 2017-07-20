@@ -110,8 +110,8 @@ void Commands_Process()
         #define GET_CONTROL         0x13
         #define SET_CONTROL_BIT     0x14
         #define WR_STROBE           0x15
-        #define PULSE_1MS            0x16
-        #define PULSE_1US            0x17
+        #define PULSE_1MS           0x16
+        #define PULSE_1US           0x17
         #define CMD_UNK             0x01
         #define CMD_OK              0xFF
         
