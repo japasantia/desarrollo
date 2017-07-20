@@ -249,7 +249,7 @@ public class ScpiCommand3
 
     private String removeCommandOutputPlaceholder(String command)
     {
-        return command.replace(SCPI_COMMAND_OUTPUT_VARS_PATTERN, "");
+        return command.replaceFirst(SCPI_COMMAND_OUTPUT_VARS_PATTERN, "");
     }
 
     public String getCommand()
