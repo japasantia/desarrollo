@@ -5,9 +5,6 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by jarias on 18/07/17.
- */
 public class ScpiCommand2
 {
     /*
@@ -32,6 +29,7 @@ public class ScpiCommand2
     private VariablesBundle variablesBundle;
 
     private boolean needUpdate;
+    private boolean wellFormed;
 
     private VariableChangeListener changeListener =
             new VariableChangeListener()
@@ -60,6 +58,11 @@ public class ScpiCommand2
             // variablesBundle = new VariablesBundle();
 
             extractArgumentNames(command);
+            wellFormed = false;
+        }
+        else
+        {
+            wellFormed = true;
         }
 
         needUpdate = true;
@@ -67,7 +70,8 @@ public class ScpiCommand2
         preparedCommand = command;
     }
 
-    public ScpiCommand2(String command, VariablesBundle bundle)
+    public ScpiCommand2(String command,
+                        VariablesBundle bundle)
     {
         if (command == null || bundle == null)
         {
@@ -82,6 +86,11 @@ public class ScpiCommand2
             
             extractArgumentNames(command);
             attachChangeListenerToVariables();
+            wellFormed = checkArgumentsAvailability();
+        }
+        else
+        {
+            wellFormed = true;
         }
 
         needUpdate = true;
@@ -92,6 +101,16 @@ public class ScpiCommand2
     private static boolean hasArguments(String command)
     {
         return command.matches(SCPI_COMAND_WITH_ARGUMENTS_REGEX);
+    }
+
+    public boolean hasArguments()
+    {
+        return argumentsSet != null;
+    }
+
+    public boolean isWellFormed()
+    {
+        return wellFormed;
     }
 
     private void extractArgumentNames(String command)
@@ -114,6 +133,12 @@ public class ScpiCommand2
         }
     }
 
+    private boolean checkArgumentsAvailability()
+    {
+        return argumentsSet.stream()
+            .noneMatch(argument -> variablesBundle.get(argument) == null);
+    }
+
     private void attachChangeListenerToVariables()
     {
         argumentsSet.stream()
@@ -129,6 +154,11 @@ public class ScpiCommand2
 
     private String replaceArgumentsWithVariables(VariablesBundle bundle)
     {
+        if (argumentsSet == null)
+        {
+            return rawCommand;
+        }
+
         String command = rawCommand;
 
         for (String argumentName : argumentsSet)
@@ -144,7 +174,7 @@ public class ScpiCommand2
 
     public String getCommand()
     {
-        if (variablesBundle != null && needUpdate)
+        if (variablesBundle != null && hasArguments() && needUpdate)
         {
             preparedCommand =
                 replaceArgumentsWithVariables(variablesBundle);
@@ -152,6 +182,31 @@ public class ScpiCommand2
         }
 
         return preparedCommand;
+    }
+
+    public void setVariables(VariablesBundle bundle)
+    {
+        if (bundle == null)
+        {
+            throw new IllegalArgumentException("bundle must not be null");
+        }
+
+        variablesBundle = bundle;
+
+        if (hasArguments())
+        {
+            attachChangeListenerToVariables();
+            wellFormed = checkArgumentsAvailability();
+        }
+        else
+        {
+            wellFormed = true;
+        }
+    }
+
+    public VariablesBundle getVariables()
+    {
+        return variablesBundle;
     }
 
     public String applyVariables(VariablesBundle bundle)

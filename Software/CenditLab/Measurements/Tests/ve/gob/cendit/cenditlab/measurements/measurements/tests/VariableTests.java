@@ -47,7 +47,7 @@ public class VariableTests
         v1.setValue("Adios");
         v2.setValue(3.14);
 
-        v1.removeListener(changeListener);
+        v1.removeChangeListener(changeListener);
         v2.removeAllListeners();
     }
 

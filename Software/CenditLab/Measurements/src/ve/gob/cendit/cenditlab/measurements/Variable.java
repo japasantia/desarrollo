@@ -77,7 +77,7 @@ public class Variable
         changeListeners.add(listener);
     }
 
-    public void removeListener(VariableChangeListener listener)
+    public void removeChangeListener(VariableChangeListener listener)
     {
         if (changeListeners != null)
         {
