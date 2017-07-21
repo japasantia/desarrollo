@@ -1,263 +1,327 @@
 package ve.gob.cendit.cenditlab.measurements;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
-import ve.gob.cendit.cenditlab.measurements.Variable;
-import ve.gob.cendit.cenditlab.measurements.VariableChangeListener;
-
-import java.nio.file.InvalidPathException;
-import java.security.InvalidParameterException;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ScpiCommand
 {
     /*
-    Pruebas de expresiones regulares
-        https://regex101.com/
-        http://myregexp.com/
-        https://www.debuggex.com/
-        http://myregexp.com/g
+     Pruebas de expresiones regulares
+     https://regex101.com/
+     http://myregexp.com/
+     https://www.debuggex.com/
+     http://myregexp.com/g
     */
+
     // TODO: Revisar regexp para extraer parametros y validar comando
-    private static final String SCPI_COMAND_WITH_ARGUMENTS_REGEX =
-            "^([^$]*\\$([^$]+)\\$[^$]*)+$";
-    private static final String SCPI_COMMAND_REGEX =
-            "([^$]*(\\$(?<argument>[^$]+)\\$)+[^$]*)";
-            // "([^$]*(\\$(?<argument>[^$]*)\\$)*[^$]*)";
+    /*
+    private static final String SCPI_COMMAND_WITH_ARGUMENTS_REGEX =
+            "[^()\\[\\]]*(\\((?<varin>[^()\\[\\]]+)\\))+[^()\\[\\]]*(\\[(?<varout>[^\\[\\]]+)\\])?";
+    */
+
+    private static final String SCPI_COMMAND_INPUT_PLACEHOLDER_REGEX =
+            "[^()\\[\\]]*(\\((?<varin>[^()\\[\\]]+)\\))+[^()\\[\\]]*";
+
+    private static final String SCPI_COMMAND_OUTPUT_PLACEHOLDER_REGEX =
+            "^[^\\[\\]]*(\\[(?<varout>[^\\[\\]]+)\\]){1}[^\\[\\]]*$";
+
+    private static final String SCPI_COMMAND_INPUT_VARS_PATTERN =
+            "^([^()]*(\\([^()\\[\\]]+\\))+[^()]*)+$";
+
+    private static final String SCPI_COMMAND_OUTPUT_VARS_PATTERN =
+            "[^\\[\\]]*(\\[[^\\[\\]]+\\]){1}";
+
+
+    private static final String SCPI_COMMAND_OUTPUT_PLACEHOLDER_PATTERN =
+            "(\\[[^\\[\\]]+\\]){1}";
+
+    private static final String SCPI_COMMAND_INPUT_FORMAT =
+            "(%s)";
 
     private String rawCommand;
     private String preparedCommand;
+
+    private Set<String> inVariableNamesSet;
+    private String outVariableName;
+    private VariablesBundle variablesBundle;
+
     private boolean needUpdate;
+    private boolean wellFormed;
 
-    private VariableChangeListener variableChangeListener;
-
-    private Map<String, Variable> arguments;
-
-    public ScpiCommand(String command, Variable... variables)
-    {
-        if (command == null || variables == null)
-        {
-            // TODO: excepcion ante arguentos null
-            throw new IllegalArgumentException("Arguments must not be null");
-        }
-
-
-        if (!hasArguments(command))
-        {
-            // TODO: excepcion el coando no tiene marcadores de posicion argumentos
-            // mal formato de comando
-            throw new InvalidParameterException("command has no arguments placeholders");
-        }
-
-
-        arguments = new HashMap<>();
-        needUpdate = false;
-
-        rawCommand = command;
-        mapArgumentsWithVariables(command, variables);
-        addChangeListenerToVariables();
-        preparedCommand = replaceVariables(rawCommand);
-    }
-
-    public ScpiCommand(String command, Object... values)
-    {
-        if (command == null || values == null)
-        {
-            // TODO: excepcion ante arguentos null
-            throw new IllegalArgumentException("Arguments must not be null");
-        }
-
-        if (!hasArguments(command))
-        {
-            // TODO: excepcion el coando no tiene marcadores de posicion argumentos
-            // mal formato de comando
-            throw new InvalidParameterException("command has no arguments placeholders");
-        }
-
-        arguments = new HashMap<>();
-        needUpdate = false;
-
-        rawCommand = command;
-        extractVariables(command, values);
-        preparedCommand = replaceVariables(rawCommand);
-    }
-
-    public ScpiCommand(String string, Map<String, Variable> argumentsMap)
-    {
-
-    }
+    private VariableChangeListener changeListener =
+            new VariableChangeListener()
+            {
+                @Override
+                public void changed(Variable variable, Object oldValue, Object newValue)
+                {
+                    needUpdate = true;
+                }
+            };
 
     public ScpiCommand(String command)
     {
         if (command == null)
         {
+            // TODO: excepcion ante argumentos null
             throw new IllegalArgumentException("Arguments must not be null");
         }
 
-        if (hasArguments(command))
-        {
-            throw new InvalidParameterException("command passed without arguments values list");
-        }
-
+        wellFormed = true;
         needUpdate = false;
         rawCommand = command;
-        preparedCommand = command;
+
+        if (hasInputVariables(rawCommand))
+        {
+            /* TODO: Elegir la forma mas conveniente para almacenar
+               los nombres de los argumentos
+            */
+            inVariableNamesSet = new HashSet<String>();
+
+            extractInputVariableNames(rawCommand);
+            wellFormed = false;
+            needUpdate = true;
+        }
+
+        if (hasOutputVariable(rawCommand))
+        {
+            extractOutputVariableName(rawCommand);
+            rawCommand = removeCommandOutputPlaceholder(rawCommand);
+            wellFormed = false;
+        }
+
+        preparedCommand = rawCommand;
     }
 
-    private static boolean hasArguments(String command)
+    public ScpiCommand(String command,
+                       VariablesBundle bundle)
     {
-        return command.matches(SCPI_COMAND_WITH_ARGUMENTS_REGEX);
+        if (command == null || bundle == null)
+        {
+            // TODO: excepcion ante argumentos null
+            throw new IllegalArgumentException("Arguments must not be null");
+        }
+
+        wellFormed = true;
+        needUpdate = false;
+        rawCommand = command;
+
+        if (hasInputVariables(rawCommand))
+        {
+            inVariableNamesSet = new HashSet<String>();
+            variablesBundle = bundle;
+
+            extractInputVariableNames(rawCommand);
+            enableInputVariablesChangeListener(true);
+            wellFormed = checkInputVariablesAvailability();
+            needUpdate = true;
+        }
+
+        if (hasOutputVariable(command))
+        {
+            extractOutputVariableName(rawCommand);
+            rawCommand = removeCommandOutputPlaceholder(rawCommand);
+        }
+
+        preparedCommand = rawCommand;
     }
 
-    private void mapArgumentsWithVariables(String command, Variable... variables)
+    private static boolean hasInputVariables(String command)
     {
-        int index = 0;
+        return command.matches(SCPI_COMMAND_INPUT_VARS_PATTERN);
+        // return command.matches(SCPI_COMMAND_INPUT_PLACEHOLDER_REGEX);
+    }
 
-        Pattern pattern = Pattern.compile(SCPI_COMMAND_REGEX);
+    private static boolean hasOutputVariable(String command)
+    {
+        return command.matches(SCPI_COMMAND_OUTPUT_VARS_PATTERN);
+        // return command.matches(SCPI_COMMAND_OUTPUT_PLACEHOLDER_REGEX);
+    }
+
+    public boolean hasInputVariables()
+    {
+        return inVariableNamesSet != null;
+    }
+
+    public boolean hasOutputVariable()
+    {
+        return outVariableName != null;
+    }
+
+    public boolean isWellFormed()
+    {
+        return wellFormed;
+    }
+
+    public Set<String> getInputVariableNames()
+    {
+        return inVariableNamesSet;
+    }
+
+    public String getOutputVariableName()
+    {
+        return outVariableName;
+    }
+
+    public Variable getOutputVariable()
+    {
+        return variablesBundle.get(outVariableName);
+    }
+
+    private void extractInputVariableNames(String command)
+    {
+        // Pattern pattern = Pattern.compile(SCPI_COMMAND_WITH_ARGUMENTS_REGEX);
+        Pattern pattern = Pattern.compile(SCPI_COMMAND_INPUT_PLACEHOLDER_REGEX);
         Matcher matcher = pattern.matcher(command);
+        String variableName;
 
-        while (matcher.find() == true)
+        // Extrae variables de entrada (argumentos del comando)
+        while (matcher.find())
         {
             try
             {
-                String argName = matcher.group("argument");
-                if (argName != null)
+                variableName = matcher.group("varin");
+                if (variableName != null)
                 {
-                    arguments.put(argName, variables[index]);
-                    index++;
+                    inVariableNamesSet.add(variableName);
                 }
             }
             catch (Exception ex)
             { }
         }
-
-        rawCommand = command;
     }
 
-    private void extractVariables(String command, Object... values)
+    private void extractOutputVariableName(String command)
     {
-        int index = 0;
-
-        Pattern pattern = Pattern.compile(SCPI_COMMAND_REGEX);
+        // Extrae variable de salida (unica variable de salida)
+        Pattern pattern = Pattern.compile(SCPI_COMMAND_OUTPUT_PLACEHOLDER_REGEX);
         Matcher matcher = pattern.matcher(command);
 
-        while (matcher.find())
+        try
         {
-            try
+            if (matcher.find())
             {
-                String argName = matcher.group("argument");
-                if (argName != null)
-                {
-                    arguments.put(argName,
-                            new Variable( argName, values[index] ));
-                    index++;
-                }
+                outVariableName = matcher.group("varout");
             }
-            catch (Exception ex)
-            { }
         }
-
-        rawCommand = command;
+        catch (Exception ex)
+        { }
     }
 
-    private void loadVariablesFromMap(String command, Map<String, Variable> argumentsMap)
+    private boolean checkInputVariablesAvailability()
     {
-        Pattern pattern = Pattern.compile(SCPI_COMMAND_REGEX);
-        Matcher matcher = pattern.matcher(command);
-
-        while (matcher.find())
+        if (inVariableNamesSet == null || variablesBundle == null)
         {
-            try
-            {
-                String argName = matcher.group("argument");
-                if (argName == null)
-                {
-                    continue;
-                }
-
-                if (argumentsMap.containsKey(argName))
-                {
-                    arguments.put(argName,
-                            argumentsMap.get(argName));
-                }
-                else
-                {
-                    // TODO: generar excepcion, no existe variable argumento
-                }
-            }
-            catch (Exception ex)
-            {}
+           return false;
         }
+
+        return inVariableNamesSet.stream()
+                            .noneMatch(name -> variablesBundle.get(name) == null);
     }
 
-    private void addChangeListenerToVariables()
+    private void enableInputVariablesChangeListener(boolean enable)
     {
-
-        variableChangeListener = new VariableChangeListener()
+        if (inVariableNamesSet == null || variablesBundle == null)
         {
-            @Override
-            public void changed(Variable variable, Object oldValue, Object newValue)
-            {
-                needUpdate = true;
-            }
-        };
+            return;
+        }
 
-        arguments.values()
-                .stream()
-                .forEach(variable -> {
-                    variable.addChangeListener(variableChangeListener);
+        inVariableNamesSet.stream()
+                .forEach(name ->
+                {
+                    Variable variable = variablesBundle.get(name);
+                    if (variable == null) return;
+
+                    if (enable)
+                    {
+                        variable.addChangeListener(changeListener);
+                    }
+                    else
+                    {
+                        variable.removeChangeListener(changeListener);
+                    }
                 });
     }
 
-    private String replaceVariables(String inCommand)
+
+    private String replaceInputVariablesWithValues(VariablesBundle bundle)
     {
-        String outCommand = inCommand;
-
-        for (Map.Entry<String, Variable> entry : arguments.entrySet())
+        if ( ! hasInputVariables() )
         {
-            String argPattern = String.format("$%s$", entry.getKey());
-            Variable argVariable = entry.getValue();
-            String argValue = argVariable.getValue().toString();
-
-            outCommand = outCommand.replace(argPattern, argValue);
+            return preparedCommand;
         }
 
-        return outCommand;
+        if (bundle == null)
+        {
+            // TODO: unicamente debug
+            throw new NullPointerException("bundle must not be null");
+        }
+
+        String command = rawCommand;
+
+        for (String variableName : inVariableNamesSet)
+        {
+            String pattern = String.format(SCPI_COMMAND_INPUT_FORMAT, variableName);
+            Variable variable = bundle.get(variableName);
+            command = command.replace( pattern,
+                    variable.getValue().toString() );
+        }
+
+        return command;
     }
 
-    private void updateCommand()
+    private String removeCommandOutputPlaceholder(String command)
     {
-        if (needUpdate)
-        {
-            preparedCommand = replaceVariables(rawCommand);
-            needUpdate = false;
-        }
+        return command.replaceFirst(SCPI_COMMAND_OUTPUT_PLACEHOLDER_PATTERN, "");
     }
 
     public String getCommand()
     {
-        updateCommand();
+        if (variablesBundle != null && hasInputVariables() && needUpdate)
+        {
+            preparedCommand =
+                    replaceInputVariablesWithValues(variablesBundle);
+            needUpdate = false;
+        }
+
         return preparedCommand;
     }
 
-    public Collection<Variable> getVariables()
+    public void setVariables(VariablesBundle bundle)
     {
-        if (arguments != null)
+        if (bundle == null)
         {
-            return arguments.values();
+            throw new IllegalArgumentException("bundle must not be null");
         }
 
-        return null;
+        needUpdate = false;
+        wellFormed = true;
+
+        if (hasInputVariables())
+        {
+            enableInputVariablesChangeListener(false);
+            variablesBundle = bundle;
+            enableInputVariablesChangeListener(true);
+
+            needUpdate = true;
+            wellFormed = checkInputVariablesAvailability();
+        }
     }
 
-    public Set<String> getArguments()
+    public VariablesBundle getVariables()
     {
-        if (arguments != null)
+        return variablesBundle;
+    }
+
+    public String applyVariables(VariablesBundle bundle)
+    {
+        if (bundle == null)
         {
-            return arguments.keySet();
+            throw new IllegalArgumentException("bundle must not be null");
         }
 
-        return null;
+        return replaceInputVariablesWithValues(bundle);
     }
 }
+

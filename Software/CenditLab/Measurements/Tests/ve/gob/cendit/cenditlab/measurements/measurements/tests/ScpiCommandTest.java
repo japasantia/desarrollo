@@ -2,44 +2,65 @@ package ve.gob.cendit.cenditlab.measurements.measurements.tests;
 
 import ve.gob.cendit.cenditlab.measurements.ScpiCommand;
 import ve.gob.cendit.cenditlab.measurements.Variable;
-
-import java.util.Collection;
+import ve.gob.cendit.cenditlab.measurements.VariablesBundle;
 
 /**
- * Created by jarias on 14/07/17.
+ * Created by jarias on 20/07/17.
  */
 public class ScpiCommandTest
 {
     public static void main(String[] args)
     {
-        Variable v1 = new Variable("Data", 12);
-        Variable v2 = new Variable("Value", 3.13);
+        VariablesBundle bundle = new VariablesBundle();
 
-        ScpiCommand command1 =
-                new ScpiCommand("MEAS:INPUT $data$, $value$",
-                        v1, v2);
-        String preparedCommand = command1.getCommand();
+        Variable range = new Variable("Range", 10.0);
+        Variable enable = new Variable("Enable", "ON");
+        Variable min = new Variable("Min", 1e3);
+        Variable max = new Variable("Max", 1e6);
+        Variable dcValue = new Variable("DC value", 0.0);
+        Variable array = new Variable("Array", null);
 
-        ScpiCommand command2 =
-                new ScpiCommand("INPUT:DC $range$, $mode$",
-                        10.0, "ON");
-        preparedCommand = command2.getCommand();
+        bundle.add("range", range);
+        bundle.add("enable", enable);
+        bundle.add("min", min);
+        bundle.add("max", max);
+        bundle.add("array", array);
+        bundle.add("dc-value", dcValue);
 
-        ScpiCommand command3 =
-                new ScpiCommand("MEAS:INPUT 10, 20");
-        preparedCommand = command3.getCommand();
+        printVariables("Start execution variables", bundle);
 
-        v1.setValue("OFF");
-        v2.setValue(14.16);
+        ScpiCommand cmd1 = new ScpiCommand(":MEAS:DC: (range), (enable) [dc-value]");
+        ScpiCommand cmd2 = new ScpiCommand(":FETCH:ARRAY (min), (max) [array]", bundle);
+        ScpiCommand cmd3 = new ScpiCommand(":FETCH:DATA ON", bundle);
 
-        preparedCommand = command1.getCommand();
+        boolean valid = cmd1.isWellFormed();
+        String cmd = cmd1.getCommand();
+        cmd = cmd1.applyVariables(bundle);
 
-        Collection<Variable> variables = command1.getVariables();
-        variables.stream().forEach(v -> System.out.printf("cmd1 var: %s\n", v));
+        valid = cmd2.isWellFormed();
+        cmd = cmd2.getCommand();
 
-        variables = command2.getVariables();
-        variables.stream().forEach(v -> System.out.printf("cmd2 var: %s\n", v));
+        valid = cmd3.isWellFormed();
+        cmd = cmd3.getCommand();
+        cmd = cmd3.applyVariables(bundle);
 
-        variables = command3.getVariables();
+        range.setValue(15.0f);
+        enable.setValue("OFF");
+        min.setValue(250.0f);
+        max.setValue(1750.0f);
+
+        cmd = cmd1.applyVariables(bundle);
+        cmd = cmd2.getCommand();
+
+        printVariables("End execution variables", bundle);
+    }
+
+    private static void printVariables(String message, VariablesBundle bundle)
+    {
+        System.out.println(message);
+
+        bundle.variables()
+            .stream()
+            .forEach(v -> System.out.printf("%s = %s\n", v.getName(), v.getValue()));
     }
 }

@@ -4,28 +4,28 @@ import ve.gob.cendit.cenditlab.io.IConnection;
 
 import java.util.*;
 
-/**
- * Created by jarias on 17/07/17.
- */
 public class ConfigureMeasurementTask implements ITask
 {
-    private static String[] RAW_COMMANDS =
+    private static final ScpiCommand[] COMMANDS =
     {
-        "*RST",
-        "*CLS",
-        ":SENSE:FREQUENCY:STOP $frequency-stop$",
-        ":SENSE:FREQUENCY:POINTS $frequency-points$",
-        ":SENSE:AVERAGE:STATE $average-state$",
-        ":SENSE:AVERAGE:COUNT $average-count$",
-        ":SENSE:BANDWIDTH $bandwidth$",
-        ":INITIATE:CONTINUOUS:ALL $continuous$"
+        new ScpiCommand("*RST"),
+        new ScpiCommand("*CLS"),
+        new ScpiCommand(":SENSE:FREQUENCY:START (frequency-start) GHz"),
+        new ScpiCommand(":SENSE:FREQUENCY:STOP (frequency-stop) GHz"),
+        new ScpiCommand(":SENSE:CORRECTION:COLLECT:ACQUIRE STANDARD"),
+        new ScpiCommand("*WAI"),
+        new ScpiCommand(":SENSE:SWEEP:POINTS (frequency-points)"),
+        new ScpiCommand(":SENSE:AVERAGE:STATE (average-state)"),
+        new ScpiCommand(":SENSE:AVERAGE:COUNT (average-count)"),
+        new ScpiCommand(":SENSE:BANDWIDTH (bandwidth)"),
+        new ScpiCommand(":INITIATE:CONTINUOUS:ALL (continuous)"),
     };
 
     private IConnection connection;
     private List<ITaskListener> taskListeners;
 
     private VariablesBundle variablesBundle;
-    private List<ScpiCommand2> commands;
+    private List<ScpiCommand> commands;
 
     public ConfigureMeasurementTask(IConnection connection,
                                     VariablesBundle variablesBundle)
@@ -33,15 +33,15 @@ public class ConfigureMeasurementTask implements ITask
         this.connection = connection;
         this.variablesBundle = variablesBundle;
 
-        loadCommands();
+        setVariablesToCommands();
     }
 
-    private void loadCommands()
+    private void setVariablesToCommands()
     {
-        commands = new ArrayList<ScpiCommand2>(RAW_COMMANDS.length);
-
-        Arrays.stream(RAW_COMMANDS)
-            .forEach( c -> commands.add(new ScpiCommand2(c, variablesBundle)) );
+        for (ScpiCommand command : COMMANDS)
+        {
+            command.setVariables(variablesBundle);
+        }
     }
 
     @Override
@@ -84,26 +84,35 @@ public class ConfigureMeasurementTask implements ITask
                         .forEach(tl -> tl.onEntry(this));
             }
 
-            for (ScpiCommand2 command : commands)
+            for (ScpiCommand command : COMMANDS)
             {
-                if (command.isWellFormed())
-                {
-                    String stringCommand = command.getCommand();
-                    connection.write(stringCommand);
-                }
-                else
+                if ( ! command.isWellFormed() )
                 {
                     // TODO: verificar reporte de error ejecución
                     taskListeners.stream()
-                        .forEach(tl -> tl.onError(this));
+                            .forEach(tl -> tl.onError(this));
                     // TODO: establecer el tipo de excepcion
                     throw new TaskExecutionException("bad formed scpi command");
+                }
+
+                String stringCommand = command.getCommand();
+                connection.write(stringCommand);
+                Thread.sleep(2000);
+
+                if (command.hasOutputVariable())
+                {
+                    String response = connection.read();
+                    Variable outVariable = variablesBundle.get(command.getOutputVariableName());
+                    if (outVariable != null)
+                    {
+                        outVariable.setValue(response);
+                    }
                 }
             }
         }
         catch (Exception ex)
         {
-
+            ex.printStackTrace();
         }
     }
 }
