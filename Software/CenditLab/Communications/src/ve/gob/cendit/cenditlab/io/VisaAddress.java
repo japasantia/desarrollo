@@ -4,8 +4,7 @@ package ve.gob.cendit.cenditlab.io;
  * Created by jsars on 17/06/17.
  */
 
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.Nullable;
+
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -115,8 +114,6 @@ public class VisaAddress
         addressFieldsMap.put(field, fieldValue);
     }
 
-    @Nullable
-    @Contract("null -> fail")
     public String getField(VisaAddressFields field)
     {
         if (field== null)
@@ -369,8 +366,7 @@ class VisaAddressPatterns
         VisaAddressPatterns.USB_INSTR_RAW
     };
 
-    @Contract(pure = true)
-    public static String[] getAsArray()
+   public static String[] getAsArray()
     {
         return patterns;
     }

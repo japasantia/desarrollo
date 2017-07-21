@@ -8,16 +8,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$APPLICATION_HOME_DIR$/redist/annotations-java8.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="jna-4.4.0" level="project" />
     <orderEntry type="library" name="junit" level="project" />
+    <orderEntry type="library" name="jna-4.4.0" level="project" />
+    <orderEntry type="library" name="IdeaProjects" level="project" />
   </component>
 </module>

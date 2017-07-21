@@ -9,13 +9,11 @@ import java.util.List;
  */
 public class Task implements ITask
 {
-    private List<Variable> variablesList;
-    private List<Task> subTaskList;
-
     @Override
-    public List<Variable> variables()
+    public VariablesBundle variables()
     {
         return null;
+
     }
 
     @Override
@@ -25,18 +23,13 @@ public class Task implements ITask
     }
 
     @Override
-    public void addTaskListener(TaskListener listener)
+    public void addTaskListener(ITaskListener listener)
     {
 
     }
 
     @Override
-    public void Execute()
-    {
-
-    }
-
-    public void Execute(IConnection connection)
+    public void execute()
     {
 
     }

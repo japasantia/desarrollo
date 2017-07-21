@@ -16,22 +16,28 @@ public class ScpiCommand3
     */
 
     // TODO: Revisar regexp para extraer parametros y validar comando
+    /*
     private static final String SCPI_COMMAND_WITH_ARGUMENTS_REGEX =
             "[^()\\[\\]]*(\\((?<varin>[^()\\[\\]]+)\\))+[^()\\[\\]]*(\\[(?<varout>[^\\[\\]]+)\\])?";
+    */
 
     private static final String SCPI_COMMAND_INPUT_PLACEHOLDER_REGEX =
             "[^()\\[\\]]*(\\((?<varin>[^()\\[\\]]+)\\))+[^()\\[\\]]*";
 
-    private static final String SCPI_COMMAND_INPUT_VARS_PATTERN =
-            "^([^()]*(\\([^()\\[\\]]+\\))+[^()]*)+$";
-
     private static final String SCPI_COMMAND_OUTPUT_PLACEHOLDER_REGEX =
             "^[^\\[\\]]*(\\[(?<varout>[^\\[\\]]+)\\]){1}[^\\[\\]]*$";
 
+    private static final String SCPI_COMMAND_INPUT_VARS_PATTERN =
+            "^([^()]*(\\([^()\\[\\]]+\\))+[^()]*)+$";
+
     private static final String SCPI_COMMAND_OUTPUT_VARS_PATTERN =
+            "[^\\[\\]]*(\\[[^\\[\\]]+\\]){1}";
+
+
+    private static final String SCPI_COMMAND_OUTPUT_PLACEHOLDER_PATTERN =
             "(\\[[^\\[\\]]+\\]){1}";
 
-    private static final String SCPI_COMMAND_INPUT_PLACEHOLDER = 
+    private static final String SCPI_COMMAND_INPUT_FORMAT =
             "(%s)";
 
     private String rawCommand;
@@ -124,11 +130,13 @@ public class ScpiCommand3
     private static boolean hasInputVariables(String command)
     {
         return command.matches(SCPI_COMMAND_INPUT_VARS_PATTERN);
+        // return command.matches(SCPI_COMMAND_INPUT_PLACEHOLDER_REGEX);
     }
 
     private static boolean hasOutputVariable(String command)
     {
-        return command.matches(SCPI_COMMAND_OUTPUT_PLACEHOLDER_REGEX);
+        return command.matches(SCPI_COMMAND_OUTPUT_VARS_PATTERN);
+        // return command.matches(SCPI_COMMAND_OUTPUT_PLACEHOLDER_REGEX);
     }
 
     public boolean hasInputVariables()
@@ -146,9 +154,25 @@ public class ScpiCommand3
         return wellFormed;
     }
 
+    public Set<String> getInputVariableNames()
+    {
+        return inVariableNamesSet;
+    }
+
+    public String getOutputVariableName()
+    {
+        return outVariableName;
+    }
+
+    public Variable getOutputVariable()
+    {
+        return variablesBundle.get(outVariableName);
+    }
+
     private void extractInputVariableNames(String command)
     {
-        Pattern pattern = Pattern.compile(SCPI_COMMAND_WITH_ARGUMENTS_REGEX);
+        // Pattern pattern = Pattern.compile(SCPI_COMMAND_WITH_ARGUMENTS_REGEX);
+        Pattern pattern = Pattern.compile(SCPI_COMMAND_INPUT_PLACEHOLDER_REGEX);
         Matcher matcher = pattern.matcher(command);
         String variableName;
 
@@ -207,7 +231,7 @@ public class ScpiCommand3
                 .forEach(name ->
                 {
                     Variable variable = variablesBundle.get(name);
-                    if (variable != null) return;
+                    if (variable == null) return;
 
                     if (enable)
                     {
@@ -238,7 +262,7 @@ public class ScpiCommand3
 
         for (String variableName : inVariableNamesSet)
         {
-            String pattern = String.format(SCPI_COMMAND_INPUT_PLACEHOLDER, variableName);
+            String pattern = String.format(SCPI_COMMAND_INPUT_FORMAT, variableName);
             Variable variable = bundle.get(variableName);
             command = command.replace( pattern,
                     variable.getValue().toString() );
@@ -249,7 +273,7 @@ public class ScpiCommand3
 
     private String removeCommandOutputPlaceholder(String command)
     {
-        return command.replaceFirst(SCPI_COMMAND_OUTPUT_VARS_PATTERN, "");
+        return command.replaceFirst(SCPI_COMMAND_OUTPUT_PLACEHOLDER_PATTERN, "");
     }
 
     public String getCommand()

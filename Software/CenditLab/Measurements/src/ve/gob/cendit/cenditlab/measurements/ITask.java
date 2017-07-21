@@ -7,8 +7,8 @@ import java.util.List;
  */
 public interface ITask
 {
-    List<Variable> variables();
+    VariablesBundle variables();
     List<ITask> subTasks();
-    void addTaskListener(TaskListener listener);
-    void Execute();
+    void addTaskListener(ITaskListener listener);
+    void execute();
 }

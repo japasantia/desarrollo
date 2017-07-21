@@ -1,6 +1,5 @@
 package ve.gob.cendit.cenditlab.io;
 
-import org.jetbrains.annotations.Contract;
 
 /**
  * Created by jarias on 20/06/17.
@@ -35,7 +34,6 @@ public enum VisaAddressFields
         return fieldName;
     }
 
-    @Contract(pure = true)
     public static String[] getAsArray()
     {
         return fieldNames;

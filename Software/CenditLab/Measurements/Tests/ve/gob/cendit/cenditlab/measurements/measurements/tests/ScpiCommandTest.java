@@ -1,3 +1,5 @@
+package ve.gob.cendit.cenditlab.measurements.measurements.tests;
+
 import ve.gob.cendit.cenditlab.measurements.ScpiCommand;
 import ve.gob.cendit.cenditlab.measurements.Variable;
 

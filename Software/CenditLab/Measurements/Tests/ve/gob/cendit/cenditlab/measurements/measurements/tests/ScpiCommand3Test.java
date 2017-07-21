@@ -39,17 +39,19 @@ public class ScpiCommand3Test
         cmd = cmd1.applyVariables(bundle);
 
         valid = cmd2.isWellFormed();
-        cmd = cmd1.getCommand();
+        cmd = cmd2.getCommand();
 
         valid = cmd3.isWellFormed();
         cmd = cmd3.getCommand();
         cmd = cmd3.applyVariables(bundle);
 
-        range.setValue(15.0);
+        range.setValue(15.0f);
         enable.setValue("OFF");
+        min.setValue(250.0f);
+        max.setValue(1750.0f);
 
         cmd = cmd1.applyVariables(bundle);
-        cmd = cmd1.getCommand();
+        cmd = cmd2.getCommand();
 
         printVariables("End execution variables", bundle);
     }
