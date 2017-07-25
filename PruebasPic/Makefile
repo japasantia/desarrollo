@@ -854,6 +854,8 @@ mainwindow.o: pic_serial_pc/mainwindow.cpp pic_serial_pc/mainwindow.h \
 		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/qstyle.h \
 		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/qtabbar.h \
 		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/QLabel \
+		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/qlabel.h \
 		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/QLineEdit \
 		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/qlineedit.h \
 		/opt/Qt5.2.0/5.2.0/gcc/include/QtGui/qtextcursor.h \
@@ -866,6 +868,7 @@ mainwindow.o: pic_serial_pc/mainwindow.cpp pic_serial_pc/mainwindow.h \
 		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/QPushButton \
 		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/qpushbutton.h \
 		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/QSpacerItem \
 		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/QStatusBar \
 		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/qstatusbar.h \
 		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/QTextEdit \
@@ -877,7 +880,9 @@ mainwindow.o: pic_serial_pc/mainwindow.cpp pic_serial_pc/mainwindow.h \
 		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/QWidget \
 		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/QMessageBox \
 		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/qmessagebox.h \
-		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/qdialog.h
+		/opt/Qt5.2.0/5.2.0/gcc/include/QtWidgets/qdialog.h \
+		/opt/Qt5.2.0/5.2.0/gcc/include/QtCore/QThread \
+		/opt/Qt5.2.0/5.2.0/gcc/include/QtCore/qthread.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o pic_serial_pc/mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
