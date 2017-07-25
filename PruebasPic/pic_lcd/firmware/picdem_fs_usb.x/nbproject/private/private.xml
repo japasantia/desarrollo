@@ -5,13 +5,23 @@
         <group>
             <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/main.c</file>
             <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/firmware/picdem_fs_usb.x/user_commands.c</file>
+            <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/usb_events.c</file>
             <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdDef.h</file>
+            <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/firmware/picdem_fs_usb.x/system.c</file>
             <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/firmware/picdem_fs_usb.x/user_commands.h</file>
             <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/usb_device_cdc.c</file>
+            <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/system.h</file>
+            <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/usb_hal_pic18.h</file>
             <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.c</file>
             <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/app_device_cdc_basic.c</file>
             <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/usb_device.h</file>
             <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcdIO.h</file>
+            <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/usb_device.c</file>
+            <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/usb_config.h</file>
+            <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/leds.c</file>
+            <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.c</file>
+            <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/usb_descriptors.c</file>
+            <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/usb.h</file>
             <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/AdafruitGfx.h</file>
             <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/lcd_lib/TftLcd.c</file>
             <file>file:/mnt/local/PasantiaCendit/Desarrollo/PruebasPic/pic_lcd/src/usb_common.h</file>

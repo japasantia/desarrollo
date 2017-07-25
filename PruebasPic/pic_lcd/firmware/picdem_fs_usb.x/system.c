@@ -20,6 +20,10 @@ please contact mla_licensing@microchip.com
 #include "system.h"
 #include "../../src/usb.h"
 
+// BEGIN_MOD
+    #include "user_commands.h"
+// END_MOD
+
 /** CONFIGURATION Bits **********************************************/
 // BEGIN_MOD
     // #pragma config PLLDIV   = 5       //(20 MHz crystal on PICDEM FS USB board)
@@ -101,6 +105,10 @@ void interrupt SYS_InterruptHigh(void)
     #if defined(USB_INTERRUPT)
         USBDeviceTasks();
     #endif
+
+    // BEGIN_MOD
+       Commands_ISR();
+    // END_MOD
 }
 #else
     void YourHighPriorityISRCode();

@@ -74,9 +74,13 @@ extern "C" {
 }
 #endif /* __cplusplus */
 
-void userProcess(const char* inputBuffer, char size);
+void Commands_UpdateScreen();
+
+void Commands_Initialize();
+void Commands_ISR();
 
 void Screen_Initialize();
+void Screen_RandomText();
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

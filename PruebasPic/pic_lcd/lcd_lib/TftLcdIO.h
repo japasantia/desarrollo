@@ -6,14 +6,15 @@
 
 #define INLINE inline
 
-#define CS_PORT     PORTC
-#define RST_PORT    PORTC
-#define RD_PORT     PORTC
-#define WR_PORT     PORTA
+#define CS_PORT     LATC
+#define RST_PORT    LATC
+#define RD_PORT     LATC
+#define WR_PORT     LATA
+#define CD_PORT     LATA
 
 #define YP_BIT      WR_BIT
-#define YM_BIT      PORTBbits.RB7
-#define XP_BIT      PORTBbits.RB6
+#define YM_BIT      LATBbits.LB7
+#define XP_BIT      LATBbits.LB6
 #define XM_BIT      CD_BIT
 
 #define YP_TRIS_BIT      TRISAbits.RA1
@@ -21,11 +22,11 @@
 #define XP_TRIS_BIT      TRISBbits.RB6
 #define XM_TRIS_BIT      TRISAbits.RA0
 
-#define CS_BIT      PORTCbits.RC1
-#define RST_BIT     PORTCbits.RC2
-#define RD_BIT      PORTCbits.RC0
-#define WR_BIT      PORTAbits.RA1
-#define CD_BIT      PORTAbits.RA0
+#define RD_BIT      LATCbits.LC2
+#define WR_BIT      LATAbits.LA1
+#define CD_BIT      LATAbits.LA0
+#define CS_BIT      LATCbits.LC1
+#define RST_BIT     LATCbits.LC0
 
 #define LOW         0
 #define HIGH        1

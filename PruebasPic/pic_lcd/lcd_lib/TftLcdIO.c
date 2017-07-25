@@ -111,14 +111,16 @@ void TftLcdIO_SetReadDir()
 INLINE void TftLcdIO_WrStrobe()
 {
 	TftLcdIO_SetWrActive();
-	// delayMicroseconds(50);
-    __delay_ms(1);
+	// delayMicroseconds(100);
+    // __delay_us(1);
 	TftLcdIO_SetWrIdle();
 }
 
 INLINE void TftLcdIO_Write8(byte d)
 {   
-    PORTB = d;
+    LATB = d;
+    
+    RD_BIT = ( (d & 0b00100000) ?  1 : 0 );
     
 	TftLcdIO_WrStrobe();
 }

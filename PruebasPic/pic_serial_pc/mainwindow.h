@@ -35,7 +35,7 @@ protected slots:
     void updatePortA();
     void updatePortB();
     void updatePortC();
-    //void serialReceive();
+    void serialReceive();
     void readAnalog();    
 
 

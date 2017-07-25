@@ -11,25 +11,86 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>PicSerial [Jose Arias]</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="formLayoutWidget">
+  <widget class="QWidget" name="Frame">
+   <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>30</y>
-      <width>771</width>
-      <height>461</height>
+      <x>10</x>
+      <y>10</y>
+      <width>679</width>
+      <height>458</height>
      </rect>
     </property>
-    <layout class="QFormLayout" name="formLayout">
-     <item row="0" column="0">
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QLabel" name="pathLabel">
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetFixedSize</enum>
+           </property>
+           <item>
+            <widget class="QLabel" name="pathLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Serial port path</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="devicePath"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetFixedSize</enum>
+           </property>
+           <item>
+            <widget class="QPushButton" name="openSerialButton">
+             <property name="text">
+              <string>Open</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="closeSerialButton">
+             <property name="text">
+              <string>Close</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="commandsLayout_2">
+         <item>
+          <widget class="QLabel" name="label_4">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -37,54 +98,32 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Serial port path</string>
+            <string>TftLcdIO test</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="devicePath"/>
+          <layout class="QHBoxLayout" name="dataRow_2">
+           <item>
+            <widget class="QLabel" name="label_5">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Command data</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="inputText"/>
+           </item>
+          </layout>
          </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QPushButton" name="openSerialButton">
-           <property name="text">
-            <string>Open</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="closeSerialButton">
-           <property name="text">
-            <string>Close</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </item>
-     <item row="0" column="1">
-      <layout class="QVBoxLayout" name="commandsLayout">
-       <item>
-        <widget class="QLabel" name="label">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>TftLcdIO test</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="dataRow">
-         <item>
-          <widget class="QLabel" name="label_2">
+          <widget class="QLabel" name="label_6">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -92,126 +131,110 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Command data</string>
+            <string>Commands</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="inputText"/>
+          <layout class="QHBoxLayout" name="commandRow1_2">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetDefaultConstraint</enum>
+           </property>
+           <item>
+            <widget class="QPushButton" name="setDataButton">
+             <property name="text">
+              <string>Set Data</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="getDataButton">
+             <property name="text">
+              <string>Get Data</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_3">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Commands</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="commandRow1">
-         <property name="sizeConstraint">
-          <enum>QLayout::SetDefaultConstraint</enum>
-         </property>
          <item>
-          <widget class="QPushButton" name="setDataButton">
+          <layout class="QHBoxLayout" name="commandRow2_2">
+           <item>
+            <widget class="QPushButton" name="setControlButton">
+             <property name="text">
+              <string>Set Control</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pulse1msButton">
+             <property name="text">
+              <string>Pulse 1MS</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="portsLabel_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="text">
-            <string>Set Data</string>
+            <string>Port operations</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="getDataButton">
-           <property name="text">
-            <string>Get Data</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="commandRow2">
-         <item>
-          <widget class="QPushButton" name="setControlButton">
-           <property name="text">
-            <string>Set Control</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pulse1msButton">
-           <property name="text">
-            <string>Pulse 1MS</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="portsLabel">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Port operations</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="commandRow3">
-         <item>
-          <widget class="QPushButton" name="portAUpdateButton">
-           <property name="text">
-            <string>Update PORTA</string>
-           </property>
-          </widget>
+          <layout class="QHBoxLayout" name="commandRow3_2">
+           <item>
+            <widget class="QPushButton" name="updatePortAButton">
+             <property name="text">
+              <string>Update PORTA</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="initializeScreenButton">
+             <property name="text">
+              <string>Initialize Screen</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
          <item>
-          <widget class="QPushButton" name="initializeScreenButton">
-           <property name="text">
-            <string>Initialize Screen</string>
-           </property>
-          </widget>
+          <layout class="QHBoxLayout" name="commandRow4_2">
+           <item>
+            <widget class="QPushButton" name="updatePortCButton">
+             <property name="text">
+              <string>Update PORTC</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="updatePortBButton">
+             <property name="text">
+              <string>Update PORTB</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="commandRow4">
          <item>
-          <widget class="QPushButton" name="portCUpdateButton">
+          <widget class="QPushButton" name="readAnalogButton">
            <property name="text">
-            <string>Update PORTC</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="portBUpdateButton">
-           <property name="text">
-            <string>Update PORTB</string>
+            <string>Read Analog</string>
            </property>
           </widget>
          </item>
         </layout>
-       </item>
-       <item>
-        <widget class="QPushButton" name="readAnalogButton">
-         <property name="text">
-          <string>Read Analog</string>
-         </property>
-        </widget>
        </item>
       </layout>
      </item>
-     <item row="1" column="0">
+     <item>
       <layout class="QVBoxLayout" name="outputLayout">
        <item>
         <widget class="QLabel" name="outputLabel">

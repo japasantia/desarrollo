@@ -296,7 +296,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "PicSerial [Jose Arias]", Q_NULLPTR));
         pathLabel->setText(QApplication::translate("MainWindow", "Serial port path", Q_NULLPTR));
         openSerialButton->setText(QApplication::translate("MainWindow", "Open", Q_NULLPTR));
         closeSerialButton->setText(QApplication::translate("MainWindow", "Close", Q_NULLPTR));

@@ -32,11 +32,6 @@ please contact mla_licensing@microchip.com
 #include "../firmware/picdem_fs_usb.x/user_commands.h"
 
 
-/**
- *  Inicializa la pantalla Tft Lcd
- */
-void Screen_Initialize();
-
 /********************************************************************
  * Function:        void main(void)
  *
@@ -57,13 +52,10 @@ MAIN_RETURN main(void)
     SYSTEM_Initialize(SYSTEM_STATE_USB_START);
 
     USBDeviceInit();
-    USBDeviceAttach();
-    
-    // BEGIN_MOD    
-    // userInit();
-    // END_MOD
-    
-    // Inicializa pantala Tft Lcd
+    USBDeviceAttach();      
+
+    Commands_Initialize();
+    // Inicializa pantala Tft Lcd    
     Screen_Initialize();
     
     while(1)

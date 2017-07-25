@@ -158,8 +158,12 @@ const USB_DEVICE_DESCRIPTOR device_dsc=
     0x00,                   // Subclass code
     0x00,                   // Protocol code
     USB_EP0_BUFF_SIZE,      // Max packet size for EP0, see usb_config.h
-    0x04D8,                 // Vendor ID
-    0x000A,                 // Product ID: CDC RS-232 Emulation Demo
+    //0x04D8,                 // Vendor ID
+    //0x000A,                 // Product ID: CDC RS-232 Emulation Demo
+    /* BEGIN MODIFY: ProductID VendorID */
+    0xAB1A,                 // Vendor ID
+    0x105E,                 // Product ID: CDC RS-232 Emulation Demo    
+    /* END MODIFY */
     0x0100,                 // Device release number in BCD format
     0x01,                   // Manufacturer string index
     0x02,                   // Product string index
@@ -258,18 +262,33 @@ const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[1];}sd000={
 sizeof(sd000),USB_DESCRIPTOR_STRING,{0x0409}};
 
 //Manufacturer string descriptor
-const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[25];}sd001={
+//const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[25];}sd001={
+//sizeof(sd001),USB_DESCRIPTOR_STRING,
+//{'M','i','c','r','o','c','h','i','p',' ',
+//'T','e','c','h','n','o','l','o','g','y',' ','I','n','c','.'
+//}};
+
+/* BEGIN MODIFY */
+const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[37];}sd001={
 sizeof(sd001),USB_DESCRIPTOR_STRING,
-{'M','i','c','r','o','c','h','i','p',' ',
-'T','e','c','h','n','o','l','o','g','y',' ','I','n','c','.'
-}};
+{'J','o','s','e',' ','A','r','i','a','s',' ',
+    '[','c','o','r','r','e','o','@','j','o','s','e','a','r','i','a','s','.',
+        'c','o','m','.','v','e',']','.'}};
+/* END MODIFY */
 
 //Product string descriptor
-const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[25];}sd002={
+//const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[25];}sd002={
+//sizeof(sd002),USB_DESCRIPTOR_STRING,
+//{'C','D','C',' ','R','S','-','2','3','2',' ',
+//'E','m','u','l','a','t','i','o','n',' ','D','e','m','o'}
+//};
+
+/* BEGIN MODIFY */
+const struct{uint8_t bLength;uint8_t bDscType;uint16_t string[12];}sd002={
 sizeof(sd002),USB_DESCRIPTOR_STRING,
-{'C','D','C',' ','R','S','-','2','3','2',' ',
-'E','m','u','l','a','t','i','o','n',' ','D','e','m','o'}
+{'C','e','n','d','i','t','B','o','a','r','d','.'}
 };
+/* END MODIFY */
 
 //Serial number string descriptor.  If a serial number string is implemented, 
 //it should be unique for every single device coming off the production assembly 

@@ -3,19 +3,27 @@
 
 #include <QMessageBox>
 #include <QtSerialPort/QSerialPort>
+#include <QThread>
 
 QT_USE_NAMESPACE
 
-#define SET_DATA            0x10
-#define GET_DATA            0x11
-#define SET_CONTROL         0x12
-#define GET_CONTROL         0x13
-#define SET_CONTROL_BIT     0x14
-#define WR_STROBE           0x15
-#define PULSE_1MS           0x16
-#define PULSE_1US           0x17
-#define CMD_UNK             0x01
-#define CMD_OK              0xFF
+#define SET_DATA            ((char) 0x10)
+#define GET_DATA            ((char) 0x11)
+#define SET_CONTROL         ((char) 0x12)
+#define GET_CONTROL         ((char) 0x13)
+#define SET_CONTROL_BIT     ((char) 0x14)
+#define WR_STROBE           ((char) 0x15)
+#define PULSE_1MS           ((char) 0x16)
+#define PULSE_1US           ((char) 0x17)
+#define UPDATE_PORTA        ((char) 0x18)
+#define UPDATE_PORTB        ((char) 0x19)
+#define UPDATE_PORTC        ((char) 0x1A)
+#define READ_ANALOG         ((char) 0x1B)
+#define SCREEN_INIT         ((char) 0x1C)
+#define CMD_UNK             ((char) 0x01)
+#define CMD_OK              ((char) 0xFF)
+#define CMD_ERROR           ((char) 0x00)
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -46,22 +54,22 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->initializeScreenButton, SIGNAL(clicked()),
                 this, SLOT(initializeScreen()));
 
-    connect(ui->portAUpdateButton, SIGNAL(clicked()),
+    connect(ui->updatePortAButton, SIGNAL(clicked()),
             this, SLOT(updatePortA()));
 
-    connect(ui->portBUpdateButton, SIGNAL(clicked()),
+    connect(ui->updatePortBButton, SIGNAL(clicked()),
                 this, SLOT(updatePortB()));
 
-    connect(ui->portCUpdateButton, SIGNAL(clicked()),
+    connect(ui->updatePortCButton, SIGNAL(clicked()),
                 this, SLOT(updatePortC()));
 
     connect(ui->readAnalogButton, SIGNAL(clicked()),
             this, SLOT(readAnalog()));
 
-    /*
+
     connect(serial, SIGNAL(readyRead()),
                 this, SLOT(serialReceive()));
-    */
+
 }
 
 MainWindow::~MainWindow()
@@ -94,8 +102,11 @@ void MainWindow::closeSerialPort()
 
 void MainWindow::setData()
 {
+
+
     bool ok = true;
     char buffer[2];  
+    int writtenBytes;
 
     int data = ui->inputText->text().toInt(&ok);
 
@@ -105,36 +116,30 @@ void MainWindow::setData()
         buffer[1] = data;
 
         serial->clear();
-        serial->write(buffer, 2);
-        serial->read(buffer, 2);
+        writtenBytes = serial->write(buffer, 2);
 
-        if (buffer[0] == SET_DATA && buffer[1] != CMD_OK)
-        {
-            // Success
-        }
+        ui->outputText->setText(QString::asprintf("setData: %d bytes sent", writtenBytes));
     }
 }
 
 void MainWindow::getData()
 {
     char buffer[3];
+    int writtenBytes;
 
     buffer[0] = GET_DATA;
 
     serial->clear();
-    serial->write(buffer, 1);
-    serial->read(buffer, 3);
+    writtenBytes = serial->write(buffer, 1);
 
-    if (buffer[0] == GET_DATA && buffer[1] == CMD_OK)
-    {
-        ui->outputText->append( QString::asprintf("port data = %X\n", buffer[2]) );
-    }
+    ui->outputText->setText(QString::asprintf("getData: %d bytes sent", writtenBytes));
 }
 
 void MainWindow::setControl()
 {
     bool ok = true;
     char buffer[2];
+    int writtenBytes;
 
     int data = ui->inputText->text().toInt(&ok);
 
@@ -144,84 +149,146 @@ void MainWindow::setControl()
         buffer[1] = data;
 
         serial->clear();
-        serial->write(buffer, 2);
-        serial->read(buffer, 2);
+        writtenBytes = serial->write(buffer, 2);
 
-        if (buffer[0] == SET_CONTROL && buffer[1] == CMD_OK)
-        {
-            ui->outputText->append("set control suceess");
-        }
+        ui->outputText->setText(QString::asprintf("setControl: %d bytes sent", writtenBytes));
     }
 }
 
 void MainWindow::pulse1ms()
 {
-    char buffer[2] = {PULSE_1MS};
+    char buffer[5];
 
-    serial->clear();
-    serial->write(buffer, 1);
-    serial->read(buffer, 2);
+    bool ok;
+    int data;
+    int writtenBytes;
 
-    if (buffer[0] == PULSE_1MS && buffer[1] != CMD_OK)
+    data = ui->inputText->text().toInt(&ok);
+
+    if (ok)
     {
-        ui->outputText->append("pulse-1ms success");
+        buffer[0] = PULSE_1MS;
+        *((int*)(buffer + 1)) = data;
+        serial->clear();
+        writtenBytes = serial->write(buffer, 5);
+
+        ui->outputText->setText(QString::asprintf("pulse1ms: %d bytes sent", writtenBytes));
     }
 }
 
-
 void MainWindow::initializeScreen()
 {
-    serial->write("i");
-    QMessageBox::critical(this, tr("PicSerial"), tr("Inicializada pantalla"));
+    char data[1];
+    int writtenBytes;
+
+    data[0] = SCREEN_INIT;
+
+    serial->clear();
+    writtenBytes = serial->write(data, 1);
+
+    ui->outputText->setText(QString::asprintf("initializeScreen: %d bytes sent", writtenBytes));
 }
 
 void MainWindow::updatePortA()
 {
-    char data[2];
-    QString text = ui->inputText->text();
-    data[0] = 'a';
-    data[1] = text.toInt();
+    char buffer[2];
+    bool ok;
+    int writtenBytes;
 
-    serial->write(data, 2);
+    int data = ui->inputText->text().toInt(&ok);
+
+    if (ok)
+    {
+        buffer[0] = UPDATE_PORTA;
+        buffer[1] = data;
+
+        writtenBytes = serial->write(buffer, 2);
+
+        ui->outputText->setText(QString::asprintf("updatePortA: %d bytes sent", writtenBytes));
+    }
 }
 
 void MainWindow::updatePortB()
 {
-    char data[2];
-    QString text = ui->inputText->text();
-    data[0] = 'b';
-    data[1] = text.toInt();
+    char buffer[2];
+    bool ok;
+    int writtenBytes;
 
-    serial->write(data, 2);
+    int data = ui->inputText->text().toInt(&ok);
+
+    if (ok)
+    {
+        buffer[0] = UPDATE_PORTB;
+        buffer[1] = data;
+
+        writtenBytes = serial->write(buffer, 2);
+
+        ui->outputText->setText(QString::asprintf("updatePortB: %d bytes sent", writtenBytes));
+    }
 }
 
 void MainWindow::updatePortC()
 {
-    char data[2];
-    QString text = ui->inputText->text();
-    data[0] = 'c';
-    data[1] = text.toInt();
+    char buffer[2];
+    bool ok;
+    int writtenBytes;
 
-    serial->write(data, 2);
+    int data = ui->inputText->text().toInt(&ok);
+
+    if (ok)
+    {
+        buffer[0] = UPDATE_PORTC;
+        buffer[1] = data;
+
+        writtenBytes = serial->write(buffer, 2);
+
+        ui->outputText->setText(QString::asprintf("updatePortC: %d bytes sent", writtenBytes));
+    }
 }
 
 void MainWindow::readAnalog()
 {
-    char data[2];
-    QString text = ui->inputText->text();
-    data[0] = 's';
-    data[1] = text.toInt();
+    char buffer[2];
+    bool ok;
+    int writtenBytes;
 
-    serial->write(data, 2);
+    int data = ui->inputText->text().toInt(&ok);
+
+    if (ok)
+    {
+        buffer[0] = READ_ANALOG;
+        buffer[1] = data;
+
+        writtenBytes = serial->write(buffer, 2);
+
+         ui->outputText->setText(QString::asprintf("updatePortC: %d bytes sent", writtenBytes));
+    }
 }
 
-/*
+
 void MainWindow::serialReceive()
-{
+{        
+    QString message;
     QByteArray data = serial->readAll();
-    ui->outputText->setPlainText(data);
 
-    short value = (data[0] << 8) | data[1];
-    ui->outputText->append(QString::asprintf("\nvalue = %5d hex = %4X\n", value, value));
+    int length = data.length();
+
+    if (data.at(0) == CMD_UNK)
+    {
+        message = QString::asprintf("Command not recognized\n");
+    }
+    else
+    {
+        message = QString::asprintf("Command %d: %s\n",
+                      data.at(0),
+                      ((data.at(1) == CMD_OK) ? "success" : "fails"));
+    }
+
+    ui->outputText->setText(message);
+
+    for (int i = 0; i < length; ++i)
+    {
+        ui->outputText->append(QString::asprintf("%2X ", data.at(i)));
+    }
 }
-*/
+
