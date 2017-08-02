@@ -7,6 +7,7 @@
 
 
 #include <xc.h>
+#include <pic18f4550.h>
 #include "user_commands.h"
 #include "../../src/usb_device_cdc.h"
 
@@ -14,9 +15,9 @@
 #include "../../lcd_lib/TftLcd.h"
 #include "../../lcd_lib/TftLcdIO.h"
 
-char updateScreen = 0x00;
+volatile char updateScreen = 0x00;
 #define COUNTER_RELOAD (22)
-int timer3Counter = COUNTER_RELOAD;
+volatile int timer3Counter = COUNTER_RELOAD;
 
 void Commands_ISR()
 {
@@ -41,7 +42,9 @@ void Commands_Initialize()
     PIR2bits.TMR3IF = 0;    
     T3CONbits.TMR3ON = 1;
     PIE2bits.TMR3IE = 1;
+    IPR2bits.TMR3IP = 1;
     INTCONbits.PEIE = 1;
+    INTCONbits.GIEH = 1;    
     
     ei();
 }
@@ -334,8 +337,13 @@ void Commands_Process()
             putUSBUSART(writeBuffer, numBytesWrite);
             numBytesWrite = 0;
         }
-    }
-    
+    }   
+
+    // CDCTxService();
+}
+
+void Commands_Background()
+{
     if (updateScreen != 0x00)
     {
         updateScreen = 0x00;
@@ -345,7 +353,5 @@ void Commands_Process()
             timer3Counter = COUNTER_RELOAD;
             Screen_RandomText();
         }
-    }
-    
-    CDCTxService();
+    }    
 }

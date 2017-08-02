@@ -17,8 +17,11 @@ To request to license the code under the MLA license (www.microchip.com/mla_lice
 please contact mla_licensing@microchip.com
 *******************************************************************************/
 
+#include <pic18f4550.h>
+
 #include "system.h"
 #include "../../src/usb.h"
+#include "../../src/usb_config.h"
 
 // BEGIN_MOD
     #include "user_commands.h"
@@ -97,12 +100,12 @@ void SYSTEM_Initialize( SYSTEM_STATE state )
     }
 }
 
-			
-			
+		
 #if defined(__XC8)
-void interrupt SYS_InterruptHigh(void)
+void interrupt SYS_InterruptHigh(void) /*@ 0x2008*/
 {
     #if defined(USB_INTERRUPT)
+        #warning "USB interrupts enabled"
         USBDeviceTasks();
     #endif
 

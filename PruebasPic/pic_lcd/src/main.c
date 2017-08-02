@@ -24,13 +24,13 @@ please contact mla_licensing@microchip.com
 #include "app_led_usb_status.h"
 
 #include "usb.h"
+#include "usb_config.h"
 #include "usb_device.h"
 #include "usb_device_cdc.h"
 
 #include "../lcd_lib/TftLcd.h"
 #include "../lcd_lib/AdafruitGfx.h"
 #include "../firmware/picdem_fs_usb.x/user_commands.h"
-
 
 /********************************************************************
  * Function:        void main(void)
@@ -82,6 +82,9 @@ MAIN_RETURN main(void)
         //APP_DeviceCDCBasicDemoTasks();
             
          Commands_Process();
+         Commands_Background();
+         
+         CDCTxService();
     }//end while
 }//end main
 

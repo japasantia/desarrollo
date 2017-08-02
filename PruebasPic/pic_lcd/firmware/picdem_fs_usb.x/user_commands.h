@@ -77,6 +77,8 @@ extern "C" {
 void Commands_UpdateScreen();
 
 void Commands_Initialize();
+void Commands_Process();
+void Commands_Background();
 void Commands_ISR();
 
 void Screen_Initialize();

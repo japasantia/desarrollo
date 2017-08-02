@@ -31,7 +31,7 @@ DEFAULTCONF=PICDEM_FSUSB
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=PICDEM_FSUSB BasicCDC 
+ALLCONFS=PICDEM_FSUSB 
 
 
 # build
@@ -46,14 +46,12 @@ ALLCONFS=PICDEM_FSUSB BasicCDC
 # clobber
 .clobber-impl: .clobber-pre .depcheck-impl
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=PICDEM_FSUSB clean
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=BasicCDC clean
 
 
 
 # all
 .all-impl: .all-pre .depcheck-impl
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=PICDEM_FSUSB build
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=BasicCDC build
 
 
 
