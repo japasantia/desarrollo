@@ -1,0 +1,17 @@
+Cmp-Mod V01 Created by CvPcb (22-Jun-2014 BZR 4027)-stable date = mar 15 ago 2017 22:46:10 -04
+
+BeginCmp
+TimeStamp = /5993537A;
+Reference = R1;
+ValeurCmp = R;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /5993B0EF;
+Reference = U1;
+ValeurCmp = PIC18F45K50-X/PT;
+IdModule  = TQFP-144;
+EndCmp
+
+EndListe
