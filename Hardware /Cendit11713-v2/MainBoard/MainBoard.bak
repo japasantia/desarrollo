@@ -632,6 +632,4 @@ F 3 "" H 9500 2350 60  0001 C CNN
 	1    9500 2300
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4650 4600 4400 4600
 $EndSCHEMATC

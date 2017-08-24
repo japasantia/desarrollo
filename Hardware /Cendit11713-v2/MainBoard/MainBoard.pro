@@ -1,4 +1,4 @@
-update=mié 23 ago 2017 08:24:38 VET
+update=jue 24 ago 2017 16:12:40 VET
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,8 +23,6 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=
@@ -61,4 +59,6 @@ LibName29=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/PI
 LibName30=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/PIC18F45K50_PT
 LibName31=/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
 LibName32=/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713/Librerias/cendit-basic
+[general]
+version=1
 
