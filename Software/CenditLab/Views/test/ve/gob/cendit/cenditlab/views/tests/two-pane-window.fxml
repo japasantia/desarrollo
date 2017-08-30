@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" type="javafx.scene.layout.BorderPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<!-- <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"> -->
+   <top>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../cendit-logo.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <GridPane hgap="2.0" vgap="2.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="LEFT" hgrow="NEVER" minWidth="200.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="600.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="-Infinity" valignment="CENTER" vgrow="NEVER" />
+          <RowConstraints vgrow="SOMETIMES" />
+          <RowConstraints vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="leftLabel" text="Panel Izquierdo">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="rightLabel" text="Panel Derecho" GridPane.columnIndex="1">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <ScrollPane GridPane.rowIndex="1">
+               <content>
+                  <VBox fx:id="leftContainerVBox" minWidth="200.0" />
+               </content>
+            </ScrollPane>
+            <ScrollPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <content>
+                  <VBox fx:id="rightContainerVBox" minWidth="600.0" />
+               </content>
+            </ScrollPane>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+   </center>
+<!--</BorderPane>-->
+</fx:root>

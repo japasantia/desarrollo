@@ -39,7 +39,7 @@ public class NoiseFigureAnalyzerA8975A extends Instrument
     private class SimulatorConnection implements IConnection
     {
         @Override
-        public void open() throws Exception
+        public void open()
         {  }
 
         @Override
