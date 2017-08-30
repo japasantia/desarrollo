@@ -3,24 +3,23 @@ package ve.gob.cendit.cenditlab.io;
 import com.sun.jna.Native;
 
 /**
- * Created by jarias on 15/06/17.
+ * Created by jarias on 07/07/17.
  */
-public class LinuxGpibLoader
+public class VisaLibrary
 {
-    private static ILinuxGpib library;
+    private static IVisa library = null;
 
-    public static ILinuxGpib getLibrary()
+    public static IVisa getLibrary()
     {
         if (library != null)
         {
-            // Si la libreria ya ha sido cargada
             return library;
         }
 
-        // Se carga la libreria por primera vez
         try
         {
-            library = Native.loadLibrary("gpib", ILinuxGpib.class);
+            library = Native.loadLibrary("visa",
+                    IVisa.class);
         }
         catch (Exception ex)
         {

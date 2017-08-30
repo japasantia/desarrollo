@@ -1,4 +1,4 @@
-package ve.gob.cendit.cenditlab.cal.tests;
+package ve.gob.cendit.cenditlab.io.tests;
 
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;

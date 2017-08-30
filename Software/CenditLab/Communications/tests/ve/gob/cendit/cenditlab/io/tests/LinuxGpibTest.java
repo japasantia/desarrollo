@@ -1,10 +1,9 @@
-package ve.gob.cendit.cenditlab.cal.tests;
+package ve.gob.cendit.cenditlab.io.tests;
 
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
-
 import ve.gob.cendit.cenditlab.io.ILinuxGpib;
-import ve.gob.cendit.cenditlab.io.LinuxGpibLoader;
+import ve.gob.cendit.cenditlab.io.LinuxGpibLibrary;
 
 import java.util.Arrays;
 
@@ -22,8 +21,8 @@ public class LinuxGpibTest
 
         int stb;
 
-        ILinuxGpib lib1 = LinuxGpibLoader.getLibrary();
-        ILinuxGpib lib2 = LinuxGpibLoader.getLibrary();
+        ILinuxGpib lib1 = LinuxGpibLibrary.getLibrary();
+        ILinuxGpib lib2 = LinuxGpibLibrary.getLibrary();
 
         int ud1 = lib1.ibdev(0, 10, 0, 13, 1, 0);
         int ud2 = lib2.ibdev(0, 11, 0, 13, 1, 0);
@@ -62,7 +61,7 @@ public class LinuxGpibTest
 
     public static void test2()
     {
-        ILinuxGpib linuxGpib = LinuxGpibLoader.getLibrary();
+        ILinuxGpib linuxGpib = LinuxGpibLibrary.getLibrary();
         int stb;
         byte[] buffer = new byte[1024];
 

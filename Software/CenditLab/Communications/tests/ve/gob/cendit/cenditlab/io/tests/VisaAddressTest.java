@@ -1,12 +1,11 @@
-package ve.gob.cendit.cenditlab.cal.tests;
+package ve.gob.cendit.cenditlab.io.tests;
 
 import org.junit.Test;
+import ve.gob.cendit.cenditlab.io.VisaAddress;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
-import ve.gob.cendit.cenditlab.io.VisaAddress;
 
 /**
  * Created by jarias on 6/23/17.

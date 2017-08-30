@@ -1,9 +1,9 @@
-package ve.gob.cendit.cenditlab.cal.tests;
+package ve.gob.cendit.cenditlab.io.tests;
 
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
 import ve.gob.cendit.cenditlab.io.IVisa;
-import ve.gob.cendit.cenditlab.io.VisaLoader;
+import ve.gob.cendit.cenditlab.io.VisaLibrary;
 
 /**
  * Created by jarias on 07/07/17.
@@ -18,7 +18,7 @@ public class VisaTest
 
     private static void test1()
     {
-        IVisa library = VisaLoader.getLibrary();
+        IVisa library = VisaLibrary.getLibrary();
 
         int status;
         byte[] buf = new byte[256];
@@ -45,7 +45,7 @@ public class VisaTest
 
     private static void test2()
     {
-        IVisa library = VisaLoader.getLibrary();
+        IVisa library = VisaLibrary.getLibrary();
 
         int status;
         byte[] buf = new byte[256];

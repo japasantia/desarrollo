@@ -149,10 +149,12 @@ public class VisaAddress
         return getField(VisaAddressFields.INTERFACE);
     }
 
-/*    public String getBoard()
+    /*
+    public String getBoard()
     {
         return getName(VisaAddressFields.BOARD);
-    }*/
+    }
+    */
 
     public int getBoard()
     {
@@ -222,6 +224,11 @@ public class VisaAddress
     public String getInterfaceNumber()
     {
         return getField(VisaAddressFields.INTERFACE_NUMBER);
+    }
+
+    public boolean isVxi()
+    {
+        return getInterface().equals("GPIB-VXI");
     }
 
     public static boolean isValid(String address)

@@ -32,13 +32,13 @@ public interface IVxi11 extends Library
      * Valor de retorno de {@link IVxi11#vxi11_receive(Pointer, byte[], long, long)}
      * en caso de agotarse el tiempo de espera <code>timeout</code>
      */
-    static final long VXI11_NULL_READ_RESP = 50;
+    static final long VXI11_NULL_READ_RESP = -50;
 
     /**
      * Valor de retorno de {@link IVxi11#vxi11_receive(Pointer, byte[], long, long)}
      * en caso de agotarse el tiempo de espera <code>timeout</code>
      */
-    static final long VXI11_NULL_WRITE_RESP = 51;
+    static final long VXI11_NULL_WRITE_RESP = -51;
 
     /**
      * Permite abrir un enlace (link) y un canal VXI11 a un
@@ -54,8 +54,8 @@ public interface IVxi11 extends Library
      * @param clink     manejador (handler) de la conexion
      * @param device    cadena identificado de dispositivo
      *
-     * @return          devuelve un valor distinto de cero en caso
-     *                  de error
+     * @return          retorna cero en caso de exito
+     *                  devuelve un valor negativo en caso de error
      *
      * @see             VisaAddress
      * @see             Pointer
@@ -71,8 +71,8 @@ public interface IVxi11 extends Library
      * @param ip        cadena con la dirección ip del instrumento
      * @param clink     manejador (handler) de la conexion
      *
-     * @return          devuelve un valor distinto de cero en caso
-     *                  de error
+     * @return          retorna cero en caso de exito
+     *                  devuelve un valor negativo en caso de error
      *
      * @see             VisaAddress
      * @see             Pointer
@@ -87,8 +87,8 @@ public interface IVxi11 extends Library
      * @param clink     manejador (handler) de la conexion
      * @param cmd       cadena con comandos a enviar al instrumento
      *
-     * @return          devuelve un valor distinto de cero en caso
-     *                  de error
+     * @return          retorna cero en caso de exito
+     *                  devuelve un valor negativo en caso de error
      *                  devuelve la constante {@link IVxi11#VXI11_NULL_WRITE_RESP}
      *                  en caso de agotarse el tiempo de espera
      */
@@ -108,8 +108,8 @@ public interface IVxi11 extends Library
      * @param timeout   Tiempo limite de espera para la recepción,
      *                  en milisegundos
      *
-     * @return          devuelve un valor distinto de cero en caso
-     *                  de error
+     * @return          retorna cero en caso de exito
+     *                  devuelve un valor negativo en caso de error
      *                  devuelve la constante {@link IVxi11#VXI11_NULL_READ_RESP}
      *                  en caso de agotarse el tiempo de espera <code>timeout</code>
 *    */
@@ -120,13 +120,21 @@ public interface IVxi11 extends Library
      * de un bloque <code>len</code> bytes de datos, que la funcion
      * envia al dispositivo en formato IEEE488.
      *
+     * Formato de un bloque de datos IEEE488
+     *      #800001000<1000 bytes de datos>
+     *      ||\______/
+     *      ||    |
+     *      ||    \---- cantidad de bytes de datos
+     *      |\--------- numero de digitos que  siguen (en este caso 8, con ceros adelante)
+     *      \---------- siempre comienza con #
+     *
      * @param clink     manejador (handler) de la conexion
      * @param cmd       cadena con comandos a enviar al disposotivo
      * @param buffer    arreglo con bytes de datos a enviar al dispositivo
      * @param len       cantidad de datos a enviar.
      *
-     * @return          devuelve un valor distinto de cero en caso
-     *                  de error
+     * @return          retorna cero en caso de exito
+     *                  devuelve un valor negativo en caso de error
      */
     int vxi11_send_data_block(Pointer clink, String cmd,
               byte[] buffer, long len);
@@ -135,14 +143,22 @@ public interface IVxi11 extends Library
      * de longitud <code>len</code> que la funcion extrae de un bloque
      * de datos IEEE488 que el dispositvo envia.
      *
+     * Formato de un bloque de datos IEEE488
+     *      #800001000<1000 bytes de datos>
+     *      ||\______/
+     *      ||    |
+     *      ||    \---- cantidad de bytes de datos
+     *      |\--------- numero de digitos que  siguen (en este caso 8, con ceros adelante)
+     *      \---------- siempre comienza con #
+     *
      * @param clink     manejador (handler) de la conexion
      * @param buffer    arreglo donde se depositan los bytes recibidos
      * @param len       cantidad de datos a recibir
 
      * @param timeout   tiempo limite de espera para la recepción,
      *                  en milisegundos
-     * @return          devuelve un valor distinto de cero en caso
-     *                  de error
+     * @return          retorna cero en caso de exito
+     *                  devuelve un valor negativo en caso de error
      */
     long vxi11_receive_data_block(Pointer clink, byte[] buffer,
               long len, long timeout);
@@ -157,8 +173,8 @@ public interface IVxi11 extends Library
 
      * @param timeout   tiempo limite de espera para la recepción,
      *                  en milisegundos
-     * @return          devuelve un valor distinto de cero en caso
-     *                  de error
+     * @return          retorna cero en caso de exito
+     *                  devuelve un valor negativo en caso de error
      */
     long vxi11_send_and_receive(Pointer clink, String cmd,
                 byte[] buffer, long buf_len, long timeout);
@@ -173,8 +189,8 @@ public interface IVxi11 extends Library
      * @param timeout   tiempo limite de espera para la recepción,
      *                  en milisegundos
      *
-     * @return          devuelve un valor distinto de cero en caso
-     *                  de error
+     * @return          retorna cero en caso de exito
+     *                  devuelve un valor negativo en caso de error
      */
     long vxi11_obtain_long_value(Pointer clink, String cmd,
                  long timeout);
@@ -189,8 +205,8 @@ public interface IVxi11 extends Library
      * @param timeout   tiempo limite de espera para la recepción,
      *                  en milisegundos
      *
-     * @return          devuelve un valor distinto de cero en caso
-     *                  de error
+     * @return          retorna cero en caso de exito
+     *                  devuelve un valor negativo en caso de error
      */
     double vxi11_obtain_double_value(Pointer clink, String cmd,
                  long timeout);

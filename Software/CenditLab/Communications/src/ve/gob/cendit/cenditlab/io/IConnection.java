@@ -9,8 +9,10 @@ public interface IConnection
     void close();
 
     String read();
+    int read(byte[] buffer);
     int read(byte[] buffer, int offset, int length);
 
     int write(String data);
+    int write(byte[] buffer);
     int write(byte[] buffer, int offset, int length);
 }

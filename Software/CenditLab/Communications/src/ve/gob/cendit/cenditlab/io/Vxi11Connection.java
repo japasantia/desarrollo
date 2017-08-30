@@ -5,6 +5,7 @@ import com.sun.jna.Pointer;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Created by jarias on 29/06/17.
@@ -69,6 +70,21 @@ public class Vxi11Connection implements IConnection
     }
 
     @Override
+    public int read(byte[] buffer)
+    {
+        long ret = library.vxi11_receive(clink, buffer, buffer.length,
+                IVxi11.VXI11_READ_TIMEOUT);
+
+        /* TODO: revisar valor de retorno se deberia lanzar excepcion acorde */
+        if (ret != 0)
+        {
+
+        }
+
+        return buffer.length;
+    }
+
+    @Override
     public int read(byte[] buffer, int offset, int length)
     {
         long ret;
@@ -90,7 +106,7 @@ public class Vxi11Connection implements IConnection
     @Override
     public int write(String data)
     {
-        int ret;
+        long ret;
         byte[] buffer = data.getBytes();
 
         ret = library.vxi11_send(clink, buffer, buffer.length);
@@ -100,21 +116,55 @@ public class Vxi11Connection implements IConnection
             // TODO: Lanzar excepcion
         }
 
-        return buffer.length;
+        return data.length();
+    }
+
+
+    @Override
+    public int write(byte[] buffer)
+    {
+        return write(buffer, 0, buffer.length);
     }
 
     @Override
     public int write(byte[] buffer, int offset, int length)
     {
-        return 0;
+        if (length == 0)
+        {
+            return 0;
+        }
+
+        byte[] data = Arrays.copyOfRange(buffer, offset, offset + length - 1);
+
+        int ret = library.vxi11_send(clink, data, length);
+
+        /* TODO: revisar valor de retorno se deberia lanzar excepcion acorde */
+
+        if (ret != 0)
+        {
+
+        }
+
+        return length;
     }
 
     @Override
     public void open()
     {
-        String ipAddress = visaAddress.getHostAddress();
-        String device = visaAddress.getDevice();
-        int ret = library.vxi11_open_device(ipAddress, clink, device);
+        // Verifica que se direccione una interfaz GPIB-VXI
+        if ( ! visaAddress.isVxi() )
+        {
+            /* TODO: lanzar excepcion mas acorde */
+            throw new IllegalArgumentException("Visa address does not correspond to a GPIB-VXI device");
+        }
+
+        // Genera direccion de dispositivo
+        String device = (visaAddress.hasField(VisaAddressFields.RESOURCE) ?
+            visaAddress.getResource() : "gpib0,0");
+
+        int ret = library.vxi11_open_device(visaAddress.getHostAddress(), /* direccion ip */
+                clink, /* manejador / handler */
+                visaAddress.getResource() /* direccion gpib instrumento */);
 
         /* TODO: revisar valor de retorno se deberia lanzar excepcion acorde */
 
@@ -127,6 +177,13 @@ public class Vxi11Connection implements IConnection
     @Override
     public void close()
     {
+        int ret = library.vxi11_close_device(visaAddress.getHostAddress(), clink);
 
+        /* TODO: revisar valor de retorno se deberia lanzar excepcion acorde */
+
+        if (ret != 0)
+        {
+
+        }
     }
 }

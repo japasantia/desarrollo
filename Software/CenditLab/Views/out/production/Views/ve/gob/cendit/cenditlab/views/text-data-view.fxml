@@ -15,7 +15,7 @@
     <RowConstraints vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label minWidth="50.0" text="nameLabel">
+      <Label fx:id="nameLabel" minWidth="50.0" text="nameLabel">
          <GridPane.margin>
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </GridPane.margin>

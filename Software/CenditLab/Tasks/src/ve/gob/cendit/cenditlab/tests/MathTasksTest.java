@@ -3,6 +3,8 @@ package ve.gob.cendit.cenditlab.tests;
 
 import ve.gob.cendit.cenditlab.tasks.*;
 
+import java.lang.System;
+
 public class MathTasksTest
 {
     public static void main(String[] args)
