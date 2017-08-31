@@ -10,20 +10,20 @@ import java.util.Arrays;
 /**
  * Created by jarias on 29/06/17.
  */
-public class Vxi11Connection implements IConnection
+public class LinuxVxi11Connection implements IConnection
 {
     private static final IVxi11 library;
     private static final int CLINK_SIZE = 2;
 
     static
     {
-        library = Vxi11Loader.getLibrary();
+        library = LinuxVxi11Library.getLibrary();
     }
 
     private VisaAddress visaAddress;
     private Pointer clink;
 
-    public Vxi11Connection(VisaAddress address)
+    public LinuxVxi11Connection(VisaAddress address)
     {
         visaAddress = address;
         long memory = Native.malloc(CLINK_SIZE);
@@ -151,8 +151,8 @@ public class Vxi11Connection implements IConnection
     @Override
     public void open()
     {
-        // Verifica que se direccione una interfaz GPIB-VXI
-        if ( ! visaAddress.isVxi() )
+        // Verifica que se direccione una interfaz TCPIP
+        if ( ! visaAddress.isTcpIp() )
         {
             /* TODO: lanzar excepcion mas acorde */
             throw new IllegalArgumentException("Visa address does not correspond to a GPIB-VXI device");

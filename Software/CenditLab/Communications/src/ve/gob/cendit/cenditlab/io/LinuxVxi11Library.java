@@ -5,7 +5,7 @@ import com.sun.jna.Native;
 /**
  * Created by jarias on 6/23/17.
  */
-public class Vxi11Loader
+public class LinuxVxi11Library
 {
     private static IVxi11 library;
 

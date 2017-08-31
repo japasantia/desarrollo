@@ -3,18 +3,18 @@ package ve.gob.cendit.cenditlab.io.tests;
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
 import ve.gob.cendit.cenditlab.io.IVxi11;
-import ve.gob.cendit.cenditlab.io.Vxi11Loader;
+import ve.gob.cendit.cenditlab.io.LinuxVxi11Library;
 
 import java.util.Arrays;
 
 /**
  * Created by jarias on 6/23/17.
  */
-public class Vxi11Test
+public class LinuxVxi11LibraryTest
 {
     public static void main(String[] args)
     {
-        IVxi11 library = Vxi11Loader.getLibrary();
+        IVxi11 library = LinuxVxi11Library.getLibrary();
         /*
         long[] clink = new long[8];
         byte[] buffer = new byte[256];

@@ -342,6 +342,9 @@ public interface ILinuxGpib extends Library
     int ThreadIbcnt();
     long ThreadIbcntl();
 
+    int ThreadIberr();
+    int ThreadIbsta();
+
     /** Constantes para timeout */
 
      int TNONE = 0;

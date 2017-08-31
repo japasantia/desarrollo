@@ -228,7 +228,37 @@ public class VisaAddress
 
     public boolean isVxi()
     {
+        return getInterface().equals("VXI");
+    }
+
+    public boolean isPxi()
+    {
+        return getInterface().equals("PXI");
+    }
+
+    public boolean isGpibVxi()
+    {
         return getInterface().equals("GPIB-VXI");
+    }
+
+    public boolean isGpib()
+    {
+        return getInterface().equals("GPIB");
+    }
+
+    public boolean isAsrl()
+    {
+        return getInterface().equals("ASRL");
+    }
+
+    public boolean isUsb()
+    {
+        return getInterface().equals("USB");
+    }
+
+    public boolean isTcpIp()
+    {
+        return getInterface().equals("TCPIP");
     }
 
     public static boolean isValid(String address)
@@ -303,47 +333,47 @@ class VisaAddressPatterns
     */
 
     public final static String VXI_INSTR =
-            "(?<INTERFACE>VXI)(?<BOARD>\\d+)?::(?<LOGICALADDRESS>\\d+)(::(?<RESOURCE>INSTR))?";
+            "^(?<INTERFACE>VXI)(?<BOARD>\\d+)?::(?<LOGICALADDRESS>\\d+)(::(?<RESOURCE>INSTR))?";
     public final  static String VXI_MEMACC =
-            "(?<INTERFACE>VXI)(?<BOARD>\\d+)?::(?<RESOURCE>MEMACC)";
+            "^(?<INTERFACE>VXI)(?<BOARD>\\d+)?::(?<RESOURCE>MEMACC)";
     public final static String VXI_BACKPLANE =
-            "(?<INTERFACE>VXI)(?<BOARD>\\d+)?(::(?<LOGICALADDRESS>\\d+))?::(?<RESOURCE>BACKPLANE)";
+            "^(?<INTERFACE>VXI)(?<BOARD>\\d+)?(::(?<LOGICALADDRESS>\\d+))?::(?<RESOURCE>BACKPLANE)";
     public final static String VXI_SERVANT =
-            "(?<INTERFACE>VXI)(?<BOARD>\\d+)?::(?<RESOURCE>SERVANT)";
+            "^(?<INTERFACE>VXI)(?<BOARD>\\d+)?::(?<RESOURCE>SERVANT)";
 
     public final static String GPIB_VXI_INSTR =
-            "(?<INTERFACE>GPIB-VXI)(?<BOARD>\\d+)?::(?<LOGICALADDRESS>\\d+)(?<RESOURCE>::(INSTR))?";
+            "^(?<INTERFACE>GPIB-VXI)(?<BOARD>\\d+)?::(?<LOGICALADDRESS>\\d+)(?<RESOURCE>::(INSTR))?";
     public final static String GPIB_VXI_MEMACC =
-            "(?<INTERFACE>GPIB-VXI)(?<BOARD>\\d+)?::(?<RESOURCE>MEMACC)";
+            "^(?<INTERFACE>GPIB-VXI)(?<BOARD>\\d+)?::(?<RESOURCE>MEMACC)";
     public final static String GPIB_VXI_BACKPLANE =
-            "(?<INTERFACE>GPIB-VXI)(?<BOARD>\\d+)?(::(?<LOGICALADDRESS>\\d+))?::(?<RESOURCE>BACKPLANE)";
+            "^(?<INTERFACE>GPIB-VXI)(?<BOARD>\\d+)?(::(?<LOGICALADDRESS>\\d+))?::(?<RESOURCE>BACKPLANE)";
 
     public final static String GPIB_INSTR =
-            "(?<INTERFACE>GPIB)(?<BOARD>\\d+)?::(?<PRIMARYADDRESS>\\d+)(::(?<SECONDARYADDRESS>\\d+))?(::(?<RESOURCE>INSTR))?";
+            "^(?<INTERFACE>GPIB)(?<BOARD>\\d+)?::(?<PRIMARYADDRESS>\\d+)(::(?<SECONDARYADDRESS>\\d+))?(::(?<RESOURCE>INSTR))?";
     public final static String GPIB_INTFC =
-            "(?<INTERFACE>GPIB)(?<BOARD>\\d+)?::(?<RESOURCE>INTFC)";
+            "^(?<INTERFACE>GPIB)(?<BOARD>\\d+)?::(?<RESOURCE>INTFC)";
     public final static String GPIB_SERVANT =
-            "(?<INTERFCE>GPIB)(?<BOARD>\\d+)?::(?<RESOURCE>SERVANT)";
+            "^(?<INTERFCE>GPIB)(?<BOARD>\\d+)?::(?<RESOURCE>SERVANT)";
 
     public final static String PXI_INSTR_1 =
-            "(?<INTERFACE>PXI)(?<BOARD>\\d+)?::(?<DEVICE>\\d+)(::(?<FUNCTION>\\d+))?(::(?<RESOURCE>INSTR))?";
+            "^(?<INTERFACE>PXI)(?<BOARD>\\d+)?::(?<DEVICE>\\d+)(::(?<FUNCTION>\\d+))?(::(?<RESOURCE>INSTR))?";
     public final  static String PXI_INSTR_2 =
-            "(?<INTERFACE>PXI)(?<BOARD>\\d+)?::((?<DEVICE>\\d+)-)?(?<FUNCTION>\\d+)(.(\\d+))?(::(?<RESOURCE>INSTR))?";
+            "^(?<INTERFACE>PXI)(?<BOARD>\\d+)?::((?<DEVICE>\\d+)-)?(?<FUNCTION>\\d+)(.(\\d+))?(::(?<RESOURCE>INSTR))?";
     public final static String PXI_MEMACC =
-            "(?<INTERFACE>PXI)(?<BOARD>\\d+)?::(?<RESOURCE>MEMACC)";
+            "^(?<INTERFACE>PXI)(?<BOARD>\\d+)?::(?<RESOURCE>MEMACC)";
 
     public final static String SERIAL_INSTR =
-            "(?<INTERFACE>ASRL)(?<BOARD>\\d+)?(::(?<RESOURCE>INSTR))?";
+            "^(?<INTERFACE>ASRL)(?<BOARD>\\d+)?(::(?<RESOURCE>INSTR))?";
 
     public final static String TCPIP_INSTR_1 =
-            "(?<INTERFACE>TCPIP)(?<BOARD>\\d+)?::(?<HOSTADDRESS>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})(::(?<DEVICENAME>[^:]*))?(::(?<RESOURCE>INSTR))?";
+            "^(?<INTERFACE>TCPIP)(?<BOARD>\\d+)?::(?<HOSTADDRESS>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})(::(?<DEVICENAME>[^:]*))?(::(?<RESOURCE>INSTR))?";
     public final static String TCPIP_INSTR_2 =
-            "(?<INTERFACE>TCPIP)(?<BOARD>\\d+)?::(?<HOSTADDRESS>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})::(?<PORT>\\d{1,5})::(?<RESOURCE>SOCKET)";
+            "^(?<INTERFACE>TCPIP)(?<BOARD>\\d+)?::(?<HOSTADDRESS>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})::(?<PORT>\\d{1,5})::(?<RESOURCE>SOCKET)";
 
     public final static String USB_INSTR =
-            "(?<INTERFACE>USB)(?<BOARD>\\d+)?::(?<MANUFACTURERID>[^:]*)::(?<MODELCODE>[^:]*)::(?<SERIALNUMBER>[^:]*)(::(?<INTERFACENUMBER>\\d+))?(::(?<RESOURCE>INSTR))?";
+            "^(?<INTERFACE>USB)(?<BOARD>\\d+)?::(?<MANUFACTURERID>[^:]*)::(?<MODELCODE>[^:]*)::(?<SERIALNUMBER>[^:]*)(::(?<INTERFACENUMBER>\\d+))?(::(?<RESOURCE>INSTR))?";
     public final  static String USB_INSTR_RAW =
-            "(?<INTERFACE>USB)(?<BOARD>\\d+)?::(?<MANUFACTURERID>[^:]*)::(?<MODELCODE>[^:]*)::(?<SERIALNUMBER>[^:]*)(::(?<INTERFACENUMBER>\\d+))?(::(?<RESOURCE>RAW))?";
+            "^(?<INTERFACE>USB)(?<BOARD>\\d+)?::(?<MANUFACTURERID>[^:]*)::(?<MODELCODE>[^:]*)::(?<SERIALNUMBER>[^:]*)(::(?<INTERFACENUMBER>\\d+))?(::(?<RESOURCE>RAW))?";
 
     private static final String[] patterns = new String[]
     {

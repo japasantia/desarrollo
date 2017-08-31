@@ -13,39 +13,21 @@ import java.util.Arrays;
  */
 public class LinuxGpibConnection implements IGpibConnection
 {
+    private static int ERR = 0x8000;
+
     private static ILinuxGpib library = LinuxGpibLibrary.getLibrary();
 
     private VisaAddress visaAddress;
     private int deviceDescriptor;
 
-    public static IGpibConnection CreateConnection(String address)
-            throws Exception
+    public LinuxGpibConnection(String address)
     {
-        // TODO: revisar generacion exceptciones. Crear excepcion GpibConnectionException
-        VisaAddress va = VisaAddress.parseAddress(address);
-
-        if (Platform.isWindows())
-        {
-            throw new NotImplementedException();
-        }
-        else if (Platform.isLinux())
-        {
-            ILinuxGpib library =  LinuxGpibLibrary.getLibrary();
-            return new LinuxGpibConnection(va);
-        }
-        else
-        {
-            throw new Exception("Not supported operating system");
-        }
+        this(new VisaAddress(address));
     }
 
-    private LinuxGpibConnection(String address)
+    public LinuxGpibConnection(VisaAddress address)
     {
-
-    }
-
-    private LinuxGpibConnection(VisaAddress address)
-    {
+        deviceDescriptor = -1;
         visaAddress = address;
     }
 
@@ -66,7 +48,7 @@ public class LinuxGpibConnection implements IGpibConnection
 
         if (deviceDescriptor < 0)
         {
-            // throw new Exception("Unable to open connection");
+            throw new LinuxGpibConnectionException("Unable to open connection");
         }
     }
 
@@ -74,6 +56,8 @@ public class LinuxGpibConnection implements IGpibConnection
     public void close()
     {
         int status = library.ibonl(deviceDescriptor, 0);
+
+        checkStatusThrowIfError(status, "Unable to close connection");
     }
 
     @Override
@@ -81,16 +65,17 @@ public class LinuxGpibConnection implements IGpibConnection
     {
         byte[] data = Arrays.copyOfRange(buffer, offset, offset + length - 1);
 
-        int ibsta = library.ibwrt(deviceDescriptor, data, length);
-
-        return library.ThreadIbcnt();
+        return write(data);
     }
 
     @Override
     public int write(byte[] buffer)
     {
-        int  ibsta = library.ibwrt(deviceDescriptor,
+        int  status = library.ibwrt(deviceDescriptor,
                 buffer, buffer.length);
+
+        // Revisar status retornado en busca de error
+        checkStatusThrowIfError(status, "Failed to write byte array to GPIB device");
 
         return library.ThreadIbcnt();
     }
@@ -98,7 +83,10 @@ public class LinuxGpibConnection implements IGpibConnection
     @Override
     public int write(String buffer)
     {
-        int ibsta = library.ibwrt(deviceDescriptor, buffer, buffer.length());
+        int status = library.ibwrt(deviceDescriptor, buffer, buffer.length());
+
+        // Revisar status retornado en busca de error
+        checkStatusThrowIfError(status, "Failed to write string to GPIB device");
 
         return library.ThreadIbcnt();
     }
@@ -112,14 +100,10 @@ public class LinuxGpibConnection implements IGpibConnection
         }
 
         byte[] data = new byte[length];
-        int ibsta = library.ibrd(deviceDescriptor, data, length);
+        int status = library.ibrd(deviceDescriptor, data, length);
 
         // Revisar status retornado en busca de error
-        if ((ibsta & 0x8000) != 0)
-        {
-            // Existe un error en la operacion de lectura
-            // TODO: lanzar excepcion
-        }
+        checkStatusThrowIfError(status, "Failed to read byte array on GPIB device");
 
         System.arraycopy(data, 0, buffer, offset, length);
 
@@ -129,14 +113,10 @@ public class LinuxGpibConnection implements IGpibConnection
     @Override
     public int read(byte[] buffer)
     {
-        int ibsta = library.ibrd(deviceDescriptor, buffer, buffer.length);
+        int status = library.ibrd(deviceDescriptor, buffer, buffer.length);
 
         // Revisar status retornado en busca de error
-        if ((ibsta & 0x8000) != 0)
-        {
-            // Existe un error en la operacion de lectura
-            // TODO: lanzar excepcion
-        }
+        checkStatusThrowIfError(status, "Failed to read byte array on GPIB device");
 
         return library.ThreadIbcnt();
     }
@@ -168,8 +148,22 @@ public class LinuxGpibConnection implements IGpibConnection
             byteStream.close();
         }
         catch (IOException ex)
-        { }
+        {
+            throw new ConnectionException("Java IO exception", ex);
+        }
+        catch (LinuxGpibConnectionException ex)
+        {
+            throw new LinuxGpibConnectionException("Failed to read string on GPIB device", ex);
+        }
 
         return dataRead;
+    }
+
+    private void checkStatusThrowIfError(int ibsta, String errorMessage)
+    {
+        if ((ibsta & ERR) != 0)
+        {
+            throw new LinuxGpibConnectionException(errorMessage, ibsta);
+        }
     }
 }

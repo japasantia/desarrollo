@@ -4,8 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ListView;
+import ve.gob.cendit.cenditlab.tasks.Data;
 import ve.gob.cendit.cenditlab.tasks.DataContainer;
 import ve.gob.cendit.cenditlab.tasks.DataSlot;
 
@@ -21,7 +23,7 @@ public class DataContainerView extends View
     private static final String FXML_FILE = "data-container-view.fxml";
 
     @FXML
-    private ListView dataListView;
+    private ListView<Node> dataListView;
 
     private ObservableList<TextDataView> dataList;
 
@@ -34,7 +36,6 @@ public class DataContainerView extends View
     {
         super(name, "data-container-view.fxml", description);
     }
-    
 
     public void setDataContainer(DataContainer dataContainer)
     {
@@ -44,9 +45,10 @@ public class DataContainerView extends View
             .forEach(ds ->
                 {
                     String name = ds.getName();
-                    String value = dataContainer.getData(name).toString();
+                    Data data = dataContainer.getData(name);
+                    String value = data != null ? data.toString() : "";
                     dataListView.getItems()
-                        .add(new TextDataView(name, value, null));
+                        .add(new TextDataView(name, value, null).getNode());
                 });
     }
 }

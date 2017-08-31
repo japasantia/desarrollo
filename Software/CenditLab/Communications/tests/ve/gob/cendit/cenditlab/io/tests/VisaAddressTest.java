@@ -1,9 +1,13 @@
 package ve.gob.cendit.cenditlab.io.tests;
 
+
 import org.junit.Test;
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Request;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
 import ve.gob.cendit.cenditlab.io.VisaAddress;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -44,8 +48,21 @@ import static org.junit.Assert.assertTrue;
 public class VisaAddressTest
 {
     public static void main(String[] args)
+        throws ClassNotFoundException
     {
+        Request request = Request.method(
+                Class.forName("ve.gob.cendit.cenditlab.io.tests.VisaAddressTest"),
+                "checkVisaAddressPredicates");
 
+        Result result = new JUnitCore().run(request);
+        System.exit(result.wasSuccessful() ? 0 : 1);
+
+        result = JUnitCore.runClasses(VisaAddressTest.class);
+
+        for (Failure failure : result.getFailures())
+        {
+            System.out.println(failure.toString());
+        }
     }
 
     @Test
@@ -91,5 +108,30 @@ public class VisaAddressTest
 
         address = "USB10::Acme Inc::AC12234::JKS1828::0::INSTR";
         va =  VisaAddress.parseAddress(address);
+    }
+
+    @Test
+    public void checkVisaAddressPredicates()
+    {
+        String address = "VXI0::10::120::INSTR";
+        VisaAddress va = new VisaAddress(address);
+        assertTrue(address + " is VXI", va.isVxi());
+        assertFalse(address + " is not USB", va.isUsb());
+
+        address = "GPIB00::12::INSTR";
+        va = new VisaAddress(address);
+        assertTrue(address + " is GPIB", va.isGpib());
+        assertFalse(address + " is not TCP", va.isTcpIp());
+
+        address = "TCPIP12::192.326.256.700::INSTR";
+        va = new VisaAddress(address);
+        assertTrue(address + " is TCPIP", va.isTcpIp());
+        assertFalse(address + " is not PXI", va.isPxi());
+
+        //  "(?<INTERFACE>GPIB-VXI)(?<BOARD>\\d+)?::(?<LOGICALADDRESS>\\d+)(?<RESOURCE>::(INSTR))?";
+        address = "GPIB-VXI10::0::10";
+        va = new VisaAddress(address);
+        assertTrue(address + "  is GPIB-VXI", va.isGpibVxi());
+        assertFalse(address + " is not TCPIP", va.isTcpIp());
     }
 }
