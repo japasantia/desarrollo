@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ve.gob.cendit.cenditlab.tasks.DataContainer;
 import ve.gob.cendit.cenditlab.tasks.DataSlot;
-import ve.gob.cendit.cenditlab.views.DataContainerView;
+import ve.gob.cendit.cenditlab.views.DataListView;
 
 /**
  * Created by jarias on 31/08/17.
@@ -16,9 +16,8 @@ public class ViewTestApplication extends Application
     public void start(Stage primaryStage) throws Exception
     {
         TwoPaneWindow mainWindow = new TwoPaneWindow();
-        DataContainerView dcView =
-                new DataContainerView("Data Container", "Sample data container");
-        mainWindow.addRightPanel(dcView);
+        DataListView dcView = new DataListView();
+
 
         DataContainer dc = new DataContainer(
                 new DataSlot("Data 1"),
@@ -26,6 +25,7 @@ public class ViewTestApplication extends Application
                 new DataSlot("Data 3"));
         dcView.setDataContainer(dc);
 
+        mainWindow.addRightPanel(dcView);
         primaryStage.setScene(new Scene(mainWindow));
         primaryStage.setTitle("View Test");
         primaryStage.show();

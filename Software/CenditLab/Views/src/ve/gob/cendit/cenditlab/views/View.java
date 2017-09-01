@@ -3,66 +3,50 @@ package ve.gob.cendit.cenditlab.views;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 
-public class View
+public abstract class View
 {
-    protected String DEFAULT_DESCRIPTION = "View";
-    protected String DEFAULT_IMAGE_URL = "";
-
-    private String name;
-    private String description;
     private String fxmlResource;
-
     private Node viewNode;
 
-    public View(String name, String fxmlResource, String description)
+    public View(String fxmlResource)
     {
-        setName(name);
-        setDescription(description);
         setFxmlResource(fxmlResource);
     }
 
-    public void setName(String value)
+    protected void setFxmlResource(String path)
     {
-        if (value == null)
-        {
-            throw new IllegalArgumentException("View name must not be null");
-        }
-        name = value;
-    }
-
-    public void setDescription(String value)
-    {
-        description = value;
-    }
-
-    public void setFxmlResource(String value)
-    {
-        if (value == null)
+        if (path == null)
         {
             throw new IllegalArgumentException("Fxml resource name must not be null");
         }
-        fxmlResource = value;
-        viewNode = null;
 
+        fxmlResource = path;
+        viewNode = null;
     }
 
-    public String getFxmlResource()
+    protected String getFxmlResource()
     {
         return fxmlResource;
     }
 
+    public abstract void update();
+
+    public void load()
+    {
+        if (viewNode == null)
+        {
+            viewNode = loadNodeFromFxmlResource(this, fxmlResource);
+        }
+    }
+
     public Node getNode()
     {
-        if (viewNode != null)
-        {
-            return viewNode;
-        }
-
-        viewNode = loadNodeFromFxmlResource(fxmlResource);
+        load();
+        update();
         return viewNode;
     }
 
-    private Node loadNodeFromFxmlResource(String fxmlResource)
+    private static Node loadNodeFromFxmlResource(View controller, String fxmlResource)
     {
         try
         {
@@ -70,9 +54,10 @@ public class View
             Creacion de Custom Control
             http://docs.oracle.com/javafx/2/fxml_get_started/custom_control.htm
             */
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlResource));
+            FXMLLoader loader =
+                new FXMLLoader(controller.getClass().getResource(fxmlResource));
+            loader.setController(controller);
             Node node = loader.load();
-            loader.setController(this);
 
             return node;
         }

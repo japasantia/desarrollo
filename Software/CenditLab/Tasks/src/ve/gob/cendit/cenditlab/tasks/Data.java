@@ -4,45 +4,37 @@ package ve.gob.cendit.cenditlab.tasks;
 public class Data
 {
     private Object value;
-    private final String name;
+    private String name;
 
     public Data(String name)
     {
-        this.name = name;
+        setName(name);
     }
 
     public Data(String name, Object value)
     {
-        this.name = name;
-        this.value = value;
+        setName(name);
+        set(value);
     }
 
     public Data(String name, Data data)
     {
-        this.name = name;
-        this.value = data.get();
+        this(name, data.get());
     }
 
     public Data(Data data)
     {
-        name = data.getName();
-        value = data.get();
+        this(data.getName(), data);
     }
 
-    public Object set(Object value)
+    public void set(Object value)
     {
-        Object oldValue = this.value;
         this.value = value;
-
-        return oldValue;
     }
 
-    public Object set(Data data)
+    public void set(Data data)
     {
-        Object oldValue = value;
         value = data.get();
-
-        return oldValue;
     }
 
     public Object get()
@@ -50,19 +42,19 @@ public class Data
         return value;
     }
 
+    protected void setName(String value)
+    {
+        name = value;
+    }
+
     public String getName()
     {
         return name;
     }
 
-    public void addQualifier(ValueQualifier qualifier)
-    {
-
-    }
-
     @Override
     public String toString()
     {
-        return String.format("%s: %s", name, value);
+        return (value != null ? value.toString() : "");
     }
 }

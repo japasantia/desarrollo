@@ -16,7 +16,7 @@ import java.util.Arrays;
 /**
  * Created by root on 29/08/17.
  */
-public class DataContainerView extends View
+public class DataListView extends View
 {
     private static final String DEFAULT_NAME = "Data Container";
     private static final String DEFAULT_DESCRIPTION = "Es un contenedor de datos";
@@ -25,20 +25,20 @@ public class DataContainerView extends View
     @FXML
     private ListView<Node> dataListView;
 
-    private ObservableList<TextDataView> dataList;
+    private ObservableList<Node> dataList;
 
-    public DataContainerView()
+    public DataListView()
     {
-        super(DEFAULT_NAME, FXML_FILE, DEFAULT_DESCRIPTION);
-    }
-
-    public DataContainerView(String name, String description)
-    {
-        super(name, "data-container-view.fxml", description);
+        super(FXML_FILE);
     }
 
     public void setDataContainer(DataContainer dataContainer)
     {
+        if (dataList == null)
+        {
+            dataList = FXCollections.observableArrayList();
+        }
+
         DataSlot[] dataSlots = dataContainer.getDataSlots();
 
         Arrays.stream(dataSlots)
@@ -47,8 +47,14 @@ public class DataContainerView extends View
                     String name = ds.getName();
                     Data data = dataContainer.getData(name);
                     String value = data != null ? data.toString() : "";
-                    dataListView.getItems()
-                        .add(new TextDataView(name, value, null).getNode());
+                    TextDataView view = new TextDataView(name, value);
+                    dataList.add(view.getNode());
                 });
+    }
+
+    @Override
+    public void update()
+    {
+        dataListView.setItems(dataList);
     }
 }

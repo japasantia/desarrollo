@@ -12,15 +12,15 @@ public class DataBinded extends Data
     }
 
     @Override
-    public Object set(Object value)
+    public void set(Object value)
     {
-        return dataBinded.set(value);
+        dataBinded.set(value);
     }
 
     @Override
-    public Object set(Data data)
+    public void set(Data data)
     {
-        return dataBinded.set(data);
+        dataBinded.set(data);
     }
 
     @Override

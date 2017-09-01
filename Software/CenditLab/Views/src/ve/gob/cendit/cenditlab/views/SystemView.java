@@ -2,10 +2,15 @@ package ve.gob.cendit.cenditlab.views;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class SystemView extends View
 {
+    private static final String DEFAULT_NAME = "Nombre del Sistema";
+    private static final String DEFAULT_DESCRIPTION = "Descripcion del sistema";
+    private static final String FXML_URL = "system-view.fxml";
+
     @FXML
     private ImageView systemImageView;
 
@@ -15,51 +20,41 @@ public class SystemView extends View
     @FXML
     private Label descriptionLabel;
 
-    public  SystemView()
+    private String name;
+    private String description;
+    private String imageUrl;
+
+    public SystemView()
     {
-        super("System View", "system-view.fxml", "Sistema Ejemplo");
+        super(FXML_URL);
+    }
 
-        /*
-        try
+    public  SystemView(String name, String description, String imageUrl)
+    {
+        super(FXML_URL);
+
+        // TODO: revisar constructor
+    }
+
+    @Override
+    public void update()
+    {
+        nameLabel.setText(getName());
+        descriptionLabel.setText(getDescription());
+
+        if (imageUrl != null)
         {
-            FXMLLoader loader =
-                    new FXMLLoader(getClass().getResource("system-view.fxml"));
-            Parent parent = loader.load();
-            loader.setRoot(parent);
-            loader.setController(this);
-            systemImageView.setImage(new Image(getClass().getResource("nfa8975a-big.jpg").toString()));
+            systemImageView.setImage(new Image(imageUrl));
         }
-        catch (Exception ex)
-        {
-            throw new RuntimeException(ex);
-        }
-        */
-        /*
-        FXMLLoader loader =
-                new FXMLLoader(getClass().getResource("system-view.fxml"));
+    }
 
-        loader.setRoot(this);
-        loader.setController(this);
+    public String getName()
+    {
+        return (name != null ? name : DEFAULT_NAME);
+    }
 
-        try
-        {
-            loader.load();
-
-            //systemImageView.setImage(
-            //        new Image(getClass().getResource("nfa8975a-big.jpg").openStream()));
-
-            // systemImageView.setImage(new Image("file:/mnt/local/PasantiaCendit/Desarrollo/Software/CenditLab/Views/resources/nfa8975a-big.jpg"));
-            // systemImageView.setImage(new Image("nfa8975a-big.jpg"));
-
-            // load the image from a resource, specified relative to the current class
-            // systemImageView.setImage(new Image(getClass().getResource("nfa8975a-big.jpg").toString()));
-            // load the image from a resource specified relative to the class path
-            systemImageView.setImage(new Image(getClass().getClassLoader().getResource("nfa8975a-big.jpg").toString()));
-        }
-        catch (Exception ex)
-        {
-            throw new RuntimeException(ex);
-        }
-        */
+    public String getDescription()
+    {
+        return (description != null ? description : DEFAULT_DESCRIPTION);
     }
 }

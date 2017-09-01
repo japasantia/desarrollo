@@ -20,35 +20,57 @@ public class TextDataView extends View
     @FXML
     TextField valueTextField;
 
-    public TextDataView(Data data)
+    private String name;
+    private String value;
+
+    public TextDataView()
     {
-        super(data.getName(), FXML_FILE, null);
+        super(FXML_FILE);
     }
 
-    public TextDataView(String name, String value, String description)
+    public TextDataView(DataSlot slot, Data data)
     {
-        super(name, FXML_FILE, description);
+        super(FXML_FILE);
+
+        setName(slot.getName());
+        setValue(data.get());
+    }
+
+    public TextDataView(Data data)
+    {
+        super(FXML_FILE);
+
+        setName(data.getName());
+        setValue(data.get());
+    }
+
+    public TextDataView(String name, String value)
+    {
+        super(FXML_FILE);
+
+        setName(name);
+        setValue(value);
+    }
+
+    @Override
+    public void update()
+    {
+        nameLabel.setText(name);
+        valueTextField.setText(value);
     }
 
     public void setName(String value)
     {
-        nameLabel.setText(value != null ? value : "");
+        if (value == null)
+        {
+            throw new IllegalArgumentException("name can not be null");
+        }
+
+        name = value;
     }
 
-    public void setValue(String value)
+    public void setValue(Object value)
     {
-        valueTextField.setText(value != null ? value : "");
-    }
-
-    public void setData(Data data)
-    {
-        nameLabel.setText(data.getName());
-        valueTextField.setText(data.toString());
-    }
-
-    public void setData(DataSlot slot, Data data)
-    {
-        nameLabel.setText(slot.getName());
-        valueTextField.setText(data.toString());
+        this.value = (value != null ? value.toString() : "");
     }
 }

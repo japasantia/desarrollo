@@ -2,6 +2,10 @@ package ve.gob.cendit.cenditlab.tests;
 
 import ve.gob.cendit.cenditlab.tasks.DataSet;
 import ve.gob.cendit.cenditlab.tasks.Data;
+import ve.gob.cendit.cenditlab.tasks.ListData;
+import ve.gob.cendit.cenditlab.tasks.NumericData;
+
+import java.util.Arrays;
 
 /**
  * Created by root on 22/08/17.
@@ -9,6 +13,12 @@ import ve.gob.cendit.cenditlab.tasks.Data;
 public class DataTest
 {
     public static void main(String[] args)
+    {
+        // numericDataTest();
+        listDataTest();
+    }
+
+    public static void dataTest()
     {
         Data freqData = new Data("Frequency");
         Data ampData = new Data("Amplitude", 10.5);
@@ -50,8 +60,55 @@ public class DataTest
         print(dataSet3);
     }
 
+    public static void numericDataTest()
+    {
+        NumericData data1 = new NumericData("Number1");
+        NumericData data2 = new NumericData("Number1", 12.3);
+        NumericData data3 = new NumericData("Number1", "+45.67e3");
+
+        print("Data1", data1);
+        print("Data2", data2);
+        print("Data3", data3);
+
+        data1.set("#HCAFEdeadbeef");
+        data2.set(data1);
+
+        try
+        {
+            data1.set("Hola");
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void listDataTest()
+    {
+        ListData list1 = new ListData("List1");
+
+        list1.set(12.5);
+        print("List with single double value", list1);
+
+        list1.set(" frequency  , spam  , V5  , 12.34 ");
+        print("String list", list1);
+
+        list1.set("freq span, voltage range");
+        print("String list with space", list1);
+
+        list1.set("frequency");
+        print("List with single value", list1);
+    }
+
     public static void print(Object object)
     {
         System.out.println(object.toString());
     }
+
+    public static void print(String message, Object object)
+    {
+        System.out.printf("%s: %s\n", message, object.toString());
+    }
+
+
 }
