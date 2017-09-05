@@ -16,7 +16,7 @@ import java.util.Arrays;
 /**
  * Created by root on 29/08/17.
  */
-public class DataListView extends View
+public class ListDataView extends View
 {
     private static final String DEFAULT_NAME = "Data Container";
     private static final String DEFAULT_DESCRIPTION = "Es un contenedor de datos";
@@ -27,7 +27,7 @@ public class DataListView extends View
 
     private ObservableList<Node> dataList;
 
-    public DataListView()
+    public ListDataView()
     {
         super(FXML_FILE);
     }

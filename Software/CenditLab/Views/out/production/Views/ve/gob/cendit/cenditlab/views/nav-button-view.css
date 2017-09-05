@@ -1,0 +1,18 @@
+#container {
+    -fx-background-color: white;
+}
+
+#container:hover {
+    -fx-background-color: orange;
+}
+
+#step-number-label {
+    -fx-background-color: blue;
+    -fx-border-radius: 100 100 100 100;
+    -fx-background-radius: 10 10 10 10;
+}
+
+#step-number-label:hover {
+
+    -fx-background-color: green;
+}

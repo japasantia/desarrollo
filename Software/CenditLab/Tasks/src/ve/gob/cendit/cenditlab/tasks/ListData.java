@@ -30,14 +30,7 @@ public class ListData extends Data
     @Override
     public void set(Object value)
     {
-        if (ListData.isValid(value))
-        {
-            super.set(parseList(value));
-        }
-        else
-        {
-            throw new IllegalArgumentException("Value does not contain a valid list representation");
-        }
+       super.set(parseList(value));
     }
 
     @Override
@@ -84,20 +77,40 @@ public class ListData extends Data
             return false;
         }
 
-        return value.toString().matches(LIST_FORMAT);
+        return value instanceof String[] ||
+            value instanceof Object[] ||
+            value.toString().matches(LIST_FORMAT);
     }
 
-    private static String[] parseList(Object value)
+    private static Object[] parseList(Object value)
     {
         String rawList;
 
-        if (value instanceof String)
+        if (value == null)
+        {
+            throw new IllegalArgumentException("Value must not be null");
+        }
+
+        if (value instanceof String[])
+        {
+            return (Object[])value;
+        }
+        else if (value instanceof Object[])
+        {
+            return (Object[])value;
+        }
+        else if (value instanceof String)
         {
             rawList = (String)value;
         }
         else
         {
             rawList = value.toString();
+        }
+
+        if ( ! value.toString().matches(LIST_FORMAT) )
+        {
+            throw new IllegalArgumentException("Value does not contain a valid list representation");
         }
 
         String[] items = rawList.split(LIST_SEPARATOR);

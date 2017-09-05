@@ -27,14 +27,7 @@ public class NumericData extends Data
     @Override
     public void set(Object value)
     {
-        if (NumericData.isValid(value))
-        {
-            super.set(value);
-        }
-        else
-        {
-            throw new IllegalArgumentException("Value does not contain a valid numeric representation");
-        }
+        super.set(parseNumber(value));
     }
 
     @Override
@@ -83,12 +76,17 @@ public class NumericData extends Data
 
     public static boolean isValid(Object value)
     {
-        if (value == null || !(value instanceof Number || value instanceof String))
+        return (value!= null &&
+                (value instanceof  Number ||
+                    (value instanceof String && isValid(value.toString()))));
+        /*
+        if (value == null || ! (value instanceof Number || value instanceof String))
         {
             return false;
         }
 
         return isValid(value.toString());
+        */
     }
 
     public static boolean isValid(String value)
@@ -127,5 +125,63 @@ public class NumericData extends Data
     public static boolean isOctal(String value)
     {
         return value != null && value.matches(OCTAL_PATTERN);
+    }
+
+    private static Number parseNumber(Object value)
+    {
+        if (value == null)
+        {
+            throw new IllegalArgumentException("Value must not be null");
+        }
+
+        if (value instanceof Number)
+        {
+            return (Number)value;
+        }
+        else if (value instanceof Object)
+        {
+            try
+            {
+                String numberString = value.toString();
+
+                if (isFloat(numberString))
+                {
+                    return Float.parseFloat(numberString);
+                }
+                else if (isInteger(numberString))
+                {
+                    return Integer.parseInt(numberString);
+                }
+                else
+                {
+                    int radix = 10;
+
+                    if (isBinary(numberString))
+                    {
+                        radix = 2;
+                    }
+                    else if (isOctal(numberString))
+                    {
+                        radix = 8;
+                    }
+                    else if (isHex(numberString))
+                    {
+                        radix = 16;
+                    }
+                    else
+                    {
+                        throw new IllegalArgumentException("Value does not contain a valid number representation");
+                    }
+
+                    return Integer.parseInt(numberString.substring(2), radix);
+                }
+            }
+            catch (NumberFormatException ex)
+            {
+                throw new IllegalArgumentException("Value does not contain a valid number representation", ex);
+            }
+        }
+
+        throw new IllegalArgumentException("Value does not contain a valid number representation");
     }
 }

@@ -20,10 +20,11 @@
       </HBox>
    </top>
    <center>
-      <GridPane hgap="2.0" vgap="2.0" BorderPane.alignment="CENTER">
+      <GridPane hgap="2.0" vgap="2.0" BorderPane.alignment="CENTER"  maxWidth="1.7976931348623157E308" >
         <columnConstraints>
           <ColumnConstraints halignment="LEFT" hgrow="NEVER" minWidth="200.0" />
-          <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="600.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="600.0" maxWidth="1.7976931348623157E308"
+                             fillWidth="true"/>
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="-Infinity" valignment="CENTER" vgrow="NEVER" />
@@ -41,14 +42,15 @@
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </padding>
             </Label>
-            <ScrollPane GridPane.rowIndex="1">
+            <ScrollPane GridPane.rowIndex="1" maxWidth="1.7976931348623157E308">
                <content>
                   <VBox fx:id="leftContainerVBox" minWidth="200.0" />
                </content>
             </ScrollPane>
-            <ScrollPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <ScrollPane GridPane.columnIndex="1" GridPane.rowIndex="1" >
                <content>
-                  <VBox fx:id="rightContainerVBox" minWidth="600.0" />
+                  <VBox fx:id="rightContainerVBox" minWidth="600.0" maxWidth="1.7976931348623157E308"
+                        fillWidth="true"/>
                </content>
             </ScrollPane>
          </children>

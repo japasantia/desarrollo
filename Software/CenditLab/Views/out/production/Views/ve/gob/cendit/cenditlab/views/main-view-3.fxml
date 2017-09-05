@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane maxHeight="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <MenuBar VBox.vgrow="NEVER">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Close" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Edit">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Delete" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="About" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <ToolBar VBox.vgrow="SOMETIMES">
+                    <items>
+                      <Button mnemonicParsing="false" text="Button" />
+                    </items>
+                  </ToolBar>
+               </children>
+            </VBox>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../../../../../cendit-logo.jpg" />
+               </image>
+            </ImageView>
+         </children>
+         <BorderPane.margin>
+            <Insets left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+      </AnchorPane>
+   </top>
+   <left>
+      <ScrollPane hbarPolicy="ALWAYS" minWidth="200.0" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+         <content>
+            <VBox spacing="5.0">
+               <children>
+                  <AnchorPane>
+                     <children>
+                        <Label fx:id="stepNumberLabel" layoutX="14.0" layoutY="7.0" text="9" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0">
+                           <font>
+                              <Font name="System Bold" size="50.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="smallTitleLabel" layoutX="47.0" layoutY="15.0" text="Seleccionar" textFill="#979696" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="15.0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="bigTitleLabel" layoutX="47.0" layoutY="30.0" prefHeight="50.0" prefWidth="130.0" style="-fx-text-wrap: true;" text="Instrumentos y Sistemas" textOverrun="CLIP" wrapText="true" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="25.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <Label fx:id="stepNumberLabel1" layoutX="14.0" layoutY="7.0" text="9" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0">
+                           <font>
+                              <Font name="System Bold" size="50.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="smallTitleLabel1" layoutX="47.0" layoutY="15.0" text="Seleccionar" textFill="#979696" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="15.0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="bigTitleLabel1" layoutX="47.0" layoutY="30.0" prefHeight="50.0" prefWidth="130.0" style="-fx-text-wrap: true;" text="Instrumentos y Sistemas" textOverrun="CLIP" wrapText="true" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="25.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <Label fx:id="stepNumberLabel2" layoutX="14.0" layoutY="7.0" text="9" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0">
+                           <font>
+                              <Font name="System Bold" size="50.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="smallTitleLabel2" layoutX="47.0" layoutY="15.0" text="Seleccionar" textFill="#979696" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="15.0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="bigTitleLabel2" layoutX="47.0" layoutY="30.0" prefHeight="50.0" prefWidth="130.0" style="-fx-text-wrap: true;" text="Instrumentos y Sistemas" textOverrun="CLIP" wrapText="true" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="25.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </content>
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+      </ScrollPane>
+   </left>
+</BorderPane>
