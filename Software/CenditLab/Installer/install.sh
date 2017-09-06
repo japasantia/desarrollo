@@ -20,7 +20,7 @@ echo "[Desktop Entry]
 Type=Application
 Name=CenditLab
 Comment=Lanzador para CenditLab
-Exec=java -jar $installDir/Views.jar
+Exec=java -cp $installDir/Views.jar ve.gob.cendit.cenditlab.views.tests.Main
 Terminal=false
 Icon=$installDir/cendit-logo.jpg
 Categories=Application;TestAndMeasurement" > CenditLab.desktop
@@ -30,4 +30,6 @@ echo $desktopDir
 
 mv CenditLab.desktop $desktopDir
 chmod +x $desktopDir/CenditLab.desktop
+
+echo "CenditLab se ha instalado de manera exitosa"
 

@@ -2,13 +2,19 @@ package ve.gob.cendit.cenditlab.views;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
+
+
 import ve.gob.cendit.cenditlab.tasks.ArrayData;
+
+
 
 /**
  * Created by root on 04/09/17.
@@ -25,6 +31,37 @@ public class ArrayDataView extends View
 
     @FXML
     GridPane contentGridPane;
+
+    @FXML
+    void contentGridPaneClicked(MouseEvent event)
+    {
+        GridPane source = (GridPane) event.getSource();
+
+        if (source == null)
+        {
+            return;
+        }
+
+        double width = source.getWidth();
+        double height = source.getHeight();
+
+        Object[][] array = (Object[][]) arrayData.get();
+        double x = event.getX();
+        double y = event.getY();
+        double cellWidth = width / array[0].length;
+        double cellHeight = height / array.length;
+
+        int row = (int)(y / cellHeight);
+        int col = (int)(x / cellWidth);
+
+        TextField textField = new TextField(String.format("Added %d:%d", row, col));
+        textField.setMaxWidth(cellWidth);
+        textField.setMaxHeight(cellHeight);
+        textField.setPrefWidth(cellWidth);
+        textField.setPrefHeight(cellHeight);
+
+        contentGridPane.add(textField, col, row);
+    }
 
     private ArrayData arrayData;
     private String[] headers;
@@ -107,10 +144,10 @@ public class ArrayDataView extends View
         }
 
         ColumnConstraints referenceColumnConstraints = new ColumnConstraints();
-        referenceColumnConstraints.setFillWidth(true);
+        referenceColumnConstraints.setFillWidth(false);
         referenceColumnConstraints.setMinWidth(10.0);
         referenceColumnConstraints.setMaxWidth(Double.POSITIVE_INFINITY);
-        referenceColumnConstraints.setHgrow(Priority.ALWAYS);
+        referenceColumnConstraints.setHgrow(Priority.NEVER);
         referenceColumnConstraints.setPercentWidth(-1);
 
         for (int i = 0; i < contentGridPane.getColumnConstraints().size(); ++i)
@@ -120,9 +157,9 @@ public class ArrayDataView extends View
 
 
         RowConstraints referenceRowConstraints = new RowConstraints();
-        referenceRowConstraints.setFillHeight(true);
+        referenceRowConstraints.setFillHeight(false);
         referenceRowConstraints.setMinHeight(30);
-        referenceRowConstraints.setVgrow(Priority.SOMETIMES);
+        referenceRowConstraints.setVgrow(Priority.NEVER);
         referenceRowConstraints.setPercentHeight(-1);
 
         for (int i = 0; i < contentGridPane.getRowConstraints().size(); ++i)
@@ -171,4 +208,7 @@ public class ArrayDataView extends View
             headerGridPane.getColumnConstraints().add(i, referenceColumnConstraints);
         }
     }
+
+
+
 }

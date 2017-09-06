@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox minHeight="50.0" minWidth="100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label fx:id="titleLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: orange;" text="Tabla" VBox.vgrow="NEVER" />
-      <GridPane fx:id="headerGridPane" gridLinesVisible="true" maxWidth="1.7976931348623157E308" VBox.vgrow="NEVER">
-        <rowConstraints>
-          <RowConstraints vgrow="SOMETIMES" />
-        </rowConstraints>
-         <columnConstraints>
-            <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-      </GridPane>
-      <GridPane fx:id="contentGridPane" gridLinesVisible="true" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
-        <rowConstraints>
-          <!-- <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" /> -->
-        </rowConstraints>
-         <columnConstraints>
-            <!-- <ColumnConstraints minWidth="10.0" prefWidth="100.0" /> -->
-         </columnConstraints>
-      </GridPane>
-   </children>
+<VBox minHeight="50.0" minWidth="100.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <Label fx:id="titleLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: orange;" text="Tabla" VBox.vgrow="NEVER" />
+    <GridPane fx:id="headerGridPane" gridLinesVisible="true" maxWidth="1.7976931348623157E308" VBox.vgrow="NEVER">
+      <columnConstraints>
+        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <GridPane fx:id="contentGridPane" gridLinesVisible="true" maxHeight="1.7976931348623157E308" onMouseClicked="#contentGridPaneClicked" VBox.vgrow="ALWAYS">
+      <columnConstraints>
+        <!-- <ColumnConstraints minWidth="10.0" prefWidth="100.0" /> -->
+      </columnConstraints>
+      <rowConstraints>
+        <!-- <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" /> -->
+      </rowConstraints>
+    </GridPane>
+  </children>
 </VBox>
