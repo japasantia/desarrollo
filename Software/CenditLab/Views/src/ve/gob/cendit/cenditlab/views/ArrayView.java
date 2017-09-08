@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -19,7 +20,7 @@ import ve.gob.cendit.cenditlab.tasks.ArrayData;
 /**
  * Created by root on 04/09/17.
  */
-public class ArrayDataView extends View
+public class ArrayView extends View
 {
     private static final String FXML_URL = "array-data-view.fxml";
 
@@ -40,19 +41,37 @@ public class ArrayDataView extends View
     private int lastRow = -1;
     private int lastColumn = -1;
 
-    public ArrayDataView()
+    private static ColumnConstraints referenceColumnConstraints;
+    private static RowConstraints referenceRowConstraints;
+
+    static
+    {
+        referenceColumnConstraints = new ColumnConstraints();
+        referenceColumnConstraints.setFillWidth(true);
+        referenceColumnConstraints.setHgrow(Priority.ALWAYS);
+        //referenceColumnConstraints.setMinWidth(50.0);
+        //referenceColumnConstraints.setMaxWidth(50.0);
+
+        referenceRowConstraints = new RowConstraints();
+        referenceRowConstraints.setFillHeight(true);
+        referenceRowConstraints.setVgrow(Priority.ALWAYS);
+        //referenceRowConstraints.setMinHeight(50.0);
+        //referenceColumnConstraints.setMaxWidth(50.0);
+    }
+
+    public ArrayView()
     {
         super(FXML_URL);
     }
 
-    public ArrayDataView(ArrayData value)
+    public ArrayView(ArrayData value)
     {
         super(FXML_URL);
 
         setData(value);
     }
 
-    public ArrayDataView(ArrayData value, String... headers)
+    public ArrayView(ArrayData value, String... headers)
     {
         super(FXML_URL);
 
@@ -86,9 +105,12 @@ public class ArrayDataView extends View
 
         titleLabel.setText(arrayData.getName());
 
-        for (int i = 0; i < arrayData.getRows(); ++i)
+        int rows = arrayData.getRows();
+        int columns = arrayData.getColumns();
+
+        for (int i = 0; i < rows; ++i)
         {
-            for (int j = 0; j < arrayData.getColumns(); j++)
+            for (int j = 0; j < columns; j++)
             {
                 Object value = arrayData.getItem(i, j);
 
@@ -106,26 +128,16 @@ public class ArrayDataView extends View
             }
         }
 
-        ColumnConstraints referenceColumnConstraints = new ColumnConstraints();
-        referenceColumnConstraints.setFillWidth(true);
-        //referenceColumnConstraints.setMinWidth(50.0);
-        //referenceColumnConstraints.setMaxWidth(50.0);
-        referenceColumnConstraints.setHgrow(Priority.NEVER);
-        //referenceColumnConstraints.setPercentWidth(-1);
-        contentGridPane.getBoundsInLocal();
+        int percentWidth = 100 / rows;
+        int percentHeight = 100 / columns;
+
+        referenceColumnConstraints.setPercentWidth(percentWidth);
+        referenceRowConstraints.setPercentHeight(percentHeight);
 
         for (int i = 0; i < contentGridPane.getColumnConstraints().size(); ++i)
         {
             contentGridPane.getColumnConstraints().set(i, referenceColumnConstraints);
         }
-
-
-        RowConstraints referenceRowConstraints = new RowConstraints();
-        referenceRowConstraints.setFillHeight(true);
-        //referenceRowConstraints.setMinHeight(50.0);
-        //referenceColumnConstraints.setMaxWidth(50.0);
-        referenceRowConstraints.setVgrow(Priority.NEVER);
-        // referenceRowConstraints.setPercentHeight(-1);
 
         for (int i = 0; i < contentGridPane.getRowConstraints().size(); ++i)
         {
@@ -139,13 +151,6 @@ public class ArrayDataView extends View
         {
             return;
         }
-
-        ColumnConstraints referenceColumnConstraints = new ColumnConstraints();
-        referenceColumnConstraints.setFillWidth(true);
-        referenceColumnConstraints.setMinWidth(10.0);
-        referenceColumnConstraints.setMaxWidth(Double.POSITIVE_INFINITY);
-        referenceColumnConstraints.setHgrow(Priority.ALWAYS);
-        // referenceColumnConstraints.setPercentWidth(-1);
 
         for (int i = 0; i < headers.length; ++i)
         {
@@ -185,13 +190,12 @@ public class ArrayDataView extends View
                 if (inputTextField == null)
                 {
                     inputTextField = new TextField();
-                    inputTextField.setMaxWidth(lastLabel.getBoundsInLocal().getWidth());
-                    inputTextField.setMinHeight(lastLabel.getBoundsInLocal().getHeight());
-                    inputTextField.setMaxHeight(lastLabel.getMaxHeight());
+                    //inputTextField.setMaxWidth(lastLabel.getBoundsInLocal().getWidth());
+                    //inputTextField.setMinHeight(lastLabel.getBoundsInLocal().getHeight());
+                    //inputTextField.setMaxHeight(lastLabel.getMaxHeight());
                     inputTextField.setAlignment(Pos.CENTER);
-
-                    inputTextField.setPadding(new Insets(0.0));
-                    inputTextField.setPrefColumnCount(10);
+                    inputTextField.setPadding(Insets.EMPTY);
+                    //inputTextField.setPrefColumnCount(10);
 
                     /*
                     valueLabel.setMaxWidth(Double.MAX_VALUE);
@@ -199,10 +203,10 @@ public class ArrayDataView extends View
                     GridPane.setHgrow(valueLabel, Priority.ALWAYS);
                     GridPane.setVgrow(valueLabel, Priority.ALWAYS);
                     */
-                    GridPane.setHalignment(inputTextField, HPos.CENTER);
-                    GridPane.setMargin(inputTextField, new Insets(0.0));
-                    GridPane.setHgrow(inputTextField, Priority.ALWAYS);
-                    GridPane.setVgrow(inputTextField, Priority.ALWAYS);
+                    //GridPane.setHalignment(inputTextField, HPos.CENTER);
+                    GridPane.setMargin(inputTextField, Insets.EMPTY);
+                    //GridPane.setHgrow(inputTextField, Priority.ALWAYS);
+                    //GridPane.setVgrow(inputTextField, Priority.ALWAYS);
                 }
 
                 lastRow = r.intValue();
@@ -215,6 +219,13 @@ public class ArrayDataView extends View
 
                 contentGridPane.getChildren().removeAll(lastLabel);
                 contentGridPane.add(inputTextField, lastColumn, lastRow);
+                GridPane.setConstraints(inputTextField, lastColumn, lastRow,
+                        1, 1,
+                        HPos.CENTER, VPos.CENTER,
+                        Priority.NEVER, Priority.NEVER,
+                        Insets.EMPTY);
+                //contentGridPane.getColumnConstraints().remove(lastColumn);
+                //contentGridPane.getColumnConstraints().set(lastColumn, referenceColumnConstraints);
             }
         }
     }

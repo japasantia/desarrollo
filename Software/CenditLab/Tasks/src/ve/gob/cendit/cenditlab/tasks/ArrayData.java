@@ -7,8 +7,8 @@ import java.util.Arrays;
  */
 public class ArrayData extends Data
 {
-    private int arrayRows = -1;
-    private int arrayColumns = -1;
+    private int arrayRows;
+    private int arrayColumns;
 
     public ArrayData(String name)
     {
@@ -49,7 +49,7 @@ public class ArrayData extends Data
         if (itemExists(row, column))
         {
             Object[][] objArray = getInternalArray();
-            Object[] objRow = (Object[]) objArray[row];
+            Object[] objRow = (Object[])objArray[row];
 
             if (objRow == null)
             {
@@ -128,7 +128,10 @@ public class ArrayData extends Data
 
     public boolean itemExists(int row, int column)
     {
-        return getInternalArray() != null && checkIndices(row, column);
+        Object[][] objArray = getInternalArray();
+
+        return objArray != null && checkIndices(row, column) &&
+                objArray[row] != null && column < objArray[row].length;
     }
 
     public boolean checkIndices(int row, int column)
@@ -167,7 +170,25 @@ public class ArrayData extends Data
             throw new IllegalArgumentException("Value does not contain a valid array representation");
         }
 
-        return (Object[][]) value;
+        Object[][] inputArray = (Object[][]) value;
+        Object[][] outputArray = new Object[inputArray.length][];
+
+        for (int i = 0; i < inputArray.length; ++i)
+        {
+            Object[] row = inputArray[i];
+            
+            if (row != null)
+            {
+                outputArray[i] = new Object[row.length];
+
+                for (int j = 0; j <row.length; ++j)
+                {
+                    outputArray[i][j] = row[j];
+                }
+            }
+        }
+
+        return outputArray;
     }
 
     private Object[][] getInternalArray()

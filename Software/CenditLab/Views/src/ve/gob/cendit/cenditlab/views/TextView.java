@@ -10,7 +10,7 @@ import ve.gob.cendit.cenditlab.tasks.DataSlot;
 /**
  * Created by root on 29/08/17.
  */
-public class TextDataView extends View
+public class TextView extends View
 {
     private static final String FXML_FILE = "text-data-view.fxml";
 
@@ -23,12 +23,12 @@ public class TextDataView extends View
     private String name;
     private String value;
 
-    public TextDataView()
+    public TextView()
     {
         super(FXML_FILE);
     }
 
-    public TextDataView(DataSlot slot, Data data)
+    public TextView(DataSlot slot, Data data)
     {
         super(FXML_FILE);
 
@@ -36,7 +36,7 @@ public class TextDataView extends View
         setValue(data.get());
     }
 
-    public TextDataView(Data data)
+    public TextView(Data data)
     {
         super(FXML_FILE);
 
@@ -44,7 +44,7 @@ public class TextDataView extends View
         setValue(data.get());
     }
 
-    public TextDataView(String name, String value)
+    public TextView(String name, String value)
     {
         super(FXML_FILE);
 

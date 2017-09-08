@@ -12,7 +12,7 @@ import ve.gob.cendit.cenditlab.tasks.ArrayData;
 /**
  * Created by root on 07/09/17.
  */
-public class ArrayDataView2 extends View
+public class ArrayView2 extends View
 {
     private static final String FXML_URL = "array-data-view-2.fxml";
 
@@ -24,7 +24,7 @@ public class ArrayDataView2 extends View
 
     private ArrayData arrayData;
 
-    public ArrayDataView2(ArrayData arrayData)
+    public ArrayView2(ArrayData arrayData)
     {
         super(FXML_URL);
 

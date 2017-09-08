@@ -6,9 +6,9 @@ import javafx.stage.Stage;
 import ve.gob.cendit.cenditlab.tasks.ArrayData;
 import ve.gob.cendit.cenditlab.tasks.DataContainer;
 import ve.gob.cendit.cenditlab.tasks.DataSlot;
-import ve.gob.cendit.cenditlab.views.ArrayDataView;
-import ve.gob.cendit.cenditlab.views.ArrayDataView2;
-import ve.gob.cendit.cenditlab.views.ListDataView;
+import ve.gob.cendit.cenditlab.views.ArrayView;
+import ve.gob.cendit.cenditlab.views.GraphView;
+import ve.gob.cendit.cenditlab.views.VectorView;
 import ve.gob.cendit.cenditlab.views.NavButtonView;
 
 /**
@@ -21,8 +21,7 @@ public class ViewTestApplication extends Application
     public void start(Stage primaryStage) throws Exception
     {
         TwoPaneWindow mainWindow = new TwoPaneWindow();
-        ListDataView dcView = new ListDataView();
-
+        VectorView dcView = new VectorView();
 
         DataContainer dc = new DataContainer(
                 new DataSlot("Data 1"),
@@ -44,14 +43,22 @@ public class ViewTestApplication extends Application
         arrayData2.set(new Integer[][] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15, 16, 17},
                 { 18, 19 }, { 20, 21, 22, 23, 24, 25 }});
 
+        ArrayView arrayView1 = new ArrayView(arrayData1,  "C1", "C2", "C3");
+        ArrayView arrayView2 = new ArrayView(arrayData2, "ENR MAG", "ENR PHASE", "SWR MAG","SWR PHASE");
 
-
-        ArrayDataView arrayDataView1 = new ArrayDataView(arrayData1,  "C1", "C2", "C3");
-        ArrayDataView arrayDataView2 = new ArrayDataView(arrayData2, "ENR MAG", "ENR PHASE", "SWR MAG","SWR PHASE");
+        Object[][] graphData = new Float[][] {
+            { 1.0f, 2.0f, 3.6f, 1.3f},
+            { 4f, 5f, 6f, 4.8f },
+            { 7f, 10f, 9f, 5f },
+            { 5f, 6f, 0f, 10f } };
+        ArrayData graphArrayData = new ArrayData("Datos grafico", graphData);
+        GraphView graphView = new GraphView(graphArrayData);
 
         mainWindow.addRightPanel(dcView);
-        mainWindow.addRightPanel(arrayDataView1);
-        mainWindow.addRightPanel(arrayDataView2);
+        mainWindow.addRightPanel(arrayView1);
+        mainWindow.addRightPanel(arrayView2);
+
+        mainWindow.addRightPanel(graphView);
 
         mainWindow.addLeftPanel(navButton1);
         mainWindow.addLeftPanel(navButton2);

@@ -3,9 +3,8 @@ package ve.gob.cendit.cenditlab.views;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
+
 import javafx.scene.control.ListView;
 import ve.gob.cendit.cenditlab.tasks.Data;
 import ve.gob.cendit.cenditlab.tasks.DataContainer;
@@ -16,7 +15,7 @@ import java.util.Arrays;
 /**
  * Created by root on 29/08/17.
  */
-public class ListDataView extends View
+public class VectorView extends View
 {
     private static final String DEFAULT_NAME = "Data Container";
     private static final String DEFAULT_DESCRIPTION = "Es un contenedor de datos";
@@ -27,7 +26,7 @@ public class ListDataView extends View
 
     private ObservableList<Node> dataList;
 
-    public ListDataView()
+    public VectorView()
     {
         super(FXML_FILE);
     }
@@ -47,7 +46,7 @@ public class ListDataView extends View
                     String name = ds.getName();
                     Data data = dataContainer.getData(name);
                     String value = data != null ? data.toString() : "";
-                    TextDataView view = new TextDataView(name, value);
+                    TextView view = new TextView(name, value);
                     dataList.add(view.getNode());
                 });
     }
