@@ -1,10 +1,15 @@
 package ve.gob.cendit.cenditlab.tasks;
 
+import java.util.Arrays;
+
 /**
  * Created by root on 04/09/17.
  */
 public class ArrayData extends Data
 {
+    private int arrayRows = -1;
+    private int arrayColumns = -1;
+
     public ArrayData(String name)
     {
         super(name);
@@ -29,12 +34,125 @@ public class ArrayData extends Data
     public void set(Object value)
     {
         super.set(parseArray(value));
+
+        loadArrayDimensions();
     }
 
     @Override
     public void set(Data data)
     {
         this.set(data.get());
+    }
+
+    public void setItem(int row, int column, Object item)
+    {
+        if (itemExists(row, column))
+        {
+            Object[][] objArray = getInternalArray();
+            Object[] objRow = (Object[]) objArray[row];
+
+            if (objRow == null)
+            {
+                objRow = createRow(row);
+            }
+            else if (column >= objRow.length)
+            {
+                objRow = expandRow(row);
+            }
+
+            objRow[column] = item;
+        }
+    }
+
+    public Object getItem(int row, int column)
+    {
+        Object[][] objArray = getInternalArray();
+
+        if (objArray != null && checkIndices(row, column))
+        {
+            Object[] objRow = (Object[]) objArray[row];
+
+            if (objRow != null && column < objRow.length)
+            {
+                return objRow[column];
+            }
+        }
+
+        return null;
+
+        /*
+        if (row >= arrayRows || column >= arrayColumns)
+        {
+            return null;
+        }
+
+        Object[][] objArray = getInternalArray();
+
+        if (objArray == null)
+        {
+            return null;
+        }
+
+        Object[] objRow = (Object[]) objArray[row];
+
+        if (column >= objArray.length)
+        {
+            return null;
+        }
+
+        return objRow[column];
+        */
+    }
+
+    public Object[] getRow(int row)
+    {
+        Object[][] objArray = getInternalArray();
+
+        if (objArray != null && row < arrayRows)
+        {
+            return objArray[row];
+        }
+
+        return null;
+    }
+
+    public int getRows()
+    {
+        return arrayRows;
+    }
+
+    public int getColumns()
+    {
+        return arrayColumns;
+    }
+
+    public boolean itemExists(int row, int column)
+    {
+        return getInternalArray() != null && checkIndices(row, column);
+    }
+
+    public boolean checkIndices(int row, int column)
+    {
+        return row >= 0 && column >= 0 &&
+                row < arrayRows && column < arrayColumns;
+    }
+
+    private Object[] createRow(int row)
+    {
+        Object[][] objArray = getInternalArray();
+
+        objArray[row] = new Object[arrayColumns];
+
+        return objArray[row];
+    }
+
+    private Object[] expandRow(int row)
+    {
+        Object[][] objArray = getInternalArray();
+
+        objArray[row] = Arrays.copyOf(objArray[row], arrayColumns);
+
+        return objArray[row];
     }
 
     public static boolean isValid(Object value)
@@ -52,10 +170,39 @@ public class ArrayData extends Data
         return (Object[][]) value;
     }
 
+    private Object[][] getInternalArray()
+    {
+        return (Object[][]) get();
+    }
+
+    private void loadArrayDimensions()
+    {
+        Object[][] objArray = getInternalArray();
+
+        if (objArray != null && objArray.length > 0)
+        {
+            arrayRows = objArray.length;
+
+            Arrays.stream(objArray)
+                .forEach(row ->
+                    {
+                        if (row != null)
+                        {
+                            arrayColumns = (row.length > arrayColumns ? row.length : arrayColumns);
+                        }
+                    });
+        }
+        else
+        {
+            arrayRows = 0;
+            arrayColumns = 0;
+        }
+    }
+
     @Override
     public String toString()
     {
-        Object[][] objArray = (Object[][]) get();
+        Object[][] objArray = getInternalArray();
 
         if (objArray == null)
         {
@@ -64,17 +211,17 @@ public class ArrayData extends Data
 
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < objArray.length; ++i)
+        for (int i = 0; i < arrayRows; ++i)
         {
-            if (objArray[i] == null)
+            Object[] objRow = objArray[i];
+
+            if (objRow == null)
             {
                 sb.append("{}");
                 continue;
             }
 
             sb.append("{");
-
-            Object[] objRow = objArray[i];
 
             for (int j = 0; j < objRow.length - 1; j++)
             {

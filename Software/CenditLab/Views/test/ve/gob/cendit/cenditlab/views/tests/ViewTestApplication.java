@@ -7,6 +7,7 @@ import ve.gob.cendit.cenditlab.tasks.ArrayData;
 import ve.gob.cendit.cenditlab.tasks.DataContainer;
 import ve.gob.cendit.cenditlab.tasks.DataSlot;
 import ve.gob.cendit.cenditlab.views.ArrayDataView;
+import ve.gob.cendit.cenditlab.views.ArrayDataView2;
 import ve.gob.cendit.cenditlab.views.ListDataView;
 import ve.gob.cendit.cenditlab.views.NavButtonView;
 

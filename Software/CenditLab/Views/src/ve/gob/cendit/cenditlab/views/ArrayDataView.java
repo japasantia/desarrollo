@@ -1,15 +1,15 @@
 package ve.gob.cendit.cenditlab.views;
 
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.RowConstraints;
+import javafx.scene.layout.*;
 
 
 import ve.gob.cendit.cenditlab.tasks.ArrayData;
@@ -32,39 +32,13 @@ public class ArrayDataView extends View
     @FXML
     GridPane contentGridPane;
 
-    @FXML
-    void contentGridPaneClicked(MouseEvent event)
-    {
-        GridPane source = (GridPane) event.getSource();
-
-        if (source == null)
-        {
-            return;
-        }
-
-        double width = source.getWidth();
-        double height = source.getHeight();
-
-        Object[][] array = (Object[][]) arrayData.get();
-        double x = event.getX();
-        double y = event.getY();
-        double cellWidth = width / array[0].length;
-        double cellHeight = height / array.length;
-
-        int row = (int)(y / cellHeight);
-        int col = (int)(x / cellWidth);
-
-        TextField textField = new TextField(String.format("Added %d:%d", row, col));
-        textField.setMaxWidth(cellWidth);
-        textField.setMaxHeight(cellHeight);
-        textField.setPrefWidth(cellWidth);
-        textField.setPrefHeight(cellHeight);
-
-        contentGridPane.add(textField, col, row);
-    }
-
     private ArrayData arrayData;
     private String[] headers;
+
+    private TextField inputTextField;
+    private Label lastLabel;
+    private int lastRow = -1;
+    private int lastColumn = -1;
 
     public ArrayDataView()
     {
@@ -112,43 +86,33 @@ public class ArrayDataView extends View
 
         titleLabel.setText(arrayData.getName());
 
-        Object[][] array = (Object[][]) arrayData.get();
-
-        for (int i = 0; i < array.length; ++i)
+        for (int i = 0; i < arrayData.getRows(); ++i)
         {
-            Object[] row = (Object[]) array[i];
-
-            if (row == null)
+            for (int j = 0; j < arrayData.getColumns(); j++)
             {
-                continue;
-            }
-
-            for (int j = 0; j < row.length; j++)
-            {
-                Object value = row[j];
+                Object value = arrayData.getItem(i, j);
 
                 if (value != null)
                 {
-                    // TextField valueTextField = new TextField();
-                    // valueTextField.setText(value.toString());
-
-                    // contentGridPane.add(valueTextField, j, i);
-
                     Label valueLabel = new Label(value.toString());
+                    valueLabel.setId(String.format("%d:%d", i, j));
                     valueLabel.setMaxWidth(Double.MAX_VALUE);
                     valueLabel.setAlignment(Pos.CENTER);
+                    valueLabel.setStyle("-fx-background-color: yellow");
                     GridPane.setHgrow(valueLabel, Priority.ALWAYS);
+                    GridPane.setVgrow(valueLabel, Priority.ALWAYS);
                     contentGridPane.add(valueLabel, j, i);
                 }
             }
         }
 
         ColumnConstraints referenceColumnConstraints = new ColumnConstraints();
-        referenceColumnConstraints.setFillWidth(false);
-        referenceColumnConstraints.setMinWidth(10.0);
-        referenceColumnConstraints.setMaxWidth(Double.POSITIVE_INFINITY);
+        referenceColumnConstraints.setFillWidth(true);
+        //referenceColumnConstraints.setMinWidth(50.0);
+        //referenceColumnConstraints.setMaxWidth(50.0);
         referenceColumnConstraints.setHgrow(Priority.NEVER);
-        referenceColumnConstraints.setPercentWidth(-1);
+        //referenceColumnConstraints.setPercentWidth(-1);
+        contentGridPane.getBoundsInLocal();
 
         for (int i = 0; i < contentGridPane.getColumnConstraints().size(); ++i)
         {
@@ -157,28 +121,16 @@ public class ArrayDataView extends View
 
 
         RowConstraints referenceRowConstraints = new RowConstraints();
-        referenceRowConstraints.setFillHeight(false);
-        referenceRowConstraints.setMinHeight(30);
+        referenceRowConstraints.setFillHeight(true);
+        //referenceRowConstraints.setMinHeight(50.0);
+        //referenceColumnConstraints.setMaxWidth(50.0);
         referenceRowConstraints.setVgrow(Priority.NEVER);
-        referenceRowConstraints.setPercentHeight(-1);
+        // referenceRowConstraints.setPercentHeight(-1);
 
         for (int i = 0; i < contentGridPane.getRowConstraints().size(); ++i)
         {
             contentGridPane.getRowConstraints().set(i, referenceRowConstraints);
         }
-
-        /*
-        contentGridPane.getColumnConstraints()
-            .stream()
-            .forEach(cc -> {
-                cc.setFillWidth(true);
-                cc.setMinWidth(10.0);
-                cc.setPrefWidth(100.0);
-                cc.setMaxWidth(Double.POSITIVE_INFINITY);
-                cc.setHgrow(Priority.ALWAYS);
-                cc.setPercentWidth(-1);
-            });
-        */
     }
 
     private void presentHeaders()
@@ -193,7 +145,7 @@ public class ArrayDataView extends View
         referenceColumnConstraints.setMinWidth(10.0);
         referenceColumnConstraints.setMaxWidth(Double.POSITIVE_INFINITY);
         referenceColumnConstraints.setHgrow(Priority.ALWAYS);
-        referenceColumnConstraints.setPercentWidth(-1);
+        // referenceColumnConstraints.setPercentWidth(-1);
 
         for (int i = 0; i < headers.length; ++i)
         {
@@ -209,6 +161,109 @@ public class ArrayDataView extends View
         }
     }
 
+    @FXML
+    void contentGridPaneClicked(MouseEvent event)
+    {
+        GridPane source = (GridPane) event.getSource();
 
+        if (source == null)
+        {
+            return;
+        }
 
+        restoreLastLabel();
+
+        lastLabel  = findLabelUnderCursor(event.getX(), event.getY());
+
+        if (lastLabel != null)
+        {
+            Integer r = GridPane.getRowIndex(lastLabel);
+            Integer c = GridPane.getColumnIndex(lastLabel);
+
+            if (r != null && c != null)
+            {
+                if (inputTextField == null)
+                {
+                    inputTextField = new TextField();
+                    inputTextField.setMaxWidth(lastLabel.getBoundsInLocal().getWidth());
+                    inputTextField.setMinHeight(lastLabel.getBoundsInLocal().getHeight());
+                    inputTextField.setMaxHeight(lastLabel.getMaxHeight());
+                    inputTextField.setAlignment(Pos.CENTER);
+
+                    inputTextField.setPadding(new Insets(0.0));
+                    inputTextField.setPrefColumnCount(10);
+
+                    /*
+                    valueLabel.setMaxWidth(Double.MAX_VALUE);
+                    valueLabel.setStyle("-fx-background-color: yellow");
+                    GridPane.setHgrow(valueLabel, Priority.ALWAYS);
+                    GridPane.setVgrow(valueLabel, Priority.ALWAYS);
+                    */
+                    GridPane.setHalignment(inputTextField, HPos.CENTER);
+                    GridPane.setMargin(inputTextField, new Insets(0.0));
+                    GridPane.setHgrow(inputTextField, Priority.ALWAYS);
+                    GridPane.setVgrow(inputTextField, Priority.ALWAYS);
+                }
+
+                lastRow = r.intValue();
+                lastColumn = c.intValue();
+
+                Object value = arrayData.getItem(lastRow, lastColumn);
+                String cellValue = (value != null ? value.toString() : "");
+
+                inputTextField.setText(cellValue);
+
+                contentGridPane.getChildren().removeAll(lastLabel);
+                contentGridPane.add(inputTextField, lastColumn, lastRow);
+            }
+        }
+    }
+
+    private void restoreLastLabel()
+    {
+        if (lastLabel == null || lastRow == -1 || lastColumn == -1 )
+        {
+            return;
+        }
+
+        if (arrayData != null && inputTextField != null)
+        {
+            String cellValue;
+
+            contentGridPane.getChildren().remove(inputTextField);
+            cellValue = inputTextField.getText();
+            cellValue = (cellValue != null ? cellValue : "");
+            arrayData.setItem(lastRow, lastColumn, cellValue);
+
+            lastLabel.setText(cellValue);
+            contentGridPane.add(lastLabel, lastColumn, lastRow);
+
+            lastLabel = null;
+            lastColumn = -1;
+            lastRow = -1;
+        }
+    }
+
+    private Label findLabelUnderCursor(double cursorX, double cursorY)
+    {
+        FilteredList<Node> nodeList =
+                contentGridPane.getChildren()
+                        .filtered(node ->
+                                node != null && node instanceof Label &&
+                                        node.getBoundsInParent().contains(
+                                                cursorX, cursorY)
+                        );
+
+        if (nodeList != null && nodeList.size() > 0)
+        {
+            return (Label) nodeList.get(0);
+        }
+
+        return null;
+    }
+
+    private void findPositionUnderCursor()
+    {
+
+    }
 }

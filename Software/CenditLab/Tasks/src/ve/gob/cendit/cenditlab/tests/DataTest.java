@@ -176,6 +176,18 @@ public class DataTest
         array1.set(new Object[][] { { 1, "a" }, null, { "b", 2 }, { 3, "c", null } });
 
         print(array1.getName(), array1);
+
+        array1.setItem(3, 2, 10);
+        array1.setItem(1, 2, 3.14f);
+        array1.setItem(2, 2, "new");
+        array1.setItem(2, 10, "unreachable");
+        array1.setItem(10, 20, "nothing");
+
+        print(array1.getName(), array1);
+
+        Object item = array1.getItem(1, 6);
+
+        print("Array 1[5, 6]:", item);
     }
 
     public static void print(Object object)
@@ -185,8 +197,10 @@ public class DataTest
 
     public static void print(String message, Object object)
     {
-        java.lang.System.out.printf("%s: %s\n", message, object.toString());
+        if (message != null)
+        {
+            java.lang.System.out.printf("%s: %s\n", message,
+                    object != null ? object.toString() : "empty");
+        }
     }
-
-
 }
