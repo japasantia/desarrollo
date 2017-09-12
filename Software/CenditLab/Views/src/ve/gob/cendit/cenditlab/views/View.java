@@ -5,28 +5,28 @@ import javafx.scene.Node;
 
 public abstract class View
 {
-    private String fxmlResource;
+    private String fxmlUrl;
     private Node viewNode;
 
-    public View(String fxmlResource)
+    public View(String fxmlUrl)
     {
-        setFxmlResource(fxmlResource);
+        setFxmlUrl(fxmlUrl);
     }
 
-    protected void setFxmlResource(String path)
+    protected void setFxmlUrl(String path)
     {
         if (path == null)
         {
             throw new IllegalArgumentException("Fxml resource name must not be null");
         }
 
-        fxmlResource = path;
+        fxmlUrl = path;
         viewNode = null;
     }
 
-    protected String getFxmlResource()
+    protected String getFxmlUrl()
     {
-        return fxmlResource;
+        return fxmlUrl;
     }
 
     public abstract void update();
@@ -35,7 +35,7 @@ public abstract class View
     {
         if (viewNode == null)
         {
-            viewNode = loadNodeFromFxmlResource(this, fxmlResource);
+            viewNode = loadNodeFromFxmlResource(this, fxmlUrl);
         }
     }
 

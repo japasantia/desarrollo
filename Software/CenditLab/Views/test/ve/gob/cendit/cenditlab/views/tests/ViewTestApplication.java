@@ -52,13 +52,10 @@ public class ViewTestApplication extends Application
             { 7f, 10f, 9f, 5f },
             { 5f, 6f, 0f, 10f } };
         ArrayData graphArrayData = new ArrayData("Datos grafico", graphData);
-        GraphView graphView = new GraphView(graphArrayData);
 
         mainWindow.addRightPanel(dcView);
         mainWindow.addRightPanel(arrayView1);
         mainWindow.addRightPanel(arrayView2);
-
-        mainWindow.addRightPanel(graphView);
 
         mainWindow.addLeftPanel(navButton1);
         mainWindow.addLeftPanel(navButton2);

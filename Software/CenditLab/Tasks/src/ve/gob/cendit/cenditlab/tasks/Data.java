@@ -19,12 +19,14 @@ public class Data
 
     public Data(String name, Data data)
     {
-        this(name, data.get());
+        this(name);
+        set(data);
     }
 
     public Data(Data data)
     {
-        this(data.getName(), data);
+        this(data.getName());
+        set(data);
     }
 
     public void set(Object value)

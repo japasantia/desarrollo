@@ -3,36 +3,35 @@ package ve.gob.cendit.cenditlab.tasks;
 
 import java.util.*;
 
-public class DataContainer
+public class ComponentSlots
 {
-    private final DataSlot[] dataSlots;
-    private Map<String, Data> dataMap =
-            new HashMap<>();
+    private final Slot[] slots;
+    private Map<String, Data> dataMap = new HashMap<>();
 
-    public DataContainer(DataSlot... dataSlots)
+    public ComponentSlots(Slot... slots)
     {
-        if (dataSlots.length == 0)
+        if (slots.length == 0)
         {
             throw new IllegalArgumentException("Data slots must not be empty");
         }
 
-        this.dataSlots = dataSlots;
+        this.slots = slots;
 
-        Arrays.stream(dataSlots)
+        Arrays.stream(slots)
             .forEach(ds -> dataMap.put(ds.getName(), ds.getDefaultData()));
     }
 
 
-    private Optional<DataSlot> findDataSlotByName(String slotName)
+    private Optional<Slot> findDataSlotByName(String slotName)
     {
-        return Arrays.stream(dataSlots)
+        return Arrays.stream(slots)
             .filter(ds -> ds.getName() == slotName)
             .findFirst();
     }
 
     public Data getDefaultData(String slotName)
     {
-        Optional<DataSlot> result = findDataSlotByName(slotName);
+        Optional<Slot> result = findDataSlotByName(slotName);
 
         return result.isPresent() ? result.get().getDefaultData() : null;
     }
@@ -43,23 +42,23 @@ public class DataContainer
                 .isPresent();
     }
 
-    public DataSlot[] getDataSlots()
+    public Slot[] getSlots()
     {
-        return dataSlots;
+        return slots;
     }
 
-    public DataSlot getDataSlot(String slotName)
+    public Slot getDataSlot(String slotName)
     {
-        Optional<DataSlot> result = findDataSlotByName(slotName);
+        Optional<Slot> result = findDataSlotByName(slotName);
 
         return result.isPresent() ? result.get() : null;
     }
 
-    public DataSlot getDataSlot(int slotIndex)
+    public Slot getDataSlot(int slotIndex)
     {
-        if (slotIndex >= 0 && slotIndex < dataSlots.length)
+        if (slotIndex >= 0 && slotIndex < slots.length)
         {
-            return dataSlots[slotIndex];
+            return slots[slotIndex];
         }
 
         return null;
@@ -70,16 +69,16 @@ public class DataContainer
         return dataMap.get(slotName);
     }
 
-    public Data getData(DataSlot dataSlot)
+    public Data getData(Slot slot)
     {
-        return dataMap.get(dataSlot.getName());
+        return dataMap.get(slot.getName());
     }
 
     public Data getData(int slotIndex)
     {
-        if (slotIndex >= 0 && slotIndex < dataSlots.length)
+        if (slotIndex >= 0 && slotIndex < slots.length)
         {
-            return dataMap.get(dataSlots[slotIndex].getName());
+            return dataMap.get(slots[slotIndex].getName());
         }
 
         return null;
@@ -93,18 +92,18 @@ public class DataContainer
         }
     }
 
-    public void setData(DataSlot dataSlot, Data data)
+    public void setData(Slot slot, Data data)
     {
-        setData(dataSlot.getName(), data);
+        setData(slot.getName(), data);
     }
 
     public void setData(int slotIndex, Data data)
     {
-        DataSlot dataSlot = getDataSlot(slotIndex);
+        Slot slot = getDataSlot(slotIndex);
 
-        if (dataSlot != null)
+        if (slot != null)
         {
-            setData(dataSlot.getName(), data);
+            setData(slot.getName(), data);
         }
     }
 
@@ -112,7 +111,7 @@ public class DataContainer
     {
         int size = dataArgs.length;
 
-        if (size == 0 || size != dataSlots.length)
+        if (size == 0 || size != slots.length)
         {
             throw new IllegalArgumentException("Data arguments size doesn't match with data slots size");
         }

@@ -4,18 +4,18 @@ public abstract class Task
 {
     private String name;
 
-    private DataContainer dataContainer;
+    private ComponentSlots slots;
 
-    public Task(String name, DataContainer dataContainer)
+    public Task(String name, ComponentSlots slots)
     {
         setName(name);
 
-        setDataContainer(dataContainer);
+        setSlots(slots);
     }
 
-    public Task(String name, DataSlot... dataSlots)
+    public Task(String name, Slot... slots)
     {
-        this(name, new DataContainer(dataSlots));
+        this(name, new ComponentSlots(slots));
     }
 
     protected Task()
@@ -31,19 +31,19 @@ public abstract class Task
         this.name = name;
     }
 
-    final protected void setDataContainer(DataContainer dataContainer)
+    final protected void setSlots(ComponentSlots slots)
     {
-        if (dataContainer == null)
+        if (slots == null)
         {
-            throw new IllegalArgumentException("Task dataContainer must not be null");
+            throw new IllegalArgumentException("Task slots must not be null");
         }
 
-        this.dataContainer = dataContainer;
+        this.slots = slots;
     }
 
-    final protected void setDataSlots(DataSlot... dataSlots)
+    final protected void setDataSlots(Slot... slots)
     {
-        dataContainer = new DataContainer(dataSlots);
+        this.slots = new ComponentSlots(slots);
     }
 
     public String getName()
@@ -51,9 +51,9 @@ public abstract class Task
         return name;
     }
 
-    public DataContainer getDataContainer()
+    public ComponentSlots getSlots()
     {
-        return dataContainer;
+        return slots;
     }
 
     public abstract void execute();

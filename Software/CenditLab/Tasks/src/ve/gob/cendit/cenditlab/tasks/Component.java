@@ -18,5 +18,11 @@ public abstract class Component
         return description;
     }
 
+    public abstract ComponentSlots getSlots(/* Context context */);
+
+    protected abstract void setSlots(ComponentSlots slots);
+
+    public abstract void setContext(/* Context context */);
+
     //public abstract View getView(Context context);
 }

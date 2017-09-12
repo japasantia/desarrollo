@@ -16,20 +16,20 @@ public class MathTasks2Test
         Data inputB = new Data("B", 12.55f);
         Data out = new Data("Out", 0);
 
-        print("AddTask slots", addTask.getDataContainer().getDataSlots());
-        print("AddTask default data", addTask.getDataContainer());
+        print("AddTask slots", addTask.getSlots().getSlots());
+        print("AddTask default data", addTask.getSlots());
 
-        addTask.getDataContainer().setData(0, inputA);
-        addTask.getDataContainer().setData(1, inputB);
+        addTask.getSlots().setData(0, inputA);
+        addTask.getSlots().setData(1, inputB);
         addTask.execute();
 
-        print("AddTask data after execute 1", addTask.getDataContainer());
+        print("AddTask data after execute 1", addTask.getSlots());
 
-        addTask.getDataContainer().getData(0).set(45.67f);
-        addTask.getDataContainer().getData(1).set(69.13f);
-        print("AddTask data modified", addTask.getDataContainer());
+        addTask.getSlots().getData(0).set(45.67f);
+        addTask.getSlots().getData(1).set(69.13f);
+        print("AddTask data modified", addTask.getSlots());
         addTask.execute();
-        print("AddTask data after execute 2", addTask.getDataContainer());
+        print("AddTask data after execute 2", addTask.getSlots());
     }
 
     public static void print(String caption, Object object)

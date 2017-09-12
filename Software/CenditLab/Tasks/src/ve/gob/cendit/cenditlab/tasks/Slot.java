@@ -3,23 +3,23 @@ package ve.gob.cendit.cenditlab.tasks;
 /**
  * Created by jarias on 23/08/17.
  */
-public class DataSlot
+public class Slot
 {
     private final String name;
     private final Data defaultData;
     private final DataDirection direction;
 
-    public DataSlot(String name)
+    public Slot(String name)
     {
         this(name, null, null);
     }
 
-    public DataSlot(String name, Data defaultData)
+    public Slot(String name, Data defaultData)
     {
         this(name, defaultData, null);
     }
 
-    public DataSlot(String name, Data defaultData, DataDirection direction)
+    public Slot(String name, Data defaultData, DataDirection direction)
     {
         if (name == null)
         {

@@ -5,19 +5,15 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.Axis;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart.Data;
 import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Label;
-import ve.gob.cendit.cenditlab.tasks.ArrayData;
 
-import java.util.ArrayList;
-import java.util.List;
+import ve.gob.cendit.cenditlab.tasks.GraphData;
+
+import java.util.Arrays;
 
 
-/**
- * Created by jarias on 08/09/17.
- */
 public class GraphView extends View
 {
     private final static String FXML_URL = "graph-view.fxml";
@@ -26,71 +22,63 @@ public class GraphView extends View
     Label titleLabel;
 
     @FXML
-    LineChart graphLineChart;
+    LineChart lineChart;
 
-    private ArrayData arrayData;
+    private String name;
+    private GraphData[] graphDataArray;
     private ObservableList<Series<Number, Number>> seriesList;
 
-    public GraphView(ArrayData arrayData)
+    public GraphView(String name, GraphData... graphDataArgs)
     {
         super(FXML_URL);
 
-        this.arrayData = arrayData;
+        if (graphDataArgs == null)
+        {
+            throw new IllegalArgumentException("Input graphData must not be null");
+        }
+
+        this.name = name;
+        this.graphDataArray = graphDataArgs;
     }
 
     @Override
     public void update()
     {
-        titleLabel.setText(arrayData.getName());
+        titleLabel.setText(name != null ? name : "");
 
-        loadData();
-
-        Axis<Number> xAxis = graphLineChart.getXAxis();
+        Axis<Number> xAxis = lineChart.getXAxis();
         xAxis.setAnimated(false);
         xAxis.setAutoRanging(true);
 
-        Axis<Number> yAxis = graphLineChart.getYAxis();
+        Axis<Number> yAxis = lineChart.getYAxis();
         yAxis.setAnimated(false);
         yAxis.setAutoRanging(true);
+
+        loadSeriesFromGraphData();
+
+        lineChart.setData(seriesList);
     }
 
-    private void loadData()
+    private void loadSeriesFromGraphData()
     {
-        int dataSeries = arrayData.getColumns() / 2;
-
-        seriesList = FXCollections.observableArrayList();
-
-        for (int col = 0; col <= dataSeries; col += 2)
+        if (seriesList == null && graphDataArray.length > 0)
         {
-            Series<Number,Number> series =
-                makeSeries(col, col + 1);
-            seriesList.add(series);
-            series.setName(String.format("%s[%s]", arrayData.getName(), col));
+            seriesList = FXCollections.observableArrayList();
+
+            Arrays.stream(graphDataArray)
+                    .forEach(graphData ->
+                    {
+                        Series<Number, Number> series = new Series<>();
+
+                        graphData.getDataPoints()
+                                .forEach(point ->
+                                {
+                                    series.getData().add(new Data<>(point.getX(), point.getY()));
+                                });
+
+                        series.setName(graphData.getName());
+                        seriesList.add(series);
+                    });
         }
-
-        graphLineChart.setData(seriesList);
     }
-
-    private Series<Number, Number> makeSeries(int columnX, int columnY)
-    {
-        Series<Number, Number> series = new Series<>();
-        ObservableList<Data<Number, Number>> dataList =
-                series.getData();
-
-        for (int row = 0; row < arrayData.getRows(); ++row)
-        {
-            Object xObj = arrayData.getItem(row, columnX);
-            Object yObj = arrayData.getItem(row, columnY);
-
-            if (xObj instanceof Number && yObj instanceof Number)
-            {
-                Number x = (Number) xObj;
-                Number y = (Number) yObj;
-                dataList.add(new Data<Number, Number>(x, y));
-            }
-        }
-
-        return series;
-    }
-
 }

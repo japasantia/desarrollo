@@ -1,6 +1,8 @@
 package ve.gob.cendit.cenditlab.tasks;
 
 
+import org.junit.experimental.theories.DataPoint;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +40,32 @@ public class GraphData extends Data
     public void set(Object value)
     {
         super.set(parseFromObject(value));
+    }
+
+    @Override
+    public void set(Data data)
+    {
+        this.set(data.get());
+    }
+
+    public List<GraphPoint> getDataPoints()
+    {
+        return (List<GraphPoint>) get();
+    }
+
+    public int getSize()
+    {
+        return getDataPoints().size();
+    }
+
+    public void addPoint(GraphPoint point)
+    {
+        getDataPoints().add(point);
+    }
+
+    public void addPoint(Number x, Number y)
+    {
+        addPoint(new GraphPoint(x, y));
     }
 
     public static GraphData fromString(String name, String pointsList)
@@ -115,7 +143,8 @@ public class GraphData extends Data
         }
         else if (value instanceof Object[][])
         {
-            return parseFromArrayColumns((Object[][]) value, 0, 1, 0, 0, -1);
+            return parseFromArrayColumns((Object[][]) value, 0, 1,
+                    0, 0, -1);
         }
         else if (value instanceof Object[])
         {
@@ -149,7 +178,7 @@ public class GraphData extends Data
         else
         {
             /* TODO: Cadena no presenta formato de lista */
-            throw new IllegalArgumentException("Value does not contain a valid graph data representation");
+            throw new IllegalArgumentException("Input string is not a valid point list");
         }
         /*
         if (value != null && value.matches(LIST_POINT_PATTERN))
@@ -212,12 +241,14 @@ public class GraphData extends Data
             throw new IllegalArgumentException("Input arrays must not be null");
         }
 
+        if (offsetX < 0  || offsetY < 0)
+        {
+            throw new IllegalArgumentException("The offset in the array must not be negative");
+        }
+
         length = (length >= 0 ?
                 Math.min(Math.min(arrayX.length, arrayY.length), length) :
                 Math.min(arrayX.length, arrayY.length));
-        /* TODO: Revisar offset negativo -> excepcion */
-        offsetX = (offsetX >= 0 ? offsetX : 0);
-        offsetY = (offsetY >= 0 ? offsetY : 0);
 
         List<GraphPoint> pointsList = new ArrayList<>(length);
 
@@ -244,12 +275,12 @@ public class GraphData extends Data
     {
         if (array == null)
         {
-            throw new IllegalArgumentException("array must not be null");
+            throw new IllegalArgumentException("Input array must not be null");
         }
 
         if (columnX < 0 || columnY < 0 || offsetX < 0 || offsetY < 0)
         {
-            throw new IllegalArgumentException("Column indexes and offsets must not be negative integers");
+            throw new IllegalArgumentException("Column indexes and offsets must not be negative");
         }
 
         length = (length >= 0 ? length : array.length);
@@ -275,7 +306,7 @@ public class GraphData extends Data
             else
             {
                     /* TODO: cambiar por tipo de excepcion mas apropiado */
-                throw new RuntimeException("row must not be null");
+                throw new RuntimeException("Array row must not be null");
             }
         }
 

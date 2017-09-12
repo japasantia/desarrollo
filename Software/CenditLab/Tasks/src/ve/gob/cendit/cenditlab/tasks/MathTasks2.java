@@ -27,25 +27,25 @@ public class MathTasks2
         private Data inputB = new Data("InputB", 0.0f);
         private Data output = new Data("Output", 0.0f);
 
-        private DataSlot slotA = new DataSlot("InputA", inputA, DataDirection.INPUT);
-        private DataSlot slotB = new DataSlot("InputB", inputB, DataDirection.INPUT);
-        private DataSlot slotOut = new DataSlot("Output", output, DataDirection.OUTPUT);
+        private Slot slotA = new Slot("InputA", inputA, DataDirection.INPUT);
+        private Slot slotB = new Slot("InputB", inputB, DataDirection.INPUT);
+        private Slot slotOut = new Slot("Output", output, DataDirection.OUTPUT);
 
-        private final DataContainer dataContainer =
-                new DataContainer(slotA, slotB, slotOut);
+        private final ComponentSlots componentSlots =
+                new ComponentSlots(slotA, slotB, slotOut);
 
         public AddTask()
         {
             setName(MathTasks2.ADD_TASK);
-            setDataContainer(dataContainer);
+            setSlots(componentSlots);
         }
 
         @Override
         public void execute()
         {
-            Number a = (Number)dataContainer.getData(0).get();
-            Number b = (Number)dataContainer.getData(1).get();
-            dataContainer.getData(2).set(a.floatValue() + b.floatValue());
+            Number a = (Number) componentSlots.getData(0).get();
+            Number b = (Number) componentSlots.getData(1).get();
+            componentSlots.getData(2).set(a.floatValue() + b.floatValue());
         }
     }
 
@@ -54,18 +54,18 @@ public class MathTasks2
         public ProductTask()
         {
             super(MathTasks2.PRODUCT_TASK,
-                new DataSlot("InputA", new Data("InputA", 0.0)),
-                new DataSlot("InputB", new Data("InputA", 0.0)),
-                new DataSlot("Output", new Data("Output", 0.0), DataDirection.OUTPUT)
+                new Slot("InputA", new Data("InputA", 0.0)),
+                new Slot("InputB", new Data("InputA", 0.0)),
+                new Slot("Output", new Data("Output", 0.0), DataDirection.OUTPUT)
             );
         }
 
         @Override
         public void execute()
         {
-            Number a = (Number)getDataContainer().getData(0).get();
-            Number b = (Number)getDataContainer().getData(1).get();
-            getDataContainer().getData(2).set(a.floatValue() * b.floatValue());
+            Number a = (Number) getSlots().getData(0).get();
+            Number b = (Number) getSlots().getData(1).get();
+            getSlots().getData(2).set(a.floatValue() * b.floatValue());
         }
     }
 }
