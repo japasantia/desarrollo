@@ -2,9 +2,6 @@ package ve.gob.cendit.cenditlab.tests;
 
 import ve.gob.cendit.cenditlab.tasks.*;
 
-import java.lang.System;
-import java.util.Arrays;
-
 /**
  * Created by root on 22/08/17.
  */
@@ -62,9 +59,9 @@ public class DataTest
 
     public static void numericDataTest()
     {
-        NumericData data1 = new NumericData("Number1");
-        NumericData data2 = new NumericData("Number1", 12.3);
-        NumericData data3 = new NumericData("Number1", "+45.67e3");
+        NumberData data1 = new NumberData("Number1");
+        NumberData data2 = new NumberData("Number1", 12.3);
+        NumberData data3 = new NumberData("Number1", "+45.67e3");
 
         print("Data1", data1);
         print("Data2", data2);
@@ -82,11 +79,11 @@ public class DataTest
             ex.printStackTrace();
         }
 
-        print("isValid 12.5", NumericData.isValid("12.5"));
-        print("isValid 'Hola'", NumericData.isValid("Hola"));
-        print("isValid 3.14", NumericData.isValid(3.14));
-        print("isValid true", NumericData.isValid(true));
-        print("isValid data1", NumericData.isValid(data1));
+        print("isValid 12.5", NumberData.isValid("12.5"));
+        print("isValid 'Hola'", NumberData.isValid("Hola"));
+        print("isValid 3.14", NumberData.isValid(3.14));
+        print("isValid true", NumberData.isValid(true));
+        print("isValid data1", NumberData.isValid(data1));
     }
 
     public static void listDataTest()

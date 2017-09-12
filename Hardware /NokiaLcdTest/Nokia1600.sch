@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.7.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -49,6 +49,7 @@
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
+<layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
@@ -401,6 +402,69 @@ LETTER landscape</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="SistemaCendit11713v2">
+<packages>
+<package name="DUOPLUG-8P-KEYED">
+<smd name="1" x="0" y="7.62" dx="5" dy="1" layer="1"/>
+<smd name="2" x="0" y="5.08" dx="5" dy="1" layer="1"/>
+<smd name="3" x="0" y="2.54" dx="5" dy="1" layer="1"/>
+<smd name="4" x="0" y="0" dx="5" dy="1" layer="1"/>
+<smd name="5" x="0" y="-2.54" dx="5" dy="1" layer="1"/>
+<smd name="6" x="0" y="-5.08" dx="5" dy="1" layer="1"/>
+<smd name="7" x="0" y="-7.62" dx="5" dy="1" layer="1"/>
+<smd name="8" x="0" y="-10.16" dx="5" dy="1" layer="1"/>
+<wire x1="-2.54" y1="3.81" x2="2.54" y2="3.81" width="0.4064" layer="20"/>
+<wire x1="-3.175" y1="8.89" x2="-3.175" y2="-11.43" width="0.127" layer="20"/>
+<wire x1="-3.175" y1="-11.43" x2="3.175" y2="-11.43" width="0.127" layer="20"/>
+<wire x1="3.175" y1="-11.43" x2="3.175" y2="8.89" width="0.127" layer="20"/>
+<wire x1="3.175" y1="8.89" x2="-3.175" y2="8.89" width="0.127" layer="20"/>
+<text x="-3.175" y="9.525" size="1.27" layer="27">&gt;NAME</text>
+<text x="-3.175" y="-13.335" size="1.27" layer="27">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="DUOPLUG-8P-KEYED">
+<pin name="1" x="-7.62" y="7.62" length="middle"/>
+<pin name="2" x="-7.62" y="5.08" length="middle"/>
+<pin name="3" x="-7.62" y="2.54" length="middle"/>
+<pin name="4" x="-7.62" y="0" length="middle"/>
+<pin name="5" x="-7.62" y="-2.54" length="middle"/>
+<pin name="6" x="-7.62" y="-5.08" length="middle"/>
+<pin name="7" x="-7.62" y="-7.62" length="middle"/>
+<pin name="8" x="-7.62" y="-10.16" length="middle"/>
+<wire x1="-2.54" y1="10.16" x2="-2.54" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-12.7" x2="5.08" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-12.7" x2="5.08" y2="10.16" width="0.254" layer="94"/>
+<wire x1="5.08" y1="10.16" x2="-2.54" y2="10.16" width="0.254" layer="94"/>
+<text x="-2.54" y="12.7" size="1.778" layer="94">&gt;NAME</text>
+<text x="-2.54" y="-15.24" size="1.778" layer="94">&gt;VALUE</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="DUOPLUG-8P-KEYED">
+<gates>
+<gate name="G$1" symbol="DUOPLUG-8P-KEYED" x="0" y="0"/>
+</gates>
+<devices>
+<device name="CARD-EDGE-8P" package="DUOPLUG-8P-KEYED">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="5" pad="5"/>
+<connect gate="G$1" pin="6" pad="6"/>
+<connect gate="G$1" pin="7" pad="7"/>
+<connect gate="G$1" pin="8" pad="8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -421,6 +485,7 @@ LETTER landscape</description>
 <part name="U$1" library="PeterAtMega644" deviceset="NOKIA1600_LCD" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="FRAME1" library="frames" deviceset="LETTER_L" device=""/>
+<part name="EDGE1" library="SistemaCendit11713v2" deviceset="DUOPLUG-8P-KEYED" device="CARD-EDGE-8P" value="CARD-EDGE-8P"/>
 </parts>
 <sheets>
 <sheet>
@@ -434,6 +499,7 @@ LETTER landscape</description>
 <instance part="GND1" gate="1" x="-248.92" y="58.42"/>
 <instance part="FRAME1" gate="G$1" x="-332.74" y="-30.48"/>
 <instance part="FRAME1" gate="G$2" x="-185.42" y="-30.48"/>
+<instance part="EDGE1" gate="G$1" x="-264.16" y="76.2"/>
 </instances>
 <busses>
 </busses>
@@ -456,6 +522,11 @@ LETTER landscape</description>
 <wire x1="-231.14" y1="68.58" x2="-248.92" y2="68.58" width="0.1524" layer="91"/>
 <label x="-243.84" y="68.58" size="1.778" layer="95"/>
 </segment>
+<segment>
+<label x="-279.4" y="68.58" size="1.778" layer="95"/>
+<pinref part="EDGE1" gate="G$1" pin="7"/>
+<wire x1="-271.78" y1="68.58" x2="-279.4" y2="68.58" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="VCC" class="1">
 <segment>
@@ -472,6 +543,11 @@ LETTER landscape</description>
 <wire x1="-231.14" y1="66.04" x2="-243.84" y2="66.04" width="0.1524" layer="91"/>
 <label x="-243.84" y="66.04" size="1.778" layer="95"/>
 </segment>
+<segment>
+<label x="-279.4" y="66.04" size="1.778" layer="95"/>
+<pinref part="EDGE1" gate="G$1" pin="8"/>
+<wire x1="-271.78" y1="66.04" x2="-279.4" y2="66.04" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="LED+" class="1">
 <segment>
@@ -482,6 +558,12 @@ LETTER landscape</description>
 <segment>
 <pinref part="JP1" gate="A" pin="5"/>
 <wire x1="-231.14" y1="73.66" x2="-243.84" y2="73.66" width="0.1524" layer="91"/>
+<label x="-243.84" y="73.66" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="EDGE1" gate="G$1" pin="5"/>
+<wire x1="-271.78" y1="73.66" x2="-279.4" y2="73.66" width="0.1524" layer="91"/>
+<label x="-279.4" y="73.66" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RESET" class="0">
@@ -495,6 +577,11 @@ LETTER landscape</description>
 <wire x1="-231.14" y1="76.2" x2="-243.84" y2="76.2" width="0.1524" layer="91"/>
 <label x="-243.84" y="76.2" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="EDGE1" gate="G$1" pin="4"/>
+<wire x1="-271.78" y1="76.2" x2="-279.4" y2="76.2" width="0.1524" layer="91"/>
+<label x="-279.4" y="76.2" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="SDA" class="0">
 <segment>
@@ -506,6 +593,11 @@ LETTER landscape</description>
 <pinref part="JP1" gate="A" pin="2"/>
 <wire x1="-231.14" y1="81.28" x2="-243.84" y2="81.28" width="0.1524" layer="91"/>
 <label x="-243.84" y="81.28" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="EDGE1" gate="G$1" pin="2"/>
+<wire x1="-271.78" y1="81.28" x2="-279.4" y2="81.28" width="0.1524" layer="91"/>
+<label x="-279.4" y="81.28" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CLK" class="0">
@@ -519,6 +611,11 @@ LETTER landscape</description>
 <wire x1="-231.14" y1="83.82" x2="-243.84" y2="83.82" width="0.1524" layer="91"/>
 <label x="-243.84" y="83.82" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="-271.78" y1="83.82" x2="-279.4" y2="83.82" width="0.1524" layer="91"/>
+<label x="-279.4" y="83.82" size="1.778" layer="95"/>
+<pinref part="EDGE1" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="CS" class="0">
 <segment>
@@ -531,6 +628,11 @@ LETTER landscape</description>
 <wire x1="-231.14" y1="78.74" x2="-243.84" y2="78.74" width="0.1524" layer="91"/>
 <label x="-243.84" y="78.74" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="EDGE1" gate="G$1" pin="3"/>
+<wire x1="-271.78" y1="78.74" x2="-279.4" y2="78.74" width="0.1524" layer="91"/>
+<label x="-279.4" y="78.74" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="LED-" class="0">
 <segment>
@@ -541,6 +643,12 @@ LETTER landscape</description>
 <segment>
 <pinref part="JP1" gate="A" pin="6"/>
 <wire x1="-231.14" y1="71.12" x2="-243.84" y2="71.12" width="0.1524" layer="91"/>
+<label x="-243.84" y="71.12" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="EDGE1" gate="G$1" pin="6"/>
+<wire x1="-271.78" y1="71.12" x2="-279.4" y2="71.12" width="0.1524" layer="91"/>
+<label x="-279.4" y="71.12" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

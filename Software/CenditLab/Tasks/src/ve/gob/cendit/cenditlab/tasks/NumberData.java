@@ -2,24 +2,24 @@ package ve.gob.cendit.cenditlab.tasks;
 
 import java.util.regex.Pattern;
 
-public class NumericData extends Data
+public class NumberData extends Data
 {
-    public NumericData(String name)
+    public NumberData(String name)
     {
         super(name);
     }
 
-    public NumericData(String name, Object value)
+    public NumberData(String name, Object value)
     {
         super(name, value);
     }
 
-    public NumericData(String name, Data data)
+    public NumberData(String name, Data data)
     {
         super(name, data);
     }
 
-    public NumericData(Data data)
+    public NumberData(Data data)
     {
         super(data);
     }
