@@ -1,4 +1,4 @@
-package ve.gob.cendit.cenditlab.tasks;
+package ve.gob.cendit.cenditlab.data;
 
 /**
  * Created by jarias on 23/08/17.

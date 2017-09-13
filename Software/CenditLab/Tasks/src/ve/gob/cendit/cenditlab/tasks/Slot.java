@@ -1,5 +1,8 @@
 package ve.gob.cendit.cenditlab.tasks;
 
+import ve.gob.cendit.cenditlab.data.Data;
+import ve.gob.cendit.cenditlab.data.DataDirection;
+
 /**
  * Created by jarias on 23/08/17.
  */

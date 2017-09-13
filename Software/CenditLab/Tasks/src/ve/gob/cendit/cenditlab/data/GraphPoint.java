@@ -1,4 +1,4 @@
-package ve.gob.cendit.cenditlab.tasks;
+package ve.gob.cendit.cenditlab.data;
 
 
 public class GraphPoint

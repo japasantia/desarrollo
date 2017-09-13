@@ -1,6 +1,6 @@
 package ve.gob.cendit.cenditlab.tests;
 
-import ve.gob.cendit.cenditlab.tasks.*;
+import ve.gob.cendit.cenditlab.data.*;
 
 /**
  * Created by root on 22/08/17.

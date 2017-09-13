@@ -1,6 +1,8 @@
 package ve.gob.cendit.cenditlab.tasks;
 
 
+import ve.gob.cendit.cenditlab.data.Data;
+
 import java.util.*;
 
 public class ComponentSlots

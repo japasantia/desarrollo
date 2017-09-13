@@ -1,6 +1,9 @@
 package ve.gob.cendit.cenditlab.tasks;
 
 
+import ve.gob.cendit.cenditlab.data.Data;
+import ve.gob.cendit.cenditlab.data.DataDirection;
+
 public class MathTasks2
 {
     public static final String ADD_TASK = "Add Task";

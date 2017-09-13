@@ -22,7 +22,9 @@ public abstract class Component
 
     protected abstract void setSlots(ComponentSlots slots);
 
-    public abstract void setContext(/* Context context */);
+    protected abstract void setContext(/* Context context */);
+
+    // protected abstract Context getContext();
 
     //public abstract View getView(Context context);
 }

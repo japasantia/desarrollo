@@ -3,15 +3,14 @@ package ve.gob.cendit.cenditlab.tests;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.chart.Chart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import ve.gob.cendit.cenditlab.tasks.GraphData;
-import ve.gob.cendit.cenditlab.tasks.GraphPoint;
+import ve.gob.cendit.cenditlab.data.GraphData;
+import ve.gob.cendit.cenditlab.data.GraphPoint;
 
 import java.util.Arrays;
 import java.util.List;

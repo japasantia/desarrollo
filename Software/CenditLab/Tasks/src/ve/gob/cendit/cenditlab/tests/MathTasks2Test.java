@@ -1,7 +1,7 @@
 package ve.gob.cendit.cenditlab.tests;
 
 
-import ve.gob.cendit.cenditlab.tasks.Data;
+import ve.gob.cendit.cenditlab.data.Data;
 import ve.gob.cendit.cenditlab.tasks.MathTasks2;
 import ve.gob.cendit.cenditlab.tasks.Task;
 
