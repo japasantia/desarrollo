@@ -1,4 +1,4 @@
-update=jue 14 sep 2017 15:09:37 VET
+update=jue 14 sep 2017 16:18:37 VET
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,8 +23,6 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=
@@ -59,4 +57,6 @@ LibName27=74xx
 LibName28=cmos4000
 LibName29=/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
 LibName30=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/MC33996EKR2
+[general]
+version=1
 
