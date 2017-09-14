@@ -7,12 +7,13 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import ve.gob.cendit.cenditlab.tasks.System;
 import ve.gob.cendit.cenditlab.views.ComponentSelectionPane;
 import ve.gob.cendit.cenditlab.views.MainWindow;
 import ve.gob.cendit.cenditlab.views.SystemView;
 import ve.gob.cendit.cenditlab.views.View;
 
-
+import java.util.Arrays;
 
 
 public class MainApplicationTest extends Application
@@ -53,19 +54,30 @@ public class MainApplicationTest extends Application
 
             systemViews[i] = new SystemView(String.format("Sistema %d", index),
                     "Sistema para pruebas", null);
-            systemViews[i].getNode().setOnMouseClicked(mouseClickedHandler);
-
+            systemViews[i].subscribeEvent(SystemView.ON_CLICK,
+                    e -> onClickHandler(e));
+            systemViews[i].subscribeEvent(SystemView.ON_MOUSE_OVER,
+                    e -> onMouseOverHandler(e));
         }
 
         return systemViews;
     }
 
-    private EventHandler<MouseEvent> mouseClickedHandler = new EventHandler()
+    private void onClickHandler(Object... args)
     {
-        @Override
-        public void handle(Event event)
-        {
-            selectionPane.addSelected((SystemView) event.getSource());
-        }
-    };
+        Arrays.stream(args)
+                .forEach(arg -> java.lang.System.out.printf("%s, ", arg.toString()));
+
+        selectionPane.addSelected(new SystemView("Selecionado", "Conjunto seleccionado", null));
+
+        java.lang.System.out.println();
+    }
+
+    private void onMouseOverHandler(Object... args)
+    {
+        Arrays.stream(args)
+                .forEach(arg -> java.lang.System.out.printf("%s, ", arg.toString()));
+
+        java.lang.System.out.println();
+    }
 }

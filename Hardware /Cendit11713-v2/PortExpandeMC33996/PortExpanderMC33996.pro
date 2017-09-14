@@ -1,10 +1,6 @@
-update=vie 18 ago 2017 08:47:08 VET
+update=jue 14 sep 2017 15:09:37 VET
 version=1
-last_client=eeschema
-[general]
-version=1
-RootSch=
-BoardNm=
+last_client=kicad
 [pcbnew]
 version=1
 LastNetListRead=
@@ -27,6 +23,8 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
+[general]
+version=1
 [eeschema]
 version=1
 LibDir=
@@ -59,9 +57,6 @@ LibName25=linear
 LibName26=regul
 LibName27=74xx
 LibName28=cmos4000
-LibName29=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/PIC18F4550_P
-LibName30=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/PIC18F4550_ML
-LibName31=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/PIC18F45K50_PT.lib
-LibName32=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/PIC18F45K50_MV
-LibName33=/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713/Librerias/cendit-basic
+LibName29=/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
+LibName30=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/MC33996EKR2
 

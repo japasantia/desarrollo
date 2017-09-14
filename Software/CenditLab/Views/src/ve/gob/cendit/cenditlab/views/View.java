@@ -3,7 +3,7 @@ package ve.gob.cendit.cenditlab.views;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 
-public abstract class View
+public abstract class View extends EventPublisher
 {
     private String fxmlUrl;
     private Node viewNode;
