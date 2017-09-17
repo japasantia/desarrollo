@@ -79,6 +79,8 @@ public class MeasurementSession
 
     public void start()
     {
+
+
         stepsList.stream()
             .forEach(step -> {
 
