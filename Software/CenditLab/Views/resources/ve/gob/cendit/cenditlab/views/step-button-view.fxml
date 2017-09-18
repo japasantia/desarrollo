@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="100.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="iconImageView" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="5.0">
+         <image>
+            <Image url="@multimeter.png" />
+         </image></ImageView>
+      <Label fx:id="bigTitleLabel" layoutX="48.0" layoutY="25.0" text="Titulo principal">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="smallTitleLabel" layoutX="48.0" layoutY="7.0" text="Titulo secundario">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+   </children>
+   <padding>
+      <Insets left="2.0" right="2.0" />
+   </padding>
+</AnchorPane>

@@ -1,6 +1,5 @@
 package ve.gob.cendit.cenditlab.tasks;
 
-import javax.swing.text.html.HTMLDocument;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -12,41 +11,46 @@ import java.util.List;
 public class MeasurementSession
 {
     private String name;
-    private int stepCounter = -1;
+    private int currentIndex = -1;
     private MeasurementStep currentStep;
 
     private List<MeasurementStep> stepsList;
 
-    public void MeasurementSession(String name)
-    {
-       this.MeasurementSession(name, null);
-    }
-
-    public void MeasurementSession(String name, MeasurementStep... stepsArgs)
+    public MeasurementSession(String name, MeasurementStep... stepsArgs)
     {
         this.name = name;
 
+        stepsList = new LinkedList<MeasurementStep>();
         addSteps(stepsArgs);
     }
 
     public void addStep(MeasurementStep step)
     {
-        if (step != null)
+        if (step == null)
         {
-            stepsList.add(step);
+            throw new IllegalArgumentException("step must not be null");
+
         }
+
+        stepsList.add(step);
     }
 
     public void addSteps(MeasurementStep... stepsArgs)
     {
-        if (stepsArgs != null)
+        if (stepsArgs == null)
         {
-            Arrays.stream(stepsArgs)
-                .forEach(step -> {
-                    step.setOwnerSession(this);
-                    stepsList.add(step);
-                });
+            throw new IllegalArgumentException("stepsArgs must not be null");
         }
+
+        Arrays.stream(stepsArgs)
+            .forEach(step -> {
+                if (step == null)
+                {
+                    throw new IllegalArgumentException("no step in stepArgs must not be null");
+                }
+                step.setOwnerSession(this);
+                stepsList.add(step);
+            });
     }
 
     public void removeStep(MeasurementStep step)
@@ -67,9 +71,9 @@ public class MeasurementSession
         return stepsList.size();
     }
 
-    public int getStepCounter()
+    public int getCurrentStepIndex()
     {
-        return stepCounter;
+        return currentIndex;
     }
 
     public MeasurementStep getCurrentStep()
@@ -77,25 +81,194 @@ public class MeasurementSession
         return currentStep;
     }
 
+    public MeasurementStep getStep(int index)
+    {
+        return stepsList.get(index);
+    }
+
+    public List<MeasurementStep> getSteps()
+    {
+        return Collections.unmodifiableList(stepsList);
+    }
+
+    public boolean hasNextStep()
+    {
+        return getCurrentStepIndex() < getStepsCount() - 1;
+    }
+
+    public boolean hasPrevStep()
+    {
+        return getCurrentStepIndex() > 0;
+    }
+
+    public boolean canGoNextStep()
+    {
+        if (hasNextStep())
+        {
+            MeasurementStep nextStep = getStep(getCurrentStepIndex() + 1);
+
+            if (currentStep != null )
+            {
+                if (currentStep.canExit() && nextStep.canEnter())
+                {
+                    return true;
+                }
+            }
+            else if (nextStep.canEnter())
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean canGoPrevStep()
+    {
+        if (hasPrevStep())
+        {
+            MeasurementStep prevStep = getStep(getCurrentStepIndex() - 1);
+
+            if (currentStep != null )
+            {
+                if (currentStep.canExit() && prevStep.canEnter())
+                {
+                    return true;
+                }
+            }
+            else if (prevStep.canEnter())
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean nextStep()
+    {
+        if (hasNextStep())
+        {
+            int nextIndex = getCurrentStepIndex() + 1;
+            MeasurementStep nextStep = getStep(nextIndex);
+
+            if (nextStep.canEnter())
+            {
+                if (currentStep != null)
+                {
+                    if (currentStep.canExit())
+                    {
+                        currentStep.unload();
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+                currentStep = nextStep;
+                currentIndex = nextIndex;
+
+                currentStep.load();
+                currentStep.run();
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean prevStep()
+    {
+        if (hasPrevStep())
+        {
+            int prevIndex = getCurrentStepIndex() - 1;
+            MeasurementStep prevStep = getStep(prevIndex);
+
+            if (prevStep.canEnter())
+            {
+                if (currentStep != null)
+                {
+                    if (currentStep.canExit())
+                    {
+                        currentStep.unload();
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+                currentStep = prevStep;
+                currentIndex = prevIndex;
+
+                currentStep.load();
+                currentStep.run();
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean toStep(int index)
+    {
+        MeasurementStep nextStep = stepsList.get(index);
+
+        if (nextStep.canEnter())
+        {
+            if (currentStep != null)
+            {
+                if (currentStep.canExit())
+                {
+                    currentStep.unload();
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            currentStep = nextStep;
+            currentIndex = index;
+
+            currentStep.load();
+            currentStep.run();
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public void initialize()
+    {
+        stepsList.stream()
+                .forEach(step -> {
+                    step.initialize();
+                });
+    }
+    /*
     public void start()
     {
-
-
         stepsList.stream()
             .forEach(step -> {
 
                 step.load();
 
-                stepCounter = 0;
+                currentIndex = 0;
                 currentStep = step;
 
                 step.run();
 
                 step.unload();
-                /*
+
                 if (step.hasErrors())
                 if (step.conAdvance())
-                */
+
             });
     }
+    */
 }

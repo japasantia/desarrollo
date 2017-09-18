@@ -9,7 +9,7 @@ import javafx.scene.chart.XYChart.Data;
 import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Label;
 
-import ve.gob.cendit.cenditlab.tasks.GraphData;
+import ve.gob.cendit.cenditlab.data.GraphData;
 
 import java.util.Arrays;
 

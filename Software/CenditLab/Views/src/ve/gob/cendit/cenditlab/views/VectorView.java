@@ -6,15 +6,13 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 
 import javafx.scene.control.ListView;
-import ve.gob.cendit.cenditlab.tasks.Data;
-import ve.gob.cendit.cenditlab.tasks.DataContainer;
-import ve.gob.cendit.cenditlab.tasks.DataSlot;
+import ve.gob.cendit.cenditlab.data.Data;
+import ve.gob.cendit.cenditlab.tasks.Slot;
+import ve.gob.cendit.cenditlab.tasks.ComponentSlots;
 
 import java.util.Arrays;
 
-/**
- * Created by root on 29/08/17.
- */
+
 public class VectorView extends View
 {
     private static final String DEFAULT_NAME = "Data Container";
@@ -31,20 +29,20 @@ public class VectorView extends View
         super(FXML_FILE);
     }
 
-    public void setDataContainer(DataContainer dataContainer)
+    public void setDataContainer(ComponentSlots componentSlots)
     {
         if (dataList == null)
         {
             dataList = FXCollections.observableArrayList();
         }
 
-        DataSlot[] dataSlots = dataContainer.getDataSlots();
+        Slot[] dataSlots = componentSlots.getSlots();
 
         Arrays.stream(dataSlots)
             .forEach(ds ->
                 {
                     String name = ds.getName();
-                    Data data = dataContainer.getData(name);
+                    Data data = componentSlots.getData(name);
                     String value = data != null ? data.toString() : "";
                     TextView view = new TextView(name, value);
                     dataList.add(view.getNode());

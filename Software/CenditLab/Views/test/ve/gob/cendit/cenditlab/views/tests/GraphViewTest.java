@@ -4,7 +4,7 @@ package ve.gob.cendit.cenditlab.views.tests;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import ve.gob.cendit.cenditlab.tasks.GraphData;
+import ve.gob.cendit.cenditlab.data.GraphData;
 import ve.gob.cendit.cenditlab.views.GraphView;
 
 public class GraphViewTest extends Application

@@ -1,16 +1,26 @@
 package ve.gob.cendit.cenditlab.tasks;
 
 
-public class MeasurementStep
+public abstract class MeasurementStep
 {
     private String name;
 
     private MeasurementSession stepOwnerSession;
 
+    public MeasurementStep(String name)
+    {
+        this.name = name;
+    }
+
     public MeasurementStep(String name, MeasurementSession stepOwnerSession)
     {
         this.name = name;
         setOwnerSession(stepOwnerSession);
+    }
+
+    public String getName()
+    {
+        return name;
     }
 
     void setOwnerSession(MeasurementSession stepOwnerSession)
@@ -23,28 +33,19 @@ public class MeasurementStep
         this.stepOwnerSession = stepOwnerSession;
     }
 
-    public MeasurementSession getStepOwnerSession()
-    {
-        return stepOwnerSession;
-    }
-
     public MeasurementSession getOwnerSession()
     {
         return stepOwnerSession;
     }
+
+    public abstract boolean canEnter();
+    public abstract boolean canExit();
+
+    public abstract void initialize();
+
+    public abstract void load();
     
-    public void load()
-    {
-        
-    }
+    public abstract void run();
     
-    public void run()
-    {
-        
-    }
-    
-    public void unload()
-    {
-        
-    }
+    public abstract void unload();
 }

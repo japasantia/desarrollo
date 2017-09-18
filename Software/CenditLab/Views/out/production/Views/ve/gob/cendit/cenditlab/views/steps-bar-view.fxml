@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="NEVER" minWidth="10.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="NEVER" minWidth="10.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="50.0" prefHeight="70.0" valignment="CENTER" vgrow="NEVER" />
+  </rowConstraints>
+   <children>
+      <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" pannable="true" vbarPolicy="NEVER" GridPane.columnIndex="1">
+         <content>
+             <!-- maxWidth="1.7976931348623157E308" -->
+            <HBox fx:id="containerHBox" alignment="CENTER_LEFT" minHeight="50.0" minWidth="600.0" />
+         </content>
+      </ScrollPane>
+      <Button fx:id="leftButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#leftButtonClicked" text="&lt;&lt;" />
+      <Button fx:id="rightButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#rightButtonClicked" text="&gt;&gt;" GridPane.columnIndex="2" />
+   </children>
+</GridPane>

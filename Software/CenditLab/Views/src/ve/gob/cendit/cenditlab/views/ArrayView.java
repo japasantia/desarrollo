@@ -13,7 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
 
-import ve.gob.cendit.cenditlab.tasks.ArrayData;
+import ve.gob.cendit.cenditlab.data.ArrayData;
 
 
 

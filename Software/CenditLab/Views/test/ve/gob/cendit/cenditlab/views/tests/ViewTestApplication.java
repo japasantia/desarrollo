@@ -3,17 +3,15 @@ package ve.gob.cendit.cenditlab.views.tests;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import ve.gob.cendit.cenditlab.tasks.ArrayData;
-import ve.gob.cendit.cenditlab.tasks.DataContainer;
-import ve.gob.cendit.cenditlab.tasks.DataSlot;
+import ve.gob.cendit.cenditlab.data.ArrayData;
+import ve.gob.cendit.cenditlab.tasks.ComponentSlots;
+import ve.gob.cendit.cenditlab.tasks.Slot;
 import ve.gob.cendit.cenditlab.views.ArrayView;
 import ve.gob.cendit.cenditlab.views.GraphView;
 import ve.gob.cendit.cenditlab.views.VectorView;
 import ve.gob.cendit.cenditlab.views.NavButtonView;
 
-/**
- * Created by jarias on 31/08/17.
- */
+
 public class ViewTestApplication extends Application
 {
 
@@ -23,10 +21,10 @@ public class ViewTestApplication extends Application
         TwoPaneWindow mainWindow = new TwoPaneWindow();
         VectorView dcView = new VectorView();
 
-        DataContainer dc = new DataContainer(
-                new DataSlot("Data 1"),
-                new DataSlot("Data 2"),
-                new DataSlot("Data 3"));
+        ComponentSlots dc = new ComponentSlots(
+                new Slot("Data 1"),
+                new Slot("Data 2"),
+                new Slot("Data 3"));
         dcView.setDataContainer(dc);
 
         NavButtonView navButton1 =
