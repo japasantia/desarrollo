@@ -4,10 +4,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class StepButtonView extends View
 {
     private static final String FXML_URL = "step-button-view.fxml";
+
+    public static final int ON_CLICK = 1;
 
     @FXML
     Label smallTitleLabel;
@@ -26,16 +29,29 @@ public class StepButtonView extends View
     {
         super(FXML_URL);
 
-        this.bigTitle = bigTitle;
-        this.smallTitle = smallTitle;
+        this.bigTitle = (bigTitle != null ? bigTitle : "");
+        this.smallTitle = (smallTitle != null ? smallTitle : "");
         this.imageUrl = imageUrl;
-    }
 
+        publishEvent(ON_CLICK);
+    }
 
     @Override
     public void update()
     {
-        bigTitleLabel.setText((bigTitle != null ? bigTitle : ""));
-        smallTitleLabel.setText((smallTitle != null ? smallTitle : ""));
+        bigTitleLabel.setText(bigTitle);
+        smallTitleLabel.setText(smallTitle);
+    }
+
+    @FXML
+    private void buttonClicked(MouseEvent event)
+    {
+        raiseEvent(ON_CLICK, this);
+    }
+
+    @Override
+    public String toString()
+    {
+        return String.format("StepButtonView %s", bigTitle);
     }
 }

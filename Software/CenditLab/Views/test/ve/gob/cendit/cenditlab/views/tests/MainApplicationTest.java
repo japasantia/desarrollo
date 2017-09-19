@@ -1,36 +1,38 @@
 package ve.gob.cendit.cenditlab.views.tests;
 
 import javafx.application.Application;
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import ve.gob.cendit.cenditlab.tasks.System;
-import ve.gob.cendit.cenditlab.views.ComponentSelectionPane;
-import ve.gob.cendit.cenditlab.views.MainWindow;
-import ve.gob.cendit.cenditlab.views.SystemView;
-import ve.gob.cendit.cenditlab.views.View;
-
-import java.util.Arrays;
+import ve.gob.cendit.cenditlab.tasks.MeasurementSession;
+import ve.gob.cendit.cenditlab.tasks.MeasurementStep;
+import ve.gob.cendit.cenditlab.views.*;
 
 
 public class MainApplicationTest extends Application
 {
+    public static void main(String[] args)
+    {
+        Application.launch(args);
+    }
+
     private MainWindow mainWindow;
-    private ComponentSelectionPane selectionPane;
+    private CenterPane centerPane;
+
+    private MeasurementSession measurementSession;
 
     @Override
     public void start(Stage primaryStage) throws Exception
     {
         mainWindow = new MainWindow();
-        selectionPane = new ComponentSelectionPane();
+        centerPane = new CenterPane();
 
-        selectionPane.addInstruments(createSystemViews(10));
-        selectionPane.addSystems(createSystemViews(10));
+        initializeMeasurementSession();
 
-        mainWindow.setCenterPane(selectionPane);
+        StepsBarView stepsBar = new StepsBarView(measurementSession);
+        stepsBar.subscribeEvent(StepsBarView.ON_STEP_CLICK, args -> onStepsBarClick(args));
+
+        centerPane.addTopView(stepsBar);
+        mainWindow.setCenterPane(centerPane);
 
         primaryStage.setTitle("CenditLab - Main Application Test");
         primaryStage.setScene(new Scene(mainWindow));
@@ -39,45 +41,68 @@ public class MainApplicationTest extends Application
         primaryStage.show();
     }
 
-    public static void main(String[] args)
+    private void initializeMeasurementSession()
     {
-        Application.launch(args);
-    }
+        MeasurementStep[] measurementSteps = new MeasurementStep[10];
 
-    private View[] createSystemViews(int count)
-    {
-        SystemView[] systemViews = new SystemView[count];
-        int index = 0;
-
-        for (int i = 0; i < systemViews.length; i++)
+        for (int i = 0; i < measurementSteps.length; ++i)
         {
-
-            systemViews[i] = new SystemView(String.format("Sistema %d", index),
-                    "Sistema para pruebas", null);
-            systemViews[i].subscribeEvent(SystemView.ON_CLICK,
-                    e -> onClickHandler(e));
-            systemViews[i].subscribeEvent(SystemView.ON_MOUSE_OVER,
-                    e -> onMouseOverHandler(e));
+            measurementSteps[i] = new TestMeasurementStep(String.format("Paso %d", i));
         }
 
-        return systemViews;
+        measurementSession = new MeasurementSession("Sesion de prueba", measurementSteps);
     }
 
-    private void onClickHandler(Object... args)
+    private void onStepsBarClick(Object... args)
     {
-        Arrays.stream(args)
-                .forEach(arg -> java.lang.System.out.printf("%s, ", arg.toString()));
+       System.out.printf("Step: %s StepButton: %s\n",
+               args[0].toString(), args[1].toString());
 
-        selectionPane.addSelected(new SystemView("Selecionado", "Conjunto seleccionado", null));
-
-        java.lang.System.out.println();
-    }
-
-    private void onMouseOverHandler(Object... args)
-    {
-        Arrays.stream(args)
-                .forEach(arg -> java.lang.System.out.printf("%s, ", arg.toString()));
-
-        java.lang.System.out.println();
+       centerPane.addCenterView((View) args[1]);
     }
 }
+
+class TestMeasurementStep extends MeasurementStep
+{
+    public TestMeasurementStep(String name)
+    {
+        super(name);
+    }
+
+    @Override
+    public boolean canEnter()
+    {
+        return false;
+    }
+
+    @Override
+    public boolean canExit()
+    {
+        return false;
+    }
+
+    @Override
+    public void initialize()
+    {
+        System.out.printf("%s initialize\n", getName());
+    }
+
+    @Override
+    public void load()
+    {
+        System.out.printf("%s load\n", getName());
+    }
+
+    @Override
+    public void run()
+    {
+        System.out.printf("%s run\n", getName());
+    }
+
+    @Override
+    public void unload()
+    {
+        System.out.printf("%s unload\n", getName());
+    }
+}
+

@@ -8,10 +8,13 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import ve.gob.cendit.cenditlab.tasks.MeasurementSession;
+import ve.gob.cendit.cenditlab.tasks.MeasurementStep;
 
 public class StepsBarView extends View
 {
     private static final String FXML_URL = "steps-bar-view.fxml";
+
+    public static final int ON_STEP_CLICK = 1;
 
     @FXML
     private HBox containerHBox;
@@ -31,6 +34,8 @@ public class StepsBarView extends View
         super(FXML_URL);
 
         setMeasurementSession(session);
+
+        publishEvent(ON_STEP_CLICK);
     }
 
     public void setMeasurementSession(MeasurementSession session)
@@ -51,14 +56,24 @@ public class StepsBarView extends View
             return;
         }
 
-        int stepNumber = 1;
+        for (int i = 0; i < session.getStepsCount(); i++)
+        {
+            MeasurementStep step = session.getStep(i);
+            StepButtonView stepButton =
+                    new StepButtonView(step.getName(), String.format("Paso %d", i), null);
 
-        session.getSteps().stream()
-            .forEach(step -> {
-                StepButtonView stepButton =
-                        new StepButtonView(step.getName(), String.format("Paso %d", stepNumber), null);
-                addStepButton(stepButton);
-            });
+            stepButton.subscribeEvent(StepButtonView.ON_CLICK,
+                    new IEventFunction()
+                    {
+                        @Override
+                        public void handle(Object... args)
+                        {
+                             raiseEvent(StepsBarView.ON_STEP_CLICK, step, stepButton);
+                        }
+                    });
+
+            addStepButton(stepButton);
+        }
     }
 
     public void addStepButton(StepButtonView buttonView)
@@ -70,7 +85,7 @@ public class StepsBarView extends View
     }
 
     @FXML
-    void leftButtonClicked(MouseEvent event)
+    private void leftButtonClicked(MouseEvent event)
     {
         double hValue = scrollPane.getHvalue();
         double delta = 1.0 / session.getStepsCount();
@@ -79,20 +94,10 @@ public class StepsBarView extends View
         {
             scrollPane.setHvalue(hValue - delta);
         }
-
-        /*
-        double width = containerHBox.getBoundsInLocal().getWidth();
-        double layoutX = containerHBox.getLayoutX();
-
-        if (layoutX > -width)
-        {
-            containerHBox.setLayoutX(layoutX - 0.1 * width);
-        }
-        */
     }
 
     @FXML
-    void rightButtonClicked(MouseEvent event)
+    private void rightButtonClicked(MouseEvent event)
     {
         double hValue = scrollPane.getHvalue();
         double delta = 1.0 / session.getStepsCount();
@@ -101,15 +106,5 @@ public class StepsBarView extends View
         {
             scrollPane.setHvalue(hValue + delta);
         }
-
-        /*
-        double width = containerHBox.getBoundsInLocal().getWidth();
-        double layoutX = containerHBox.getLayoutX();
-
-        if (layoutX < width)
-        {
-            containerHBox.setLayoutX(layoutX + 0.1 * width);
-        }
-        */
     }
 }

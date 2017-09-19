@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<fx:root type="GridPane" hgap="2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="2.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+
+  <columnConstraints>
+    <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" vgrow="ALWAYS" />
+    <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+       <!--
+      <ScrollPane fx:id="centerPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pannable="true" GridPane.rowIndex="1">
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+      </ScrollPane>
+      -->
+   </children>
+
+</fx:root>

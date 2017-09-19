@@ -6,7 +6,8 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="100.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="100.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+   onMouseClicked="#buttonClicked">
    <children>
       <ImageView fx:id="iconImageView" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="5.0">
          <image>
