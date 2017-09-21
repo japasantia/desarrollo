@@ -1,10 +1,6 @@
-update=jue 11 may 2017 14:02:13 VET
+update=mié 20 sep 2017 21:08:13 -04
 version=1
-last_client=eeschema
-[general]
-version=1
-RootSch=
-BoardNm=
+last_client=kicad
 [pcbnew]
 version=1
 LastNetListRead=
@@ -71,4 +67,6 @@ LibName40=/home/jarias/Escritorio/Pasantia/Desarrollo/CAD Models/Kicad/LPC1768FB
 [cvpcb]
 version=1
 NetIExt=net
+[general]
+version=1
 
