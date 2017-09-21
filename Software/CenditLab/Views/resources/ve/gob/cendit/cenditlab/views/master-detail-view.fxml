@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<GridPane hgap="2.0" maxHeight="-1.0" maxWidth="1.7976931348623157E308" padding="$x1" vgap="2.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <ScrollPane fx:id="masterScrollPane" maxHeight="-1.0" maxWidth="1.7976931348623157E308" pannable="true" prefHeight="-1.0" prefWidth="-1.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+      <content>
+        <VBox fx:id="masterPane" maxWidth="1.7976931348623157E308" prefHeight="-1.0" prefWidth="-1.0" />
+      </content>
+    </ScrollPane>
+    <ScrollPane fx:id="detailScrollPane" maxHeight="-1.0" maxWidth="1.7976931348623157E308" pannable="true" prefHeight="-1.0" prefWidth="-1.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+      <content>
+        <VBox fx:id="detailPane" maxWidth="1.7976931348623157E308" prefHeight="-1.0" prefWidth="-1.0" />
+      </content>
+    </ScrollPane>
+    <VBox fx:id="footerPane" prefHeight="-1.0" prefWidth="-1.0" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+    <VBox fx:id="headerPane" maxWidth="1.7976931348623157E308" prefHeight="-1.0" prefWidth="-1.0" spacing="2.0" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="0" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+      <padding>
+        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" fx:id="x1" />
+      </padding>
+    </VBox>
+  </children>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" percentWidth="20.0" prefWidth="-1.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" percentWidth="80.0" prefWidth="-1.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" percentHeight="-1.0" valignment="TOP" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" percentHeight="-1.0" valignment="TOP" vgrow="ALWAYS" />
+    <RowConstraints minHeight="10.0" percentHeight="-1.0" valignment="TOP" vgrow="SOMETIMES" />
+  </rowConstraints>
+</GridPane>

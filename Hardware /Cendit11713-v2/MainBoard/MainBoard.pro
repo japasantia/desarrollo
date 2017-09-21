@@ -1,4 +1,4 @@
-update=jue 14 sep 2017 12:24:08 VET
+update=jue 21 sep 2017 16:18:29 VET
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,8 +23,6 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=
@@ -58,4 +56,6 @@ LibName26=regul
 LibName27=74xx
 LibName28=cmos4000
 LibName29=/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
+[general]
+version=1
 

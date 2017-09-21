@@ -1,4 +1,4 @@
-update=vie 18 ago 2017 12:07:59 VET
+update=jue 21 sep 2017 14:38:55 VET
 version=1
 last_client=kicad
 [pcbnew]
@@ -70,6 +70,7 @@ LibName40=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/PI
 LibName41=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/PIC18F4550_ML
 LibName42=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/PIC18F45K50_PT.lib
 LibName43=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/PIC18F45K50_MV
+LibName44=/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
 [general]
 version=1
 
