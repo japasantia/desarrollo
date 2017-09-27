@@ -100,6 +100,145 @@ public class MeasurementManager
         return getCurrentStepIndex() > 0;
     }
 
+
+    public boolean canGoNextStep()
+    {
+        return canGoToStep(getCurrentStepIndex() + 1);
+    }
+
+    public boolean canGoPrevStep()
+    {
+        return canGoToStep(getCurrentStepIndex() - 1);
+    }
+
+    public boolean canGoToStep(MeasurementStep step)
+    {
+        if (step == null)
+        {
+            return false;
+        }
+
+        if (currentStep != null)
+        {
+            if (currentStep.canExitToStep(step) && step.canEnterFromStep(currentStep))
+            {
+                return true;
+            }
+        }
+        else if (step.canEnterFromStep(currentStep))
+        {
+            return true;
+        }
+
+        /*
+        boolean ret = step != null &&
+                (currentStep != null &&
+                currentStep.canExitToStep(step) && step.canEnterFromStep(currentStep) ||
+                step.canEnterFromStep(currentStep));
+        */
+        return false;
+    }
+
+    public boolean canGoToStep(int index)
+    {
+        if (index >= 0 && index < stepsList.size())
+        {
+            return canGoToStep(stepsList.get(index));
+        }
+
+        return false;
+    }
+
+
+    public boolean nextStep()
+    {
+        return toStep(getCurrentStepIndex() + 1);
+    }
+
+    public boolean prevStep()
+    {
+         return toStep(getCurrentStepIndex() - 1);
+    }
+
+    public boolean toStep(int index)
+    {
+        if (canGoToStep(index))
+        {
+            return toStep(stepsList.get(index));
+        }
+
+        return false;
+    }
+
+    public boolean toStep(MeasurementStep step)
+    {
+        if (canGoToStep(step))
+        {
+            switchToStep(step);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    private void switchToStep(MeasurementStep step)
+    {
+        onBeginStepChangeEvent(step);
+
+        if (currentStep != null)
+        {
+            currentStep.unload();
+
+            onUnloadedStepEvent(step);
+        }
+
+        currentStep = step;
+        currentIndex = stepsList.indexOf(step);
+
+        currentStep.load();
+
+        onLoadedStepEvent(step);
+
+        currentStep.run();
+
+        onEndStepChangeEvent(step);
+    }
+
+    private void onUnloadedStepEvent(MeasurementStep nextStep)
+    {
+
+    }
+
+    private void onLoadedStepEvent(MeasurementStep nextStep)
+    {
+
+    }
+
+    private void onBeginStepChangeEvent(MeasurementStep nextStep)
+    {
+
+    }
+
+    private void onEndStepChangeEvent(MeasurementStep nextStep)
+    {
+
+    }
+
+    public void initialize()
+    {
+        stepsList.stream()
+                .forEach(step -> {
+                    step.initialize();
+                });
+    }
+
+    public void changeView(View view)
+    {
+        // TODO: enitir eventos para gestion de cambios de pantalla
+    }
+
+    /*
     public boolean canGoNextStep()
     {
         if (hasNextStep())
@@ -121,8 +260,10 @@ public class MeasurementManager
 
         return false;
     }
+    */
 
-    public boolean canGoNextStep_UPDATE()
+    /*
+    public boolean canGoNextStep()
     {
         if (hasNextStep())
         {
@@ -135,7 +276,7 @@ public class MeasurementManager
                     return true;
                 }
             }
-            else if (nextStep.canEnterFromStep(null) /* nextStep.canEnter() */)
+            else if (nextStep.canEnterFromStep(null) )
             {
                 return true;
             }
@@ -143,7 +284,9 @@ public class MeasurementManager
 
         return false;
     }
+    */
 
+    /*
     public boolean canGoPrevStep()
     {
         if (hasPrevStep())
@@ -165,8 +308,10 @@ public class MeasurementManager
 
         return false;
     }
+    */
 
-    public boolean canGoPrevStep_UPDATE()
+    /*
+    public boolean canGoPrevStep()
     {
         if (hasPrevStep())
         {
@@ -187,7 +332,8 @@ public class MeasurementManager
 
         return false;
     }
-
+    */
+    /*
     public boolean nextStep()
     {
         if (hasNextStep())
@@ -221,7 +367,34 @@ public class MeasurementManager
 
         return false;
     }
+    */
 
+    /*
+    public boolean nextStep()
+    {
+        if (canGoNextStep())
+        {
+            int nextIndex = getCurrentStepIndex() + 1;
+            MeasurementStep nextStep = getStep(nextIndex);
+
+            if (currentStep != null)
+            {
+                currentStep.unload();
+            }
+
+            currentStep = nextStep;
+            currentIndex = nextIndex;
+
+            currentStep.load();
+            currentStep.run();
+
+            return true;
+        }
+
+        return false;
+    }
+    */
+    /*
     public boolean prevStep()
     {
         if (hasPrevStep())
@@ -255,7 +428,45 @@ public class MeasurementManager
 
         return false;
     }
+    */
 
+    /*
+    public boolean prevStep()
+    {
+        if (hasPrevStep())
+        {
+            int prevIndex = getCurrentStepIndex() - 1;
+            MeasurementStep prevStep = getStep(prevIndex);
+
+            if (prevStep.canEnterFromStep(currentStep))
+            {
+                if (currentStep != null)
+                {
+                    if (currentStep.canExitToStep(prevStep))
+                    {
+                        currentStep.unload();
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+                currentStep = prevStep;
+                currentIndex = prevIndex;
+
+                currentStep.load();
+                currentStep.run();
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+    */
+
+    /*
     public boolean toStep(int index)
     {
         MeasurementStep nextStep = stepsList.get(index);
@@ -285,35 +496,7 @@ public class MeasurementManager
 
         return false;
     }
-
-    public boolean toStep(MeasurementStep nextStep)
-    {
-        if (nextStep == null)
-        {
-            throw new IllegalArgumentException("nextStep must not be null");
-        }
-        else if (stepsList.contains(nextStep))
-        {
-             return toStep(stepsList.indexOf(nextStep));
-        }
-        else
-        {
-            throw new IllegalArgumentException("Not contained step");
-        }
-    }
-
-    public void initialize()
-    {
-        stepsList.stream()
-                .forEach(step -> {
-                    step.initialize();
-                });
-    }
-
-    public void changeView(View view)
-    {
-        // TODO: enitir eventos para gestion de cambios de pantalla
-    }
+    */
 
     /*
     public void start()

@@ -2,6 +2,7 @@ package ve.gob.cendit.cenditlab.views.tests;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import ve.gob.cendit.cenditlab.tasks.Component;
 import ve.gob.cendit.cenditlab.tasks.ComponentSlots;
@@ -19,7 +20,8 @@ public class MainApplicationTest extends Application
 
     private MainWindow mainWindow;
     private CenterPane centerPane;
-    private StepsBarView stepsBar;
+    // private StepsBarView stepsBar;
+    private VerticalStepsBarView stepsBar;
 
     private TestMeasurementManager testSession;
 
@@ -31,7 +33,8 @@ public class MainApplicationTest extends Application
 
         initializeMeasurementSession();
 
-        centerPane.addTopView(stepsBar);
+        //centerPane.addTopView(stepsBar);
+        mainWindow.setLeftPane(stepsBar.getNode());
         mainWindow.setCenterPane(centerPane);
 
         primaryStage.setTitle("CenditLab - Main Application Test");
@@ -44,7 +47,8 @@ public class MainApplicationTest extends Application
     private void initializeMeasurementSession()
     {
         testSession = new TestMeasurementManager(centerPane);
-        stepsBar = new StepsBarView(testSession);
+        // stepsBar = new StepsBarView(testSession);
+        stepsBar = new VerticalStepsBarView(testSession);
         stepsBar.subscribeEvent(StepsBarView.ON_STEP_CLICK, args -> onStepsBarClick(args));
     }
 
@@ -97,15 +101,15 @@ class TestMeasurementManager extends MeasurementManager
         }
 
         @Override
-        public boolean canEnter()
+        public boolean canEnterFromStep(MeasurementStep step)
         {
             return true;
         }
 
         @Override
-        public boolean canExit()
+        public boolean canExitToStep(MeasurementStep step)
         {
-            return true;
+            return step == taskSelectionStep;
         }
 
         @Override
@@ -144,15 +148,15 @@ class TestMeasurementManager extends MeasurementManager
         }
 
         @Override
-        public boolean canEnter()
+        public boolean canEnterFromStep(MeasurementStep step)
         {
-            return getCurrentStep() == setupStep;
+            return step == setupStep;
         }
 
         @Override
-        public boolean canExit()
+        public boolean canExitToStep(MeasurementStep step)
         {
-            return true;
+            return step == executionStep;
         }
 
         @Override
@@ -191,15 +195,15 @@ class TestMeasurementManager extends MeasurementManager
         }
 
         @Override
-        public boolean canEnter()
+        public boolean canEnterFromStep(MeasurementStep step)
         {
-            return getCurrentStep() == taskSelectionStep;
+            return step == taskSelectionStep;
         }
 
         @Override
-        public boolean canExit()
+        public boolean canExitToStep(MeasurementStep step)
         {
-            return true;
+            return step == resultsStep;
         }
 
         @Override
@@ -238,13 +242,13 @@ class TestMeasurementManager extends MeasurementManager
         }
 
         @Override
-        public boolean canEnter()
+        public boolean canEnterFromStep(MeasurementStep step)
         {
-            return getCurrentStep() == executionStep;
+            return step == executionStep;
         }
 
         @Override
-        public boolean canExit()
+        public boolean canExitToStep(MeasurementStep step)
         {
             return true;
         }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane hgap="2.0" maxHeight="1.7976931348623157E308" maxWidth="-1.0" minHeight="-1.0" vgap="2.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pannable="true" vbarPolicy="NEVER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+      <content>
+        <VBox fx:id="containerPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="-1.0" prefWidth="-1.0" />
+      </content>
+    </ScrollPane>
+    <Button fx:id="upButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#upButtonClicked" text="Up" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+    <Button fx:id="downButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#downButtonClicked" text="Down" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+  </children>
+  <columnConstraints>
+    <ColumnConstraints hgrow="NEVER" minWidth="10.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="100.0" prefWidth="-1.0" />
+    <ColumnConstraints hgrow="NEVER" minWidth="10.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="-1.0" prefHeight="-1.0" valignment="CENTER" vgrow="NEVER" />
+    <RowConstraints minHeight="50.0" prefHeight="-1.0" valignment="CENTER" vgrow="ALWAYS" />
+    <RowConstraints minHeight="-1.0" prefHeight="-1.0" valignment="CENTER" vgrow="NEVER" />
+  </rowConstraints>
+</GridPane>

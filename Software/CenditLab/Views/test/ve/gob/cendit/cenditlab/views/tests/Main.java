@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+
 import ve.gob.cendit.cenditlab.tasks.MeasurementManager;
 import ve.gob.cendit.cenditlab.tasks.MeasurementStep;
 import ve.gob.cendit.cenditlab.views.StepsBarView;
@@ -58,15 +60,15 @@ public class Main extends Application
         }
 
         @Override
-        public boolean canEnter()
+        public boolean canEnterFromStep(MeasurementStep step)
         {
-            return false;
+            return true;
         }
 
         @Override
-        public boolean canExit()
+        public boolean canExitToStep(MeasurementStep step)
         {
-            return false;
+            return true;
         }
 
         @Override

@@ -1,7 +1,5 @@
 package ve.gob.cendit.cenditlab.tasks;
 
-
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import ve.gob.cendit.cenditlab.views.View;
 
 public abstract class MeasurementStep
@@ -51,18 +49,8 @@ public abstract class MeasurementStep
         return stepView;
     }
 
-    public boolean canEnterFromStep(MeasurementStep step)
-    {
-        throw new NotImplementedException();
-    }
-
-    public boolean canExitToStep(MeasurementStep step)
-    {
-        throw new NotImplementedException();
-    }
-
-    public abstract boolean canEnter();
-    public abstract boolean canExit();
+    public abstract boolean canEnterFromStep(MeasurementStep step);
+    public abstract boolean canExitToStep(MeasurementStep step);
 
     public abstract void initialize();
 

@@ -70,15 +70,15 @@ class DummyMeasurementStep extends MeasurementStep
     }
 
     @Override
-    public boolean canExit()
+    public boolean canEnterFromStep(MeasurementStep step)
     {
-        return canExitStep;
+        return canEnterStep;
     }
 
     @Override
-    public boolean canEnter()
+    public boolean canExitToStep(MeasurementStep step)
     {
-        return canEnterStep;
+        return canExitStep;
     }
 
     @Override
