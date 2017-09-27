@@ -4,7 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import ve.gob.cendit.cenditlab.tasks.MeasurementSession;
+import ve.gob.cendit.cenditlab.tasks.MeasurementManager;
 import ve.gob.cendit.cenditlab.tasks.MeasurementStep;
 import ve.gob.cendit.cenditlab.views.StepsBarView;
 import ve.gob.cendit.cenditlab.views.SystemView;
@@ -31,10 +31,10 @@ public class Main extends Application
             steps[i] = new DummyMeasurementStep(String.format("Paso %d", i + 1));
         }
 
-        MeasurementSession measurementSession = new MeasurementSession("Sesion de medicion prueba",
-                steps);
+        MeasurementManager measurementManager =
+                new MeasurementManager("Sesion de medicion prueba", steps);
 
-        StepsBarView stepsBar = new StepsBarView(measurementSession);
+        StepsBarView stepsBar = new StepsBarView(measurementManager);
         mainWindow.addRightPanel(stepsBar);
 
         primaryStage.setScene(new Scene(mainWindow));

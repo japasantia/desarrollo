@@ -7,9 +7,6 @@ import javafx.scene.control.TextField;
 import ve.gob.cendit.cenditlab.data.Data;
 import ve.gob.cendit.cenditlab.tasks.Slot;
 
-/**
- * Created by root on 29/08/17.
- */
 public class TextView extends View
 {
     private static final String FXML_FILE = "text-data-view.fxml";

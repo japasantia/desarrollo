@@ -5,9 +5,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import ve.gob.cendit.cenditlab.views.ComponentHeaderView;
+import ve.gob.cendit.cenditlab.views.ComponentView;
 import ve.gob.cendit.cenditlab.views.MasterDetailView;
-import ve.gob.cendit.cenditlab.views.SystemView;
 
 public class MasterDetailViewTest extends Application
 {
@@ -38,8 +37,12 @@ public class MasterDetailViewTest extends Application
     {
         for (int i = 0; i < 10; i++)
         {
-            ComponentHeaderView headerView = new ComponentHeaderView("System de prueba", null);
-            mdv.addSectionView(headerView, MasterDetailView.MASTER);
+            ComponentView componentView = new ComponentView(String.format("Componente %d", i),
+                    "Vista Componenete", null);
+            componentView.enableSection(ComponentView.CONTENT, false);
+            componentView.enableSection(ComponentView.FOOTER, false);
+
+            mdv.addSectionView(componentView, MasterDetailView.MASTER);
         }
     }
 
@@ -47,10 +50,10 @@ public class MasterDetailViewTest extends Application
     {
         for (int i = 0; i < 10; i++)
         {
-            SystemView systemView =
-                    new SystemView(String.format("Sistema de Prueba %d", i),
-                            "Un sistema de ejemplo", null);
-            mdv.addSectionView(systemView, MasterDetailView.DETAIL);
+            ComponentView componentView = new ComponentView(String.format("Componente %d", i),
+                    "Vista Componenente", null);
+
+            mdv.addSectionView(componentView, MasterDetailView.DETAIL);
         }
     }
 }

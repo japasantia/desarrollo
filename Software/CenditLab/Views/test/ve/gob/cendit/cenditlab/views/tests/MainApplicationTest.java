@@ -3,7 +3,9 @@ package ve.gob.cendit.cenditlab.views.tests;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import ve.gob.cendit.cenditlab.tasks.MeasurementSession;
+import ve.gob.cendit.cenditlab.tasks.Component;
+import ve.gob.cendit.cenditlab.tasks.ComponentSlots;
+import ve.gob.cendit.cenditlab.tasks.MeasurementManager;
 import ve.gob.cendit.cenditlab.tasks.MeasurementStep;
 import ve.gob.cendit.cenditlab.views.*;
 
@@ -17,8 +19,9 @@ public class MainApplicationTest extends Application
 
     private MainWindow mainWindow;
     private CenterPane centerPane;
+    private StepsBarView stepsBar;
 
-    private MeasurementSession measurementSession;
+    private TestMeasurementManager testSession;
 
     @Override
     public void start(Stage primaryStage) throws Exception
@@ -27,9 +30,6 @@ public class MainApplicationTest extends Application
         centerPane = new CenterPane();
 
         initializeMeasurementSession();
-
-        StepsBarView stepsBar = new StepsBarView(measurementSession);
-        stepsBar.subscribeEvent(StepsBarView.ON_STEP_CLICK, args -> onStepsBarClick(args));
 
         centerPane.addTopView(stepsBar);
         mainWindow.setCenterPane(centerPane);
@@ -43,66 +43,258 @@ public class MainApplicationTest extends Application
 
     private void initializeMeasurementSession()
     {
-        MeasurementStep[] measurementSteps = new MeasurementStep[10];
-
-        for (int i = 0; i < measurementSteps.length; ++i)
-        {
-            measurementSteps[i] = new TestMeasurementStep(String.format("Paso %d", i));
-        }
-
-        measurementSession = new MeasurementSession("Sesion de prueba", measurementSteps);
+        testSession = new TestMeasurementManager(centerPane);
+        stepsBar = new StepsBarView(testSession);
+        stepsBar.subscribeEvent(StepsBarView.ON_STEP_CLICK, args -> onStepsBarClick(args));
     }
 
     private void onStepsBarClick(Object... args)
     {
-       System.out.printf("Step: %s StepButton: %s\n",
-               args[0].toString(), args[1].toString());
+        System.out.printf("Step: %s StepButton: %s\n",
+                args[0].toString(), args[1].toString());
 
-       centerPane.addCenterView((View) args[1]);
+        if (args[0] instanceof MeasurementStep)
+        {
+            MeasurementStep step = (MeasurementStep) args[0];
+            testSession.toStep(step);
+        }
     }
 }
 
-class TestMeasurementStep extends MeasurementStep
+class TestMeasurementManager extends MeasurementManager
 {
-    public TestMeasurementStep(String name)
+    private final MeasurementStep setupStep = new SetupStep();
+    private final MeasurementStep taskSelectionStep = new TaskSelectionStep();
+    private final MeasurementStep executionStep = new ExecutionStep();
+    private final MeasurementStep resultsStep = new ResultsStep();
+
+    public static final int SETUP_STEP = 0;
+    public static final int TASK_SELECTION_STEP = 1;
+    public static final int EXECUTION_STEP = 2;
+    public static final int RESULTS_STEP = 3;
+
+    private ComponentView componentView;
+    private CenterPane measurementPane;
+    private MasterDetailView masterDetailView;
+
+    public TestMeasurementManager(CenterPane pane)
     {
-        super(name);
+        super("Test Measurement Session");
+
+        addSteps(setupStep, taskSelectionStep, executionStep, resultsStep);
+
+        measurementPane = pane;
+        componentView = new ComponentView();
+        masterDetailView = new MasterDetailView();
+        measurementPane.addCenterView(masterDetailView);
     }
 
-    @Override
-    public boolean canEnter()
+    class SetupStep extends MeasurementStep
     {
-        return false;
+        public SetupStep()
+        {
+            super("Setup Step");
+        }
+
+        @Override
+        public boolean canEnter()
+        {
+            return true;
+        }
+
+        @Override
+        public boolean canExit()
+        {
+            return true;
+        }
+
+        @Override
+        public void initialize()
+        {
+
+        }
+
+        @Override
+        public void load()
+        {
+            componentView.setName("Test Component | Setup");
+            componentView.setDescription("Panel de configuracion");
+            masterDetailView.clearSectionView(MasterDetailView.MASTER);
+            masterDetailView.addSectionView(componentView, MasterDetailView.MASTER);
+        }
+
+        @Override
+        public void run()
+        {
+
+        }
+
+        @Override
+        public void unload()
+        {
+
+        }
     }
 
-    @Override
-    public boolean canExit()
+    class TaskSelectionStep extends MeasurementStep
     {
-        return false;
+        public TaskSelectionStep()
+        {
+            super("TaskSelectionStep");
+        }
+
+        @Override
+        public boolean canEnter()
+        {
+            return getCurrentStep() == setupStep;
+        }
+
+        @Override
+        public boolean canExit()
+        {
+            return true;
+        }
+
+        @Override
+        public void initialize()
+        {
+
+        }
+
+        @Override
+        public void load()
+        {
+            componentView.setName("Test Component | Task Selection");
+            componentView.setDescription("Panel de configuracion");
+            masterDetailView.clearSectionView(MasterDetailView.MASTER);
+            masterDetailView.addSectionView(componentView, MasterDetailView.MASTER);
+        }
+
+        @Override
+        public void run()
+        {
+
+        }
+
+        @Override
+        public void unload()
+        {
+
+        }
     }
 
-    @Override
-    public void initialize()
+    class ExecutionStep extends MeasurementStep
     {
-        System.out.printf("%s initialize\n", getName());
+        public ExecutionStep()
+        {
+            super("ExecutionStep");
+        }
+
+        @Override
+        public boolean canEnter()
+        {
+            return getCurrentStep() == taskSelectionStep;
+        }
+
+        @Override
+        public boolean canExit()
+        {
+            return true;
+        }
+
+        @Override
+        public void initialize()
+        {
+
+        }
+
+        @Override
+        public void load()
+        {
+            componentView.setName("Test Component | Execution");
+            componentView.setDescription("Panel de configuracion");
+            masterDetailView.clearSectionView(MasterDetailView.MASTER);
+            masterDetailView.addSectionView(componentView, MasterDetailView.MASTER);
+        }
+
+        @Override
+        public void run()
+        {
+
+        }
+
+        @Override
+        public void unload()
+        {
+
+        }
     }
 
-    @Override
-    public void load()
+    class ResultsStep extends MeasurementStep
     {
-        System.out.printf("%s load\n", getName());
-    }
+        public ResultsStep()
+        {
+            super("ResultsStep");
+        }
 
-    @Override
-    public void run()
-    {
-        System.out.printf("%s run\n", getName());
-    }
+        @Override
+        public boolean canEnter()
+        {
+            return getCurrentStep() == executionStep;
+        }
 
-    @Override
-    public void unload()
-    {
-        System.out.printf("%s unload\n", getName());
+        @Override
+        public boolean canExit()
+        {
+            return true;
+        }
+
+        @Override
+        public void initialize()
+        {
+
+        }
+
+        @Override
+        public void load()
+        {
+            componentView.setName("Test Component | Results");
+            componentView.setDescription("Panel de configuracion");
+            masterDetailView.clearSectionView(MasterDetailView.MASTER);
+            masterDetailView.addSectionView(componentView, MasterDetailView.MASTER);
+        }
+
+        @Override
+        public void run()
+        {
+
+        }
+
+        @Override
+        public void unload()
+        {
+
+        }
     }
 }
 
+class TestComponent extends Component
+{
+    @Override
+    public ComponentSlots getSlots()
+    {
+        return null;
+    }
+
+    @Override
+    protected void setContext(int context)
+    {
+
+    }
+
+    @Override
+    public View getView(int context)
+    {
+        return null;
+    }
+}

@@ -1,6 +1,6 @@
 package ve.gob.cendit.cenditlab.tests;
 
-import ve.gob.cendit.cenditlab.tasks.MeasurementSession;
+import ve.gob.cendit.cenditlab.tasks.MeasurementManager;
 import ve.gob.cendit.cenditlab.tasks.MeasurementStep;
 
 
@@ -13,7 +13,7 @@ public class MeasurementSessionTest
         DummyMeasurementStep step3 = new DummyMeasurementStep("Dummy step 3");
         DummyMeasurementStep step4 = new DummyMeasurementStep("Dummy step 4");
 
-        MeasurementSession session = new MeasurementSession("Session Test",
+        MeasurementManager session = new MeasurementManager("Session Test",
                 step1, step2, step3, step4);
 
         boolean ret = session.hasNextStep();

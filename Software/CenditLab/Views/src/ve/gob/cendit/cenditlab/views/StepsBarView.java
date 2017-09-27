@@ -7,7 +7,7 @@ import javafx.geometry.Bounds;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import ve.gob.cendit.cenditlab.tasks.MeasurementSession;
+import ve.gob.cendit.cenditlab.tasks.MeasurementManager;
 import ve.gob.cendit.cenditlab.tasks.MeasurementStep;
 
 public class StepsBarView extends View
@@ -22,30 +22,30 @@ public class StepsBarView extends View
     @FXML
     private ScrollPane scrollPane;
 
-    private MeasurementSession session;
+    private MeasurementManager session;
 
     public StepsBarView()
     {
         super(FXML_URL);
     }
 
-    public StepsBarView(MeasurementSession session)
+    public StepsBarView(MeasurementManager manager)
     {
         super(FXML_URL);
 
-        setMeasurementSession(session);
+        setMeasurementManager(manager);
 
         publishEvent(ON_STEP_CLICK);
     }
 
-    public void setMeasurementSession(MeasurementSession session)
+    public void setMeasurementManager(MeasurementManager manager)
     {
-        if (session == null)
+        if (manager == null)
         {
-            throw new IllegalArgumentException("session must not be null");
+            throw new IllegalArgumentException("manager must not be null");
         }
 
-        this.session = session;
+        this.session = manager;
     }
 
     @Override
@@ -68,7 +68,8 @@ public class StepsBarView extends View
                         @Override
                         public void handle(Object... args)
                         {
-                             raiseEvent(StepsBarView.ON_STEP_CLICK, step, stepButton);
+                             raiseEvent(StepsBarView.ON_STEP_CLICK,
+                                     step, stepButton);
                         }
                     });
 

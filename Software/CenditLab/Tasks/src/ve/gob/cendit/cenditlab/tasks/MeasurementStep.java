@@ -1,21 +1,24 @@
 package ve.gob.cendit.cenditlab.tasks;
 
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import ve.gob.cendit.cenditlab.views.View;
+
 public abstract class MeasurementStep
 {
     private String name;
-
-    private MeasurementSession stepOwnerSession;
+    private MeasurementManager ownerManager;
+    private View stepView;
 
     public MeasurementStep(String name)
     {
         this.name = name;
     }
 
-    public MeasurementStep(String name, MeasurementSession stepOwnerSession)
+    public MeasurementStep(String name, MeasurementManager ownerManager)
     {
         this.name = name;
-        setOwnerSession(stepOwnerSession);
+        setMeasurementManager(ownerManager);
     }
 
     public String getName()
@@ -23,19 +26,39 @@ public abstract class MeasurementStep
         return name;
     }
 
-    void setOwnerSession(MeasurementSession stepOwnerSession)
+    void setMeasurementManager(MeasurementManager ownerManager)
     {
-        if (this.stepOwnerSession != null)
+        if (this.ownerManager != null)
         {
-            stepOwnerSession.removeStep(this);
+            ownerManager.removeStep(this);
         }
 
-        this.stepOwnerSession = stepOwnerSession;
+        this.ownerManager = ownerManager;
     }
 
-    public MeasurementSession getOwnerSession()
+    public MeasurementManager getMeasurementManager()
     {
-        return stepOwnerSession;
+        return ownerManager;
+    }
+
+    public void setView(View view)
+    {
+        stepView = view;
+    }
+
+    public View getView()
+    {
+        return stepView;
+    }
+
+    public boolean canEnterFromStep(MeasurementStep step)
+    {
+        throw new NotImplementedException();
+    }
+
+    public boolean canExitToStep(MeasurementStep step)
+    {
+        throw new NotImplementedException();
     }
 
     public abstract boolean canEnter();

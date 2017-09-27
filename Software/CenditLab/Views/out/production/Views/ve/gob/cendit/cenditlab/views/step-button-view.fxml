@@ -11,7 +11,7 @@
    <children>
       <ImageView fx:id="iconImageView" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="5.0">
          <image>
-            <Image url="@multimeter.png" />
+            <Image url="@system.png" />
          </image></ImageView>
       <Label fx:id="bigTitleLabel" layoutX="48.0" layoutY="25.0" text="Titulo principal">
          <font>

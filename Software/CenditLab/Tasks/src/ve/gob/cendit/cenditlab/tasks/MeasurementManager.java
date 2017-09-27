@@ -1,14 +1,13 @@
 package ve.gob.cendit.cenditlab.tasks;
 
+import ve.gob.cendit.cenditlab.views.View;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by jarias on 13/09/17.
- */
-public class MeasurementSession
+public class MeasurementManager
 {
     private String name;
     private int currentIndex = -1;
@@ -16,7 +15,7 @@ public class MeasurementSession
 
     private List<MeasurementStep> stepsList;
 
-    public MeasurementSession(String name, MeasurementStep... stepsArgs)
+    public MeasurementManager(String name, MeasurementStep... stepsArgs)
     {
         this.name = name;
 
@@ -48,14 +47,14 @@ public class MeasurementSession
                 {
                     throw new IllegalArgumentException("no step in stepArgs must not be null");
                 }
-                step.setOwnerSession(this);
+                step.setMeasurementManager(this);
                 stepsList.add(step);
             });
     }
 
     public void removeStep(MeasurementStep step)
     {
-        if (step != null && step.getOwnerSession() == this)
+        if (step != null && step.getMeasurementManager() == this)
         {
             stepsList.remove(step);
         }
@@ -123,6 +122,28 @@ public class MeasurementSession
         return false;
     }
 
+    public boolean canGoNextStep_UPDATE()
+    {
+        if (hasNextStep())
+        {
+            MeasurementStep nextStep = getStep(getCurrentStepIndex() + 1);
+
+            if (currentStep != null )
+            {
+                if (currentStep.canExitToStep(nextStep) && nextStep.canEnterFromStep(currentStep))
+                {
+                    return true;
+                }
+            }
+            else if (nextStep.canEnterFromStep(null) /* nextStep.canEnter() */)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public boolean canGoPrevStep()
     {
         if (hasPrevStep())
@@ -132,6 +153,28 @@ public class MeasurementSession
             if (currentStep != null )
             {
                 if (currentStep.canExit() && prevStep.canEnter())
+                {
+                    return true;
+                }
+            }
+            else if (prevStep.canEnter())
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean canGoPrevStep_UPDATE()
+    {
+        if (hasPrevStep())
+        {
+            MeasurementStep prevStep = getStep(getCurrentStepIndex() - 1);
+
+            if (currentStep != null )
+            {
+                if (currentStep.canExitToStep(prevStep) && prevStep.canEnterFromStep(currentStep))
                 {
                     return true;
                 }
@@ -243,6 +286,22 @@ public class MeasurementSession
         return false;
     }
 
+    public boolean toStep(MeasurementStep nextStep)
+    {
+        if (nextStep == null)
+        {
+            throw new IllegalArgumentException("nextStep must not be null");
+        }
+        else if (stepsList.contains(nextStep))
+        {
+             return toStep(stepsList.indexOf(nextStep));
+        }
+        else
+        {
+            throw new IllegalArgumentException("Not contained step");
+        }
+    }
+
     public void initialize()
     {
         stepsList.stream()
@@ -250,6 +309,12 @@ public class MeasurementSession
                     step.initialize();
                 });
     }
+
+    public void changeView(View view)
+    {
+        // TODO: enitir eventos para gestion de cambios de pantalla
+    }
+
     /*
     public void start()
     {

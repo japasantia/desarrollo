@@ -8,7 +8,9 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class ComponentSelectionPane extends HBox
+public class
+
+ComponentSelectionPane extends HBox
 {
     private static final String FXML_URL = "component-selection-pane.fxml";
 
