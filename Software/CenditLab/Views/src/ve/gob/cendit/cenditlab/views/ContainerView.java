@@ -1,69 +1,88 @@
 package ve.gob.cendit.cenditlab.views;
 
-import javafx.fxml.FXML;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-
-import java.util.List;
+import javafx.scene.layout.Region;
 
 public class ContainerView extends View
 {
-    private static final String FXML_URL = "container-view.fxml";
+    private ContainerView parentContainerView;
 
-    public static final int HEADER = 0;
-    public static final int CONTENT = 1;
-    public static final int FOOTER = 2;
-
-    @FXML
-    private VBox headerPane;
-
-    @FXML
-    private VBox footerPane;
-
-    @FXML
-    private VBox contentPane;
-
-    private Pane[] panes  = { headerPane, contentPane, footerPane };
-
-    private List<View> headerViewsList;
-    private List<View> contentViewsList;
-    private List<View> footerViewsList;
-
-    public ContainerView()
+    protected ContainerView(String fxmlUrl)
     {
-        super(FXML_URL);
-
-        load();
+        super(fxmlUrl);
     }
 
     @Override
     public void update()
-    {
+    {}
 
-    }
-
-    public void addView(View view, int sectionId)
+    protected void setParentContainer(ContainerView container)
     {
-        getPaneFromId(sectionId).getChildren().add(view.getNode());
-    }
-
-    public void removeView(View view, int sectionId)
-    {
-        getPaneFromId(sectionId).getChildren().remove(view.getNode());
-    }
-
-    public void clear(int sectionId)
-    {
-        getPaneFromId(sectionId).getChildren().clear();
-    }
-
-    private Pane getPaneFromId(int id)
-    {
-        if (id < 0 || id >= panes.length)
+        if (parentContainerView != null)
         {
-            throw new IllegalArgumentException("pane id out of range");
+            parentContainerView.remove(this);
         }
 
-        return panes[id];
+        parentContainerView = container;
+        // parentContainerView.add(container);
+    }
+
+    protected ContainerView getParentContainer()
+    {
+        return parentContainerView;
+    }
+
+    public void add(ContainerView child)
+    {
+
+    }
+
+    public void remove(ContainerView child)
+    {
+
+    }
+
+    public boolean hasParentContainer()
+    {
+        return parentContainerView != null;
+    }
+
+    public void setWidthPercentage(double parentPercent)
+    {
+        if (hasParentContainer())
+        {
+            double parentWidth = getParentContainer().getNode().getBoundsInParent().getWidth();
+            ((Region)getNode()).setPrefWidth(parentPercent * parentWidth);
+        }
+    }
+
+    public void setHeightPercentage(double parentPercent)
+    {
+        if (hasParentContainer())
+        {
+            double parentHeight = getParentContainer().getNode().getBoundsInParent().getHeight();
+            ((Region)getNode()).setPrefWidth(parentPercent * parentHeight);
+        }
+    }
+
+    public void setSizePercentage(double parentWidthPercent, double parentHeightPercent)
+    {
+        setWidthPercentage(parentWidthPercent);
+        setHeightPercentage(parentHeightPercent);
+    }
+
+    public void setWidth(double width)
+    {
+        ((Region)getNode()).setPrefWidth(width);
+    }
+
+    public void setHeight(double height)
+    {
+        ((Region)getNode()).setPrefHeight(height);
+    }
+
+    public void setSize(double width, double height)
+    {
+        setWidth(width);
+        setHeight(height);
     }
 }
