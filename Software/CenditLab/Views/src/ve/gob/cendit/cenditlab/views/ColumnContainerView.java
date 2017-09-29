@@ -53,7 +53,10 @@ public class ColumnContainerView extends ContainerView
         {
             ObservableList<Node> columnsList = columnPane.getChildren();
             Arrays.stream(rows)
-                    .forEach(row -> columnsList.add(row.getNode()));
+                    .forEach(row -> {
+                        columnsList.add(row.getNode());
+                        row.setParentColumn(this);
+                    });
         }
     }
 

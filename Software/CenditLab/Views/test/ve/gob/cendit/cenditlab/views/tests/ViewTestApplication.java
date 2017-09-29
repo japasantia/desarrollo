@@ -1,22 +1,33 @@
 package ve.gob.cendit.cenditlab.views.tests;
 
 import javafx.application.Application;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import ve.gob.cendit.cenditlab.data.ArrayData;
 import ve.gob.cendit.cenditlab.tasks.ComponentSlots;
 import ve.gob.cendit.cenditlab.tasks.Slot;
-import ve.gob.cendit.cenditlab.views.ArrayView;
-import ve.gob.cendit.cenditlab.views.GraphView;
-import ve.gob.cendit.cenditlab.views.VectorView;
-import ve.gob.cendit.cenditlab.views.NavButtonView;
+import ve.gob.cendit.cenditlab.views.*;
 
 
 public class ViewTestApplication extends Application
 {
+    public static void main(String[] args)
+    {
+        Application.launch(args);
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception
+    {
+        //viewTests(primaryStage);
+        rowAndColumnContainerTest(primaryStage);
+    }
+
+    private void viewTests(Stage primaryStage)
     {
         TwoPaneWindow mainWindow = new TwoPaneWindow();
         VectorView dcView = new VectorView();
@@ -64,8 +75,55 @@ public class ViewTestApplication extends Application
         primaryStage.show();
     }
 
-    public static void main(String[] args)
+    private void rowAndColumnContainerTest(Stage primaryStage)
     {
-        Application.launch(args);
+        RowContainerView rootRow =  new RowContainerView();
+        ColumnContainerView column1 = new ColumnContainerView();
+        ColumnContainerView column2 = new ColumnContainerView();
+
+        RowContainerView row11 = new RowContainerView();
+        RowContainerView row12 = new RowContainerView();
+        RowContainerView row13 = new RowContainerView();
+
+        RowContainerView row21 = new RowContainerView();
+        RowContainerView row22 = new RowContainerView();
+
+        populateRow(row11, 5);
+        populateRow(row12, 2);
+        populateRow(row13, 3);
+
+        populateRow(row21, 4);
+        populateRow(row22, 1);
+
+        column1.addRows(row11, row12, row13);
+        column2.addRows(row21, row22);
+
+        rootRow.addColumns(column1, column2);
+
+        column1.setWidthPercentage(0.8);
+        column1.setHeightPercentage(0.6);
+
+        column2.setWidthPercentage(0.2);
+        column2.setHeightPercentage(0.4);
+
+        VBox root = new VBox(rootRow.getNode());
+        root.setMaxSize(600.0, 400.0);
+        root.setFillWidth(false);
+
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.setWidth(1200.0);
+        primaryStage.setHeight(800.0);
+        primaryStage.show();
+    }
+
+    private void populateRow(RowContainerView row, int children)
+    {
+        for (int i = 0; i < children; i++)
+        {
+            row.setColumn(i,
+                    new ComponentView("Componente",
+                            String.format("Componente %d", i), null));
+        }
     }
 }

@@ -13,6 +13,9 @@ public abstract class View extends EventPublisher
         setFxmlUrl(fxmlUrl);
     }
 
+    protected View()
+    {  }
+
     protected void setFxmlUrl(String path)
     {
         if (path == null)
@@ -27,6 +30,16 @@ public abstract class View extends EventPublisher
     protected String getFxmlUrl()
     {
         return fxmlUrl;
+    }
+
+    protected void setViewNode(Node node)
+    {
+        viewNode = node;
+    }
+
+    protected Node getViewNode()
+    {
+        return viewNode;
     }
 
     public abstract void update();

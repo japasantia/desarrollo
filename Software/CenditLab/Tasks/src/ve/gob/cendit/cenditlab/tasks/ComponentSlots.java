@@ -38,6 +38,11 @@ public class ComponentSlots
         return result.isPresent() ? result.get().getDefaultData() : null;
     }
 
+    public Data getDefaultData(Slot slot)
+    {
+        return getDefaultData(slot.getName());
+    }
+
     public boolean containsSlot(String slotName)
     {
         return findDataSlotByName(slotName)

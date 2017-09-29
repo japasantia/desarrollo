@@ -9,9 +9,6 @@ import javafx.scene.text.Text;
 import ve.gob.cendit.cenditlab.data.ArrayData;
 
 
-/**
- * Created by root on 07/09/17.
- */
 public class ArrayView2 extends View
 {
     private static final String FXML_URL = "array-data-view-2.fxml";

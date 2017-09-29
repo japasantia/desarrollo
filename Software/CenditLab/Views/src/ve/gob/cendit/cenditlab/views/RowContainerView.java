@@ -52,7 +52,9 @@ public class RowContainerView extends ContainerView
         {
             ObservableList<Node> columnsList = rowPane.getChildren();
             Arrays.stream(columns)
-                    .forEach(column -> columnsList.add(column.getNode()));
+                    .forEach(column -> {
+                        columnsList.add(column.getNode());
+                        column.setParentRow(this); });
         }
     }
 
@@ -95,7 +97,7 @@ public class RowContainerView extends ContainerView
 
     public void removeColumn(int index)
     {
-        throwIfColumnIndexNegative(index);
+        // throwIfColumnIndexNegative(index);
 
         if (isColumnIndexInRange(index))
         {

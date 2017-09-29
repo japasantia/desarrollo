@@ -50,7 +50,7 @@ public class ContainerView extends View
     {
         if (hasParentContainer())
         {
-            double parentWidth = getParentContainer().getNode().getBoundsInParent().getWidth();
+            double parentWidth = getParentContainer().getNode().getBoundsInLocal().getWidth();
             ((Region)getNode()).setPrefWidth(parentPercent * parentWidth);
         }
     }
@@ -59,8 +59,8 @@ public class ContainerView extends View
     {
         if (hasParentContainer())
         {
-            double parentHeight = getParentContainer().getNode().getBoundsInParent().getHeight();
-            ((Region)getNode()).setPrefWidth(parentPercent * parentHeight);
+            double parentHeight = getParentContainer().getNode().getBoundsInLocal().getHeight();
+            ((Region)getNode()).setPrefHeight(parentPercent * parentHeight);
         }
     }
 

@@ -15,11 +15,6 @@ import javafx.scene.layout.*;
 
 import ve.gob.cendit.cenditlab.data.ArrayData;
 
-
-
-/**
- * Created by root on 04/09/17.
- */
 public class ArrayView extends View
 {
     private static final String FXML_URL = "array-data-view.fxml";
