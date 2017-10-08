@@ -28,7 +28,8 @@ LIBS:regul
 LIBS:74xx
 LIBS:cmos4000
 LIBS:CenditBasic
-LIBS:MC33996EKR2
+LIBS:cendit-basic
+LIBS:PortExpanderMC33996-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -654,13 +655,13 @@ Wire Wire Line
 Wire Wire Line
 	5750 2150 6150 2150
 Text Label 3500 3250 0    60   ~ 0
-SO_INT
+SO_CHAIN
 Wire Wire Line
 	3400 3250 3850 3250
 Wire Wire Line
 	6150 2250 5800 2250
 Text Label 5800 2250 0    60   ~ 0
-SO_INT
+SO_CHAIN
 Entry Wire Line
 	7900 3250 8000 3150
 Wire Bus Line

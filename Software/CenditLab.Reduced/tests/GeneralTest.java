@@ -1,6 +1,8 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import ve.gob.cendit.cenditlab.ui.*;
 
 import java.io.IOException;
 
@@ -15,13 +17,14 @@ public class GeneralTest extends Application
     public void start(Stage primaryStage) throws Exception
     {
         testFrequencySetupPane(primaryStage);
+        //testFrequencySetupIndividualPanes(primaryStage);
     }
 
     private static void testFrequencySetupPane(Stage primaryStage)
     {
         try
         {
-            FrequencySetup frequencySetup = new FrequencySetup();
+            FrequencySetupPane frequencySetup = new FrequencySetupPane();
 
             Scene scene = new Scene(frequencySetup, 600, 400);
             primaryStage.setScene(scene);
@@ -31,5 +34,22 @@ public class GeneralTest extends Application
         {
             ex.printStackTrace();
         }
+    }
+
+    private static void testFrequencySetupIndividualPanes(Stage primaryStage)
+    {
+        ValueUnitField valueField = new ValueUnitField();
+
+        FrequencyRangePane frequencyRangePane = new FrequencyRangePane();
+
+        FrequencyListPane frequencyListPane = new FrequencyListPane();
+
+        FrequencyFixedPane frequencyFixedPane = new FrequencyFixedPane();
+
+        VBox vBox = new VBox();
+        vBox.getChildren().addAll(valueField, frequencyRangePane, frequencyListPane, frequencyFixedPane);
+
+        primaryStage.setScene(new Scene(vBox, 600.0, 400.0));
+        primaryStage.show();
     }
 }

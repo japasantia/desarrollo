@@ -1,4 +1,4 @@
-update=vie 06 oct 2017 15:56:21 VET
+update=sáb 07 oct 2017 21:21:43 -04
 version=1
 last_client=kicad
 [pcbnew]
@@ -57,16 +57,6 @@ LibName25=linear
 LibName26=regul
 LibName27=74xx
 LibName28=cmos4000
-LibName29=eSim_Analog
-LibName30=eSim_Devices
-LibName31=eSim_Digital
-LibName32=eSim_Hybrid
-LibName33=eSim_Miscellaneous
-LibName34=eSim_Power
-LibName35=eSim_Sources
-LibName36=eSim_Subckt
-LibName37=eSim_User
-LibName38=eSim_Plot
-LibName39=eSim_PSpice
-LibName40=/home/jarias/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
+LibName29=/home/jarias/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
+LibName30=/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.collections.FXCollections?>
+
+<fx:root type="TitledPane"  fx:id="frequencyListPane" animated="false" text="Lista de frecuencias" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<!-- <TitledPane fx:id="frequencyListPane" animated="false" text="Lista de frecuencias" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"> -->
+   <content>
+      <VBox>
+         <children>
+            <ToolBar>
+              <items>
+                <Button minWidth="50.0" mnemonicParsing="false" text="+" />
+                  <Button minWidth="50.0" mnemonicParsing="false" text="-" />
+              </items>
+            </ToolBar>
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
+               <content>
+                  <ListView editable="true">
+                      <items>
+                          <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Introduzca lista de frecuencias"/>
+                          </FXCollections>
+                      </items>
+                  </ListView>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </content>
+<!-- </TitledPane> -->
+</fx:root>
