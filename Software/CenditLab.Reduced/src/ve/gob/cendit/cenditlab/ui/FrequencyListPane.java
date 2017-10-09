@@ -88,7 +88,7 @@ public class FrequencyListPane extends TitledPane
         valueFieldsList.stream()
                 .forEach(valueField ->
                     {
-                        frequenciesList.add(valueField.getValue());
+                        frequenciesList.add(valueField.toString());
                     });
 
         return frequenciesList;

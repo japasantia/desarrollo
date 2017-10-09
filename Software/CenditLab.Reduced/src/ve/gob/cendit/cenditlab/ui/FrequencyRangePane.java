@@ -1,7 +1,5 @@
 package ve.gob.cendit.cenditlab.ui;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TitledPane;
@@ -22,14 +20,19 @@ public class FrequencyRangePane extends TitledPane
     private ValueField centralFrequencyValueField;
 
     @FXML
-    private ValueField frequencySpanValueField;
+    private ValueField spanFrequencyValueField;
 
     @FXML
-    private ValueField frequencyPointsValueField;
+    private ValueField pointsValueField;
 
     private static final IValueValidator valueValidator =
             value -> FrequencyValue.isValid(value);
 
+    private FrequencyValue minFrequencyValue;
+    private FrequencyValue maxFrequencyValue;
+    private FrequencyValue centralFrequencyValue;
+    private FrequencyValue spanFrequencyValue;
+    private Value pointsValue;
 
     public FrequencyRangePane()
     {
@@ -54,21 +57,58 @@ public class FrequencyRangePane extends TitledPane
 
     private void initialize()
     {
+        minFrequencyValue = new FrequencyValue();
+        maxFrequencyValue = new FrequencyValue();
+        centralFrequencyValue = new FrequencyValue();
+        spanFrequencyValue = new FrequencyValue();
+        pointsValue = new Value();
+
+        minFrequencyValueField.addUpdateListener(() -> minMaxFrequenciesUpdate());
+        maxFrequencyValueField.addUpdateListener(() -> minMaxFrequenciesUpdate());
+
+        centralFrequencyValueField.addUpdateListener(() -> centralSpanFrequenciesUpdate());
+        spanFrequencyValueField.addUpdateListener(() -> centralSpanFrequenciesUpdate());
+
+        minFrequencyValueField.setValue(minFrequencyValue);
+        maxFrequencyValueField.setValue(maxFrequencyValue);
+        centralFrequencyValueField.setValue(centralFrequencyValue);
+        spanFrequencyValueField.setValue(spanFrequencyValue);
+        pointsValueField.setValue(pointsValue);
+
         String[] frequencyValidUnits = FrequencyValue.getValidUnits();
 
         minFrequencyValueField.setChoiceUnits(frequencyValidUnits);
         maxFrequencyValueField.setChoiceUnits(frequencyValidUnits);
         centralFrequencyValueField.setChoiceUnits(frequencyValidUnits);
-        frequencySpanValueField.setChoiceUnits(frequencyValidUnits);
-
-        minFrequencyValueField.focusedProperty().addListener(
-                observable -> focusChanged(observable));
+        spanFrequencyValueField.setChoiceUnits(frequencyValidUnits);
     }
 
-    private void focusChanged(Observable observable)
+    private void minMaxFrequenciesUpdate()
     {
-        String maxFrequency = maxFrequencyValueField.getMagnitude();
-        String minFrequency = minFrequencyValueField.getMagnitude();
+        float centralFrequency =
+                (maxFrequencyValue.getMagnitude() + minFrequencyValue.getMagnitude()) / 2f;
+        float spanFrequency =
+                (maxFrequencyValue.getMagnitude() - minFrequencyValue.getMagnitude());
+
+        centralFrequencyValue.setMagnitude(centralFrequency);
+        spanFrequencyValue.setMagnitude(spanFrequency);
+
+        centralFrequencyValueField.setValue(centralFrequencyValue);
+        spanFrequencyValueField.setValue(spanFrequencyValue);
+    }
+
+    private void centralSpanFrequenciesUpdate()
+    {
+        float maxFrequency =
+                spanFrequencyValue.getMagnitude() / 2.0f + centralFrequencyValue.getMagnitude();
+        float minFrequency =
+                spanFrequencyValue.getMagnitude() / 2.0f - centralFrequencyValue.getMagnitude();
+
+        maxFrequencyValue.setMagnitude(maxFrequency);
+        minFrequencyValue.setMagnitude(minFrequency);
+
+        maxFrequencyValueField.setValue(maxFrequencyValue);
+        minFrequencyValueField.setValue(minFrequencyValue);
     }
 
     public boolean validate()
@@ -76,8 +116,27 @@ public class FrequencyRangePane extends TitledPane
         return minFrequencyValueField.validate(valueValidator) &&
                 maxFrequencyValueField.validate(valueValidator) &&
                 centralFrequencyValueField.validate(valueValidator) &&
-                frequencySpanValueField.validate(valueValidator);
+                spanFrequencyValueField.validate(valueValidator);
+    }
+    /*
+    public FrequencyValue getMinFrequency()
+    {
+
     }
 
+    public FrequencyValue getMaxFrequency()
+    {
 
+    }
+
+    public FrequencyValue getCentralFrequency()
+    {
+
+    }
+
+    public FrequencyValue getFrequencySpan()
+    {
+
+    }
+    */
 }

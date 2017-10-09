@@ -1,5 +1,8 @@
 package ve.gob.cendit.cenditlab.ui;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +10,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
+import javax.swing.event.ChangeListener;
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
 public class ValueField extends HBox
 {
@@ -18,6 +24,10 @@ public class ValueField extends HBox
 
     @FXML
     private ChoiceBox<String> unitsChoiceBox;
+
+    private List<IUpdateListener> listenersList;
+
+    private Value value;
 
     public ValueField()
     {
@@ -36,37 +46,86 @@ public class ValueField extends HBox
         {
             throw new RuntimeException(ex);
         }
+
+        initialize();
     }
 
-    public void setMagnitude(String value)
+    private void initialize()
     {
-        valueTextField.setText(value);
+        value = new Value();
+
+
+        valueTextField.focusedProperty()
+                .addListener((observable, oldValue, newValue) ->
+                    {
+                        if (!newValue)
+                            validate();
+                    });
+        unitsChoiceBox.focusedProperty()
+                .addListener((observable, oldValue, newValue) ->
+                    {
+                        if (!newValue)
+                            validate();
+                    });
     }
 
-    public String getMagnitude()
+    private void validate()
     {
-        return valueTextField.getText();
+        value.setValue(valueTextField.getText());
+        value.setUnit(unitsChoiceBox.getValue());
+
+        callUpdateListeners();
+    }
+
+    public void addUpdateListener(IUpdateListener listener)
+    {
+        if (listenersList == null)
+        {
+            listenersList = new LinkedList<>();
+        }
+
+        if (listener != null)
+        {
+            listenersList.add(listener);
+        }
+    }
+
+    public void removeUpdateListener(IUpdateListener listener)
+    {
+        if (listenersList != null)
+        {
+            listenersList.remove(listener);
+        }
+    }
+
+    private void callUpdateListeners()
+    {
+        listenersList.stream()
+                .forEach(listener -> listener.onUpdate());
+    }
+
+    public void setValue(Value value)
+    {
+        if (value == null)
+        {
+            throw new IllegalArgumentException("value must not be null");
+        }
+
+        this.value = value;
+
+        valueTextField.setText(value.getValue());
+        unitsChoiceBox.setValue(value.getUnit());
     }
 
     public String getValue()
     {
-        String magnitude = getMagnitude();
-        String unit  = getUnit();
+        return valueTextField.getText();
+    }
 
-
-        if (magnitude != null && !magnitude.isEmpty())
-        {
-            if (unit != null && !unit.isEmpty())
-            {
-                return String.format("%s %s", magnitude, unit);
-            }
-            else
-            {
-                return magnitude;
-            }
-        }
-
-        return "";
+    @Override
+    public String toString()
+    {
+        return value.toString();
     }
 
     public void setChoiceUnits(String... units)
@@ -115,6 +174,6 @@ public class ValueField extends HBox
 
     public boolean validate(IValueValidator validator)
     {
-        return validator.isValid(getValue());
+        return validator.isValid(toString());
     }
 }

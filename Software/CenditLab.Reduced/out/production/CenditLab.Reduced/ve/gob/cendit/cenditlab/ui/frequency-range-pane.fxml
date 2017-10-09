@@ -10,8 +10,6 @@
 
 <?scenebuilder-classpath-element /mnt/local/PasantiaCendit/Desarrollo/Software/CenditLab.Reduced/src/ve/gob/cendit/cenditlab/ui?>
 
-
-
 <fx:root type="TitledPane" fx:id="frequencyRangePane" animated="false" text="Rangos de frecuencia" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 <!--<TitledPane fx:id="frequencyRangePane" animated="false" text="Rangos de frecuencia" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">-->
     <fx:define>
@@ -40,8 +38,8 @@
              <ValueField fx:id="minFrequencyValueField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
              <ValueField fx:id="maxFrequencyValueField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
              <ValueField fx:id="centralFrequencyValueField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-             <ValueField fx:id="frequencySpanValueField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-             <ValueField fx:id="frequencyPointsValueField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+             <ValueField fx:id="spanFrequencyValueField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+             <ValueField fx:id="pointsValueField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
             <Label text="Mínima">
                <GridPane.margin>

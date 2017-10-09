@@ -6,7 +6,7 @@ import javafx.beans.property.FloatProperty;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class FrequencyValue
+public class FrequencyValue extends Value
 {
     public static final String HZ = "Hz";
     public static final String KHZ = "kHz";
@@ -14,49 +14,91 @@ public class FrequencyValue
     public static final String GHZ = "GHz";
     public static final String DEFAULT_UNIT = HZ;
 
+    public static final String DEFAULT_VALUE = "0.0";
+
     private static final String FREQUENCY_VALUE_REGEX =
-        "^\\s*[+-]?(?<magnitude>\\d+(.\\d*)?([eE][+-]?\\d+)?)(\\s*(?<unit>Hz|kHz|MHz|GHz))?\\s*$";
+        "^\\s*[+-]?(?<base>\\d+(.\\d*)?([eE][+-]?\\d+)?)(\\s*(?<unit>Hz|kHz|MHz|GHz))?\\s*$";
 
     private static final Pattern frequencyValuePattern =
             Pattern.compile(FREQUENCY_VALUE_REGEX);
 
-    private float frequency;
-    private String unit;
-
-    private FloatProperty frequencyProperty;
 
     public FrequencyValue()
     {
-        unit = DEFAULT_UNIT;
+        super(DEFAULT_VALUE, DEFAULT_UNIT);
     }
 
-    public FrequencyValue(float frequency, String unit)
+    public FrequencyValue(String frequency, String unit)
     {
-        this.frequency = frequency;
-        this.unit = unit;
+        super(frequency, unit);
     }
 
-    public FrequencyValue(String value, String unit)
+    public void setMagnitude(float magnitude)
     {
-        this.frequency = Float.parseFloat(value);
-        this.unit  = unit;
+        String value;
+        String unit = HZ;
+
+        float abs = Math.abs(magnitude);
+
+        if (abs >= 1.0e9f)
+        {
+            magnitude /= 1.0e9f;
+
+            unit = GHZ;
+        }
+        else if (magnitude >= 1.0e6)
+        {
+            magnitude /= 1.0e6;
+            unit = MHZ;
+        }
+        else if (magnitude >= 1.0e3)
+        {
+            magnitude /= 1.0e3;
+            unit = KHZ;
+        }
+
+        super.setValue(String.valueOf(magnitude));
+        super.setUnit(unit);
     }
 
     public float getMagnitude()
     {
-        return frequency;
+        float frequencyMagnitude = Float.parseFloat(getValue());
+
+        switch (getUnit())
+        {
+            case GHZ:
+                return frequencyMagnitude * 1.0e9f;
+            case MHZ:
+                return frequencyMagnitude * 1.0e6f;
+            case KHZ:
+                return frequencyMagnitude * 1.0e3f;
+            default:
+                return frequencyMagnitude;
+        }
     }
 
-    public String getUnit()
+    @Override
+    public void setValue(String value)
     {
-        return unit;
+       super.setValue(value);
+    }
+
+    @Override
+    public void setUnit(String unit)
+    {
+        super.setUnit(unit);
     }
 
     @Override
     public String toString()
     {
+        String value = getValue();
+        String unit = getUnit();
+
         return String.format("%.2f %s",
-                getMagnitude(), getUnit());
+                value != null ? value : "",
+                unit != null ? unit : "");
     }
 
     public static boolean isValid(String value)
@@ -70,10 +112,10 @@ public class FrequencyValue
 
         if (matcher.find())
         {
-            String magnitude = matcher.group("magnitude");
+            String base = matcher.group("base");
             String unit = matcher.group("unit");
 
-            return new FrequencyValue(magnitude, unit);
+            return new FrequencyValue(base, unit);
         }
 
         throw new IllegalArgumentException("Invalid frequency value format");
