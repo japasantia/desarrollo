@@ -16,18 +16,10 @@
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </HBox.margin>
       </TextField>
-      <ChoiceBox fx:id="unitsChoiceBox" HBox.hgrow="NEVER" value="Hz">
+      <ChoiceBox fx:id="unitsChoiceBox" HBox.hgrow="SOMETIMES" visible="false">
          <HBox.margin>
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </HBox.margin>
-         <items>
-            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="Hz"/>
-               <String fx:value="kHz"/>
-               <String fx:value="MHz"/>
-               <String fx:value="GHz"/>
-            </FXCollections>
-         </items>
       </ChoiceBox>
    </children>
 <!-- </HBox> -->

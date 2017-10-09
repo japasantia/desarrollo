@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import ve.gob.cendit.cenditlab.ui.ValueUnitField ?>
+<?import ve.gob.cendit.cenditlab.ui.ValueField ?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<!-- ../../../../../out/production/CenditLab.Reduced/ve/gob/cendit/cenditlab/ui -->
+<?import javafx.collections.FXCollections?>
+<?import ve.gob.cendit.cenditlab.ui.FrequencyValue?>
+<?import java.lang.String?>
+
 <?scenebuilder-classpath-element /mnt/local/PasantiaCendit/Desarrollo/Software/CenditLab.Reduced/src/ve/gob/cendit/cenditlab/ui?>
+
+
 
 <fx:root type="TitledPane" fx:id="frequencyRangePane" animated="false" text="Rangos de frecuencia" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 <!--<TitledPane fx:id="frequencyRangePane" animated="false" text="Rangos de frecuencia" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">-->
+    <fx:define>
+        <FXCollections fx:id="frequencyUnits" fx:factory="observableArrayList">
+            <String fx:value="GHz"/>
+            <String fx:value="MHz"/>
+            <String fx:value="KHz"/>
+            <String fx:value="Hz"/>
+        </FXCollections>
+    </fx:define>
+
    <content>
       <GridPane>
         <columnConstraints>
@@ -23,11 +37,11 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-             <ValueUnitField GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-             <ValueUnitField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-             <ValueUnitField GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-             <ValueUnitField GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-             <ValueUnitField GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+             <ValueField fx:id="minFrequencyValueField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+             <ValueField fx:id="maxFrequencyValueField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+             <ValueField fx:id="centralFrequencyValueField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+             <ValueField fx:id="frequencySpanValueField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+             <ValueField fx:id="frequencyPointsValueField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
             <Label text="Mínima">
                <GridPane.margin>

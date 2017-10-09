@@ -16,8 +16,8 @@ public class GeneralTest extends Application
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        testFrequencySetupPane(primaryStage);
-        //testFrequencySetupIndividualPanes(primaryStage);
+        //testFrequencySetupPane(primaryStage);
+        testFrequencySetupIndividualPanes(primaryStage);
     }
 
     private static void testFrequencySetupPane(Stage primaryStage)
@@ -38,7 +38,7 @@ public class GeneralTest extends Application
 
     private static void testFrequencySetupIndividualPanes(Stage primaryStage)
     {
-        ValueUnitField valueField = new ValueUnitField();
+        ValueField valueField = new ValueField();
 
         FrequencyRangePane frequencyRangePane = new FrequencyRangePane();
 

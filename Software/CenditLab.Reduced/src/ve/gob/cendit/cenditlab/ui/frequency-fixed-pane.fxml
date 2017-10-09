@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.TitledPane?>
-<?import ve.gob.cendit.cenditlab.ui.ValueUnitField?>
+<?import ve.gob.cendit.cenditlab.ui.ValueField?>
 
-<fx:root type="TitledPane"  fx:id="frequencyFixedPane" animated="false" text="Frecuencia fija" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<fx:root type="TitledPane" fx:id="frequencyFixedPane" animated="false" text="Frecuencia fija" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <!-- <TitledPane fx:id="frequencyFixedPane" animated="false" text="Frecuencia fija" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"> -->
       <content>
-         <ValueUnitField />
+         <ValueField>
+            <choiceUnits>
+               <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Hz"/>
+                  <String fx:value="kHz"/>
+                  <String fx:value="MHz"/>
+                  <String fx:value="GHz"/>
+               </FXCollections>
+            </choiceUnits>
+         </ValueField>
       </content>
    <!-- </TitledPane> -->
 </fx:root>
