@@ -1,8 +1,5 @@
 package ve.gob.cendit.cenditlab.ui;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +7,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
-import javax.swing.event.ChangeListener;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,7 +23,7 @@ public class ValueField extends HBox
 
     private List<IUpdateListener> listenersList;
 
-    private Value value;
+    private Field field;
 
     public ValueField()
     {
@@ -52,7 +48,7 @@ public class ValueField extends HBox
 
     private void initialize()
     {
-        value = new Value();
+        field = new Field();
 
 
         valueTextField.focusedProperty()
@@ -71,8 +67,8 @@ public class ValueField extends HBox
 
     private void validate()
     {
-        value.setValue(valueTextField.getText());
-        value.setUnit(unitsChoiceBox.getValue());
+        field.setValue(valueTextField.getText());
+        field.setUnit(unitsChoiceBox.getValue());
 
         callUpdateListeners();
     }
@@ -104,20 +100,20 @@ public class ValueField extends HBox
                 .forEach(listener -> listener.onUpdate());
     }
 
-    public void setValue(Value value)
+    public void setField(Field field)
     {
-        if (value == null)
+        if (field == null)
         {
-            throw new IllegalArgumentException("value must not be null");
+            throw new IllegalArgumentException("field must not be null");
         }
 
-        this.value = value;
+        this.field = field;
 
-        valueTextField.setText(value.getValue());
-        unitsChoiceBox.setValue(value.getUnit());
+        valueTextField.setText(field.getValue());
+        unitsChoiceBox.setValue(field.getUnit());
     }
 
-    public String getValue()
+    public String getField()
     {
         return valueTextField.getText();
     }
@@ -125,7 +121,7 @@ public class ValueField extends HBox
     @Override
     public String toString()
     {
-        return value.toString();
+        return field.toString();
     }
 
     public void setChoiceUnits(String... units)

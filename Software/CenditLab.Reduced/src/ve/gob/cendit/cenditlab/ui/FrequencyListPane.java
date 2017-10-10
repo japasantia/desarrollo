@@ -29,7 +29,7 @@ public class FrequencyListPane extends TitledPane
     private ObservableList<ValueField> valueFieldsList;
 
     private static final IValueValidator valueValidator =
-            value -> FrequencyValue.isValid(value);
+            value -> FrequencyField.isValid(value);
 
     public FrequencyListPane()
     {
@@ -49,7 +49,7 @@ public class FrequencyListPane extends TitledPane
 
         valueFieldsList = frequencyListView.getItems();
         ValueField valueField = new ValueField();
-        valueField.setChoiceUnits(FrequencyValue.getValidUnits());
+        valueField.setChoiceUnits(FrequencyField.getValidUnits());
         valueFieldsList.add(valueField);
     }
 
@@ -57,7 +57,7 @@ public class FrequencyListPane extends TitledPane
     private void addButtonClicked(MouseEvent event)
     {
         ValueField valueField = new ValueField();
-        valueField.setChoiceUnits(FrequencyValue.getValidUnits());
+        valueField.setChoiceUnits(FrequencyField.getValidUnits());
 
         valueFieldsList.add(valueField);
     }

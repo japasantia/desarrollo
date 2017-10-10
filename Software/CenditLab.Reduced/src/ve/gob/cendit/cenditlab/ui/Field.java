@@ -3,17 +3,17 @@ package ve.gob.cendit.cenditlab.ui;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Value
+public class Field
 {
     private String value;
     private String unit;
 
     List<IUpdateListener> listenersList;
 
-    public Value()
+    public Field()
     {}
 
-    public Value(String value, String unit)
+    public Field(String value, String unit)
     {
         this.value = value;
         this.unit = unit;
@@ -76,6 +76,8 @@ public class Value
     @Override
     public String toString()
     {
-        return String.format("%s %s", value, unit);
+        return String.format("%s %s",
+                (value != null ? value : "") ,
+                (unit != null ? unit : ""));
     }
 }

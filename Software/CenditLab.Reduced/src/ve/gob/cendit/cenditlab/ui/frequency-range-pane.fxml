@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.FXCollections?>
-<?import ve.gob.cendit.cenditlab.ui.FrequencyValue?>
+<?import ve.gob.cendit.cenditlab.ui.FrequencyField?>
 <?import java.lang.String?>
 
 <?scenebuilder-classpath-element /mnt/local/PasantiaCendit/Desarrollo/Software/CenditLab.Reduced/src/ve/gob/cendit/cenditlab/ui?>
