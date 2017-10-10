@@ -150,12 +150,12 @@ public class FrequencyField extends Field
 
     public static boolean hasScalar(String field)
     {
-        return FREQUENCY_SCALAR_REGEX.matches(field);
+        return field != null && field.matches(FREQUENCY_SCALAR_REGEX);
     }
 
     public static boolean hasUnit(String field)
     {
-        return FREQUENCY_UNIT_REGEX.matches(field);
+        return field != null && field.matches(FREQUENCY_UNIT_REGEX);
     }
 
     public static float parseFloat(String field)

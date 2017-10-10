@@ -6,7 +6,7 @@ import javafx.beans.property.FloatProperty;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class FrequencyValue extends Value
+public class FrequencyValue extends Field
 {
     public static final String HZ = "Hz";
     public static final String KHZ = "kHz";

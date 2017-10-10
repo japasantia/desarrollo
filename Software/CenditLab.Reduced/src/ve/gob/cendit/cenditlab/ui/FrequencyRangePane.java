@@ -100,9 +100,9 @@ public class FrequencyRangePane extends TitledPane
     private void centralSpanFrequenciesUpdate()
     {
         float maxFrequency =
-                spanFrequencyValue.getMagnitude() / 2.0f + centralFrequencyValue.getMagnitude();
+                centralFrequencyValue.getMagnitude() + spanFrequencyValue.getMagnitude() / 2.0f;
         float minFrequency =
-                spanFrequencyValue.getMagnitude() / 2.0f - centralFrequencyValue.getMagnitude();
+                centralFrequencyValue.getMagnitude() - spanFrequencyValue.getMagnitude() / 2.0f;
 
         maxFrequencyValue.setMagnitude(maxFrequency);
         minFrequencyValue.setMagnitude(minFrequency);

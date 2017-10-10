@@ -70,6 +70,8 @@ public class ValueField extends HBox
         field.setValue(valueTextField.getText());
         field.setUnit(unitsChoiceBox.getValue());
 
+        setField(field);
+
         callUpdateListeners();
     }
 
