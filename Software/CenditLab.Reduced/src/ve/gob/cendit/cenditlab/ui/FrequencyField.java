@@ -58,5 +58,7 @@ public class FrequencyField extends NumericField
     public FrequencyField(String field)
     {
         super(field);
+
+        setValidUnits(FIELD_UNITS);
     }
 }

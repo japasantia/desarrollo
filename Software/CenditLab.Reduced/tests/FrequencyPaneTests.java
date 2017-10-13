@@ -24,9 +24,10 @@ public class FrequencyPaneTests extends Application
     public void start(Stage primaryStage) throws Exception
     {
         //loadFrequencyListPaneTest(primaryStage);
-        frequencyRangePaneTest(primaryStage);
+        // frequencyRangePaneTest(primaryStage);
         // frequencyFixedTest(primaryStage);
         // enrTablePaneTest(primaryStage);
+        noiseSourcePaneTest(primaryStage);
     }
 
     private void loadFrequencyListPaneTest(Stage primaryStage)
@@ -119,6 +120,18 @@ public class FrequencyPaneTests extends Application
         containerVBox.getChildren().addAll(enrTablePane);
 
         primaryStage.setScene(new Scene(containerVBox, 600.0, 400.0));
+        primaryStage.setTitle("CenditLab.Reduced | Test EnrTablePaneTest");
+        primaryStage.show();
+    }
+
+    private void noiseSourcePaneTest(Stage primaryStage)
+    {
+        VBox containerVBox = new VBox();
+        NoiseSourceSetup noiseSourceSetup = new NoiseSourceSetup();
+
+        containerVBox.getChildren().addAll(noiseSourceSetup);
+
+        primaryStage.setScene(new Scene(containerVBox, 600, 400));
         primaryStage.setTitle("CenditLab.Reduced | Test EnrTablePaneTest");
         primaryStage.show();
     }

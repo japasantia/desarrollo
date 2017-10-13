@@ -56,10 +56,23 @@ public class EnrTablePane extends TitledPane
     @FXML
     private void addButtonClicked(ActionEvent event)
     {
+        addEntry();
+    }
+
+    @FXML
+    private void removeButtonClicked(ActionEvent event)
+    {
+        int selectedIndex = containerListView.getSelectionModel().getSelectedIndex();
+
+        removeEntry(selectedIndex);
+    }
+
+    public void addEntry()
+    {
         HBox entryHBox = new HBox();
 
         FrequencyField frequencyField = new FrequencyField();
-        Field enrField = new Field();
+        EnrField enrField = new EnrField();
 
         FieldInput frequencyFieldInput = new FieldInput();
         FieldInput enrFieldInput = new FieldInput();
@@ -68,21 +81,18 @@ public class EnrTablePane extends TitledPane
         enrFieldInput.setField(enrField);
 
         frequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
-        enrFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
+        enrFieldInput.setChoiceUnits(EnrField.FIELD_UNITS);
 
         entryHBox.getChildren().addAll(frequencyFieldInput, enrFieldInput);
 
         enrEntriesList.add(entryHBox);
     }
 
-    @FXML
-    private void removeButtonClicked(ActionEvent event)
+    public void removeEntry(int index)
     {
-        int selectedIndex = containerListView.getSelectionModel().getSelectedIndex();
-
-        if (selectedIndex >= 0)
+        if (index >= 0 && index < enrEntriesList.size())
         {
-            enrEntriesList.remove(selectedIndex);
+            enrEntriesList.remove(index);
         }
     }
 }

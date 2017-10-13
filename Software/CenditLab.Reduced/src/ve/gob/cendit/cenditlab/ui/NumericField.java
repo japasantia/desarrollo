@@ -1,6 +1,5 @@
 package ve.gob.cendit.cenditlab.ui;
 
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -66,8 +65,6 @@ public class NumericField extends Field
     @Override
     public void setValue(String value)
     {
-
-
         float fValue = Float.parseFloat(value);
         this.magnitude = fValue * getUnit().getMultiplier();
 
@@ -100,7 +97,6 @@ public class NumericField extends Field
     @Override
     public String toString()
     {
-
         return String.format("%.2f %s",
                 getMagnitude(),
                 getUnit().getName());
@@ -119,7 +115,6 @@ public class NumericField extends Field
     {
         return value.matches(NUMERIC_FIELD_REGEX);
     }
-
 
     public static NumericField parse(String value, FieldUnits fieldUnits)
     {
