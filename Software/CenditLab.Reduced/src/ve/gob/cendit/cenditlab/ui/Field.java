@@ -6,14 +6,14 @@ import java.util.List;
 public class Field
 {
     private String value;
-    private String unit;
+    private Unit unit;
 
     List<IUpdateListener> listenersList;
 
     public Field()
     {}
 
-    public Field(String value, String unit)
+    public Field(String value, Unit unit)
     {
         this.value = value;
         this.unit = unit;
@@ -24,7 +24,7 @@ public class Field
         return value;
     }
 
-    public String getUnit()
+    public Unit getUnit()
     {
         return unit;
     }
@@ -36,11 +36,16 @@ public class Field
         callUpdateListeners();
     }
 
-    public void setUnit(String unit)
+    public void setUnit(Unit unit)
     {
         this.unit = unit;
 
         callUpdateListeners();
+    }
+
+    public FieldUnits getValidUnits()
+    {
+        return FieldUnits.EMPTY_UNITS;
     }
 
     public void addUpdateListener(IUpdateListener listener)

@@ -26,7 +26,7 @@ public class FrequencyListPane extends TitledPane
     @FXML
     private Button removeButton;
 
-    private ObservableList<ValueField> valueFieldsList;
+    private ObservableList<FieldInput> fieldsListInput;
 
     private static final IValueValidator valueValidator =
             value -> FrequencyField.isValid(value);
@@ -47,19 +47,19 @@ public class FrequencyListPane extends TitledPane
             throw new RuntimeException(ex);
         }
 
-        valueFieldsList = frequencyListView.getItems();
-        ValueField valueField = new ValueField();
-        valueField.setChoiceUnits(FrequencyField.getValidUnits());
-        valueFieldsList.add(valueField);
+        fieldsListInput = frequencyListView.getItems();
+        FieldInput fieldInput = new FieldInput();
+        fieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
+        fieldsListInput.add(fieldInput);
     }
 
     @FXML
     private void addButtonClicked(MouseEvent event)
     {
-        ValueField valueField = new ValueField();
-        valueField.setChoiceUnits(FrequencyField.getValidUnits());
+        FieldInput fieldInput = new FieldInput();
+        fieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
 
-        valueFieldsList.add(valueField);
+        fieldsListInput.add(fieldInput);
     }
 
     @FXML
@@ -67,28 +67,28 @@ public class FrequencyListPane extends TitledPane
     {
         int selectedIndex = frequencyListView.getSelectionModel().getSelectedIndex();
 
-        if (selectedIndex >= 0 && selectedIndex < valueFieldsList.size())
+        if (selectedIndex >= 0 && selectedIndex < fieldsListInput.size())
         {
-            valueFieldsList.remove(selectedIndex);
+            fieldsListInput.remove(selectedIndex);
         }
     }
 
     public boolean validate()
     {
-        return valueFieldsList.stream()
-                .allMatch(valueField -> valueField.validate(valueValidator));
+        return fieldsListInput.stream()
+                .allMatch(fieldInput -> fieldInput.validate(valueValidator));
     }
 
     public List<String> getFrequencies()
     {
-        int size = valueFieldsList.size();
+        int size = fieldsListInput.size();
 
         ArrayList<String> frequenciesList = new ArrayList<>(size);
 
-        valueFieldsList.stream()
-                .forEach(valueField ->
+        fieldsListInput.stream()
+                .forEach(fieldInput ->
                     {
-                        frequenciesList.add(valueField.toString());
+                        frequenciesList.add(fieldInput.toString());
                     });
 
         return frequenciesList;

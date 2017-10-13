@@ -11,28 +11,30 @@ public class FrequencyRangePane extends TitledPane
     private static final String FXML_URL = "frequency-range-pane.fxml";
 
     @FXML
-    private ValueField minFrequencyValueField;
+    private FieldInput minFrequencyFieldInput;
 
     @FXML
-    private ValueField maxFrequencyValueField;
+    private FieldInput maxFrequencyFieldInput;
 
     @FXML
-    private ValueField centralFrequencyValueField;
+    private FieldInput centralFrequencyFieldInput;
 
     @FXML
-    private ValueField spanFrequencyValueField;
+    private FieldInput spanFrequencyFieldInput;
 
     @FXML
-    private ValueField pointsValueField;
+    private FieldInput pointsFieldInput;
 
     private static final IValueValidator valueValidator =
             value -> FrequencyField.isValid(value);
 
-    private FrequencyField minFrequencyValue;
-    private FrequencyField maxFrequencyValue;
-    private FrequencyField centralFrequencyValue;
-    private FrequencyField spanFrequencyValue;
+    private FrequencyField minFrequencyField;
+    private FrequencyField maxFrequencyField;
+    private FrequencyField centralFrequencyField;
+    private FrequencyField spanFrequencyField;
     private Field pointsField;
+
+    private Boolean blockUpdate;
 
     public FrequencyRangePane()
     {
@@ -57,86 +59,166 @@ public class FrequencyRangePane extends TitledPane
 
     private void initialize()
     {
-        minFrequencyValue = new FrequencyField();
-        maxFrequencyValue = new FrequencyField();
-        centralFrequencyValue = new FrequencyField();
-        spanFrequencyValue = new FrequencyField();
+        blockUpdate = true;
+
+        minFrequencyField = new FrequencyField();
+        maxFrequencyField = new FrequencyField();
+        centralFrequencyField = new FrequencyField();
+        spanFrequencyField = new FrequencyField();
         pointsField = new Field();
 
-        minFrequencyValueField.addUpdateListener(() -> minMaxFrequenciesUpdate());
-        maxFrequencyValueField.addUpdateListener(() -> minMaxFrequenciesUpdate());
+        minFrequencyFieldInput.addUpdateListener(() -> minMaxFrequenciesUpdate());
+        maxFrequencyFieldInput.addUpdateListener(() -> minMaxFrequenciesUpdate());
 
-        centralFrequencyValueField.addUpdateListener(() -> centralSpanFrequenciesUpdate());
-        spanFrequencyValueField.addUpdateListener(() -> centralSpanFrequenciesUpdate());
+        centralFrequencyFieldInput.addUpdateListener(() -> centralSpanFrequenciesUpdate());
+        spanFrequencyFieldInput.addUpdateListener(() -> centralSpanFrequenciesUpdate());
 
-        minFrequencyValueField.setField(minFrequencyValue);
-        maxFrequencyValueField.setField(maxFrequencyValue);
-        centralFrequencyValueField.setField(centralFrequencyValue);
-        spanFrequencyValueField.setField(spanFrequencyValue);
-        pointsValueField.setField(pointsField);
+        minFrequencyFieldInput.setField(minFrequencyField);
+        maxFrequencyFieldInput.setField(maxFrequencyField);
+        centralFrequencyFieldInput.setField(centralFrequencyField);
+        spanFrequencyFieldInput.setField(spanFrequencyField);
+        pointsFieldInput.setField(pointsField);
 
-        String[] frequencyValidUnits = FrequencyField.getValidUnits();
+        minFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
+        maxFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
+        centralFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
+        spanFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
 
-        minFrequencyValueField.setChoiceUnits(frequencyValidUnits);
-        maxFrequencyValueField.setChoiceUnits(frequencyValidUnits);
-        centralFrequencyValueField.setChoiceUnits(frequencyValidUnits);
-        spanFrequencyValueField.setChoiceUnits(frequencyValidUnits);
+        blockUpdate = false;
     }
 
     private void minMaxFrequenciesUpdate()
     {
+        if (blockUpdate)
+        {
+            return;
+        }
+
+        blockUpdate = true;
+
         float centralFrequency =
-                (maxFrequencyValue.getMagnitude() + minFrequencyValue.getMagnitude()) / 2f;
+                (maxFrequencyField.getMagnitude() + minFrequencyField.getMagnitude()) / 2.0f;
         float spanFrequency =
-                (maxFrequencyValue.getMagnitude() - minFrequencyValue.getMagnitude());
+                (maxFrequencyField.getMagnitude() - minFrequencyField.getMagnitude());
 
-        centralFrequencyValue.setMagnitude(centralFrequency);
-        spanFrequencyValue.setMagnitude(spanFrequency);
+        centralFrequencyField.setMagnitude(centralFrequency);
+        spanFrequencyField.setMagnitude(spanFrequency);
 
-        centralFrequencyValueField.setField(centralFrequencyValue);
-        spanFrequencyValueField.setField(spanFrequencyValue);
+        centralFrequencyFieldInput.setUpdateEnabled(false);
+        spanFrequencyFieldInput.setUpdateEnabled(false);
+
+        centralFrequencyFieldInput.setField(centralFrequencyField);
+        spanFrequencyFieldInput.setField(spanFrequencyField);
+
+        centralFrequencyFieldInput.setUpdateEnabled(true);
+        spanFrequencyFieldInput.setUpdateEnabled(true);
+
+        blockUpdate = false;
     }
 
     private void centralSpanFrequenciesUpdate()
     {
+        if (blockUpdate)
+        {
+            return;
+        }
+
+        blockUpdate = true;
+
         float maxFrequency =
-                centralFrequencyValue.getMagnitude() + spanFrequencyValue.getMagnitude() / 2.0f;
+                centralFrequencyField.getMagnitude() + spanFrequencyField.getMagnitude() / 2.0f;
         float minFrequency =
-                centralFrequencyValue.getMagnitude() - spanFrequencyValue.getMagnitude() / 2.0f;
+                centralFrequencyField.getMagnitude() - spanFrequencyField.getMagnitude() / 2.0f;
 
-        maxFrequencyValue.setMagnitude(maxFrequency);
-        minFrequencyValue.setMagnitude(minFrequency);
+        maxFrequencyField.setMagnitude(maxFrequency);
+        minFrequencyField.setMagnitude(minFrequency);
 
-        maxFrequencyValueField.setField(maxFrequencyValue);
-        minFrequencyValueField.setField(minFrequencyValue);
+        minFrequencyFieldInput.setUpdateEnabled(false);
+        maxFrequencyFieldInput.setUpdateEnabled(false);
+
+        maxFrequencyFieldInput.setField(maxFrequencyField);
+        minFrequencyFieldInput.setField(minFrequencyField);
+
+        minFrequencyFieldInput.setUpdateEnabled(true);
+        maxFrequencyFieldInput.setUpdateEnabled(true);
+
+        blockUpdate = false;
     }
 
     public boolean validate()
     {
-        return minFrequencyValueField.validate(valueValidator) &&
-                maxFrequencyValueField.validate(valueValidator) &&
-                centralFrequencyValueField.validate(valueValidator) &&
-                spanFrequencyValueField.validate(valueValidator);
+        return minFrequencyFieldInput.validate(valueValidator) &&
+                maxFrequencyFieldInput.validate(valueValidator) &&
+                centralFrequencyFieldInput.validate(valueValidator) &&
+                spanFrequencyFieldInput.validate(valueValidator);
     }
-    /*
+
     public FrequencyField getMinFrequency()
     {
-
+        return minFrequencyField;
     }
 
     public FrequencyField getMaxFrequency()
     {
-
+        return maxFrequencyField;
     }
 
     public FrequencyField getCentralFrequency()
     {
-
+        return centralFrequencyField;
     }
 
     public FrequencyField getFrequencySpan()
     {
-
+        return spanFrequencyField;
     }
-    */
+
+    public Field getPoints()
+    {
+        return pointsField;
+    }
+
+    public void setMinFrequency(FrequencyField value)
+    {
+        if (value == null) return;
+
+        minFrequencyField = value;
+
+        centralSpanFrequenciesUpdate();
+    }
+
+    public void setMaxFrequency(FrequencyField value)
+    {
+        if (value == null) return;
+
+        maxFrequencyField = value;
+
+        centralSpanFrequenciesUpdate();
+    }
+
+    public void setCentralFrequency(FrequencyField value)
+    {
+        if (value == null) return;
+
+        centralFrequencyField = value;
+
+        centralSpanFrequenciesUpdate();
+    }
+
+    public void setSpanFrequency(FrequencyField value)
+    {
+        if (value == null) return;
+
+        spanFrequencyField = value;
+
+        centralSpanFrequenciesUpdate();
+    }
+
+    public void setPoints(Field value)
+    {
+        if (value == null) return;
+
+        this.pointsField = value;
+    }
+
 }

@@ -7,25 +7,27 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
+
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ValueField extends HBox
+public class FieldInput extends HBox
 {
-    private static final String FXML_URL = "value-field.fxml";
+    private static final String FXML_URL = "field-input.fxml";
 
     @FXML
     private TextField valueTextField;
 
     @FXML
-    private ChoiceBox<String> unitsChoiceBox;
+    private ChoiceBox<Unit> unitsChoiceBox;
 
     private List<IUpdateListener> listenersList;
+    private boolean updateEnabled;
 
     private Field field;
 
-    public ValueField()
+    public FieldInput()
     {
         FXMLLoader fxmlLoader =
                 new FXMLLoader(getClass()
@@ -55,21 +57,28 @@ public class ValueField extends HBox
                 .addListener((observable, oldValue, newValue) ->
                     {
                         if (!newValue)
-                            validate();
+                            validateValue();
                     });
-        unitsChoiceBox.focusedProperty()
+        unitsChoiceBox.getSelectionModel().selectedItemProperty()
                 .addListener((observable, oldValue, newValue) ->
                     {
-                        if (!newValue)
-                            validate();
+                        validateUnit(newValue);
                     });
+
+        setUpdateEnabled(true);
     }
 
-    private void validate()
+    private void validateValue()
     {
         field.setValue(valueTextField.getText());
-        field.setUnit(unitsChoiceBox.getValue());
+        setField(field);
 
+        callUpdateListeners();
+    }
+
+    private void validateUnit(Unit newUnit)
+    {
+        field.setUnit(newUnit);
         setField(field);
 
         callUpdateListeners();
@@ -96,10 +105,23 @@ public class ValueField extends HBox
         }
     }
 
+    public void setUpdateEnabled(boolean enable)
+    {
+        updateEnabled = enable;
+    }
+
+    public boolean isUpdateEnabled()
+    {
+        return updateEnabled;
+    }
+
     private void callUpdateListeners()
     {
-        listenersList.stream()
-                .forEach(listener -> listener.onUpdate());
+        if (listenersList != null && isUpdateEnabled())
+        {
+            listenersList.stream()
+                    .forEach(listener -> listener.onUpdate());
+        }
     }
 
     public void setField(Field field)
@@ -115,9 +137,9 @@ public class ValueField extends HBox
         unitsChoiceBox.setValue(field.getUnit());
     }
 
-    public String getField()
+    public Field getField()
     {
-        return valueTextField.getText();
+        return field;
     }
 
     @Override
@@ -126,27 +148,13 @@ public class ValueField extends HBox
         return field.toString();
     }
 
-    public void setChoiceUnits(String... units)
+    public void setChoiceUnits(FieldUnits units)
     {
-        if (units != null && units.length > 0)
+        if (units != null)
         {
             unitsChoiceBox.getItems().clear();
-            unitsChoiceBox.getItems().addAll(units);
+            unitsChoiceBox.getItems().addAll(units.getUnits());
             unitsChoiceBox.setVisible(true);
-            unitsChoiceBox.setValue(units[0]);
-        }
-        else
-        {
-            unitsChoiceBox.setVisible(false);
-        }
-    }
-
-    public void setChoiceUnits(ObservableList<String> units)
-    {
-        if (units != null && units.size() > 0)
-        {
-            unitsChoiceBox.getItems().clear();
-            unitsChoiceBox.setItems(units);
             unitsChoiceBox.setValue(units.get(0));
         }
         else
@@ -155,17 +163,17 @@ public class ValueField extends HBox
         }
     }
 
-    public ObservableList<String> getChoiceUnits()
+    public ObservableList<Unit> getChoiceUnits()
     {
         return unitsChoiceBox.getItems();
     }
 
-    public String getUnit()
+    public Unit getUnit()
     {
         return unitsChoiceBox.getValue();
     }
 
-    public void setUnit(String unit)
+    public void setUnit(Unit unit)
     {
         unitsChoiceBox.setValue(unit);
     }

@@ -1,5 +1,6 @@
 package ve.gob.cendit.cenditlab.ui;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TitledPane;
 
@@ -8,6 +9,11 @@ import java.io.IOException;
 public class FrequencyFixedPane extends TitledPane
 {
     private static final String FXML_URL = "frequency-fixed-pane.fxml";
+
+    @FXML
+    FieldInput fixedFrequencyFieldInput;
+
+    FrequencyField fixedFrequencyField;
 
     public FrequencyFixedPane()
     {
@@ -24,5 +30,24 @@ public class FrequencyFixedPane extends TitledPane
         {
             throw new RuntimeException(ex);
         }
+
+        initialize();
+    }
+
+    private void initialize()
+    {
+        fixedFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
+    }
+
+    public void setFixedFrequency(FrequencyField value)
+    {
+        fixedFrequencyField = value;
+
+        fixedFrequencyFieldInput.setField(value);
+    }
+
+    public FrequencyField getFixedFrequency()
+    {
+        return fixedFrequencyField;
     }
 }

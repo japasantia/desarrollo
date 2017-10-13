@@ -27,7 +27,7 @@ LIBS:linear
 LIBS:regul
 LIBS:74xx
 LIBS:cmos4000
-LIBS:CenditBasic
+LIBS:AdapterBoard-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -227,8 +227,6 @@ Wire Wire Line
 Wire Wire Line
 	3000 2300 3200 2300
 Entry Wire Line
-	3200 2300 3300 2200
-Entry Wire Line
 	3200 2200 3300 2100
 Wire Wire Line
 	3950 1000 4150 1000
@@ -282,8 +280,6 @@ Wire Wire Line
 	3950 2200 4150 2200
 Wire Wire Line
 	3950 2300 4150 2300
-Entry Wire Line
-	4150 2300 4250 2200
 Entry Wire Line
 	4150 2200 4250 2100
 Wire Wire Line
@@ -374,10 +370,6 @@ Entry Wire Line
 	5200 2900 5300 2800
 Entry Wire Line
 	5200 2800 5300 2700
-Wire Wire Line
-	5000 3200 5200 3200
-Entry Wire Line
-	5200 3200 5300 3100
 Wire Bus Line
 	2300 3050 2300 650 
 Wire Bus Line
@@ -683,4 +675,25 @@ Text Label 950  3050 0    60   ~ 0
 22
 Wire Bus Line
 	1250 2950 1250 650 
+Wire Wire Line
+	4150 2300 4150 2450
+Wire Wire Line
+	4150 2450 3200 2450
+Wire Wire Line
+	3200 2450 3200 2300
+$Comp
+L GND #PWR01
+U 1 1 59DEB810
+P 5100 3400
+F 0 "#PWR01" H 5100 3150 50  0001 C CNN
+F 1 "GND" H 5100 3250 50  0000 C CNN
+F 2 "" H 5100 3400 50  0000 C CNN
+F 3 "" H 5100 3400 50  0000 C CNN
+	1    5100 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5000 3200 5100 3200
+Wire Wire Line
+	5100 3200 5100 3400
 $EndSCHEMATC
