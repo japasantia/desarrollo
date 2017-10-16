@@ -11,7 +11,7 @@ import ve.gob.cendit.cenditlab.ui.*;
 
 import java.util.List;
 
-public class FrequencyPaneTests extends Application
+public class PaneTests extends Application
 {
     private FrequencyListPane frequencyListPane;
 
@@ -27,7 +27,8 @@ public class FrequencyPaneTests extends Application
         // frequencyRangePaneTest(primaryStage);
         // frequencyFixedTest(primaryStage);
         // enrTablePaneTest(primaryStage);
-        noiseSourcePaneTest(primaryStage);
+        // noiseSourcePaneTest(primaryStage);
+        enrSetupTest(primaryStage);
     }
 
     private void loadFrequencyListPaneTest(Stage primaryStage)
@@ -133,6 +134,15 @@ public class FrequencyPaneTests extends Application
 
         primaryStage.setScene(new Scene(containerVBox, 600, 400));
         primaryStage.setTitle("CenditLab.Reduced | Test EnrTablePaneTest");
+        primaryStage.show();
+    }
+
+    private void enrSetupTest(Stage primaryStage)
+    {
+        EnrSetup enrSetup = new EnrSetup();
+
+        primaryStage.setScene(new Scene(enrSetup, 600, 800));
+        primaryStage.setTitle("CenditLab.Reduced | Test EnrSetup Test");
         primaryStage.show();
     }
 }

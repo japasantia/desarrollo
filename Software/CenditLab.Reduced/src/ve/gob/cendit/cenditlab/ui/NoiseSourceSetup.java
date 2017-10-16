@@ -29,7 +29,7 @@ public class NoiseSourceSetup extends TitledPane
     @FXML
     private Button loadFromSnsButton;
 
-    private static final String FXML_URL = "noise-source-pane.fxml";
+    private static final String FXML_URL = "noise-source-setup.fxml";
 
     public NoiseSourceSetup()
     {
