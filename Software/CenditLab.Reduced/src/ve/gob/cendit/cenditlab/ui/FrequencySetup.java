@@ -1,109 +1,186 @@
 package ve.gob.cendit.cenditlab.ui;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TitledPane;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.VBox;
 
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
-public class FrequencySetup extends VBox
+public class FrequencySetup
 {
-    @FXML
-    private TitledPane bandwidthAveragePane;
+    public static final int FREQUENCY_SWEEP = 0;
+    public static final int FREQUENCY_LIST = 1;
+    public static final int FREQUENCY_FIXED = 2;
 
-    @FXML
-    private TitledPane frequencyModePane;
+    public static final int BANDWIDTH_100KHZ = 0;
+    public static final int BANDWIDTH_200KHZ = 1;
+    public static final int BANDWIDTH_400KHZ = 2;
+    public static final int BANDWIDTH_1MHZ = 3;
+    public static final int BANDWIDTH_2MHZ = 4;
+    public static final int BANDWIDTH_4MHZ = 5;
 
-    @FXML
-    private TitledPane frequencyRangePane;
+    public static final int AVERAGE_POINT = 0;
+    public static final int AVERAGE_SWEEP = 1;
 
-    @FXML
-    private TitledPane frequencyFixedPane;
+    private Options frequencyModeOptions =
+            new Options("Frequency Mode", "Sweep", "List", "Fixed");
 
-    @FXML
-    private TitledPane frequencyListPane;
+    private final Options bandwidthOptions =
+            new Options("Bandwidth", "100kHz", "200kHz", "400kHz", "1MHz", "2MHz" ,"4MHz");
 
-    @FXML
-    private ToggleGroup frequencyModeToggleGroup;
+    private final Options averageOptions =
+            new Options("Average", "ON", "OFF");
 
-    @FXML
-    private RadioButton fixedFrequencyRadioButton;
+    private final Options averageMode =
+            new Options("Average", "Point", "Sweep");
 
-    @FXML
-    private RadioButton listFrequencyRadioButton;
+    private final FrequencyField maxFrequencyField =
+            new FrequencyField();
 
-    @FXML
-    private RadioButton sweepFrequencyRadioButton;
+    private final FrequencyField minFrequencyField =
+            new FrequencyField();
 
-    private static final String FXML_URL = "ve/gob/cendit/cenditlab/ui/frequency-setup.fxml";
+    private final FrequencyField centralFrequencyField =
+            new FrequencyField();
 
-    public FrequencySetup() throws IOException
+    private final FrequencyField spanFrequencyField =
+            new FrequencyField();
+
+    private final NumericField averagePoints =
+            new NumericField();
+
+    private final FrequencyField fixeFrequencyField =
+            new FrequencyField();
+
+    private List<FrequencyField> frequencyList;
+
+
+    public String getFrequencyMode()
     {
-        try
-        {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(FXML_URL));
-            fxmlLoader.setController(this);
-            fxmlLoader.setRoot(this);
-            fxmlLoader.load();
-        }
-        catch (IOException ex)
-        {
-            throw ex;
-        }
-
-        initialize();
+        return frequencyModeOptions.getSelected();
     }
 
-    private void initialize()
+    public Options getFrequencyModeOptions()
     {
-        /*
-        frequencyRangePane.visibleProperty().bind(sweepFrequencyRadioButton.selectedProperty());
-        frequencyListPane.visibleProperty().bind(listFrequencyRadioButton.selectedProperty());
-        fixedFrequencyPane.visibleProperty().bind(fixedFrequencyRadioButton.selectedProperty());
-        */
-
-        this.getChildren().remove(frequencyRangePane);
-        this.getChildren().remove(frequencyListPane);
-        this.getChildren().remove(frequencyFixedPane);
-
-        sweepFrequencyRadioButton.selectedProperty().addListener(
-                (observable, oldValue, newValue) -> {
-                    if (newValue)
-                    {
-                        addFrequencyPane(frequencyRangePane);
-                    }
-                });
-
-        listFrequencyRadioButton.selectedProperty().addListener(
-                (observable, oldValue, newValue) -> {
-                    if (newValue)
-                    {
-                        addFrequencyPane(frequencyListPane);
-                    }
-                }
-        );
-
-        fixedFrequencyRadioButton.selectedProperty().addListener(
-                (observable, oldValue, newValue) -> {
-                    if (newValue)
-                    {
-                        addFrequencyPane(frequencyFixedPane);
-                    }
-                }
-        );
+        return frequencyModeOptions;
     }
 
-    private void addFrequencyPane(Node frequencyPane)
+    public Options getAverageOptions()
     {
-        this.getChildren().remove(frequencyRangePane);
-        this.getChildren().remove(frequencyListPane);
-        this.getChildren().remove(frequencyFixedPane);
+        return averageOptions;
+    }
 
-        this.getChildren().add(1, frequencyPane);
+    public Options getBandwidthOptions()
+    {
+        return bandwidthOptions;
+    }
+
+    public FrequencyField getMaxFrequencyField()
+    {
+        return maxFrequencyField;
+    }
+
+    public FrequencyField getMinFrequencyField()
+    {
+        return minFrequencyField;
+    }
+
+    public FrequencyField getCentralFrequencyField()
+    {
+        return centralFrequencyField;
+    }
+
+    public FrequencyField getSpanFrequencyField()
+    {
+        return spanFrequencyField;
+    }
+
+    public List<FrequencyField> getFrequecyList()
+    {
+        return frequencyList;
     }
 }
 
+class Options
+{
+    private String name;
+    private List<String> valuesList;
+
+    private String selected;
+    private int selectedIndex;
+
+    public Options(String name, String... values)
+    {
+        this.name = name;
+        this.valuesList = Arrays.asList(values);
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public int getSelectedIndex()
+    {
+        return selectedIndex;
+    }
+
+    public void setSelected(String value)
+    {
+        int index =  valuesList.indexOf(value);
+
+        if (index != -1)
+        {
+            selected = value;
+            selectedIndex = index;
+        }
+    }
+
+    public String getSelected()
+    {
+        return selected;
+    }
+
+    public boolean hasOption(String value)
+    {
+        return valuesList.indexOf(value) != -1;
+    }
+
+    public boolean isSelected(String value)
+    {
+        return selected == value;
+    }
+
+    public boolean isSelected(int index)
+    {
+        return selectedIndex == index;
+    }
+
+    public List<String> getValues()
+    {
+        return Collections.unmodifiableList(valuesList);
+    }
+}
+
+class Table{
+
+    public Table(String... headerNames)
+    {
+
+    }
+
+    public TableRow getRow(int index)
+    {
+        return null;
+    }
+
+    public void addRow(TableRow row)
+    {
+
+    }
+}
+
+class TableRow
+{
+
+}

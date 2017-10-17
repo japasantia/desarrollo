@@ -26,8 +26,9 @@
         <!-- Enr tables entry pane -->
         <Accordion fx:id="enrTablesAccordion" GridPane.columnSpan="2" GridPane.rowIndex="3">
            <panes>
-             <EnrTablePane fx:id="enrCommonTablePane" text="Tabla ENR"/>
-             <EnrTablePane fx:id="enrExtraTablePane" disable="true" visible="false" text="Tabla ENR medicion"/>
+
+             <!-- <EnrTablePane fx:id="enrCommonTablePane" text="Tabla ENR"/> -->
+             <!-- <EnrTablePane fx:id="enrExtraTablePane" disable="true" visible="false" text="Tabla ENR medicion"/> -->
            </panes>
         </Accordion>
       </children>

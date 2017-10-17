@@ -24,7 +24,7 @@ public class GeneralTest extends Application
     {
         try
         {
-            FrequencySetupPane frequencySetup = new FrequencySetupPane();
+            FrequencySetupView frequencySetup = new FrequencySetupView();
 
             Scene scene = new Scene(frequencySetup, 600, 400);
             primaryStage.setScene(scene);

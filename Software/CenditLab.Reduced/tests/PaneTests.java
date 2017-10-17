@@ -139,10 +139,10 @@ public class PaneTests extends Application
 
     private void enrSetupTest(Stage primaryStage)
     {
-        EnrSetup enrSetup = new EnrSetup();
+        EnrSetupView enrSetupView = new EnrSetupView();
 
-        primaryStage.setScene(new Scene(enrSetup, 600, 800));
-        primaryStage.setTitle("CenditLab.Reduced | Test EnrSetup Test");
+        primaryStage.setScene(new Scene(enrSetupView, 600, 800));
+        primaryStage.setTitle("CenditLab.Reduced | Test EnrSetupView Test");
         primaryStage.show();
     }
 }

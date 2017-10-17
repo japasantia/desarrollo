@@ -18,13 +18,13 @@ public class EnrField extends NumericField
             new FieldUnits(DB, PER_UNIT);
 
     private static final String ENR_FIELD_REGEX =
-            "^\\s*(?<scalar>[+-]?\\d+(.\\d*)?([eE][+-]?\\d+)?)(\\s*(?<unit>dB|DB|db))?\\s*$";
+            "^\\s*(?<scalar>[+-]?\\d+(.\\d*)?([eE][+-]?\\d+)?)(\\s*(?<unit>dB|DB|db|K|C|F))?\\s*$";
 
     private static final String ENR_SCALAR_REGEX =
             "(?<scalar>[+-]?\\d+(.\\d*)?([eE][+-]?\\d+)?)";
 
     private static final String ENR_UNIT_REGEX =
-            "(?<unit>dB|DB|db)";
+            "(?<unit>dB|DB|db|K|C|F)";
 
     private static final Pattern frequencyFieldPattern =
             Pattern.compile(ENR_FIELD_REGEX);

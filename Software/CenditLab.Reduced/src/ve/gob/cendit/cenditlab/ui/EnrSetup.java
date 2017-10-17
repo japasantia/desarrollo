@@ -1,133 +1,50 @@
 package ve.gob.cendit.cenditlab.ui;
 
-import javafx.beans.property.BooleanProperty;
-import javafx.fxml.FXML;
-import javafx.scene.control.Accordion;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TitledPane;
-
-public class EnrSetup extends TitledPane
+public class EnrSetup
 {
-    private static final String FXML_URL = "enr-setup.fxml";
+    private Options enrModeOptions =
+            new Options("Modo ENR", "Tabla", "Spot");
 
-    @FXML
-    private RadioButton enrTableModeRadioButton;
+    private Options snsTcoldOptions =
+            new Options("SNS Tcold", "ON", "OFF");
 
-    @FXML
-    private CheckBox enrCommonTableCheckBox;
+    private Options userTcoldOptions =
+            new Options("Tcold usuario", "ON", "OFF");
 
-    @FXML
-    private FieldInput enrSpotFieldInput;
+    private Options noiseSourcePreferenceOptions =
+            new Options("Preferencia NS", "Normal", "SNS");
 
-    @FXML
-    private Accordion enrTablesAccordion;
+    private Options autoLoadEnrOptions =
+            new Options("Carga automatica ENR", "ON", "OFF");
 
-    @FXML
-    private EnrTablePane enrCommonTablePane;
+    private EnrField enrField =
+            new EnrField();
 
-    @FXML
-    private EnrTablePane enrExtraTablePane;
+    private TemperatureField userTcoldField =
+            new TemperatureField();
 
-
-    public EnrSetup()
+    public Options getEnrModeOptions()
     {
-        ViewLoader.Load(FXML_URL, this, this);
-
-        initialize();
+        return enrModeOptions;
     }
 
-    private void initialize()
+    public Options getSnsTcoldOptions()
     {
-        BooleanProperty enrTableModeProperty = enrTableModeRadioButton.selectedProperty();
-
-        enrTablesAccordion.disableProperty()
-                .bind(enrTableModeProperty.not());
-        enrTablesAccordion.visibleProperty()
-                .bind(enrTableModeProperty);
-
-        enrSpotFieldInput.disableProperty()
-                .bind(enrTableModeProperty);
-        enrSpotFieldInput.visibleProperty()
-                .bind(enrTableModeProperty.not());
-
-        enrCommonTableCheckBox.disableProperty()
-                .bind(enrTableModeProperty.not());
-
-        /*
-        enrTableModeRadioButton.selectedProperty()
-                .addListener((observable, oldValue, newValue) ->
-                    {
-                        enrTablesAccordion.setDisable(!newValue);
-                        enrTablesAccordion.setVisible(newValue);
-
-                        enrSpotFieldInput.setDisable(newValue);
-                        enrSpotFieldInput.setVisible(!newValue);
-
-                        enrCommonTableCheckBox.setDisable(!newValue);
-                    });
-        */
-        enrCommonTableCheckBox.selectedProperty()
-                .addListener((observable, oldValue, newValue) ->
-                    {
-                        if (newValue)
-                            configureCommonEnrTable();
-                        else
-                            configureCalibrationAndMeasurementTable();
-                    });
-
-        /*
-        enrCommonTablePane = new EnrTablePane();
-        enrTablesAccordion.getPanes().add(enrCommonTablePane);
-
-        configureCommonEnrTable();
-        */
+        return snsTcoldOptions;
     }
 
-    /*
-    private void configureCommonEnrTable()
+    public Options getNoiseSourcePreferenceOptions()
     {
-        enrCommonTablePane.setText("Tabla ENR comun");
-        enrTablesAccordion.getPanes().remove(enrExtraTablePane);
+        return noiseSourcePreferenceOptions;
     }
 
-    private void configureCalibrationAndMeasurementTable()
+    public Options getAutoLoadEnrOptions()
     {
-        if (enrExtraTablePane == null)
-        {
-            enrExtraTablePane = new EnrTablePane();
-        }
-
-        enrCommonTablePane.setText("Tabla ENR calibracion");
-        enrExtraTablePane.setText("Tabla ENR medicion");
-
-        enrTablesAccordion.getPanes().add(enrExtraTablePane);
-    }
-    */
-
-    private void configureCommonEnrTable()
-    {
-        enrCommonTablePane.setText("Tabla ENR");
-        enableCommonEnrTable(true);
-        enableExtraEnrTable(false);
+        return autoLoadEnrOptions;
     }
 
-    private void configureCalibrationAndMeasurementTable()
+    public EnrField getEnrField()
     {
-        enrCommonTablePane.setText("Tabla ENR calibracion");
-        enableCommonEnrTable(true);
-        enableExtraEnrTable(true);
-    }
-
-    private void enableCommonEnrTable(boolean enable)
-    {
-        enrCommonTablePane.setDisable(!enable);
-        enrCommonTablePane.setVisible(enable);
-    }
-
-    private void enableExtraEnrTable(boolean enable)
-    {
-        enrExtraTablePane.setDisable(!enable);
-        enrExtraTablePane.setVisible(enable);
+        return enrField;
     }
 }
