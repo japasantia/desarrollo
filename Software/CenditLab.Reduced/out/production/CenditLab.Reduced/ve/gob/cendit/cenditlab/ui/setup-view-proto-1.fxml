@@ -7,8 +7,6 @@
 <?import javafx.scene.layout.*?>
 <?import ve.gob.cendit.cenditlab.ui.EnrTablePane?>
 <?import ve.gob.cendit.cenditlab.ui.FieldInput?>
-<?import java.lang.*?>
-
 <?import ve.gob.cendit.cenditlab.ui.ToggleView?>
 
 <fx:root type="TabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1">
