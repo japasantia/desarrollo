@@ -6,7 +6,7 @@
     (area 90.538252 70.832159 164.615072 120.798001)
     (thickness 1.6)
     (drawings 6)
-    (tracks 485)
+    (tracks 484)
     (zones 0)
     (modules 12)
     (nets 27)
@@ -849,7 +849,6 @@
   (gr_line (start 91 122) (end 150 122) (angle 90) (layer F.SilkS) (width 0.2))
   (gr_line (start 91 78) (end 91 122) (angle 90) (layer F.SilkS) (width 0.2))
 
-  (segment (start 136.271 101.854) (end 136.017 102.108) (width 0.762) (layer B.Cu) (net 0) (tstamp 59E3FBD0))
   (segment (start 121.13 82.9) (end 120 82.9) (width 0.381) (layer F.Cu) (net 1))
   (segment (start 107.17 88.67) (end 107.17 86.45) (width 0.381) (layer F.Cu) (net 1) (tstamp 59E8E81B))
   (segment (start 108.533498 90.033498) (end 107.17 88.67) (width 0.381) (layer F.Cu) (net 1) (tstamp 59E8E817))

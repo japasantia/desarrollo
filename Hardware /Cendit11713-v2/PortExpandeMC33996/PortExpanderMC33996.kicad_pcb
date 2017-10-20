@@ -1,4 +1,4 @@
-(kicad_pcb (version 4) (host pcbnew 4.0.5+dfsg1-4~bpo8+1)
+(kicad_pcb (version 4) (host pcbnew 4.0.6-e0-6349~53~ubuntu14.04.1)
 
   (general
     (links 94)
@@ -37,7 +37,7 @@
   )
 
   (setup
-    (last_trace_width 0.381)
+    (last_trace_width 0.25)
     (user_trace_width 0.35)
     (user_trace_width 0.381)
     (user_trace_width 0.5)
@@ -71,7 +71,7 @@
     (pad_drill 0.762)
     (pad_to_mask_clearance 0.2)
     (aux_axis_origin 0 0)
-    (visible_elements FFFFFF7F)
+    (visible_elements 7FFFFFFF)
     (pcbplotparams
       (layerselection 0x00030_80000001)
       (usegerberextensions false)
@@ -94,9 +94,9 @@
       (subtractmaskfromsilk false)
       (outputformat 1)
       (mirror false)
-      (drillshape 1)
+      (drillshape 0)
       (scaleselection 1)
-      (outputdirectory ""))
+      (outputdirectory "/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/PortExpandeMC33996/"))
   )
 
   (net 0 "")
@@ -1293,7 +1293,7 @@
   (segment (start 129.159 101.6) (end 129.667 102.108) (width 0.762) (layer F.Cu) (net 1) (tstamp 59DEE3D9))
   (segment (start 129.159 101.6) (end 129.667 102.108) (width 0.381) (layer F.Cu) (net 1) (tstamp 59DEE3A0))
   (segment (start 130.429 127.889) (end 123.444 127.889) (width 0.381) (layer B.Cu) (net 2))
-  (segment (start 122.301 129.032) (end 122.301 125.964) (width 0.381) (layer F.Cu) (net 2) (tstamp 59E012A5) (status 800000))
+  (segment (start 122.301 129.032) (end 122.301 125.964) (width 0.381) (layer F.Cu) (net 2) (tstamp 59E012A5))
   (via (at 122.301 129.032) (size 1.5) (drill 0.3) (layers F.Cu B.Cu) (net 2))
   (segment (start 123.444 127.889) (end 122.301 129.032) (width 0.381) (layer B.Cu) (net 2) (tstamp 59E012A2))
   (segment (start 131.2926 97.409) (end 131.2926 96.3676) (width 0.381) (layer F.Cu) (net 2))
@@ -1304,7 +1304,7 @@
   (via (at 130.429 127.889) (size 1) (drill 0.3) (layers F.Cu B.Cu) (net 2))
   (segment (start 131.4196 128.8796) (end 130.429 127.889) (width 0.381) (layer F.Cu) (net 2) (tstamp 59DFFD25))
   (segment (start 133.35 123.825) (end 133.35 121.539) (width 0.381) (layer B.Cu) (net 3))
-  (segment (start 133.477 121.666) (end 137.18 121.666) (width 0.381) (layer F.Cu) (net 3) (tstamp 59E012AE) (status 800000))
+  (segment (start 133.477 121.666) (end 137.18 121.666) (width 0.381) (layer F.Cu) (net 3) (tstamp 59E012AE))
   (segment (start 133.35 121.539) (end 133.477 121.666) (width 0.381) (layer F.Cu) (net 3) (tstamp 59E012AD))
   (via (at 133.35 121.539) (size 1.5) (drill 0.3) (layers F.Cu B.Cu) (net 3))
   (segment (start 133.2484 97.409) (end 133.2484 94.0816) (width 0.381) (layer F.Cu) (net 3))
@@ -1368,8 +1368,8 @@
   (segment (start 113.284 119.634) (end 113.411 119.761) (width 0.381) (layer B.Cu) (net 8) (tstamp 59E00B70))
   (via (at 113.284 119.634) (size 1.5) (drill 0.3) (layers F.Cu B.Cu) (net 8))
   (segment (start 113.157 119.507) (end 113.284 119.634) (width 0.381) (layer F.Cu) (net 8) (tstamp 59E00B68))
-  (segment (start 122.301 135.429) (end 122.301 134.874) (width 0.381) (layer F.Cu) (net 9) (status C00000))
-  (segment (start 122.301 134.874) (end 120.777 133.35) (width 0.381) (layer F.Cu) (net 9) (tstamp 59E01299) (status 400000))
+  (segment (start 122.301 135.429) (end 122.301 134.874) (width 0.381) (layer F.Cu) (net 9))
+  (segment (start 122.301 134.874) (end 120.777 133.35) (width 0.381) (layer F.Cu) (net 9) (tstamp 59E01299))
   (segment (start 120.777 133.35) (end 120.777 123.063) (width 0.381) (layer F.Cu) (net 9) (tstamp 59E0129A))
   (segment (start 120.777 123.063) (end 119.126 121.412) (width 0.381) (layer F.Cu) (net 9) (tstamp 59E0129C))
   (segment (start 121.158 108.792) (end 121.158 111.633) (width 0.381) (layer F.Cu) (net 9))
