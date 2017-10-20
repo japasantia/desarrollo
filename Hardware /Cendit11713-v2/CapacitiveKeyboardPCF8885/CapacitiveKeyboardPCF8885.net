@@ -1,8 +1,8 @@
 (export (version D)
   (design
-    (source "/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/CapacitiveKeyboardPCF8885/CapacitiveKeyboardPCF8885.sch")
-    (date "mar 17 oct 2017 13:52:30 VET")
-    (tool "Eeschema 4.0.6-e0-6349~53~ubuntu14.04.1")
+    (source "/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/CapacitiveKeyboardPCF8885/CapacitiveKeyboardPCF8885.sch")
+    (date "jue 19 oct 2017 11:07:23 -04")
+    (tool "Eeschema 4.0.5+dfsg1-4~bpo8+1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title)
@@ -18,7 +18,7 @@
     (comp (ref U1)
       (value PCF8885)
       (footprint LibKicad:PCF8885TS)
-      (libsource (lib CapacitiveKeyboardPCF8885-cache) (part PCF8885))
+      (libsource (lib CenditBasic) (part PCF8885))
       (sheetpath (names /) (tstamps /))
       (tstamp 59CA6337))
     (comp (ref RF1)
@@ -353,7 +353,11 @@
     (libpart (lib device) (part C)
       (description "Unpolarized capacitor")
       (footprints
-        (fp C_*))
+        (fp C?)
+        (fp C_????_*)
+        (fp C_????)
+        (fp SMD*_c)
+        (fp Capacitor*))
       (fields
         (field (name Reference) C)
         (field (name Value) C))
@@ -361,27 +365,27 @@
         (pin (num 1) (name ~) (type passive))
         (pin (num 2) (name ~) (type passive))))
     (libpart (lib conn) (part CONN_01X02)
-      (description "Connector, single row, 01x02, pin header")
+      (description "Connector, single row, 01x02")
       (footprints
-        (fp Pin_Header_Straight_1X*)
-        (fp Pin_Header_Angled_1X*)
-        (fp Socket_Strip_Straight_1X*)
-        (fp Socket_Strip_Angled_1X*))
+        (fp Pin_Header_Straight_1X02)
+        (fp Pin_Header_Angled_1X02)
+        (fp Socket_Strip_Straight_1X02)
+        (fp Socket_Strip_Angled_1X02))
       (fields
-        (field (name Reference) J)
+        (field (name Reference) P)
         (field (name Value) CONN_01X02))
       (pins
         (pin (num 1) (name P1) (type passive))
         (pin (num 2) (name P2) (type passive))))
     (libpart (lib conn) (part CONN_01X11)
-      (description "Connector, single row, 01x11, pin header")
+      (description "Connector, single row, 01x11")
       (footprints
-        (fp Pin_Header_Straight_1X*)
-        (fp Pin_Header_Angled_1X*)
-        (fp Socket_Strip_Straight_1X*)
-        (fp Socket_Strip_Angled_1X*))
+        (fp Pin_Header_Straight_1X11)
+        (fp Pin_Header_Angled_1X11)
+        (fp Socket_Strip_Straight_1X11)
+        (fp Socket_Strip_Angled_1X11))
       (fields
-        (field (name Reference) J)
+        (field (name Reference) P)
         (field (name Value) CONN_01X11))
       (pins
         (pin (num 1) (name P1) (type passive))
@@ -396,14 +400,14 @@
         (pin (num 10) (name P10) (type passive))
         (pin (num 11) (name P11) (type passive))))
     (libpart (lib conn) (part CONN_01X13)
-      (description "Connector, single row, 01x13, pin header")
+      (description "Connector, single row, 01x13")
       (footprints
-        (fp Pin_Header_Straight_1X*)
-        (fp Pin_Header_Angled_1X*)
-        (fp Socket_Strip_Straight_1X*)
-        (fp Socket_Strip_Angled_1X*))
+        (fp Pin_Header_Straight_1X13)
+        (fp Pin_Header_Angled_1X13)
+        (fp Socket_Strip_Straight_1X13)
+        (fp Socket_Strip_Angled_1X13))
       (fields
-        (field (name Reference) J)
+        (field (name Reference) P)
         (field (name Value) CONN_01X13))
       (pins
         (pin (num 1) (name P1) (type passive))
@@ -422,7 +426,11 @@
     (libpart (lib device) (part C_Small)
       (description "Unpolarized capacitor")
       (footprints
-        (fp C_*))
+        (fp C?)
+        (fp C_????_*)
+        (fp C_????)
+        (fp SMD*_c)
+        (fp Capacitor*))
       (fields
         (field (name Reference) C)
         (field (name Value) C_Small))
@@ -439,7 +447,7 @@
       (pins
         (pin (num 1) (name K) (type passive))
         (pin (num 2) (name A) (type passive))))
-    (libpart (lib CapacitiveKeyboardPCF8885-cache) (part PCF8885)
+    (libpart (lib CenditBasic) (part PCF8885)
       (fields
         (field (name Reference) U)
         (field (name Value) PCF8885))
@@ -475,6 +483,7 @@
     (libpart (lib device) (part R_Small)
       (description "Resistor, small symbol")
       (footprints
+        (fp Resistor_*)
         (fp R_*))
       (fields
         (field (name Reference) R)
@@ -492,10 +501,10 @@
   (libraries
     (library (logical device)
       (uri /usr/share/kicad/library/device.lib))
-    (library (logical CapacitiveKeyboardPCF8885-cache)
-      (uri "/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/CapacitiveKeyboardPCF8885/CapacitiveKeyboardPCF8885-cache.lib"))
     (library (logical conn)
-      (uri /usr/share/kicad/library/conn.lib)))
+      (uri /usr/share/kicad/library/conn.lib))
+    (library (logical CenditBasic)
+      (uri "/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic.lib")))
   (nets
     (net (code 1) (name /PLATE3)
       (node (ref RF2) (pin 1))
@@ -613,13 +622,13 @@
       (node (ref U1) (pin 27))
       (node (ref P2) (pin 9)))
     (net (code 23) (name /SLEEP)
-      (node (ref P2) (pin 8))
       (node (ref U1) (pin 24))
-      (node (ref R1) (pin 1))
-      (node (ref J1) (pin 8)))
-    (net (code 24) (name //INT)
       (node (ref P2) (pin 7))
-      (node (ref J1) (pin 7))
+      (node (ref R1) (pin 1))
+      (node (ref J1) (pin 7)))
+    (net (code 24) (name //INT)
+      (node (ref P2) (pin 8))
+      (node (ref J1) (pin 8))
       (node (ref U1) (pin 25)))
     (net (code 25) (name /A0)
       (node (ref P2) (pin 6))

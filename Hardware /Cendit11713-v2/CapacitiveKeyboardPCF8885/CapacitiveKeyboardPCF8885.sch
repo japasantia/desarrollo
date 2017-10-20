@@ -28,6 +28,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:CenditBasic
 LIBS:CapacitiveKeyboardPCF8885-cache
 EELAYER 25 0
 EELAYER END
@@ -905,9 +906,9 @@ Text Label 900  1000 0    60   ~ 0
 SDA
 Text Label 900  1200 0    60   ~ 0
 A0
-Text Label 900  1300 0    60   ~ 0
-/INT
 Text Label 900  1400 0    60   ~ 0
+/INT
+Text Label 900  1300 0    60   ~ 0
 SLEEP
 $Comp
 L R_Small R1
@@ -986,9 +987,9 @@ Text Label 950  2550 0    60   ~ 0
 SDA
 Text Label 950  2750 0    60   ~ 0
 A0
-Text Label 950  2850 0    60   ~ 0
+Text Label 950  2950 0    60   ~ 0
 /INT
-Text Label 1000 2950 0    60   ~ 0
+Text Label 1000 2850 0    60   ~ 0
 SLEEP
 Text Label 950  3050 0    60   ~ 0
 /INT_IN

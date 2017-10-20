@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:PortExpanderMC33996-rescue
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
@@ -921,7 +922,7 @@ PY14
 Text Label 8350 3200 0    47   ~ 0
 PY15
 $Comp
-L VIKING_SPI_BUS CONN1
+L VIKING_SPI_BUS-RESCUE-PortExpanderMC33996 CONN1
 U 1 1 59DD0DB3
 P 1300 2900
 F 0 "CONN1" H 1050 4050 47  0000 C CNN

@@ -1,4 +1,4 @@
-update=mié 11 oct 2017 21:54:58 -04
+update=jue 19 oct 2017 10:52:53 -04
 version=1
 last_client=kicad
 [pcbnew]
@@ -58,8 +58,7 @@ LibName26=regul
 LibName27=74xx
 LibName28=cmos4000
 LibName29=/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
-LibName30=/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
-LibName31=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/MC33996EKR2
-LibName32=/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713/Librerias/cendit-basic
-LibName33=/mnt/local/PasantiaCendit/Desarrollo/CadModels/LibreriaKicad/MC33996EKR2
+LibName30=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/MC33996EKR2
+LibName31=/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
+LibName32=/mnt/local/PasantiaCendit/Desarrollo/CadModels/LibreriaKicad/MC33996EKR2
 
