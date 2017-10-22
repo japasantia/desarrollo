@@ -1,9 +1,9 @@
-(kicad_pcb (version 4) (host pcbnew 4.0.5+dfsg1-4~bpo8+1)
+(kicad_pcb (version 4) (host pcbnew 4.0.6-e0-6349~53~ubuntu14.04.1)
 
   (general
     (links 75)
     (no_connects 4)
-    (area 154.899999 82.399999 233.148045 155.987513)
+    (area 0 0 0 0)
     (thickness 1.6)
     (drawings 7)
     (tracks 189)
@@ -37,7 +37,7 @@
   )
 
   (setup
-    (last_trace_width 1)
+    (last_trace_width 0.25)
     (user_trace_width 0.3)
     (user_trace_width 0.5)
     (user_trace_width 0.6)
@@ -93,9 +93,9 @@
       (subtractmaskfromsilk false)
       (outputformat 1)
       (mirror false)
-      (drillshape 1)
+      (drillshape 0)
       (scaleselection 1)
-      (outputdirectory ""))
+      (outputdirectory "/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/AdapterBoard/"))
   )
 
   (net 0 "")

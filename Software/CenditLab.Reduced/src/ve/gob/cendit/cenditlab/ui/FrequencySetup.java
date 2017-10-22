@@ -141,6 +141,11 @@ class Options
         return selected;
     }
 
+    public String getDefault()
+    {
+        return valuesList.get(0);
+    }
+
     public boolean hasOption(String value)
     {
         return valuesList.indexOf(value) != -1;
@@ -159,6 +164,12 @@ class Options
     public List<String> getValues()
     {
         return Collections.unmodifiableList(valuesList);
+    }
+
+    @Override
+    public String toString()
+    {
+        return String.format("%s: %s", getName(), getSelected());
     }
 }
 
