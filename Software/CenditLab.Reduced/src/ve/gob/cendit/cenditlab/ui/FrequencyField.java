@@ -16,7 +16,7 @@ public class FrequencyField extends NumericField
     public static final Unit MHZ =
             new Unit("MHz", 1.0e6f);
     public static final Unit GHZ =
-            new Unit("GHz", 1.0e6f);
+            new Unit("GHz", 1.0e9f);
 
     public static final Unit DEFAULT_UNIT = HZ;
 

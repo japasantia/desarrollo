@@ -52,7 +52,6 @@ public class FieldInput extends HBox
     {
         field = new Field();
 
-
         valueTextField.focusedProperty()
                 .addListener((observable, oldValue, newValue) ->
                     {

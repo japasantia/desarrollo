@@ -105,9 +105,9 @@ public class NumericField extends Field
     public void normalize()
     {
         Unit unit = fieldUnits.getUnitForMagnitude(magnitude);
-        magnitude = NumericField.normalizeMagnitude(magnitude);
+        float mag = NumericField.normalizeMagnitude(magnitude);
 
-        super.setValue(String.valueOf(magnitude));
+        super.setValue(String.valueOf(mag));
         super.setUnit(unit);
     }
 

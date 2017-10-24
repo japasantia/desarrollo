@@ -26,8 +26,9 @@ public class ViewTests extends Application
     {
         stage = primaryStage;
 
-        setupViewTest();
+        // setupViewTest();
         //enrSetupViewProto1Test();
+        frequencySetupViewTest();
     }
 
     public void setupViewTest()

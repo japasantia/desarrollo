@@ -46,10 +46,10 @@ public class FrequencySetup
     private final FrequencyField spanFrequencyField =
             new FrequencyField();
 
-    private final NumericField averagePoints =
+    private final NumericField averagePointsNumericField =
             new NumericField();
 
-    private final FrequencyField fixeFrequencyField =
+    private final FrequencyField fixedFrequencyField =
             new FrequencyField();
 
     private List<FrequencyField> frequencyList;
@@ -94,6 +94,16 @@ public class FrequencySetup
     {
         return spanFrequencyField;
     }
+    
+    public FrequencyField getFixedFrequencyField() 
+    {
+        return fixedFrequencyField;
+    }
+    
+    public NumericField getAveragePointsNumericField()
+    {
+        return averagePointsNumericField;
+    }
 
     public List<FrequencyField> getFrequecyList()
     {
@@ -113,6 +123,8 @@ class Options
     {
         this.name = name;
         this.valuesList = Arrays.asList(values);
+
+        selected = getDefault();
     }
 
     public String getName()

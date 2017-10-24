@@ -9,6 +9,5 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="annotations-java8" level="project" />
-    <orderEntry type="library" name="Communications" level="project" />
   </component>
 </module>

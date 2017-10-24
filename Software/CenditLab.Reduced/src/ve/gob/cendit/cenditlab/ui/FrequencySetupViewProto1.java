@@ -6,6 +6,9 @@ import javafx.scene.layout.GridPane;
 
 public class FrequencySetupViewProto1 extends GridPane
 {
+    private static final int SETUP_TO_VIEW = 0;
+    private static final int VIEW_TO_SETUP = 1;
+
     //private String FXML_URL = "../../../../../../../fxml/frequency-setup-view-proto-1.fxml";
     private String FXML_URL = "frequency-setup-view-proto-1.fxml";
 
@@ -33,21 +36,9 @@ public class FrequencySetupViewProto1 extends GridPane
     @FXML
     private FieldInput pointsFieldInput;
 
-    private Options frequencyModeOptions =
-            new Options("Modo de frequencia", "Barrido", "Lista", "Valor");
-
-    private Options bandwidthOptions =
-            new Options("Ancho de banda", "100 kHz", "200 kHz", "400 kHz", "1 MHz", "2 MHz", "4 MHz");
-
-    private FrequencyField minFrequencyField;
-    private FrequencyField maxFrequencyField;
-    private FrequencyField centralFrequencyField;
-    private FrequencyField spanFrequencyField;
-    private FrequencyField valueFrequencyField;
-
-    private NumericField pointsField;
-
     private Boolean blockUpdate;
+
+    private FrequencySetup frequencySetup;
 
     public FrequencySetupViewProto1()
     {
@@ -60,12 +51,7 @@ public class FrequencySetupViewProto1 extends GridPane
     {
         blockUpdate = true;
 
-        minFrequencyField = new FrequencyField();
-        maxFrequencyField = new FrequencyField();
-        centralFrequencyField = new FrequencyField();
-        spanFrequencyField = new FrequencyField();
-        valueFrequencyField = new FrequencyField();
-        pointsField = new NumericField();
+        frequencySetup = new FrequencySetup();
 
         minFrequencyFieldInput.addUpdateListener(() -> minMaxFrequenciesUpdate());
         maxFrequencyFieldInput.addUpdateListener(() -> minMaxFrequenciesUpdate());
@@ -73,29 +59,14 @@ public class FrequencySetupViewProto1 extends GridPane
         centralFrequencyFieldInput.addUpdateListener(() -> centralSpanFrequenciesUpdate());
         spanFrequencyFieldInput.addUpdateListener(() -> centralSpanFrequenciesUpdate());
 
-        minFrequencyFieldInput.setField(minFrequencyField);
-        maxFrequencyFieldInput.setField(maxFrequencyField);
-        centralFrequencyFieldInput.setField(centralFrequencyField);
-        spanFrequencyFieldInput.setField(spanFrequencyField);
-        valueFrequencyFieldInput.setField(valueFrequencyField);
-
-        pointsFieldInput.setField(pointsField);
-
-        minFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
-        maxFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
-        centralFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
-        spanFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
-        valueFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
-
-        frequencyModeChoiceBox.getItems()
-                .addAll(frequencyModeOptions.getValues());
-        frequencyModeChoiceBox.setValue(frequencyModeOptions.getDefault());
-
-        bandwidthChoiceBox.getItems()
-                .addAll(bandwidthOptions.getValues());
-        bandwidthChoiceBox.setValue(bandwidthOptions.getDefault());
+        transferSetup(SETUP_TO_VIEW);
 
         blockUpdate = false;
+    }
+
+    public FrequencySetup getFrequencySetup()
+    {
+        return frequencySetup;
     }
 
     private void minMaxFrequenciesUpdate()
@@ -107,10 +78,16 @@ public class FrequencySetupViewProto1 extends GridPane
 
         blockUpdate = true;
 
-        float centralFrequency =
-                (maxFrequencyField.getMagnitude() + minFrequencyField.getMagnitude()) / 2.0f;
-        float spanFrequency =
-                (maxFrequencyField.getMagnitude() - minFrequencyField.getMagnitude());
+        FrequencyField maxFrequencyField = getFrequencySetup().getMaxFrequencyField();
+        FrequencyField minFrequencyField = getFrequencySetup().getMinFrequencyField();
+        FrequencyField centralFrequencyField = getFrequencySetup().getCentralFrequencyField();
+        FrequencyField spanFrequencyField = getFrequencySetup().getSpanFrequencyField();
+
+        float maxFrequency = maxFrequencyField.getMagnitude();
+        float minFrequency = minFrequencyField.getMagnitude();
+
+        float centralFrequency = (maxFrequency + minFrequency) / 2.0f;
+        float spanFrequency = (maxFrequency - minFrequency);
 
         centralFrequencyField.setMagnitude(centralFrequency);
         spanFrequencyField.setMagnitude(spanFrequency);
@@ -136,10 +113,18 @@ public class FrequencySetupViewProto1 extends GridPane
 
         blockUpdate = true;
 
+        FrequencyField maxFrequencyField = getFrequencySetup().getMaxFrequencyField();
+        FrequencyField minFrequencyField = getFrequencySetup().getMinFrequencyField();
+        FrequencyField centralFrequencyField = getFrequencySetup().getCentralFrequencyField();
+        FrequencyField spanFrequencyField = getFrequencySetup().getSpanFrequencyField();
+
+        float centralFrequency = centralFrequencyField.getMagnitude();
+        float spanFrequency = spanFrequencyField.getMagnitude();
+
         float maxFrequency =
-                centralFrequencyField.getMagnitude() + spanFrequencyField.getMagnitude() / 2.0f;
+                centralFrequency + spanFrequency / 2.0f;
         float minFrequency =
-                centralFrequencyField.getMagnitude() - spanFrequencyField.getMagnitude() / 2.0f;
+                centralFrequency - spanFrequency / 2.0f;
 
         maxFrequencyField.setMagnitude(maxFrequency);
         minFrequencyField.setMagnitude(minFrequency);
@@ -156,81 +141,68 @@ public class FrequencySetupViewProto1 extends GridPane
         blockUpdate = false;
     }
 
-    public FrequencyField getMinFrequency()
+    private void transferSetup(int direction)
     {
-        return minFrequencyField;
-    }
+        if (direction == SETUP_TO_VIEW)
+        {
+            minFrequencyFieldInput.setField(frequencySetup.getMinFrequencyField());
+            maxFrequencyFieldInput.setField(frequencySetup.getCentralFrequencyField());
+            centralFrequencyFieldInput.setField(frequencySetup.getCentralFrequencyField());
+            spanFrequencyFieldInput.setField(frequencySetup.getSpanFrequencyField());
 
-    public FrequencyField getMaxFrequency()
-    {
-        return maxFrequencyField;
-    }
+            valueFrequencyFieldInput.setField(frequencySetup.getFixedFrequencyField());
 
-    public FrequencyField getCentralFrequency()
-    {
-        return centralFrequencyField;
-    }
+            pointsFieldInput.setField(frequencySetup.getAveragePointsNumericField());
 
-    public FrequencyField getFrequencySpan()
-    {
-        return spanFrequencyField;
-    }
+            minFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
+            maxFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
+            centralFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
+            spanFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
+            valueFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
 
-    public Field getPoints()
-    {
-        return pointsField;
-    }
+            frequencyModeChoiceBox.getItems()
+                    .addAll(frequencySetup.getFrequencyModeOptions().getValues());
+            frequencyModeChoiceBox.setValue(
+                    frequencySetup.getFrequencyModeOptions().getSelected());
 
-    public Options getFrequencyModeOptions()
-    {
-        return frequencyModeOptions;
-    }
+            bandwidthChoiceBox.getItems()
+                    .addAll(frequencySetup.getBandwidthOptions().getValues());
+            bandwidthChoiceBox.setValue(
+                    frequencySetup.getBandwidthOptions().getSelected());
+        }
+        else if (direction == VIEW_TO_SETUP)
+        {
+            FrequencyField frequencyField;
 
-    public Options getBandwidthOptions()
-    {
-        return bandwidthOptions;
-    }
+            frequencyField = (FrequencyField)minFrequencyFieldInput.getField();
+            frequencySetup.getMinFrequencyField().setValue(frequencyField.getValue());
+            frequencySetup.getMinFrequencyField().setUnit(frequencyField.getUnit());
 
-    public void setMinFrequency(FrequencyField value)
-    {
-        if (value == null) return;
+            frequencyField = (FrequencyField)maxFrequencyFieldInput.getField();
+            frequencySetup.getMaxFrequencyField().setValue(frequencyField.getValue());
+            frequencySetup.getMaxFrequencyField().setUnit(frequencyField.getUnit());
 
-        minFrequencyField = value;
+            frequencyField = (FrequencyField)centralFrequencyFieldInput.getField();
+            frequencySetup.getCentralFrequencyField().setValue(frequencyField.getValue());
+            frequencySetup.getCentralFrequencyField().setUnit(frequencyField.getUnit());
 
-        centralSpanFrequenciesUpdate();
-    }
+            frequencyField = (FrequencyField)spanFrequencyFieldInput.getField();
+            frequencySetup.getSpanFrequencyField().setValue(frequencyField.getValue());
+            frequencySetup.getSpanFrequencyField().setUnit(frequencyField.getUnit());
 
-    public void setMaxFrequency(FrequencyField value)
-    {
-        if (value == null) return;
+            frequencyField = (FrequencyField) valueFrequencyFieldInput.getField();
+            frequencySetup.getFixedFrequencyField().setValue(frequencyField.getValue());
+            frequencySetup.getFixedFrequencyField().setUnit(frequencyField.getUnit());
 
-        maxFrequencyField = value;
+            NumericField averagePointsField = (NumericField) pointsFieldInput.getField();
+            frequencySetup.getAveragePointsNumericField().setValue(averagePointsField.getValue());
+            frequencySetup.getAveragePointsNumericField().setUnit(averagePointsField.getUnit());
 
-        centralSpanFrequenciesUpdate();
-    }
+            frequencySetup.getBandwidthOptions().setSelected(
+                    bandwidthChoiceBox.getSelectionModel().getSelectedItem());
 
-    public void setCentralFrequency(FrequencyField value)
-    {
-        if (value == null) return;
-
-        centralFrequencyField = value;
-
-        centralSpanFrequenciesUpdate();
-    }
-
-    public void setSpanFrequency(FrequencyField value)
-    {
-        if (value == null) return;
-
-        spanFrequencyField = value;
-
-        centralSpanFrequenciesUpdate();
-    }
-
-    public void setPoints(NumericField value)
-    {
-        if (value == null) return;
-
-        this.pointsField = value;
+            frequencySetup.getBandwidthOptions().setSelected(
+                    bandwidthChoiceBox.getSelectionModel().getSelectedItem());
+        }
     }
 }
