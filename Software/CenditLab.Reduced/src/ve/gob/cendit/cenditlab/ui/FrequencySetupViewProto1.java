@@ -1,14 +1,19 @@
 package ve.gob.cendit.cenditlab.ui;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.TitledPane;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.layout.GridPane;
 
-import java.io.IOException;
-
-public class FrequencyRangePane extends TitledPane
+public class FrequencySetupViewProto1 extends GridPane
 {
-    private static final String FXML_URL = "ve/gob/cendit/cenditlab/ui/frequency-range-pane.fxml";
+    //private String FXML_URL = "../../../../../../../fxml/frequency-setup-view-proto-1.fxml";
+    private String FXML_URL = "frequency-setup-view-proto-1.fxml";
+
+    @FXML
+    private ChoiceBox<String> frequencyModeChoiceBox;
+
+    @FXML
+    private ChoiceBox<String> bandwidthChoiceBox;
 
     @FXML
     private FieldInput minFrequencyFieldInput;
@@ -23,36 +28,30 @@ public class FrequencyRangePane extends TitledPane
     private FieldInput spanFrequencyFieldInput;
 
     @FXML
+    private FieldInput valueFrequencyFieldInput;
+
+    @FXML
     private FieldInput pointsFieldInput;
 
-    private static final IValueValidator valueValidator =
-            value -> FrequencyField.isValid(value);
+    private Options frequencyModeOptions =
+            new Options("Modo de frequencia", "Barrido", "Lista", "Valor");
+
+    private Options bandwidthOptions =
+            new Options("Ancho de banda", "100 kHz", "200 kHz", "400 kHz", "1 MHz", "2 MHz", "4 MHz");
 
     private FrequencyField minFrequencyField;
     private FrequencyField maxFrequencyField;
     private FrequencyField centralFrequencyField;
     private FrequencyField spanFrequencyField;
-    private Field pointsField;
+    private FrequencyField valueFrequencyField;
+
+    private NumericField pointsField;
 
     private Boolean blockUpdate;
 
-    public FrequencyRangePane()
+    public FrequencySetupViewProto1()
     {
-        FXMLLoader fxmlLoader =
-                new FXMLLoader(getClass().
-                        getResource(FXML_URL));
-
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try
-        {
-            fxmlLoader.load();
-        }
-        catch (IOException ex)
-        {
-            throw new RuntimeException(ex);
-        }
+        ViewLoader.load(FXML_URL, this, this);
 
         initialize();
     }
@@ -65,7 +64,8 @@ public class FrequencyRangePane extends TitledPane
         maxFrequencyField = new FrequencyField();
         centralFrequencyField = new FrequencyField();
         spanFrequencyField = new FrequencyField();
-        pointsField = new Field();
+        valueFrequencyField = new FrequencyField();
+        pointsField = new NumericField();
 
         minFrequencyFieldInput.addUpdateListener(() -> minMaxFrequenciesUpdate());
         maxFrequencyFieldInput.addUpdateListener(() -> minMaxFrequenciesUpdate());
@@ -77,12 +77,23 @@ public class FrequencyRangePane extends TitledPane
         maxFrequencyFieldInput.setField(maxFrequencyField);
         centralFrequencyFieldInput.setField(centralFrequencyField);
         spanFrequencyFieldInput.setField(spanFrequencyField);
+        valueFrequencyFieldInput.setField(valueFrequencyField);
+
         pointsFieldInput.setField(pointsField);
 
         minFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
         maxFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
         centralFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
         spanFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
+        valueFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
+
+        frequencyModeChoiceBox.getItems()
+                .addAll(frequencyModeOptions.getValues());
+        frequencyModeChoiceBox.setValue(frequencyModeOptions.getDefault());
+
+        bandwidthChoiceBox.getItems()
+                .addAll(bandwidthOptions.getValues());
+        bandwidthChoiceBox.setValue(bandwidthOptions.getDefault());
 
         blockUpdate = false;
     }
@@ -145,18 +156,10 @@ public class FrequencyRangePane extends TitledPane
         blockUpdate = false;
     }
 
-    public boolean validate()
-    {
-        return minFrequencyFieldInput.validate(valueValidator) &&
-                maxFrequencyFieldInput.validate(valueValidator) &&
-                centralFrequencyFieldInput.validate(valueValidator) &&
-                spanFrequencyFieldInput.validate(valueValidator);
-    }
-
     public FrequencyField getMinFrequency()
-{
-    return minFrequencyField;
-}
+    {
+        return minFrequencyField;
+    }
 
     public FrequencyField getMaxFrequency()
     {
@@ -176,6 +179,16 @@ public class FrequencyRangePane extends TitledPane
     public Field getPoints()
     {
         return pointsField;
+    }
+
+    public Options getFrequencyModeOptions()
+    {
+        return frequencyModeOptions;
+    }
+
+    public Options getBandwidthOptions()
+    {
+        return bandwidthOptions;
     }
 
     public void setMinFrequency(FrequencyField value)
@@ -214,7 +227,7 @@ public class FrequencyRangePane extends TitledPane
         centralSpanFrequenciesUpdate();
     }
 
-    public void setPoints(Field value)
+    public void setPoints(NumericField value)
     {
         if (value == null) return;
 

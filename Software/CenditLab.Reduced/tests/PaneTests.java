@@ -1,6 +1,7 @@
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,6 +16,8 @@ public class PaneTests extends Application
 {
     private FrequencyListPane frequencyListPane;
 
+    private Stage rootStage;
+
     public static void main(String[] args)
     {
         Application.launch(args);
@@ -23,12 +26,15 @@ public class PaneTests extends Application
     @Override
     public void start(Stage primaryStage) throws Exception
     {
+        rootStage = primaryStage;
+
         //loadFrequencyListPaneTest(primaryStage);
         // frequencyRangePaneTest(primaryStage);
         // frequencyFixedTest(primaryStage);
         // enrTablePaneTest(primaryStage);
         // noiseSourcePaneTest(primaryStage);
-        enrSetupTest(primaryStage);
+
+        // enrSetupTest(primaryStage);
     }
 
     private void loadFrequencyListPaneTest(Stage primaryStage)
@@ -145,4 +151,12 @@ public class PaneTests extends Application
         primaryStage.setTitle("CenditLab.Reduced | Test EnrSetupView Test");
         primaryStage.show();
     }
+
+    private void showView(Parent parent, String title, double width, double height)
+    {
+        rootStage.setScene(new Scene(parent, width, height));
+        rootStage.setTitle(title);
+        rootStage.show();
+    }
+
 }

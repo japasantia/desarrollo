@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class ViewLoader
 {
-    public static void Load(String fxmlUrl, Object controller, Object root)
+    public static void load(String fxmlUrl, Object controller, Object root)
     {
         try
         {

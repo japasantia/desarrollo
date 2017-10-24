@@ -6,7 +6,6 @@ import javafx.scene.Node;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -38,7 +37,7 @@ public class FrequencySetupView extends VBox
     private FrequencyFixedPane frequencyFixedPane;
 
 
-    private static final String FXML_URL = "frequency-setup-view.fxml";
+    private static final String FXML_URL = "ve/gob/cendit/cenditlab/ui/frequency-setup-view.fxml";
 
     public FrequencySetupView() throws IOException
     {

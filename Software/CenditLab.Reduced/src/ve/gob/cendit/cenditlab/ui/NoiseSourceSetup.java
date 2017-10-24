@@ -1,7 +1,5 @@
 package ve.gob.cendit.cenditlab.ui;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +27,7 @@ public class NoiseSourceSetup extends TitledPane
     @FXML
     private Button loadFromSnsButton;
 
-    private static final String FXML_URL = "noise-source-setup.fxml";
+    private static final String FXML_URL = "ve/gob/cendit/cenditlab/ui/noise-source-setup.fxml";
 
     public NoiseSourceSetup()
     {

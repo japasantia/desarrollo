@@ -1,6 +1,7 @@
 package ve.gob.cendit.cenditlab.ui;
 
 import javafx.beans.binding.BooleanBinding;
+import javafx.beans.property.BooleanProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Tab;
@@ -15,43 +16,20 @@ public class SetupView extends TabPane
     private static final int VIEW_TO_SETUP = 1;
 
     @FXML
-    ChoiceBox<String> enrModeChoiceBox;
-
-    @FXML
-    ChoiceBox<String> spotModeChoiceBox;
-
-    @FXML
-    ChoiceBox<String> noiseSourcePreferenceChoiceBox;
-
-    @FXML
-    FieldInput spotEnrFieldInput;
-
-    @FXML
-    FieldInput userTcoldFieldInput;
-
-    @FXML
-    ToggleView autoLoadEnrToggleButton;
-
-    @FXML
-    ToggleView commonEnrTableToggleButton;
-
-    @FXML
-    ToggleView snsTcoldToggleButton;
-
-    @FXML
-    ToggleView userTcoldToggleButton;
-
-    @FXML
     Tab commonEnrTab;
 
     @FXML
     Tab measurementEnrTab;
 
-    private EnrSetup enrSetup;
+    @FXML
+    FrequencySetupViewProto1 frequencySetupView;
+
+    @FXML
+    EnrSetupViewProto1 enrSetupView;
 
     public SetupView()
     {
-        ViewLoader.Load(FXML_URL, this, this);
+        ViewLoader.load(FXML_URL, this, this);
 
         initialize();
         attachListeners();
@@ -60,43 +38,25 @@ public class SetupView extends TabPane
 
     private void initialize()
     {
-        enrSetup = new EnrSetup();
 
-        Options options = enrSetup.getEnrModeOptions();
-        enrModeChoiceBox.getItems().addAll(options.getValues());
-        enrModeChoiceBox.setValue(options.getDefault());
-
-        options = enrSetup.getSpotModeOptions();
-        spotModeChoiceBox.getItems().addAll(options.getValues());
-        spotModeChoiceBox.setValue(options.getDefault());
-
-        options = enrSetup.getNoiseSourcePreferenceOptions();
-        noiseSourcePreferenceChoiceBox.getItems()
-                .addAll(options.getValues());
-        noiseSourcePreferenceChoiceBox.setValue(options.getDefault());
     }
 
     private void attachListeners()
     {
-        commonEnrTableToggleButton.selectedProperty()
-                .addListener(((observable, oldValue, newValue) ->
-                        updateCommonTable(newValue)));
+
     }
 
     private void makeBindings()
     {
-        BooleanBinding binding;
+        BooleanProperty enableTableMode =
+                enrSetupView.enableEnrTableModeProperty();
+        BooleanProperty enableCommonTable =
+                enrSetupView.enableCommonEnrTableProperty();
 
-        binding =  enrModeChoiceBox.getSelectionModel().
-                selectedIndexProperty().isEqualTo(0);
-
-        commonEnrTab.disableProperty().bind(binding.not());
-        measurementEnrTab.disableProperty().bind(binding.not());
-        spotEnrFieldInput.disableProperty().bind(binding);
-
-        binding = userTcoldToggleButton.textProperty()
-                .isEqualTo("OFF");
-        userTcoldFieldInput.disableProperty().bind(binding);
+        commonEnrTab.disableProperty()
+                .bind(enableTableMode.not());
+        measurementEnrTab.disableProperty()
+                .bind(enableTableMode.not().or(enableCommonTable));
     }
 
     private void updateCommonTable(boolean commonTable)
@@ -108,23 +68,7 @@ public class SetupView extends TabPane
     {
         if (direction == VIEW_TO_SETUP)
         {
-            enrSetup.getEnrModeOptions()
-                    .setSelected(enrModeChoiceBox.getValue());
-            enrSetup.getSpotModeOptions()
-                    .setSelected(spotModeChoiceBox.getValue());
-            // TODO: procesar EnrField
-            enrSetup.getAutoLoadEnrOptions()
-                    .setSelected(autoLoadEnrToggleButton.getText());
-            enrSetup.getCommonEnrTableOptions()
-                    .setSelected(commonEnrTableToggleButton.getText());
 
-            enrSetup.getUserTcoldOptions()
-                    .setSelected(userTcoldToggleButton.getText());
-            // TODO: procesar TcoldField
-            enrSetup.getSnsTcoldOptions()
-                    .setSelected(snsTcoldToggleButton.getText());
-            enrSetup.getNoiseSourcePreferenceOptions()
-                    .setSelected(noiseSourcePreferenceChoiceBox.getValue());
         }
         else if (direction == SETUP_TO_VIEW)
         {
@@ -136,12 +80,12 @@ public class SetupView extends TabPane
     {
         transferSetup(VIEW_TO_SETUP);
 
-        return enrSetup;
+        return null;
     }
 
     public void setSetup(EnrSetup setup)
     {
-        enrSetup = setup;
+
 
         transferSetup(SETUP_TO_VIEW);
     }

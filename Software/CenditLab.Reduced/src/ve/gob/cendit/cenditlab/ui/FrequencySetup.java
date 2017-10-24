@@ -173,8 +173,8 @@ class Options
     }
 }
 
-class Table{
-
+class Table
+{
     public Table(String... headerNames)
     {
 
