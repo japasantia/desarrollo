@@ -1,6 +1,10 @@
 package ve.gob.cendit.cenditlab.ui;
 
 
+import ve.gob.cendit.cenditlab.data.FieldUnits;
+import ve.gob.cendit.cenditlab.data.NumericField;
+import ve.gob.cendit.cenditlab.data.Unit;
+
 public class TemperatureField extends NumericField
 {
     public static final String DEFAULT_VALUE = "0.0";

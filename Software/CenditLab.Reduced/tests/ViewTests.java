@@ -8,12 +8,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import ve.gob.cendit.cenditlab.data.EnrField;
+import ve.gob.cendit.cenditlab.data.Field;
+import ve.gob.cendit.cenditlab.data.FrequencyField;
+import ve.gob.cendit.cenditlab.data.NumericField;
 import ve.gob.cendit.cenditlab.measurements.MeasurementManager;
 import ve.gob.cendit.cenditlab.measurements.MeasurementStep;
-import ve.gob.cendit.cenditlab.ui.EnrSetupViewProto1;
-import ve.gob.cendit.cenditlab.ui.FrequencySetupViewProto1;
-import ve.gob.cendit.cenditlab.ui.MeasurementBarView;
-import ve.gob.cendit.cenditlab.ui.SetupView;
+import ve.gob.cendit.cenditlab.ui.*;
 
 public class ViewTests extends Application
 {
@@ -30,8 +31,10 @@ public class ViewTests extends Application
         stage = primaryStage;
 
         // setupViewTest();
-        //enrSetupViewProto1Test();
-        frequencySetupViewTest();
+        // enrSetupViewProto1Test();
+        // frequencySetupViewTest();
+
+        fieldViewTest();
     }
 
     public void setupViewTest()
@@ -88,6 +91,24 @@ public class ViewTests extends Application
         root.getChildren().addAll(enrSetupView, textArea, button);
 
         showView(root, "CenditLab.Reduced | Test EnrSetupView Test",
+                600, 400);
+    }
+
+    private void fieldViewTest()
+    {
+        FieldsView fieldsView = new FieldsView();
+
+        Field field = new Field();
+        NumericField numericField = new NumericField();
+        EnrField enrField = new EnrField();
+        FrequencyField frequencyField = new FrequencyField();
+
+        fieldsView.addField("Field", field);
+        fieldsView.addField("Numeric field", numericField);
+        fieldsView.addField("ENR field", enrField);
+        fieldsView.addField("Frequency", frequencyField);
+
+        showView(fieldsView, "CenditLab.Reduced | Test FielsView",
                 600, 400);
     }
 

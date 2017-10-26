@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import ve.gob.cendit.cenditlab.data.FrequencyField;
 import ve.gob.cendit.cenditlab.ui.*;
 
 import java.util.List;

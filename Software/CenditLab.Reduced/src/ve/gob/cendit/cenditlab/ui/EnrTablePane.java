@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.HBox;
+import ve.gob.cendit.cenditlab.data.EnrField;
+import ve.gob.cendit.cenditlab.data.FrequencyField;
 
 
 import java.io.IOException;

@@ -3,6 +3,9 @@ package ve.gob.cendit.cenditlab.ui;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TitledPane;
+import ve.gob.cendit.cenditlab.data.Field;
+import ve.gob.cendit.cenditlab.data.FrequencyField;
+import ve.gob.cendit.cenditlab.data.IValueValidator;
 
 import java.io.IOException;
 

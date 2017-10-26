@@ -1,12 +1,11 @@
-package ve.gob.cendit.cenditlab.ui;
+package ve.gob.cendit.cenditlab.data;
 
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class FrequencyConfiguration
+public class FrequencySetup
 {
     public static final int FREQUENCY_SWEEP = 0;
     public static final int FREQUENCY_LIST = 1;
@@ -46,16 +45,14 @@ public class FrequencyConfiguration
     private final FrequencyField spanFrequencyField =
             new FrequencyField();
 
-    private final NumericField averagePoints =
+    private final NumericField averagePointsNumericField =
             new NumericField();
 
-    private final FrequencyField fixeFrequencyField =
+    private final FrequencyField fixedFrequencyField =
             new FrequencyField();
 
     private List<FrequencyField> frequencyList;
 
-    public void setFrequencyMode(int value)
-    {}
 
     public String getFrequencyMode()
     {
@@ -96,79 +93,19 @@ public class FrequencyConfiguration
     {
         return spanFrequencyField;
     }
-}
-
-class Options
-{
-    private String name;
-    private List<String> valuesList;
-
-    private String selected;
-    private int selectedIndex;
-
-    public Options(String name, String... values)
+    
+    public FrequencyField getFixedFrequencyField() 
     {
-        this.name = name;
-        this.valuesList = Arrays.asList(values);
+        return fixedFrequencyField;
+    }
+    
+    public NumericField getAveragePointsNumericField()
+    {
+        return averagePointsNumericField;
     }
 
-    public String getName()
+    public List<FrequencyField> getFrequecyList()
     {
-        return name;
+        return frequencyList;
     }
-
-    public int getSelectedIndex()
-    {
-        return selectedIndex;
-    }
-
-    public void setSelected(String value)
-    {
-        int index =  valuesList.indexOf(value);
-
-        if (index != -1)
-        {
-            selected = value;
-            selectedIndex = index;
-        }
-    }
-
-    public String getSelected()
-    {
-        return selected;
-    }
-
-    public boolean hasOption(String value)
-    {
-        return valuesList.indexOf(value) != -1;
-    }
-
-    public List<String> getValues()
-    {
-        return Collections.unmodifiableList(valuesList);
-    }
-}
-
-class Table
-{
-
-    public Table(String... headerNames)
-    {
-
-    }
-
-    public TableRow getRow(int index)
-    {
-        return null;
-    }
-
-    public void addRow(TableRow row)
-    {
-
-    }
-}
-
-class TableRow
-{
-
 }

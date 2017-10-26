@@ -3,6 +3,9 @@ package ve.gob.cendit.cenditlab.ui;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.GridPane;
+import ve.gob.cendit.cenditlab.data.FrequencyField;
+import ve.gob.cendit.cenditlab.data.FrequencySetup;
+import ve.gob.cendit.cenditlab.data.NumericField;
 
 public class FrequencySetupViewProto1 extends GridPane
 {
@@ -10,7 +13,7 @@ public class FrequencySetupViewProto1 extends GridPane
     private static final int VIEW_TO_SETUP = 1;
 
     //private String FXML_URL = "../../../../../../../fxml/frequency-setup-view-proto-2.fxml";
-    private String FXML_URL = "frequency-setup-view-proto-2.fxml";
+    private String FXML_URL = "frequency-setup-view-proto-1.fxml";
 
     @FXML
     private ChoiceBox<String> frequencyModeChoiceBox;

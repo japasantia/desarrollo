@@ -6,10 +6,12 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.GridPane;
+import ve.gob.cendit.cenditlab.data.EnrField;
+import ve.gob.cendit.cenditlab.data.EnrSetup;
 
 public class EnrSetupViewProto1 extends GridPane
 {
-    private static final String FXML_URL = "enr-setup-view-proto-2.fxml";
+    private static final String FXML_URL = "enr-setup-view-proto-1.fxml";
 
     private static final int SETUP_TO_VIEW = 0;
     private static final int VIEW_TO_SETUP = 1;

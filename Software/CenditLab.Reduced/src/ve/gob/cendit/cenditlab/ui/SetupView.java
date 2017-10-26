@@ -1,11 +1,10 @@
 package ve.gob.cendit.cenditlab.ui;
 
-import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import ve.gob.cendit.cenditlab.data.EnrSetup;
 
 
 public class SetupView extends TabPane

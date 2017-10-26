@@ -14,12 +14,13 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+
 <?import ve.gob.cendit.cenditlab.ui.EnrTablePane?>
 <?import ve.gob.cendit.cenditlab.ui.FieldInput?>
 <?import ve.gob.cendit.cenditlab.ui.ToggleView?>
+<?import ve.gob.cendit.cenditlab.ui.EnrSetupViewProto1?>
 <?import ve.gob.cendit.cenditlab.ui.FrequencySetupViewProto1?>
 <?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" type="TabPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 

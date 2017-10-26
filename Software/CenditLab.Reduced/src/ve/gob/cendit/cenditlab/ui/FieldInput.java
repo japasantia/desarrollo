@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import ve.gob.cendit.cenditlab.data.*;
 
 
 import java.io.IOException;
@@ -29,29 +30,24 @@ public class FieldInput extends HBox
 
     public FieldInput()
     {
-        FXMLLoader fxmlLoader =
-                new FXMLLoader(getClass()
-                        .getResource(FXML_URL));
+        ViewLoader.load(FXML_URL, this, this);
 
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
+        field = new Field();
 
-        try
-        {
-            fxmlLoader.load();
-        }
-        catch (IOException ex)
-        {
-            throw new RuntimeException(ex);
-        }
+        initialize();
+    }
+
+    public FieldInput(Field field)
+    {
+        ViewLoader.load(FXML_URL, this, this);
+
+        setField(field);
 
         initialize();
     }
 
     private void initialize()
     {
-        field = new Field();
-
         valueTextField.focusedProperty()
                 .addListener((observable, oldValue, newValue) ->
                     {
@@ -133,7 +129,7 @@ public class FieldInput extends HBox
         this.field = field;
 
         valueTextField.setText(field.getValue());
-        unitsChoiceBox.setValue(field.getUnit());
+        setChoiceUnits(field.getValidUnits());
     }
 
     public Field getField()
@@ -149,7 +145,7 @@ public class FieldInput extends HBox
 
     public void setChoiceUnits(FieldUnits units)
     {
-        if (units != null)
+        if (units != null && units != FieldUnits.EMPTY_UNITS)
         {
             unitsChoiceBox.getItems().clear();
             unitsChoiceBox.getItems().addAll(units.getUnits());
@@ -162,9 +158,9 @@ public class FieldInput extends HBox
         }
     }
 
-    public ObservableList<Unit> getChoiceUnits()
+    public FieldUnits getChoiceUnits()
     {
-        return unitsChoiceBox.getItems();
+        return field.getValidUnits();
     }
 
     public Unit getUnit()

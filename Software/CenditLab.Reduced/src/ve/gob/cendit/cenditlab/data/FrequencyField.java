@@ -1,8 +1,5 @@
-package ve.gob.cendit.cenditlab.ui;
+package ve.gob.cendit.cenditlab.data;
 
-import javafx.beans.property.FloatProperty;
-
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FrequencyField extends NumericField
