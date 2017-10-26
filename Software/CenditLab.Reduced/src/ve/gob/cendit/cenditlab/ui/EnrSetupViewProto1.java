@@ -9,7 +9,7 @@ import javafx.scene.layout.GridPane;
 
 public class EnrSetupViewProto1 extends GridPane
 {
-    private static final String FXML_URL = "enr-setup-view-proto-1.fxml";
+    private static final String FXML_URL = "enr-setup-view-proto-2.fxml";
 
     private static final int SETUP_TO_VIEW = 0;
     private static final int VIEW_TO_SETUP = 1;

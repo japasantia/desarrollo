@@ -4,9 +4,7 @@ import ve.gob.cendit.cenditlab.io.IConnection;
 
 import java.util.*;
 
-/**
- * Created by jarias on 17/07/17.
- */
+
 public class MeasurementParmetersTask implements ITask
 {
     private static final ScpiCommand[] COMMANDS=

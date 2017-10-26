@@ -8,8 +8,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import ve.gob.cendit.cenditlab.measurements.MeasurementManager;
+import ve.gob.cendit.cenditlab.measurements.MeasurementStep;
 import ve.gob.cendit.cenditlab.ui.EnrSetupViewProto1;
 import ve.gob.cendit.cenditlab.ui.FrequencySetupViewProto1;
+import ve.gob.cendit.cenditlab.ui.MeasurementBarView;
 import ve.gob.cendit.cenditlab.ui.SetupView;
 
 public class ViewTests extends Application
