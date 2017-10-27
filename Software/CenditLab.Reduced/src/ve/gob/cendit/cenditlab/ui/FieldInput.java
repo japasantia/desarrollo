@@ -1,15 +1,12 @@
 package ve.gob.cendit.cenditlab.ui;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import ve.gob.cendit.cenditlab.data.*;
 
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -52,31 +49,53 @@ public class FieldInput extends HBox
                 .addListener((observable, oldValue, newValue) ->
                     {
                         if (!newValue)
-                            validateValue();
+                            onUpdateValue();
                     });
         unitsChoiceBox.getSelectionModel().selectedItemProperty()
                 .addListener((observable, oldValue, newValue) ->
                     {
-                        validateUnit(newValue);
+                        onUpdateUnit(newValue);
                     });
 
         setUpdateEnabled(true);
     }
 
-    private void validateValue()
+    private void onUpdateValue()
     {
-        field.setValue(valueTextField.getText());
-        setField(field);
+        if (isUpdateEnabled())
+        {
+            setUpdateEnabled(false);
 
-        callUpdateListeners();
+            field.setValue(valueTextField.getText());
+
+            updateField();
+
+            //callUpdateListeners();
+
+            setUpdateEnabled(true);
+        }
     }
 
-    private void validateUnit(Unit newUnit)
+    private void onUpdateUnit(Unit newUnit)
     {
-        field.setUnit(newUnit);
-        setField(field);
+        if (isUpdateEnabled())
+        {
+            setUpdateEnabled(false);
 
-        callUpdateListeners();
+            field.setUnit(newUnit);
+
+            updateField();
+
+            //callUpdateListeners();
+
+            setUpdateEnabled(true);
+        }
+    }
+
+    private void updateField()
+    {
+        valueTextField.setText(field.getValue());
+        unitsChoiceBox.setValue(field.getUnit());
     }
 
     public void addUpdateListener(IUpdateListener listener)
