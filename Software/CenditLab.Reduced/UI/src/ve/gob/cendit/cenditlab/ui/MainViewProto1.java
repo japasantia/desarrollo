@@ -8,6 +8,7 @@ import javafx.scene.layout.VBox;
 public class MainViewProto1 extends BorderPane
 {
     private static final String FXML_URL = "main-view-proto-1.fxml";
+
     @FXML
     private VBox topVBox;
 

@@ -40,11 +40,6 @@ public class StepButtonView extends ToggleButton
         }
     }
 
-    private void initialize()
-    {
-
-    }
-
     public void setMeasurementStep(MeasurementStep step)
     {
         if (step == null)

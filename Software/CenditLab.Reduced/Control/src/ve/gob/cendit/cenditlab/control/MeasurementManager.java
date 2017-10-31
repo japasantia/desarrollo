@@ -111,7 +111,7 @@ public class MeasurementManager
 
     public boolean canGoToStep(MeasurementStep step)
     {
-        if (step == null)
+        if (step == null || step == currentStep)
         {
             return false;
         }
@@ -186,7 +186,7 @@ public class MeasurementManager
 
         if (currentStep != null)
         {
-            currentStep.unload();
+            currentStep.executeUnload();
 
             onUnloadedStepEvent(step);
         }
@@ -194,11 +194,12 @@ public class MeasurementManager
         currentStep = step;
         currentIndex = stepsList.indexOf(step);
 
-        currentStep.load();
+        currentStep.executeInitialize();
+        currentStep.executeLoad();
 
         onLoadedStepEvent(step);
 
-        currentStep.run();
+        currentStep.executeRun();
 
         onEndStepChangeEvent(step);
     }
