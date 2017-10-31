@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class FrequencyRangePane extends TitledPane
 {
-    private static final String FXML_URL = "ve/gob/cendit/cenditlab/ui/frequency-range-pane.fxml";
+    private static final String FXML_URL = "frequency-range-pane.fxml";
 
     @FXML
     private FieldInput minFrequencyFieldInput;

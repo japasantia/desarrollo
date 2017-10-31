@@ -6,12 +6,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import ve.gob.cendit.cenditlab.data.EnrField;
-import ve.gob.cendit.cenditlab.data.Field;
-import ve.gob.cendit.cenditlab.data.FrequencyField;
-import ve.gob.cendit.cenditlab.data.NumericField;
-import ve.gob.cendit.cenditlab.control.MeasurementManager;
-import ve.gob.cendit.cenditlab.control.MeasurementStep;
+import ve.gob.cendit.cenditlab.data.*;
 import ve.gob.cendit.cenditlab.ui.*;
 
 public class ViewTests extends Application
@@ -32,7 +27,7 @@ public class ViewTests extends Application
         // enrSetupViewProto1Test();
         // frequencySetupViewTest();
 
-        fieldViewTest();
+        setupContainerTest();
     }
 
     public void setupViewTest()
@@ -92,21 +87,30 @@ public class ViewTests extends Application
                 600, 400);
     }
 
-    private void fieldViewTest()
+    private void setupContainerTest()
     {
-        FieldsView fieldsView = new FieldsView();
+        SetupContainerView setupContainerView = new SetupContainerView();
 
         Field field = new Field();
         NumericField numericField = new NumericField();
         EnrField enrField = new EnrField();
         FrequencyField frequencyField = new FrequencyField();
 
-        fieldsView.addField("Field", field);
-        fieldsView.addField("Numeric field", numericField);
-        fieldsView.addField("ENR field", enrField);
-        fieldsView.addField("Frequency", frequencyField);
+        Options options = new Options("Opciones",
+                "Opcion 1", "Opcion 2", "Opcion 3");
 
-        showView(fieldsView, "CenditLab.Reduced | Test FielsView",
+        FrequencyListPane frequencyListPane = new FrequencyListPane();
+
+        setupContainerView.addField("Field", field);
+        setupContainerView.addField("Numeric field", numericField);
+        setupContainerView.addField("ENR field", enrField);
+        setupContainerView.addField("Frequency", frequencyField);
+
+        setupContainerView.addOptions("Options", options);
+        setupContainerView.addFrequencyListPane("Frequency list",
+                frequencyListPane);
+
+        showView(setupContainerView, "CenditLab.Reduced | Test SetupContainerView",
                 600, 400);
     }
 
