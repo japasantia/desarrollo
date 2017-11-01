@@ -82,10 +82,12 @@ public class FrequencyRangePane extends TitledPane
         spanFrequencyFieldInput.setField(spanFrequencyField);
         pointsFieldInput.setField(pointsField);
 
+        /*
         minFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
         maxFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
         centralFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
         spanFrequencyFieldInput.setChoiceUnits(FrequencyField.FIELD_UNITS);
+        */
 
         blockUpdate = false;
     }

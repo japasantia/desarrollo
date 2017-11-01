@@ -69,9 +69,10 @@ public class FieldInput extends HBox
 
             updateField();
 
-            //callUpdateListeners();
-
+            // TODO: revisar operacion flags para update
             setUpdateEnabled(true);
+
+            callUpdateListeners();
         }
     }
 
@@ -85,9 +86,10 @@ public class FieldInput extends HBox
 
             updateField();
 
-            //callUpdateListeners();
-
+            // TODO: revisar operacion flags para update
             setUpdateEnabled(true);
+
+            callUpdateListeners();
         }
     }
 

@@ -26,8 +26,8 @@ public class ViewTests extends Application
         // setupViewTest();
         // enrSetupViewProto1Test();
         // frequencySetupViewTest();
-
-        setupContainerTest();
+        // setupContainerTest();
+        basicFrequencySetupTest();
     }
 
     public void setupViewTest()
@@ -111,6 +111,14 @@ public class ViewTests extends Application
                 frequencyListPane);
 
         showView(setupContainerView, "CenditLab.Reduced | Test SetupContainerView",
+                600, 400);
+    }
+
+    private void basicFrequencySetupTest()
+    {
+        BasicFrequencySetup basicFrequencySetup = new BasicFrequencySetup();
+
+        showView(basicFrequencySetup, "CenditLab.Reduced | Test SetupContainerView",
                 600, 400);
     }
 
