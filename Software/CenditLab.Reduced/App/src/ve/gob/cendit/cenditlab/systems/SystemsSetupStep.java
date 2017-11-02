@@ -1,17 +1,16 @@
 package ve.gob.cendit.cenditlab.systems;
 
 import ve.gob.cendit.cenditlab.app.CenditLabApplication;
-import ve.gob.cendit.cenditlab.control.Task;
 import ve.gob.cendit.cenditlab.control.System;
 import ve.gob.cendit.cenditlab.control.MeasurementStep;
-import ve.gob.cendit.cenditlab.ui.IconView;
-import ve.gob.cendit.cenditlab.ui.MasterDetailView;
+import ve.gob.cendit.cenditlab.ui.SystemsSetupView;
+
 
 public class SystemsSetupStep extends MeasurementStep
 {
     private boolean blocked = false;
+    private SystemsSetupView systemsSetupView;
 
-    private MasterDetailView masterDetailView;
     private System[] systemsArray;
 
     public SystemsSetupStep(String name, System... systems)
@@ -19,6 +18,7 @@ public class SystemsSetupStep extends MeasurementStep
         super(name);
 
         systemsArray = systems;
+        systemsSetupView = new SystemsSetupView();
     }
 
     @Override
@@ -36,26 +36,13 @@ public class SystemsSetupStep extends MeasurementStep
     @Override
     public void initialize()
     {
-        masterDetailView = new MasterDetailView();
-
-        for (System system : systemsArray)
-        {
-
-            IconView systemIconView = new IconView(system.getName(), system.getIcon());
-            masterDetailView.addMaster(systemIconView);
-
-            for (Task task : system.getTasks())
-            {
-                IconView taskIconView = new IconView(task.getName(), task.getIcon());
-                masterDetailView.addDetail(taskIconView);
-            }
-        }
+        systemsSetupView.setSystems(systemsArray);
     }
 
     @Override
     public void load()
     {
-        CenditLabApplication.getApp().setCenterContainer(masterDetailView);
+        CenditLabApplication.getApp().setCenterContainer(systemsSetupView);
     }
 
     @Override

@@ -1,4 +1,5 @@
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -27,7 +28,8 @@ public class ViewTests extends Application
         // enrSetupViewProto1Test();
         // frequencySetupViewTest();
         // setupContainerTest();
-        basicFrequencySetupTest();
+        // basicFrequencySetupTest();
+        genericMainViewTest();
     }
 
     public void setupViewTest()
@@ -120,6 +122,30 @@ public class ViewTests extends Application
 
         showView(basicFrequencySetup, "CenditLab.Reduced | Test SetupContainerView",
                 600, 400);
+    }
+
+    private void genericMainViewTest()
+    {
+        GenericMainView mainView = new GenericMainView();
+
+        BasicFrequencySetup basicFrequencySetup = new BasicFrequencySetup();
+        FrequencyListPane frequencyListPane = new FrequencyListPane();
+        SetupView setupView = new SetupView();
+
+        mainView.createCenterSection("Master", setupView);
+        mainView.createCenterSection("Detail", basicFrequencySetup);
+        mainView.createCenterSection("Status", frequencyListPane);
+
+        Node node = mainView.getCenterSection("Master");
+
+        node = mainView.removeCenterSection("Master");
+        node = mainView.removeCenterSection("Master");
+        node = mainView.getCenterSection("Master");
+
+        mainView.createCenterSection("Master", setupView);
+
+        showView(mainView, "CenditLab.Reduced | Test GenericMainView Test",
+                800, 600);
     }
 
     private static void showView(Parent root, String title, double width, double height)

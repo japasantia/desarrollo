@@ -78,7 +78,8 @@ public class FieldInput extends HBox
 
     private void onUpdateUnit(Unit newUnit)
     {
-        if (isUpdateEnabled())
+        // TODO: revisar proceso de actualizacion -> unit == null
+        if (isUpdateEnabled() && newUnit != null)
         {
             setUpdateEnabled(false);
 
@@ -167,7 +168,9 @@ public class FieldInput extends HBox
     {
         if (units != null && units != FieldUnits.EMPTY_UNITS)
         {
-            unitsChoiceBox.getItems().clear();
+            if (unitsChoiceBox.getItems().size() > 0)
+                unitsChoiceBox.getItems().clear();
+
             unitsChoiceBox.getItems().addAll(units.getUnits());
             unitsChoiceBox.setVisible(true);
             unitsChoiceBox.setValue(units.get(0));
