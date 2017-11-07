@@ -28,7 +28,7 @@ public class IconView extends VBox
         ViewLoader.load(FXML_URL, this, this);
 
         setCaption(caption);
-        setImageIcon(imageIconUrl);
+        setIcon(imageIconUrl);
     }
 
     public void setCaption(String caption)
@@ -37,7 +37,7 @@ public class IconView extends VBox
         captionLabel.setText(caption);
     }
 
-    public void setImageIcon(String imageUrl)
+    public void setIcon(String imageUrl)
     {
         imageUrl = (imageUrl != null ? imageUrl : DEFAULT_ICON);
         iconImageView.setImage(

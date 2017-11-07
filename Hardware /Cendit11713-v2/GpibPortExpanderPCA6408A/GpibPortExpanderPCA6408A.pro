@@ -1,4 +1,4 @@
-update=vie 20 oct 2017 12:43:52 VET
+update=mar 07 nov 2017 08:09:10 -04
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,40 +23,41 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
+[general]
+version=1
 [eeschema]
 version=1
 LibDir=
 [eeschema/libraries]
-LibName1=adc-dac
-LibName2=memory
-LibName3=xilinx
-LibName4=microcontrollers
-LibName5=dsp
-LibName6=microchip
-LibName7=analog_switches
-LibName8=motorola
-LibName9=texas
-LibName10=intel
-LibName11=audio
-LibName12=interface
-LibName13=digital-audio
-LibName14=philips
-LibName15=display
-LibName16=cypress
-LibName17=siliconi
-LibName18=opto
-LibName19=atmel
-LibName20=contrib
-LibName21=power
-LibName22=device
-LibName23=transistors
-LibName24=conn
-LibName25=linear
-LibName26=regul
-LibName27=74xx
-LibName28=cmos4000
-LibName29=/home/jarias/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
-LibName30=/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
-[general]
-version=1
+LibName1=GpibPortExpanderPCA6408A-rescue
+LibName2=adc-dac
+LibName3=memory
+LibName4=xilinx
+LibName5=microcontrollers
+LibName6=dsp
+LibName7=microchip
+LibName8=analog_switches
+LibName9=motorola
+LibName10=texas
+LibName11=intel
+LibName12=audio
+LibName13=interface
+LibName14=digital-audio
+LibName15=philips
+LibName16=display
+LibName17=cypress
+LibName18=siliconi
+LibName19=opto
+LibName20=atmel
+LibName21=contrib
+LibName22=power
+LibName23=device
+LibName24=transistors
+LibName25=conn
+LibName26=linear
+LibName27=regul
+LibName28=74xx
+LibName29=cmos4000
+LibName30=/home/jarias/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
+LibName31=/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
 

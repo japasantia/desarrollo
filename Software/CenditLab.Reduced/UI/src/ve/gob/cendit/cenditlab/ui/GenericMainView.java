@@ -1,6 +1,7 @@
 package ve.gob.cendit.cenditlab.ui;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.HBox;
@@ -91,5 +92,10 @@ public class GenericMainView extends VBox
     public Node getCenterSection(String sectionId)
     {
         return centerSectionsMap.get(sectionId);
+    }
+
+    public void setCenterSectionOrientation(Orientation orientation)
+    {
+        centerSplitPane.setOrientation(orientation);
     }
 }
