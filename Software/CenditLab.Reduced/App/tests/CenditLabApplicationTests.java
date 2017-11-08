@@ -1,7 +1,8 @@
 import javafx.application.Application;
 import javafx.stage.Stage;
 import ve.gob.cendit.cenditlab.app.CenditLabApplication;
-import ve.gob.cendit.cenditlab.systems.NoiseFigureAnalyzer8975A;
+import ve.gob.cendit.cenditlab.control.MeasurementManager;
+import ve.gob.cendit.cenditlab.systems.*;
 import ve.gob.cendit.cenditlab.ui.MeasurementBarView;
 
 public class CenditLabApplicationTests extends Application
@@ -9,6 +10,8 @@ public class CenditLabApplicationTests extends Application
     private CenditLabApplication app;
 
     NoiseFigureAnalyzer8975A nfa;
+    AttenuatorSwitchDriver11713 asd;
+    MeasurementManager measurementManager;
     MeasurementBarView measurementBarView;
 
     public static void main(String[] args)
@@ -23,16 +26,24 @@ public class CenditLabApplicationTests extends Application
 
         app = CenditLabApplication.getApp();
 
-        initializeSystems();
+        initializeApp();
         initializeGui();
 
         app.show();
     }
 
-    private void initializeSystems()
+    private void initializeApp()
     {
         nfa = new NoiseFigureAnalyzer8975A();
-        measurementBarView = new MeasurementBarView(nfa.getMeasurementManager());
+        asd = new AttenuatorSwitchDriver11713();
+
+        SystemsSetupStep systemsSetupStep = new SystemsSetupStep("Systems Setup", nfa, asd);
+        TasksSetupStep tasksSetupStep = new TasksSetupStep("Tasks Setup", nfa, asd);
+        TasksExecutionStep tasksExecutionStep = new TasksExecutionStep("Tasks Execution", nfa, asd);
+
+        measurementManager = new MeasurementManager("Noise Figure Measurement System",
+                systemsSetupStep, tasksSetupStep, tasksExecutionStep);
+        measurementBarView = new MeasurementBarView(measurementManager);
     }
 
     private void initializeGui()

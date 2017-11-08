@@ -1,16 +1,20 @@
 package ve.gob.cendit.cenditlab.ui;
 
+
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.*;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Callback;
+import ve.gob.cendit.cenditlab.control.Component;
 
-public class GenericListView<T> extends TitledPane
+public class ComponentListView<T extends Component> extends TitledPane
 {
     private static final String FXML_URL = "generic-list-view.fxml";
     private static final String DEFAULT_ICON_URL = "task-icon.jpg";
@@ -22,9 +26,13 @@ public class GenericListView<T> extends TitledPane
     @FXML
     private ListView<T> containerListView;
 
-    public GenericListView()
+    private String viewType = ViewType.LIST_ICON.toString();
+
+    public ComponentListView()
     {
         ViewLoader.load(FXML_URL, this, this);
+
+        setCellFactory(listView -> new ComponentListCell());
     }
 
     public void setTitle(String value)
@@ -50,10 +58,25 @@ public class GenericListView<T> extends TitledPane
         }
     }
 
+    public void setViewType(ViewType value)
+    {
+        setViewType(viewType);
+    }
+
+    public void setViewType(String value)
+    {
+        viewType = value;
+    }
+
+    public String getViewType()
+    {
+        return viewType;
+    }
+
     public void enableMultipleSelection(boolean value)
     {
         containerListView.getSelectionModel()
-            .setSelectionMode(value ? SelectionMode.MULTIPLE : SelectionMode.SINGLE);
+                .setSelectionMode(value ? SelectionMode.MULTIPLE : SelectionMode.SINGLE);
     }
 
     public void setItems(ObservableList<T> list)
@@ -64,7 +87,7 @@ public class GenericListView<T> extends TitledPane
         }
         else
         {
-            containerListView.getItems().clear();
+           clearItems();
         }
     }
 
@@ -78,7 +101,7 @@ public class GenericListView<T> extends TitledPane
         containerListView.getItems().clear();
     }
 
-    public T getSelectedItem()
+    public Component getSelectedItem()
     {
         return containerListView.getSelectionModel().getSelectedItem();
     }
@@ -98,5 +121,25 @@ public class GenericListView<T> extends TitledPane
         containerListView.getSelectionModel()
                 .selectedItemProperty()
                 .addListener(listener);
+    }
+
+    private class ComponentListCell extends ListCell<T>
+    {
+        public ComponentListCell()
+        { }
+
+        @Override
+        protected void updateItem(T componentItem, boolean empty)
+        {
+            super.updateItem(componentItem, empty);
+
+            if (empty || componentItem == null)
+                return;
+
+            // TODO: revisar por elemento null
+            Node node = componentItem.getView(ViewType.LIST_ICON);
+
+            setGraphic(node);
+        }
     }
 }

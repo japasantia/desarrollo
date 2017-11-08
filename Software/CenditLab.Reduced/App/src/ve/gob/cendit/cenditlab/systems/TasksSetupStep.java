@@ -3,9 +3,6 @@ package ve.gob.cendit.cenditlab.systems;
 import ve.gob.cendit.cenditlab.app.CenditLabApplication;
 import ve.gob.cendit.cenditlab.control.MeasurementStep;
 import ve.gob.cendit.cenditlab.control.System;
-import ve.gob.cendit.cenditlab.control.Task;
-import ve.gob.cendit.cenditlab.ui.IconView;
-import ve.gob.cendit.cenditlab.ui.MasterDetailView;
 import ve.gob.cendit.cenditlab.ui.TasksSetupView;
 
 public class TasksSetupStep extends MeasurementStep

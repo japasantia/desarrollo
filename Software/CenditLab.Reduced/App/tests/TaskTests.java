@@ -12,7 +12,7 @@ import ve.gob.cendit.cenditlab.ui.MainViewProto1;
 import ve.gob.cendit.cenditlab.ui.MasterDetailView;
 
 import java.util.Random;
-
+/*
 public class TaskTests extends Application
 {
     private Field[] fieldsArray;
@@ -148,4 +148,4 @@ class DemoTask extends Task
 
     }
 }
-
+*/

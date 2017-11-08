@@ -1,6 +1,6 @@
 package ve.gob.cendit.cenditlab.ui;
 
-
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Orientation;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Priority;
@@ -58,19 +58,28 @@ public class TasksSetupView extends GenericMainView
 
         for (System system : systems)
         {
-            GenericListView<Task> taskListView = new GenericListView<>();
+            ComponentListView<Task> tasksListView = new ComponentListView<>();
 
-            taskListView.setMaxWidth(Double.POSITIVE_INFINITY);
-            taskListView.setPrefHeight(-1.0);
-            taskListView.setMinHeight(-1.0);
-            taskListView.setCollapsible(true);
+            tasksListView.setOnSelectedItemChanged(this::onTaskSelected);
 
-            VBox.setVgrow(taskListView, Priority.ALWAYS);
+            tasksListView.setCollapsible(true);
+            tasksListView.setIcon(system.getIcon());
+            VBox.setVgrow(tasksListView, Priority.ALWAYS);
 
-            taskListView.setTitle(system.getName());
-            taskListView.getItems().addAll(system.getTasks());
+            tasksListView.setTitle(system.getName());
+            tasksListView.getItems().addAll(system.getTasks());
 
-            masterVBox.getChildren().add(taskListView);
+            masterVBox.getChildren().add(tasksListView);
         }
+    }
+
+    private <T extends Task> void onTaskSelected(ObservableValue<? extends Task> observable,
+                                                 T oldTask, T newTask)
+    {
+        detailVBox.getChildren().clear();
+        detailVBox.getChildren().add(newTask.getView(ViewType.DETAILS));
+
+        setupVBox.getChildren().clear();
+        setupVBox.getChildren().add(newTask.getView(ViewType.SETUP));
     }
 }

@@ -1,6 +1,10 @@
 package ve.gob.cendit.cenditlab.control;
 
-public class Component
+import javafx.scene.Node;
+import ve.gob.cendit.cenditlab.ui.ComponentViewFactory;
+import ve.gob.cendit.cenditlab.ui.ViewType;
+
+public abstract class Component
 {
     private String name;
     private String description;
@@ -34,4 +38,7 @@ public class Component
     }
 
     public String getIcon() { return iconUrl; }
+
+    public abstract Node getView(ViewType viewType);
+    public abstract Node getView(String viewId);
 }
