@@ -1,4 +1,4 @@
-update=mar 07 nov 2017 08:09:10 -04
+update=mar 07 nov 2017 09:48:23 -04
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,8 +23,6 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=
@@ -60,4 +58,6 @@ LibName28=74xx
 LibName29=cmos4000
 LibName30=/home/jarias/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
 LibName31=/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
+[general]
+version=1
 

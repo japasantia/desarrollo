@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source "/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/CapacitiveKeyboardPCF8885/CapacitiveKeyboardPCF8885.sch")
-    (date "jue 19 oct 2017 11:07:23 -04")
+    (date "mar 07 nov 2017 09:00:10 -04")
     (tool "Eeschema 4.0.5+dfsg1-4~bpo8+1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -17,7 +17,7 @@
   (components
     (comp (ref U1)
       (value PCF8885)
-      (footprint LibKicad:PCF8885TS)
+      (footprint LibreriaKicad2:PCF8885TS)
       (libsource (lib CenditBasic) (part PCF8885))
       (sheetpath (names /) (tstamps /))
       (tstamp 59CA6337))
@@ -499,12 +499,12 @@
       (pins
         (pin (num 1) (name ~) (type passive)))))
   (libraries
+    (library (logical CenditBasic)
+      (uri "/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic.lib"))
     (library (logical device)
       (uri /usr/share/kicad/library/device.lib))
     (library (logical conn)
-      (uri /usr/share/kicad/library/conn.lib))
-    (library (logical CenditBasic)
-      (uri "/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic.lib")))
+      (uri /usr/share/kicad/library/conn.lib)))
   (nets
     (net (code 1) (name /PLATE3)
       (node (ref RF2) (pin 1))

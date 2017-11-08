@@ -3,7 +3,7 @@
   (general
     (links 81)
     (no_connects 4)
-    (area 106.721 78.899999 177.432 122.600001)
+    (area 0 0 0 0)
     (thickness 1.6)
     (drawings 6)
     (tracks 493)
@@ -90,9 +90,9 @@
       (subtractmaskfromsilk false)
       (outputformat 1)
       (mirror false)
-      (drillshape 1)
+      (drillshape 0)
       (scaleselection 1)
-      (outputdirectory ""))
+      (outputdirectory "/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/GpibPortExpanderPCA6408A/"))
   )
 
   (net 0 "")

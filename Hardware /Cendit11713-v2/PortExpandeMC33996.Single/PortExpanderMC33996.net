@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source "/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/PortExpandeMC33996.Single/PortExpanderMC33996.sch")
-    (date "dom 15 oct 2017 18:09:57 -04")
+    (date "mar 07 nov 2017 13:56:11 -04")
     (tool "Eeschema 4.0.5+dfsg1-4~bpo8+1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -216,10 +216,10 @@
         (pin (num 8) (name /RESET) (type input))
         (pin (num 9) (name PWM) (type input)))))
   (libraries
-    (library (logical device)
-      (uri /usr/share/kicad/library/device.lib))
     (library (logical conn)
       (uri /usr/share/kicad/library/conn.lib))
+    (library (logical device)
+      (uri /usr/share/kicad/library/device.lib))
     (library (logical CenditBasic)
       (uri "/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic.lib"))
     (library (logical MC33996EKR2)

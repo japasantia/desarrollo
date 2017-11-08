@@ -1,4 +1,4 @@
-update=vie 20 oct 2017 15:26:46 VET
+update=mar 07 nov 2017 21:50:44 -04
 version=1
 last_client=kicad
 [cvpcb]
@@ -58,6 +58,7 @@ LibName26=linear
 LibName27=regul
 LibName28=74xx
 LibName29=cmos4000
-LibName30=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/PIC18F4550-I_P
-LibName31=/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
+LibName30=/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
+LibName31=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad/PIC18F4550-I_P
+LibName32=/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
 

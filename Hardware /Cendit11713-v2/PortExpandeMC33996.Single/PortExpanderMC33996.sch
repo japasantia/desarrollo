@@ -28,7 +28,6 @@ LIBS:regul
 LIBS:74xx
 LIBS:cmos4000
 LIBS:CenditBasic
-LIBS:cendit-basic
 LIBS:MC33996EKR2
 LIBS:PortExpanderMC33996-cache
 EELAYER 25 0

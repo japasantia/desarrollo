@@ -906,9 +906,9 @@ Text Label 900  1000 0    60   ~ 0
 SDA
 Text Label 900  1200 0    60   ~ 0
 A0
-Text Label 900  1300 0    60   ~ 0
-/INT
 Text Label 900  1400 0    60   ~ 0
+/INT
+Text Label 900  1300 0    60   ~ 0
 SLEEP
 $Comp
 L R_Small R1

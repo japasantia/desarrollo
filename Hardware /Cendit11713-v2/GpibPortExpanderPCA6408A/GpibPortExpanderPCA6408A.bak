@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:GpibPortExpanderPCA6408A-rescue
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
@@ -960,7 +961,7 @@ EOI
 Wire Wire Line
 	6250 2100 6750 2100
 $Comp
-L GPIB_CONN CONN2
+L GPIB_CONN-RESCUE-GpibPortExpanderPCA6408A CONN2
 U 1 1 59EAE791
 P 7450 3400
 F 0 "CONN2" H 7200 4850 60  0000 C CNN
