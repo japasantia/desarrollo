@@ -72,5 +72,4 @@ public class FieldsContainer
     {
         fieldNamesArray = null;
     }
-
 }

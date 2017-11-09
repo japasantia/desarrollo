@@ -28,8 +28,7 @@ public class NumericField extends Field
     private static final Pattern numericUnitRegex =
             Pattern.compile(NUMERIC_UNIT_REGEX);
 
-    private FieldUnits fieldUnits =
-            FieldUnits.EMPTY_UNITS;
+    private FieldUnits fieldUnits = FieldUnits.EMPTY_UNITS;
 
     private float magnitude;
 
@@ -102,7 +101,7 @@ public class NumericField extends Field
                 getUnit().getName());
     }
 
-    public void normalize()
+    private void normalize()
     {
         Unit unit = fieldUnits.getUnitForMagnitude(magnitude);
         float mag = NumericField.normalizeMagnitude(magnitude);

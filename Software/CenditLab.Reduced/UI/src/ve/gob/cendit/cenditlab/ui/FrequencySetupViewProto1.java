@@ -12,7 +12,6 @@ public class FrequencySetupViewProto1 extends GridPane
     private static final int SETUP_TO_VIEW = 0;
     private static final int VIEW_TO_SETUP = 1;
 
-    //private String FXML_URL = "../../../../../../../fxml/frequency-setup-view-proto-2.fxml";
     private String FXML_URL = "frequency-setup-view-proto-1.fxml";
 
     @FXML

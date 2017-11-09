@@ -30,12 +30,10 @@ public abstract class Component
     {
         return name;
     }
-
     public String getDescription()
     {
         return description;
     }
-
     public String getIcon() { return iconUrl; }
 
     public abstract Node getView(ViewType viewType);

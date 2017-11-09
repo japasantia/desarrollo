@@ -38,6 +38,7 @@ public class SystemsSetupView extends GenericMainView
         masterListView.setTitle("Available Systems");
         masterListView.setIcon("system-icon.png");
         masterListView.setItems(FXCollections.<System>observableArrayList());
+        masterListView.enableMultipleSelection(true);
 
         masterListView.setOnSelectedItemChanged(this::onSystemSelected);
     }

@@ -1,6 +1,7 @@
 package ve.gob.cendit.cenditlab.data;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 public class FieldUnits
 {
@@ -33,6 +34,15 @@ public class FieldUnits
     {
         Unit unit = Unit.EMPTY_UNIT;
 
+        // TODO: elegir el codigo stream o bucle
+        /*
+        Optional<Unit> result = Arrays.stream(units)
+            .filter(u -> magnitude > u.getMultiplier())
+            .findFirst();
+
+        return (result.isPresent() ? result.get() : Unit.EMPTY_UNIT);
+        */
+
         for (Unit u : units)
         {
             if (magnitude > u.getMultiplier())
@@ -44,26 +54,24 @@ public class FieldUnits
 
     public Unit get(String name)
     {
-        Unit unit = null;
+        Unit unit = Unit.EMPTY_UNIT;
+
+        // TODO: elegir el codigo stream o bucle
+        /*
+        Optional<Unit> result = Arrays.stream(units)
+                .filter(u -> name == u.getName())
+                .findFirst();
+
+        return (result.isPresent() ? result.get() : Unit.EMPTY_UNIT);
+        */
 
         for (Unit u : units)
         {
             if (name == u.getName())
-                return u;
+                unit = u;
         }
 
-        throw new IllegalArgumentException("name not exists as unit for this field");
-
-        /*
-        Optional<ve.gob.cendit.cenditlab.data.Unit> result = Arrays.stream(units)
-                .filter(u -> name == u.getName())
-                .findFirst();
-
-        if (result.isPresent())
-        {
-            return result.get();
-        }
-        */
+        return unit;
     }
 
     public Unit get(int index)

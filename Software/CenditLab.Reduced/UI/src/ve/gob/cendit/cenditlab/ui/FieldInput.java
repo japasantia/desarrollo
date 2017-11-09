@@ -67,7 +67,7 @@ public class FieldInput extends HBox
 
             field.setValue(valueTextField.getText());
 
-            updateField();
+            updateFieldView();
 
             // TODO: revisar operacion flags para update
             setUpdateEnabled(true);
@@ -85,7 +85,7 @@ public class FieldInput extends HBox
 
             field.setUnit(newUnit);
 
-            updateField();
+            updateFieldView();
 
             // TODO: revisar operacion flags para update
             setUpdateEnabled(true);
@@ -94,7 +94,7 @@ public class FieldInput extends HBox
         }
     }
 
-    private void updateField()
+    private void updateFieldView()
     {
         valueTextField.setText(field.getValue());
         unitsChoiceBox.setValue(field.getUnit());
