@@ -9,7 +9,7 @@
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Data" level="project" />
-    <orderEntry type="library" name="Control" level="project" />
+    <orderEntry type="library" exported="" name="Data" level="project" />
+    <orderEntry type="library" exported="" name="Control" level="project" />
   </component>
 </module>

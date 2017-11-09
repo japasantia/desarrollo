@@ -7,6 +7,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import ve.gob.cendit.cenditlab.control.Task;
 import ve.gob.cendit.cenditlab.control.System;
+import ve.gob.cendit.cenditlab.ui.base.ViewType;
 
 public class TasksSetupView extends GenericMainView
 {

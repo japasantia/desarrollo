@@ -1,8 +1,7 @@
 package ve.gob.cendit.cenditlab.control;
 
 import javafx.scene.Node;
-import ve.gob.cendit.cenditlab.ui.ComponentViewFactory;
-import ve.gob.cendit.cenditlab.ui.ViewType;
+import ve.gob.cendit.cenditlab.ui.base.ViewType;
 
 public abstract class Component
 {

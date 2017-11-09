@@ -4,6 +4,7 @@ import javafx.scene.Node;
 import ve.gob.cendit.cenditlab.control.Component;
 import ve.gob.cendit.cenditlab.control.System;
 import ve.gob.cendit.cenditlab.control.Task;
+import ve.gob.cendit.cenditlab.ui.base.ViewType;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,11 +14,14 @@ public class ComponentViewFactory
     private static final ComponentViewFactory globalFactory =
             new ComponentViewFactory();
 
-    private Map<String, ComponentViewFactory.ViewFactory> viewFactoriesMap;
+    private Map<String, IViewFactory> viewFactoriesMap;
+
+    private Map<Component, Map<ViewType, Node>> viewsCacheMap;
 
     public ComponentViewFactory()
     {
         viewFactoriesMap = new HashMap();
+        viewsCacheMap = new HashMap<>();
     }
 
     public static final ComponentViewFactory get()
@@ -30,7 +34,21 @@ public class ComponentViewFactory
         return viewFactoriesMap.containsKey(component.getClass().getName());
     }
 
-    public void registerFactory(Component component, ComponentViewFactory.ViewFactory factory)
+    public boolean hasView(Component component, ViewType viewType)
+    {
+        Map<ViewType, Node> viewTypeNodeMap = viewsCacheMap.get(component);
+
+        if (viewTypeNodeMap != null)
+        {
+            return viewTypeNodeMap.containsKey(viewType);
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void registerFactory(Component component, IViewFactory factory)
     {
         if (component == null || factory == null)
         {
@@ -40,36 +58,72 @@ public class ComponentViewFactory
         viewFactoriesMap.put(component.getClass().getName(), factory);
     }
 
-    public ComponentViewFactory.ViewFactory removeFactory(Component component)
+    public IViewFactory getFactory(Component component)
+    {
+        return viewFactoriesMap.get(component.getClass().getName());
+    }
+
+    public IViewFactory removeFactory(Component component)
     {
         return viewFactoriesMap.remove(component.getClass().getName());
     }
 
-    public Node createView(Component component, ViewType viewType)
+    public Node getView(Component component, ViewType viewType)
     {
-        if (existFactory(component))
+        if (hasView(component, viewType))
         {
-            ComponentViewFactory.ViewFactory viewFactory =
-                    viewFactoriesMap.get(component.getClass().getName());
-
-            return viewFactory.createView(component, viewType);
-        }
-
-        if (component instanceof System)
-        {
-            return new IconView(component.getName(), component.getIcon());
-        }
-        else if (component instanceof Task)
-        {
-            return new IconView(component.getName(), component.getIcon());
+            return viewsCacheMap.get(component).get(viewType);
         }
         else
         {
-            return new IconView(component.getName(), component.getIcon());
+            return createView(component, viewType);
         }
     }
 
-    public interface ViewFactory
+    public Node createView(Component component, ViewType viewType)
+    {
+        Node viewNode = null;
+
+        if (existFactory(component))
+        {
+            IViewFactory viewFactory = getFactory(component);
+
+            viewNode = viewFactory.createView(component, viewType);
+        }
+        else if (component instanceof System)
+        {
+            viewNode = new IconView(component.getName(), component.getIcon());
+        }
+        else if (component instanceof Task)
+        {
+            viewNode = new IconView(component.getName(), component.getIcon());
+        }
+        else
+        {
+            viewNode = new IconView(component.getName(), component.getIcon());
+        }
+
+        storeViewOnCache(component, viewType, viewNode);
+
+        return viewNode;
+    }
+
+    private void storeViewOnCache(Component component, ViewType viewType, Node viewNode)
+    {
+        if (viewsCacheMap.containsKey(component))
+        {
+            viewsCacheMap.get(component).put(viewType, viewNode);
+        }
+        else
+        {
+            Map<ViewType, Node> viewTypeNodeMap = new HashMap<>();
+            viewTypeNodeMap.put(viewType, viewNode);
+
+            viewsCacheMap.put(component, viewTypeNodeMap);
+        }
+    }
+
+    public interface IViewFactory
     {
         Node createView(Component component, ViewType viewType);
     }

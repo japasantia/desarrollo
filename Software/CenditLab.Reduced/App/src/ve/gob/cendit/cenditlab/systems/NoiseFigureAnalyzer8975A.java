@@ -7,8 +7,7 @@ import ve.gob.cendit.cenditlab.control.System;
 import ve.gob.cendit.cenditlab.control.Task;
 import ve.gob.cendit.cenditlab.data.FieldsContainer;
 import ve.gob.cendit.cenditlab.ui.ComponentViewFactory;
-import ve.gob.cendit.cenditlab.ui.IconView;
-import ve.gob.cendit.cenditlab.ui.ViewType;
+import ve.gob.cendit.cenditlab.ui.base.ViewType;
 
 
 public class NoiseFigureAnalyzer8975A extends System
@@ -56,7 +55,7 @@ public class NoiseFigureAnalyzer8975A extends System
     @Override
     public Node getView(ViewType viewType)
     {
-        return viewFactory.createView(this, viewType);
+        return viewFactory.getView(this, viewType);
     }
 
     @Override
@@ -91,7 +90,7 @@ public class NoiseFigureAnalyzer8975A extends System
         @Override
         public Node getView(ViewType viewType)
         {
-            return viewFactory.createView(this, viewType);
+            return viewFactory.getView(this, viewType);
         }
 
         @Override
@@ -128,7 +127,7 @@ public class NoiseFigureAnalyzer8975A extends System
         @Override
         public Node getView(ViewType viewType)
         {
-            return viewFactory.createView(this, viewType);
+            return viewFactory.getView(this, viewType);
         }
 
         @Override

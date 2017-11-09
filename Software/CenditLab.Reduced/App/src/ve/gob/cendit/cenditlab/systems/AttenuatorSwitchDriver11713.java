@@ -6,8 +6,7 @@ import ve.gob.cendit.cenditlab.control.System;
 import ve.gob.cendit.cenditlab.control.Task;
 import ve.gob.cendit.cenditlab.data.FieldsContainer;
 import ve.gob.cendit.cenditlab.ui.ComponentViewFactory;
-import ve.gob.cendit.cenditlab.ui.IconView;
-import ve.gob.cendit.cenditlab.ui.ViewType;
+import ve.gob.cendit.cenditlab.ui.base.ViewType;
 
 public class AttenuatorSwitchDriver11713 extends System
 {
@@ -43,7 +42,7 @@ public class AttenuatorSwitchDriver11713 extends System
     @Override
     public Node getView(ViewType viewType)
     {
-        return viewFactory.createView(this, viewType);
+        return viewFactory.getView(this, viewType);
     }
 
     @Override
@@ -78,7 +77,7 @@ public class AttenuatorSwitchDriver11713 extends System
         @Override
         public Node getView(ViewType viewType)
         {
-            return viewFactory.createView(this, viewType);
+            return viewFactory.getView(this, viewType);
         }
 
         @Override
@@ -94,8 +93,6 @@ public class AttenuatorSwitchDriver11713 extends System
         private static final String NAME = "Change Switch State";
         private static final String DESCRIPTION = "Change switch state on selected switch";
         private static final String ICON_URL = "task-icon.jpg";
-
-        private final IconView ICON_VIEW = new IconView(NAME, ICON_URL);
 
         public SetSwitchStateTask()
         {
@@ -117,7 +114,7 @@ public class AttenuatorSwitchDriver11713 extends System
         @Override
         public Node getView(ViewType viewType)
         {
-            return viewFactory.createView(this, viewType);
+            return viewFactory.getView(this, viewType);
         }
 
         @Override

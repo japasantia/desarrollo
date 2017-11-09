@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 import ve.gob.cendit.cenditlab.control.Component;
+import ve.gob.cendit.cenditlab.ui.base.ViewType;
 
 public class ComponentListView<T extends Component> extends TitledPane
 {
