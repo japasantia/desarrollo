@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?scenebuilder-classpath-element /mnt/local/PasantiaCendit/Desarrollo/Software/CenditLab.Reduced/src/ve/gob/cendit/cenditlab/ui?>
-
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>

@@ -35,37 +35,52 @@ public class SetupContainerView extends VBox
         ViewLoader.load(FXML_URL, this, this);
     }
 
-    public void addField(String name, Field field)
+    public void addField(String title, Field field)
     {
-        int nextRow = insertSingleRow();
+        int nextRow = nextSingleRow();
 
-        setupGridPane.add(new Label(name), 0, nextRow);
+        setupGridPane.add(new Label(title), 0, nextRow);
         setupGridPane.add(new FieldInput(field), 1, nextRow);
     }
 
-    public void addFrequencyListPane(String name, FrequencyListPane pane)
+    public void addFrequencyListPane(String title, FrequencyListPane pane)
     {
-        int nextRow = insertExtendedRow();
+        int nextRow = nextExtendedRow();
 
         setupGridPane.add(pane, 0, nextRow,2, 1);
     }
 
-    public void addOptions(String name, Options options)
+
+    public void addFrequencyRangePane(String title, FrequencyRangePane pane)
     {
-        int nextRow = insertSingleRow();
+        int nextRow = nextExtendedRow();
+
+        setupGridPane.add(pane, 0, nextRow, 2, 1);
+    }
+
+    public void addEnrSetupView(String title, Pane pane)
+    {
+        int nextRow = nextExtendedRow();
+
+        setupGridPane.add(pane, 0, nextRow, 2, 1);
+    }
+
+    public void addOptions(String title, Options options)
+    {
+        int nextRow = nextSingleRow();
 
         ChoiceBox<String> choiceBox = new ChoiceBox();
         choiceBox.setPrefHeight(Region.USE_COMPUTED_SIZE);
         choiceBox.getItems().addAll(options.getValues());
         choiceBox.setValue(options.getDefault());
 
-        setupGridPane.add(new Label(name), 0, nextRow);
+        setupGridPane.add(new Label(title), 0, nextRow);
         setupGridPane.add(choiceBox, 1, nextRow);
     }
 
     public void addSectionLabel(String caption)
     {
-        int nextRow = insertSingleRow();
+        int nextRow = nextSingleRow();
 
         setupGridPane.add(new Label(caption), 0, nextRow, 2, 1);
     }
@@ -80,7 +95,7 @@ public class SetupContainerView extends VBox
         return setupGridPane.getRowConstraints().size();
     }
 
-    private int insertSingleRow()
+    private int nextSingleRow()
     {
         setupGridPane.getRowConstraints()
                 .add(singleRow);
@@ -88,7 +103,7 @@ public class SetupContainerView extends VBox
         return getRows() - 1;
     }
 
-    private int insertExtendedRow()
+    private int nextExtendedRow()
     {
         setupGridPane.getRowConstraints()
                 .add(extendedRow);

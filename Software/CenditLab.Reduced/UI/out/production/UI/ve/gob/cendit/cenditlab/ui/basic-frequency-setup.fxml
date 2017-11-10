@@ -8,7 +8,7 @@
 
 <?import ve.gob.cendit.cenditlab.ui.FrequencyRangePane?>
 
-<fx:root type="GridPane" hgap="5.0" vgap="5.0" xmlns:fx="http://javafx.com/fxml/2.2" xmlns="http://javafx.com/javafx/1">
+<fx:root type="GridPane" hgap="5.0" vgap="5.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
 <!-- <GridPane hgap="5.0" vgap="5.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"> -->
   <children>
     <Label text="Modo de frecuencia" GridPane.columnIndex="0" GridPane.rowIndex="0" />

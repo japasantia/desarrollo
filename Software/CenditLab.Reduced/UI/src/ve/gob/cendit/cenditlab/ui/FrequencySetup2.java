@@ -39,7 +39,7 @@ public class FrequencySetup2 extends VBox
     @FXML
     private RadioButton sweepFrequencyRadioButton;
 
-    private static final String FXML_URL = "ve/gob/cendit/cenditlab/ui/frequency-setup.fxml";
+    private static final String FXML_URL = "frequency-setup.fxml";
 
     public FrequencySetup2() throws IOException
     {

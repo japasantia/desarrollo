@@ -37,7 +37,7 @@ public class FrequencySetupView extends VBox
     private FrequencyFixedPane frequencyFixedPane;
 
 
-    private static final String FXML_URL = "ve/gob/cendit/cenditlab/ui/frequency-setup-view.fxml";
+    private static final String FXML_URL = "frequency-setup-view.fxml";
 
     public FrequencySetupView() throws IOException
     {
