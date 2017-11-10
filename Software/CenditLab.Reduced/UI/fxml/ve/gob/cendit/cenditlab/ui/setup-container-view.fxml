@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<ScrollPane maxWidth="1.7976931348623157E308" prefViewportHeight="90.0" prefViewportWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="ScrollPane"  fitToWidth="true" maxWidth="1.7976931348623157E308" minWidth="220.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<!-- <ScrollPane fx:id="rootScrollPane" fitToWidth="true" maxWidth="1.7976931348623157E308" minWidth="220.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"> -->
    <content>
-      <GridPane fx:id="setupGridPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+      <GridPane fx:id="setupGridPane" hgap="2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="2.0">
         <columnConstraints>
-          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="100.0" />
-          <ColumnConstraints hgrow="ALWAYS" minWidth="100.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="100.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
    </content>
-</ScrollPane>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+<!-- </ScrollPane> -->
+</fx:root>

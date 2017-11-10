@@ -5,11 +5,12 @@ import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
 import ve.gob.cendit.cenditlab.data.Field;
 import ve.gob.cendit.cenditlab.data.Options;
 
-public class SetupContainerView extends VBox
+public class SetupContainerView extends ScrollPane
 {
     private static final String FXML_URL = "setup-container-view.fxml";
     private static RowConstraints singleRow;
@@ -43,28 +44,6 @@ public class SetupContainerView extends VBox
         setupGridPane.add(new FieldInput(field), 1, nextRow);
     }
 
-    public void addFrequencyListPane(String title, FrequencyListPane pane)
-    {
-        int nextRow = nextExtendedRow();
-
-        setupGridPane.add(pane, 0, nextRow,2, 1);
-    }
-
-
-    public void addFrequencyRangePane(String title, FrequencyRangePane pane)
-    {
-        int nextRow = nextExtendedRow();
-
-        setupGridPane.add(pane, 0, nextRow, 2, 1);
-    }
-
-    public void addEnrSetupView(String title, Pane pane)
-    {
-        int nextRow = nextExtendedRow();
-
-        setupGridPane.add(pane, 0, nextRow, 2, 1);
-    }
-
     public void addOptions(String title, Options options)
     {
         int nextRow = nextSingleRow();
@@ -83,6 +62,71 @@ public class SetupContainerView extends VBox
         int nextRow = nextSingleRow();
 
         setupGridPane.add(new Label(caption), 0, nextRow, 2, 1);
+    }
+
+    public void addFrequencyListPane(String title, FrequencyListPane pane)
+    {
+        int nextRow = nextExtendedRow();
+
+        setupGridPane.add(pane, 0, nextRow,2, 1);
+    }
+
+    public void addFrequencyRangePane(String title, FrequencyRangePane pane)
+    {
+        insertExtendedRow(pane, 2, 1);
+    }
+
+    public void addBasicFrequencySetupView(String title, BasicFrequencySetupView view)
+    {
+        insertExtendedRow(view, 2, 1);
+    }
+
+    public void addFrequencySetupView(String title, FrequencySetupView view)
+    {
+        insertExtendedRow(view, 2, 1);
+    }
+
+    public void addEnrSetupView(String title, EnrSetupViewProto1 view)
+    {
+        insertExtendedRow(view, 2, 1);
+    }
+
+    public void addSetupView(String title, SetupView view)
+    {
+        insertExtendedRow(view, 2, 1);
+    }
+
+    public void addSetup(String title, Object setupObject)
+    {
+        if (setupObject instanceof Field)
+        {
+            addField(title, (Field) setupObject);
+        }
+        else if (setupObject instanceof Options)
+        {
+            addOptions(title, (Options) setupObject);
+        }
+        else if (setupObject instanceof FrequencyListPane)
+        {
+            addFrequencyListPane(title, (FrequencyListPane) setupObject);
+        }
+        else if (setupObject instanceof FrequencyRangePane)
+        {
+            addFrequencyRangePane(title, (FrequencyRangePane) setupObject);
+        }
+        else if (setupObject instanceof BasicFrequencySetupView)
+        {
+            addBasicFrequencySetupView(title,
+                    (BasicFrequencySetupView) setupObject);
+        }
+        else if (setupObject instanceof FrequencySetupView)
+        {
+            addFrequencySetupView(title, (FrequencySetupView) setupObject);
+        }
+        else if (setupObject instanceof EnrSetupViewProto1)
+        {
+            addEnrSetupView(title, (EnrSetupViewProto1) setupObject);
+        }
     }
 
     public void remove(Node node)
@@ -109,5 +153,19 @@ public class SetupContainerView extends VBox
                 .add(extendedRow);
 
         return getRows() - 1;
+    }
+
+    private void insertSingleRow(Node node, int columnspan, int rowspan)
+    {
+        int nextRow = nextSingleRow();
+
+        setupGridPane.add(node, 0, nextRow, columnspan, rowspan);
+    }
+
+    private void insertExtendedRow(Node node, int columnspan, int rowspan)
+    {
+        int nextRow = nextExtendedRow();
+
+        setupGridPane.add(node, 0, nextRow, columnspan, rowspan);
     }
 }

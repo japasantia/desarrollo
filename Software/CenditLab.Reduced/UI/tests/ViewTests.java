@@ -27,9 +27,9 @@ public class ViewTests extends Application
         // setupViewTest();
         // enrSetupViewProto1Test();
         // frequencySetupViewTest();
-        // setupContainerTest();
+        setupContainerViewTest();
         // basicFrequencySetupTest();
-        genericMainViewTest();
+        // genericMainViewTest();
     }
 
     public void setupViewTest()
@@ -89,7 +89,7 @@ public class ViewTests extends Application
                 600, 400);
     }
 
-    private void setupContainerTest()
+    private void setupContainerViewTest()
     {
         SetupContainerView setupContainerView = new SetupContainerView();
 
@@ -109,8 +109,17 @@ public class ViewTests extends Application
         setupContainerView.addField("Frequency", frequencyField);
 
         setupContainerView.addOptions("Options", options);
-        setupContainerView.addFrequencyListPane("Frequency list",
-                frequencyListPane);
+        setupContainerView.addFrequencyListPane(
+                "Frequency list", frequencyListPane);
+
+        setupContainerView.addBasicFrequencySetupView(
+                "Basic frequency setup", new BasicFrequencySetupView());
+
+        setupContainerView.addEnrSetupView("Enr Setup", new EnrSetupViewProto1());
+
+        setupContainerView.addSetup("Frequency Range Pane", new FrequencyRangePane());
+
+        setupContainerView.addSetup("",  new FrequencyListPane());
 
         showView(setupContainerView, "CenditLab.Reduced | Test SetupContainerView",
                 600, 400);
@@ -118,9 +127,9 @@ public class ViewTests extends Application
 
     private void basicFrequencySetupTest()
     {
-        BasicFrequencySetup basicFrequencySetup = new BasicFrequencySetup();
+        BasicFrequencySetupView basicFrequencySetupView = new BasicFrequencySetupView();
 
-        showView(basicFrequencySetup, "CenditLab.Reduced | Test SetupContainerView",
+        showView(basicFrequencySetupView, "CenditLab.Reduced | Test SetupContainerView",
                 600, 400);
     }
 
@@ -128,12 +137,12 @@ public class ViewTests extends Application
     {
         GenericMainView mainView = new GenericMainView();
 
-        BasicFrequencySetup basicFrequencySetup = new BasicFrequencySetup();
+        BasicFrequencySetupView basicFrequencySetupView = new BasicFrequencySetupView();
         FrequencyListPane frequencyListPane = new FrequencyListPane();
         SetupView setupView = new SetupView();
 
         mainView.createCenterSection("Master", setupView);
-        mainView.createCenterSection("Detail", basicFrequencySetup);
+        mainView.createCenterSection("Detail", basicFrequencySetupView);
         mainView.createCenterSection("Status", frequencyListPane);
 
         Node node = mainView.getCenterSection("Master");

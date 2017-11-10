@@ -3,13 +3,13 @@ package ve.gob.cendit.cenditlab.systems;
 import ve.gob.cendit.cenditlab.app.CenditLabApplication;
 import ve.gob.cendit.cenditlab.control.System;
 import ve.gob.cendit.cenditlab.control.MeasurementStep;
-import ve.gob.cendit.cenditlab.ui.SystemsSetupView;
+import ve.gob.cendit.cenditlab.ui.SystemsSetupStepView;
 
 
 public class SystemsSetupStep extends MeasurementStep
 {
     private boolean blocked = false;
-    private SystemsSetupView systemsSetupView;
+    private SystemsSetupStepView systemsSetupView;
 
     private System[] systemsArray;
 
@@ -18,7 +18,7 @@ public class SystemsSetupStep extends MeasurementStep
         super(name);
 
         systemsArray = systems;
-        systemsSetupView = new SystemsSetupView();
+        systemsSetupView = new SystemsSetupStepView();
     }
 
     @Override

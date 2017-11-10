@@ -90,6 +90,10 @@ public class ComponentViewFactory
 
             viewNode = viewFactory.createView(component, viewType);
         }
+        else if (viewType == ViewType.DESCRIPTION)
+        {
+            viewNode = new ComponentDescriptionView(component);
+        }
         else if (component instanceof System)
         {
             viewNode = new IconView(component.getName(), component.getIcon());

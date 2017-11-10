@@ -1,3 +1,4 @@
+/*
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -6,13 +7,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import ve.gob.cendit.cenditlab.control.Task;
 import ve.gob.cendit.cenditlab.data.*;
-import ve.gob.cendit.cenditlab.ui.FieldsView;
+import ve.gob.cendit.cenditlab.ui.FieldContainerView;
 import ve.gob.cendit.cenditlab.ui.IconView;
 import ve.gob.cendit.cenditlab.ui.MainViewProto1;
 import ve.gob.cendit.cenditlab.ui.MasterDetailView;
 
 import java.util.Random;
-/*
+
 public class TaskTests extends Application
 {
     private Field[] fieldsArray;
@@ -64,7 +65,7 @@ public class TaskTests extends Application
             iconView.setOnMouseClicked(event ->
                 {
                     masterDetailView.clearDetail();
-                    masterDetailView.addDetail(task.getSetupFieldsView());
+                    masterDetailView.addDetail(task.getSetupFieldContainerView());
                 });
 
             masterDetailView.addMaster(iconView);
@@ -104,7 +105,7 @@ class DemoTask extends Task
 {
     private FieldsContainer setupFieldsContainer;
 
-    private FieldsView fieldsView;
+    private FieldContainerView fieldsView;
 
     public DemoTask(String name, String description, String iconUrl,
                     FieldsContainer setupFieldsContainer)
@@ -114,11 +115,11 @@ class DemoTask extends Task
         setSetupFields(setupFieldsContainer);
     }
 
-    public FieldsView getSetupFieldsView()
+    public FieldContainerView getSetupFieldContainerView()
     {
         if (fieldsView == null)
         {
-            fieldsView = new FieldsView();
+            fieldsView = new FieldContainerView();
 
             for (int i = 0; i < setupFieldsContainer.getFieldsCount(); ++i)
             {
