@@ -7,7 +7,7 @@ import ve.gob.cendit.cenditlab.control.Component;
 
 public class ComponentDescriptionView extends GridPane
 {
-    private static final String FXML_URL  = "component-description-view.fxml";
+    private static final String FXML_URL  = "fxml/component-description-view.fxml";
 
     @FXML
     private Label componentNameLabel;

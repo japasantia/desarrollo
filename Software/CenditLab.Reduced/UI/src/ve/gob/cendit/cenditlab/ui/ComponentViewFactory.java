@@ -90,17 +90,48 @@ public class ComponentViewFactory
 
             viewNode = viewFactory.createView(component, viewType);
         }
-        else if (viewType == ViewType.DESCRIPTION)
-        {
-            viewNode = new ComponentDescriptionView(component);
-        }
         else if (component instanceof System)
         {
-            viewNode = new IconView(component.getName(), component.getIcon());
+            switch (viewType)
+            {
+                case LIST_ICON:
+                    viewNode = new ComponentDescriptionView(component);
+                    break;
+
+                case DESCRIPTION:
+                    viewNode = new ComponentDescriptionView(component);
+                    break;
+
+                case DETAILS:
+                    viewNode = new ComponentDescriptionView(component);
+                    break;
+
+                default:
+                    viewNode = new IconView(component.getName(), component.getIcon());
+            }
         }
         else if (component instanceof Task)
         {
-            viewNode = new IconView(component.getName(), component.getIcon());
+            switch (viewType)
+            {
+                case LIST_ICON:
+                    viewNode = new IconView(component.getName(), component.getIcon());
+
+                case DESCRIPTION:
+                    viewNode = new TaskDescriptionView((Task)component);
+                    break;
+
+                case DETAILS:
+                    viewNode = new TaskDescriptionView((Task)component);
+                    break;
+
+                case EXECUTION:
+                    viewNode = new TaskExecutionView((Task)component);
+                    break;
+
+                default:
+                    viewNode = new IconView(component.getName(), component.getIcon());
+            }
         }
         else
         {

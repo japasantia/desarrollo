@@ -9,6 +9,8 @@ import java.io.IOException;
 
 public class NoiseSourceSetup extends TitledPane
 {
+    private static final String FXML_URL = "fxml/noise-source-setup.fxml";
+
     @FXML
     private RadioButton normalNsRadioButton;
 
@@ -27,7 +29,6 @@ public class NoiseSourceSetup extends TitledPane
     @FXML
     private Button loadFromSnsButton;
 
-    private static final String FXML_URL = "ve/gob/cendit/cenditlab/ui/noise-source-setup.fxml";
 
     public NoiseSourceSetup()
     {

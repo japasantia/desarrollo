@@ -1,10 +1,8 @@
 package ve.gob.cendit.cenditlab.ui;
 
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,8 +10,8 @@ import javafx.util.Callback;
 
 public class GenericListView<T> extends TitledPane
 {
-    private static final String FXML_URL = "generic-list-view.fxml";
-    private static final String DEFAULT_ICON_URL = "task-icon.jpg";
+    private static final String FXML_URL = "fxml/generic-list-view.fxml";
+    private static final String DEFAULT_ICON_URL = "images/task-icon.jpg";
     private static final String DEFAULT_TITLE = "";
 
     @FXML

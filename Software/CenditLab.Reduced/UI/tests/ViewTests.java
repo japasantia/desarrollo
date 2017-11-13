@@ -27,8 +27,8 @@ public class ViewTests extends Application
         // setupViewTest();
         // enrSetupViewProto1Test();
         // frequencySetupViewTest();
-        setupContainerViewTest();
-        // basicFrequencySetupTest();
+        // setupContainerViewTest();
+        basicFrequencySetupTest();
         // genericMainViewTest();
     }
 

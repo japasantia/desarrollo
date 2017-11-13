@@ -8,8 +8,8 @@ import javafx.scene.layout.VBox;
 
 public class IconView extends VBox
 {
-    private static final String FXML_URL = "icon-view.fxml";
-    private static final String DEFAULT_ICON = "system-icon.png";
+    private static final String FXML_URL = "fxml/icon-view.fxml";
+    private static final String DEFAULT_ICON = "images/system-icon.png";
     private static final String DEFAULT_CAPTION = "";
 
     @FXML

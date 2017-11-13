@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class EnrTablePane extends TitledPane
 {
-    private static final String FXML_URL = "enr-table-pane.fxml";
+    private static final String FXML_URL = "fxml/enr-table-pane.fxml";
 
     @FXML
     private ListView containerListView;

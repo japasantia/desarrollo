@@ -11,7 +11,7 @@ import java.util.List;
 
 public class FieldInput extends HBox
 {
-    private static final String FXML_URL = "field-input.fxml";
+    private static final String FXML_URL = "fxml/field-input.fxml";
 
     @FXML
     private TextField valueTextField;

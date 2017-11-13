@@ -37,7 +37,7 @@ public class SystemsSetupStepView extends GenericMainView
         this.createCenterSection("Detail", detailVBox);
 
         masterListView.setTitle("Available Systems");
-        masterListView.setIcon("system-icon.png");
+        masterListView.setIcon("images/system-icon.png");
         masterListView.setItems(FXCollections.<System>observableArrayList());
         masterListView.enableMultipleSelection(true);
 

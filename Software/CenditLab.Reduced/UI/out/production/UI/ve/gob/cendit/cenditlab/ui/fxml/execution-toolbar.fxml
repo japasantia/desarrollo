@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.*?>
+
+<?import ve.gob.cendit.cenditlab.ui.ImageButton?>
+<?import ve.gob.cendit.cenditlab.ui.ImageLabel?>
+
+<fx:root type="ToolBar"  minWidth="300.0" maxHeight="1.7976931348623157E308" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<!-- <ToolBar minWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"> -->
+    <items>
+        <ImageButton fx:id="playImageButton" image="@../images/play-icon.png" text=""/>
+        <ImageButton fx:id="stopImageButton" image="@../images/stop-icon.png" text=""/>
+
+        <Separator orientation="VERTICAL" />
+
+        <ImageLabel image="@../images/green-led-on-icon.png" text="Ready"/>
+        <ImageLabel image="@../images/red-led-off-icon.png" text="Stop"/>
+        <ImageLabel image="@../images/warning-icon.png" text="Warning"/>
+    </items>
+<!-- </ToolBar> -->
+</fx:root>

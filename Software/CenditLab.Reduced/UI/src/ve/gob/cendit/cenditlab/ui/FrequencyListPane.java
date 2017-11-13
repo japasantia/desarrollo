@@ -16,7 +16,7 @@ import java.util.List;
 
 public class FrequencyListPane extends TitledPane
 {
-    private static final String FXML_URL = "frequency-list-pane.fxml";
+    private static final String FXML_URL = "fxml/frequency-list-pane.fxml";
 
     @FXML
     private ListView frequencyListView;

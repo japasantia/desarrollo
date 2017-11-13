@@ -12,6 +12,8 @@ import java.io.IOException;
 
 public class FrequencySetup2 extends VBox
 {
+    private static final String FXML_URL = "fxml/frequency-setup.fxml";
+
     @FXML
     private TitledPane bandwidthAveragePane;
 
@@ -39,7 +41,6 @@ public class FrequencySetup2 extends VBox
     @FXML
     private RadioButton sweepFrequencyRadioButton;
 
-    private static final String FXML_URL = "frequency-setup.fxml";
 
     public FrequencySetup2() throws IOException
     {

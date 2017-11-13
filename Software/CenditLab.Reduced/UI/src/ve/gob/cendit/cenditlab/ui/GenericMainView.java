@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class GenericMainView extends VBox
 {
-    private static final String FXML_URL = "generic-main-view.fxml";
+    private static final String FXML_URL = "fxml/generic-main-view.fxml";
 
     @FXML
     private HBox headerHBox;

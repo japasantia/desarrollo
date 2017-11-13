@@ -9,7 +9,7 @@ import javafx.scene.control.TitledPane;
 
 public class EnrSetupView extends TitledPane
 {
-    private static final String FXML_URL = "enr-setup-view.fxml";
+    private static final String FXML_URL = "fxml/enr-setup-view.fxml";
 
     @FXML
     private RadioButton enrTableModeRadioButton;

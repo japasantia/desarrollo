@@ -14,7 +14,7 @@ public class NoiseFigureAnalyzer8975A extends System
 {
     private static final String NAME = "Noise Figure Analyzer 8975A";
     private static final String DESCRIPTION = "Performs noise figure measurements";
-    private static final String ICON_URL = "nfa8975a.jpg";
+    private static final String ICON_URL = "images/nfa8975a.jpg";
 
     private static final ComponentViewFactory viewFactory = ComponentViewFactory.get();
 
@@ -68,11 +68,11 @@ public class NoiseFigureAnalyzer8975A extends System
     {
         private static final String NAME = "Noise Figure Measurement";
         private static final String DESCRIPTION = "Measures the noise figure of a two port device";
-        private static final String ICON_URL = "task-icon.jpg";
+        private static final String ICON_URL = "images/task-icon.jpg";
 
         public NoiseFigureMeasureTask()
         {
-            super(NAME, DESCRIPTION, null);
+            super(NAME, DESCRIPTION, ICON_URL);
         }
 
         @Override
@@ -104,12 +104,12 @@ public class NoiseFigureAnalyzer8975A extends System
     {
         private static final String NAME = "Noise Power Measurement";
         private static final String DESCRIPTION = "Measures the noise power of a two port device";
-        private static final String ICON_URL = "task-icon.jpg";
+        private static final String ICON_URL = "images/task-icon.jpg";
 
 
         public NoisePowerMeasureTask()
         {
-            super(NAME, DESCRIPTION, null);
+            super(NAME, DESCRIPTION, ICON_URL);
         }
 
         @Override

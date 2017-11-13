@@ -11,7 +11,7 @@ import ve.gob.cendit.cenditlab.data.Options;
 
 public class FieldContainerView extends VBox
 {
-    private static final String FXML_URL = "fields-view.fxml";
+    private static final String FXML_URL = "fxml/fields-view.fxml";
 
     private int nextRow = -1;
 

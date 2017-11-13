@@ -9,7 +9,7 @@ import ve.gob.cendit.cenditlab.control.MeasurementStep;
 
 public class StepButtonView extends ToggleButton
 {
-    private static final String FXML_URL = "step-button-view.fxml";
+    private static final String FXML_URL = "fxml/step-button-view.fxml";
 
      @FXML
     ImageView iconImageView;

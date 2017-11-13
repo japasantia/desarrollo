@@ -9,7 +9,7 @@ import ve.gob.cendit.cenditlab.control.MeasurementStep;
 
 public class MeasurementBarView extends ToolBar
 {
-    private static final String FXML_URL = "measurement-bar-view.fxml";
+    private static final String FXML_URL = "fxml/measurement-bar-view.fxml";
 
     @FXML
     private ToolBar containerToolBar;

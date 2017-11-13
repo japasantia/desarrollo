@@ -12,7 +12,7 @@ import ve.gob.cendit.cenditlab.data.Options;
 
 public class SetupContainerView extends ScrollPane
 {
-    private static final String FXML_URL = "setup-container-view.fxml";
+    private static final String FXML_URL = "fxml/setup-container-view.fxml";
     private static RowConstraints singleRow;
     private static RowConstraints extendedRow;
 

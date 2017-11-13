@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class FrequencyFixedPane extends TitledPane
 {
-    private static final String FXML_URL = "ve/gob/cendit/cenditlab/ui/frequency-fixed-pane.fxml";
+    private static final String FXML_URL = "fxml/frequency-fixed-pane.fxml";
 
     @FXML
     FieldInput fixedFrequencyFieldInput;

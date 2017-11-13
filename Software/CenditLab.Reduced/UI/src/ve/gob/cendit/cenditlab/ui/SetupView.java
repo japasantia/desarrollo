@@ -9,7 +9,7 @@ import ve.gob.cendit.cenditlab.data.EnrSetup;
 
 public class SetupView extends TabPane
 {
-    private static final String FXML_URL = "setup-view-proto-1.fxml";
+    private static final String FXML_URL = "fxml/setup-view-proto-1.fxml";
 
     private static final int SETUP_TO_VIEW = 0;
     private static final int VIEW_TO_SETUP = 1;

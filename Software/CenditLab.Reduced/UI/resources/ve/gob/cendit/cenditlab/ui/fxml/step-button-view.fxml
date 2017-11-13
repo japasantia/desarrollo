@@ -11,7 +11,7 @@
       <ImageView fx:id="iconImageView" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <!--<Image url="@oscilloscope.png" />-->
-            <Image url="@nfa8975a.jpg" />
+            <Image url="@../images/nfa8975a.jpg" />
          </image>
       </ImageView>
    </graphic>

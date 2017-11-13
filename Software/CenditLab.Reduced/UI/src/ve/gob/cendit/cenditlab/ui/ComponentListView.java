@@ -17,8 +17,9 @@ import ve.gob.cendit.cenditlab.ui.base.ViewType;
 
 public class ComponentListView<T extends Component> extends TitledPane
 {
-    private static final String FXML_URL = "generic-list-view.fxml";
-    private static final String DEFAULT_ICON_URL = "task-icon.jpg";
+    private static final String FXML_URL = "fxml/generic-list-view.fxml";
+
+    private static final String DEFAULT_ICON_URL = "images/task-icon.jpg";
     private static final String DEFAULT_TITLE = "";
 
     @FXML

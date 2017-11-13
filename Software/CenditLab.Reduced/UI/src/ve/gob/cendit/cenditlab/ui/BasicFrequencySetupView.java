@@ -9,7 +9,7 @@ import ve.gob.cendit.cenditlab.data.FrequencySetup;
 
 public class BasicFrequencySetupView extends GridPane
 {
-    private static final String FXML_URL = "basic-frequency-setup-view.fxml";
+    private static final String FXML_URL = "fxml/basic-frequency-setup-view.fxml";
 
     @FXML
     private ChoiceBox<String> frequencyModeChoiceBox;

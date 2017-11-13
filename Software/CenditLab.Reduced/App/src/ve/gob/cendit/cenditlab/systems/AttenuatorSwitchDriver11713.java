@@ -12,7 +12,7 @@ public class AttenuatorSwitchDriver11713 extends System
 {
     private static final String NAME = "Attenuator and Switch Driver 11713";
     private static final String DESCRIPTION = "Attenuator and switch controller and driver";
-    private static final String ICON_URL = "asd11713c.jpg";
+    private static final String ICON_URL = "images/asd11713c.jpg";
 
     private static final ComponentViewFactory viewFactory = ComponentViewFactory.get();
 
@@ -55,7 +55,7 @@ public class AttenuatorSwitchDriver11713 extends System
     {
         private static final String NAME = "Attenuation Setter";
         private static final String DESCRIPTION = "Sets attenuation on the device";
-        private static final String ICON_URL = "task-icon.jpg";
+        private static final String ICON_URL = "images/task-icon.jpg";
 
         public SetAttenuationTask()
         {
@@ -92,7 +92,7 @@ public class AttenuatorSwitchDriver11713 extends System
     {
         private static final String NAME = "Change Switch State";
         private static final String DESCRIPTION = "Change switch state on selected switch";
-        private static final String ICON_URL = "task-icon.jpg";
+        private static final String ICON_URL = "images/task-icon.jpg";
 
         public SetSwitchStateTask()
         {

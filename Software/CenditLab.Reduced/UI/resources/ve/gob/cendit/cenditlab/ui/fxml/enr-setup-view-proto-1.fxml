@@ -15,16 +15,7 @@
     <children>
 
         <Label alignment="CENTER" text="Modo ENR" GridPane.halignment="RIGHT" />
-        <ChoiceBox fx:id="enrModeChoiceBox" value="Tabla" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="0">
-            <!--
-            <items>
-              <FXCollections fx:factory="observableArrayList">
-                <String fx:value="Tabla" />
-                <String fx:value="Spot" />
-              </FXCollections>
-            </items>
-            -->
-        </ChoiceBox>
+        <ChoiceBox fx:id="enrModeChoiceBox" value="Tabla" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="0"/>
 
         <Label alignment="CENTER" text="Modo Spot " GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
         <ChoiceBox fx:id="spotModeChoiceBox" maxWidth="-1.0" value="ENR" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1">
