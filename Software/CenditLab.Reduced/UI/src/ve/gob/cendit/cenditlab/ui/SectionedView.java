@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class SectionedView extends VBox
 {
-    private static final String FXML_URL = "fxml/generic-main-view.fxml";
+    private static final String FXML_URL = "fxml/sectioned-view.fxml";
 
     @FXML
     private HBox headerHBox;

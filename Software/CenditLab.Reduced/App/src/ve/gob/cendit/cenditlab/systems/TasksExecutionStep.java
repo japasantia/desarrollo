@@ -5,13 +5,17 @@ import ve.gob.cendit.cenditlab.control.MeasurementStep;
 import ve.gob.cendit.cenditlab.control.System;
 import ve.gob.cendit.cenditlab.control.Task;
 import ve.gob.cendit.cenditlab.ui.IconView;
-import ve.gob.cendit.cenditlab.ui.MasterDetailView;
+import ve.gob.cendit.cenditlab.ui.TasksExecutionStepView;
+
+import java.util.Arrays;
+
 
 public class TasksExecutionStep extends MeasurementStep
 {
     private boolean blocked = false;
 
-    private MasterDetailView masterDetailView;
+    private TasksExecutionStepView tasksExecutionStepView;
+
     private System[] systemsArray;
 
     public TasksExecutionStep(String name, System... systems)
@@ -36,22 +40,16 @@ public class TasksExecutionStep extends MeasurementStep
     @Override
     public void initialize()
     {
-        masterDetailView = new MasterDetailView();
-
-        for (System system : systemsArray)
-        {
-            for (Task task : system.getTasks())
-            {
-                IconView taskIconView = new IconView(task.getName(), task.getIcon());
-                masterDetailView.addDetail(taskIconView);
-            }
-        }
+       tasksExecutionStepView = new TasksExecutionStepView();
     }
 
     @Override
     public void load()
     {
-        CenditLabApplication.getApp().setCenterContainer(masterDetailView);
+        Arrays.stream(systemsArray)
+                .forEach(system -> tasksExecutionStepView.addTasks(system.getTasks()));
+
+        CenditLabApplication.getApp().setCenterContainer(tasksExecutionStepView);
     }
 
     @Override
@@ -63,7 +61,7 @@ public class TasksExecutionStep extends MeasurementStep
     @Override
     public void unload()
     {
-
+        tasksExecutionStepView.unloadTasks();
     }
 
     public void setBlocked(boolean value)

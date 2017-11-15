@@ -23,7 +23,7 @@ public class ImageLabel extends Label
         if (imageUrl != null)
         {
             iconImageView.setDisable(false);
-            iconImageView.setImage(new Image(imageUrl));
+            iconImageView.setImage(new Image(getClass().getResource(imageUrl).toExternalForm()));
         }
         else
         {

@@ -4,9 +4,9 @@ public abstract class MeasurementStep
 {
     private static final int BEGIN = 0;
     private static final int INITIALIZED = 1;
-    private static final int LOADED = INITIALIZED | 2;
-    private static final int RUNNING = LOADED | 4;
-    private static final int UNLOADED = INITIALIZED | 8;
+    private static final int LOADED = 2;
+    private static final int RUNNING = 4;
+    private static final int UNLOADED = 8;
 
     private String name;
     private MeasurementManager ownerManager;
@@ -54,27 +54,27 @@ public abstract class MeasurementStep
 
     public boolean isInitialized()
     {
-        return checkStatus(INITIALIZED);
+        return status == INITIALIZED || status == LOADED || status == RUNNING || status == UNLOADED;
     }
 
     public boolean isLoaded()
     {
-        return checkStatus(LOADED);
+        return status == LOADED || status == RUNNING;
     }
 
     public boolean isRunning()
     {
-        return checkStatus(RUNNING);
+        return status == RUNNING;
     }
 
     public boolean isUnloaded()
     {
-        return checkStatus(UNLOADED);
+        return status == UNLOADED;
     }
 
     private boolean checkStatus(int value)
     {
-        return status == value;
+        return (status & value) != 0;
     }
 
     void executeInitialize()

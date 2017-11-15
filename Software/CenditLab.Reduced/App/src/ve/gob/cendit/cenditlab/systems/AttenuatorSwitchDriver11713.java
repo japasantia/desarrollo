@@ -34,12 +34,6 @@ public class AttenuatorSwitchDriver11713 extends System
     }
 
     @Override
-    public MeasurementManager getMeasurementManager()
-    {
-        return null;
-    }
-
-    @Override
     public Node getView(ViewType viewType)
     {
         return viewFactory.getView(this, viewType);
@@ -47,6 +41,12 @@ public class AttenuatorSwitchDriver11713 extends System
 
     @Override
     public Node getView(String viewId)
+    {
+        return null;
+    }
+
+    @Override
+    public FieldsContainer getSetupFields()
     {
         return null;
     }
@@ -73,6 +73,8 @@ public class AttenuatorSwitchDriver11713 extends System
         {
             return null;
         }
+
+
 
         @Override
         public Node getView(ViewType viewType)

@@ -24,7 +24,7 @@
 
         <ImageView fx:id="taskIconImageView" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
             <image>
-                <Image url="@../images/task-icon-1.jpg" />
+                <Image url="@../images/task-icon.jpg" />
             </image>
         </ImageView>
 
