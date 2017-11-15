@@ -59,7 +59,7 @@ public class TaskExecutionView extends GridPane
     {
         if (iconUrl != null)
         {
-            taskIconImageView.setDisable(true);
+            taskIconImageView.setDisable(false);
             taskIconImageView.setImage(new Image(getClass().getResource(iconUrl).toExternalForm()));
         }
         else

@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GenericMainView extends VBox
+public class SectionedView extends VBox
 {
     private static final String FXML_URL = "fxml/generic-main-view.fxml";
 
@@ -25,7 +25,7 @@ public class GenericMainView extends VBox
 
     private Map<String, Node> centerSectionsMap;
 
-    public GenericMainView()
+    public SectionedView()
     {
         ViewLoader.load(FXML_URL, this, this);
 

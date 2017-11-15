@@ -18,7 +18,6 @@ public class SystemsSetupStep extends MeasurementStep
         super(name);
 
         systemsArray = systems;
-        systemsSetupView = new SystemsSetupStepView();
     }
 
     @Override
@@ -36,13 +35,14 @@ public class SystemsSetupStep extends MeasurementStep
     @Override
     public void initialize()
     {
-        systemsSetupView.setSystems(systemsArray);
+        systemsSetupView = new SystemsSetupStepView();
     }
 
     @Override
     public void load()
     {
         CenditLabApplication.getApp().setCenterContainer(systemsSetupView);
+        systemsSetupView.loadSystems(systemsArray);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class SystemsSetupStep extends MeasurementStep
     @Override
     public void unload()
     {
-
+        systemsSetupView.unloadSystems();
     }
 
     public void setBlocked(boolean value)

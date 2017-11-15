@@ -116,6 +116,7 @@ public class ComponentViewFactory
             {
                 case LIST_ICON:
                     viewNode = new IconView(component.getName(), component.getIcon());
+                    break;
 
                 case DESCRIPTION:
                     viewNode = new TaskDescriptionView((Task)component);

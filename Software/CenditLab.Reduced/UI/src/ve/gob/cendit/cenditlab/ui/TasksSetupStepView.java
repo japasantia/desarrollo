@@ -2,6 +2,7 @@ package ve.gob.cendit.cenditlab.ui;
 
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Orientation;
+import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -9,10 +10,10 @@ import ve.gob.cendit.cenditlab.control.Task;
 import ve.gob.cendit.cenditlab.control.System;
 import ve.gob.cendit.cenditlab.ui.base.ViewType;
 
-public class TasksSetupStepView extends GenericMainView
+public class TasksSetupStepView extends SectionedView
 {
     private ScrollPane masterScrollView;
-    private GenericMainView detailSetupGenericMainView;
+    private SectionedView detailSetupSectionedView;
 
     private VBox masterVBox;
     private VBox detailVBox;
@@ -26,7 +27,7 @@ public class TasksSetupStepView extends GenericMainView
     public TasksSetupStepView(System... systems)
     {
         initialize();
-        setSystems(systems);
+        loadSystems(systems);
     }
 
     private void initialize()
@@ -43,29 +44,35 @@ public class TasksSetupStepView extends GenericMainView
 
         detailVBox = new VBox();
         setupVBox = new VBox();
-        detailSetupGenericMainView = new GenericMainView();
+        detailSetupSectionedView = new SectionedView();
 
-        detailSetupGenericMainView.setCenterSectionOrientation(Orientation.VERTICAL);
-        detailSetupGenericMainView.createCenterSection("Detail", detailVBox);
-        detailSetupGenericMainView.createCenterSection("Setup", setupVBox);
+        detailSetupSectionedView.setCenterSectionOrientation(Orientation.HORIZONTAL);
+        detailSetupSectionedView.createCenterSection("Detail", detailVBox);
+        detailSetupSectionedView.createCenterSection("Setup", setupVBox);
 
         this.createCenterSection("Master", masterScrollView);
-        this.createCenterSection("DetailSetup", detailSetupGenericMainView);
+        this.createCenterSection("DetailSetup", detailSetupSectionedView);
     }
 
-    public void setSystems(System... systems)
+    public void loadSystems(System... systems)
     {
-        masterVBox.getChildren().clear();
+        unloadSystems();
 
+        addSystems(systems);
+    }
+
+    public void addSystems(System... systems)
+    {
         for (System system : systems)
         {
             ComponentListView<Task> tasksListView = new ComponentListView<>();
 
-            tasksListView.setOnSelectedItemChanged(this::onTaskSelected);
+            tasksListView.setOnListSelectionChanged(this::onTaskSelected);
 
             tasksListView.setCollapsible(true);
-            tasksListView.setIcon(system.getIcon());
             VBox.setVgrow(tasksListView, Priority.ALWAYS);
+
+            tasksListView.setIcon(system.getIcon());
 
             tasksListView.setTitle(system.getName());
             tasksListView.getItems().addAll(system.getTasks());
@@ -74,13 +81,36 @@ public class TasksSetupStepView extends GenericMainView
         }
     }
 
+    public void unloadSystems()
+    {
+        masterVBox.getChildren().clear();
+
+        detailVBox.getChildren().clear();
+
+        setupVBox.getChildren().clear();
+    }
+
     private <T extends Task> void onTaskSelected(ObservableValue<? extends Task> observable,
                                                  T oldTask, T newTask)
     {
-        detailVBox.getChildren().clear();
-        detailVBox.getChildren().add(newTask.getView(ViewType.DETAILS));
+        if (newTask == null)
+            return;
 
+        detailVBox.getChildren().clear();
         setupVBox.getChildren().clear();
-        setupVBox.getChildren().add(newTask.getView(ViewType.SETUP));
+
+        Node viewNode = newTask.getView(ViewType.DETAILS);
+
+        if (viewNode != null)
+        {
+            detailVBox.getChildren().add(viewNode);
+        }
+
+        viewNode = newTask.getView(ViewType.SETUP);
+
+        if (viewNode != null)
+        {
+            setupVBox.getChildren().add(viewNode);
+        }
     }
 }

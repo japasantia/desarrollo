@@ -2,16 +2,16 @@ package ve.gob.cendit.cenditlab.control;
 
 public abstract class MeasurementStep
 {
-
+    private static final int BEGIN = 0;
     private static final int INITIALIZED = 1;
-    private static final int LOADED = 2;
-    private static final int RUNNING = 4;
-    private static final int UNLOADED = 8;
+    private static final int LOADED = INITIALIZED | 2;
+    private static final int RUNNING = LOADED | 4;
+    private static final int UNLOADED = INITIALIZED | 8;
 
     private String name;
     private MeasurementManager ownerManager;
 
-    private int status = UNLOADED;
+    private int status = BEGIN;
 
     public MeasurementStep(String name)
     {
@@ -72,9 +72,9 @@ public abstract class MeasurementStep
         return checkStatus(UNLOADED);
     }
 
-    private boolean checkStatus(int mask)
+    private boolean checkStatus(int value)
     {
-        return (status & mask) != 0;
+        return status == value;
     }
 
     void executeInitialize()
@@ -92,7 +92,7 @@ public abstract class MeasurementStep
             return;
 
         load();
-        setStatus(INITIALIZED | LOADED);
+        setStatus(LOADED);
     }
 
     void executeRun()
@@ -101,7 +101,7 @@ public abstract class MeasurementStep
             return;
 
         run();
-        setStatus(INITIALIZED | LOADED | RUNNING);
+        setStatus(RUNNING);
     }
 
     void executeUnload()
@@ -110,7 +110,7 @@ public abstract class MeasurementStep
             return;
 
         unload();
-        setStatus(INITIALIZED | UNLOADED);
+        setStatus(UNLOADED);
     }
 
     public abstract void initialize();

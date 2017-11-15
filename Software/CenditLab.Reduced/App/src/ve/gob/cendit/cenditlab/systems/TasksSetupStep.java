@@ -34,13 +34,14 @@ public class TasksSetupStep extends MeasurementStep
     @Override
     public void initialize()
     {
-        tasksSetupView = new TasksSetupStepView(systemsArray);
+        tasksSetupView = new TasksSetupStepView();
     }
 
     @Override
     public void load()
     {
         CenditLabApplication.getApp().setCenterContainer(tasksSetupView);
+        tasksSetupView.loadSystems(systemsArray);
     }
 
     @Override
@@ -52,7 +53,7 @@ public class TasksSetupStep extends MeasurementStep
     @Override
     public void unload()
     {
-
+        tasksSetupView.unloadSystems();
     }
 
     public void setBlocked(boolean value)

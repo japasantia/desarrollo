@@ -27,8 +27,8 @@ public class ViewTests extends Application
         // setupViewTest();
         // enrSetupViewProto1Test();
         // frequencySetupViewTest();
-        // setupContainerViewTest();
-        basicFrequencySetupTest();
+        setupContainerViewTest();
+        // basicFrequencySetupTest();
         // genericMainViewTest();
     }
 
@@ -119,7 +119,9 @@ public class ViewTests extends Application
 
         setupContainerView.addSetup("Frequency Range Pane", new FrequencyRangePane());
 
-        setupContainerView.addSetup("",  new FrequencyListPane());
+        setupContainerView.addSetup("Frequency List Pane",  new FrequencyListPane());
+
+        setupContainerView.addSetup("Connection Setup", new ConnectionSetupView());
 
         showView(setupContainerView, "CenditLab.Reduced | Test SetupContainerView",
                 600, 400);
@@ -135,7 +137,7 @@ public class ViewTests extends Application
 
     private void genericMainViewTest()
     {
-        GenericMainView mainView = new GenericMainView();
+        SectionedView mainView = new SectionedView();
 
         BasicFrequencySetupView basicFrequencySetupView = new BasicFrequencySetupView();
         FrequencyListPane frequencyListPane = new FrequencyListPane();
@@ -153,7 +155,7 @@ public class ViewTests extends Application
 
         mainView.createCenterSection("Master", setupView);
 
-        showView(mainView, "CenditLab.Reduced | Test GenericMainView Test",
+        showView(mainView, "CenditLab.Reduced | Test SectionedView Test",
                 800, 600);
     }
 

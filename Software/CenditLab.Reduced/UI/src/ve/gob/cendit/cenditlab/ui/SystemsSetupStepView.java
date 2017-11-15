@@ -11,11 +11,12 @@ import ve.gob.cendit.cenditlab.control.System;
 import ve.gob.cendit.cenditlab.control.Task;
 import ve.gob.cendit.cenditlab.ui.base.ViewType;
 
-public class SystemsSetupStepView extends GenericMainView
+public class SystemsSetupStepView extends SectionedView
 {
     private ComponentListView<System> masterListView;
 
     private VBox detailVBox;
+    private VBox setupVBox;
 
     public SystemsSetupStepView()
     {
@@ -24,7 +25,7 @@ public class SystemsSetupStepView extends GenericMainView
 
     public SystemsSetupStepView(System... systems)
     {
-        setSystems(systems);
+        loadSystems(systems);
         initialize();
     }
 
@@ -32,16 +33,18 @@ public class SystemsSetupStepView extends GenericMainView
     {
         masterListView = new ComponentListView<>();
         detailVBox = new VBox();
+        setupVBox = new VBox();
 
         this.createCenterSection("Master", masterListView);
         this.createCenterSection("Detail", detailVBox);
+        this.createCenterSection("Setup", setupVBox);
 
         masterListView.setTitle("Available Systems");
         masterListView.setIcon("images/system-icon.png");
         masterListView.setItems(FXCollections.<System>observableArrayList());
         masterListView.enableMultipleSelection(true);
 
-        masterListView.setOnSelectedItemChanged(this::onSystemSelected);
+        masterListView.setOnListSelectionChanged(this::onSystemSelected);
     }
 
     public ObservableList<System> getSystems()
@@ -49,15 +52,22 @@ public class SystemsSetupStepView extends GenericMainView
         return masterListView.getItems();
     }
 
-    public void setSystems(System... systems)
+    public void loadSystems(System... systems)
     {
-        getSystems().clear();
+        unloadSystems();
         addSystems(systems);
     }
 
     public void addSystems(System... systems)
     {
         getSystems().addAll(systems);
+    }
+
+    public void unloadSystems()
+    {
+        getSystems().clear();
+
+        detailVBox.getChildren().clear();
     }
 
     private <T extends System> void onSystemSelected(ObservableValue<? extends System> observable,
@@ -72,14 +82,23 @@ public class SystemsSetupStepView extends GenericMainView
             return;
 
         detailVBox.getChildren().clear();
+        setupVBox.getChildren().clear();
 
         for (Task task : tasks)
         {
-            Node taskViewNode = task.getView(ViewType.DESCRIPTION);
+            Node viewNode = task.getView(ViewType.DESCRIPTION);
 
-            if (taskViewNode != null)
+
+            if (viewNode != null)
             {
-                detailVBox.getChildren().add(taskViewNode);
+                detailVBox.getChildren().add(viewNode);
+            }
+
+            viewNode = task.getView(ViewType.SETUP);
+
+            if (viewNode != null)
+            {
+                setupVBox.getChildren().add(viewNode);
             }
         }
     }

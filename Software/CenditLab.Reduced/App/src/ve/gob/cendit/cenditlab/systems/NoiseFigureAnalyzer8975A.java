@@ -47,12 +47,6 @@ public class NoiseFigureAnalyzer8975A extends System
     }
 
     @Override
-    public MeasurementManager getMeasurementManager()
-    {
-        return measurementManager;
-    }
-
-    @Override
     public Node getView(ViewType viewType)
     {
         return viewFactory.getView(this, viewType);
@@ -60,6 +54,12 @@ public class NoiseFigureAnalyzer8975A extends System
 
     @Override
     public Node getView(String viewId)
+    {
+        return null;
+    }
+
+    @Override
+    public FieldsContainer getSetupFields()
     {
         return null;
     }

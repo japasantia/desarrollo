@@ -3,6 +3,7 @@ package ve.gob.cendit.cenditlab.ui;
 
 import javafx.beans.value.ChangeListener;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.ListCell;
@@ -11,6 +12,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import ve.gob.cendit.cenditlab.control.Component;
 import ve.gob.cendit.cenditlab.ui.base.ViewType;
@@ -118,7 +120,12 @@ public class ComponentListView<T extends Component> extends TitledPane
         containerListView.setCellFactory(callback);
     }
 
-    public void setOnSelectedItemChanged(ChangeListener<T> listener)
+    public void setOnListClicked(EventHandler<MouseEvent> eventHandler)
+    {
+        containerListView.setOnMouseClicked(eventHandler);
+    }
+
+    public void setOnListSelectionChanged(ChangeListener<T> listener)
     {
         containerListView.getSelectionModel()
                 .selectedItemProperty()

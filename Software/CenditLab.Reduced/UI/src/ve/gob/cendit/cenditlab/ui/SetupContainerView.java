@@ -96,6 +96,11 @@ public class SetupContainerView extends ScrollPane
         insertExtendedRow(view, 2, 1);
     }
 
+    public void addConnectionSetupView(String title, ConnectionSetupView view)
+    {
+        insertExtendedRow(view, 2, 1);
+    }
+
     public void addSetup(String title, Object setupObject)
     {
         if (setupObject instanceof Field)
@@ -126,6 +131,10 @@ public class SetupContainerView extends ScrollPane
         else if (setupObject instanceof EnrSetupViewProto1)
         {
             addEnrSetupView(title, (EnrSetupViewProto1) setupObject);
+        }
+        else if (setupObject instanceof ConnectionSetupView)
+        {
+            addConnectionSetupView(title, (ConnectionSetupView) setupObject);
         }
     }
 
