@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 
 public class IconLabel extends Label
 {
-    private static final String FXML_URL = "fxml/image-label.fxml";
+    private static final String FXML_URL = "fxml/icon-label.fxml";
 
     @FXML
     private ImageView iconImageView;

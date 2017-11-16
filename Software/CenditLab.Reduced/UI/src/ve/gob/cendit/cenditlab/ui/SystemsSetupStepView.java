@@ -4,10 +4,12 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import javafx.geometry.Orientation;
 import javafx.scene.Node;
 
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
+import sun.swing.SwingUtilities2;
 import ve.gob.cendit.cenditlab.control.System;
 import ve.gob.cendit.cenditlab.control.Task;
 import ve.gob.cendit.cenditlab.ui.base.ViewType;
@@ -17,8 +19,9 @@ public class SystemsSetupStepView extends SectionedView
     private static final Image DEFAULT_ICON =
             new Image(SystemsSetupStepView.class.getResource("/ve/gob/cendit/cenditlab/ui/images/system-icon.png").toExternalForm());
 
-
     private ComponentListView<System> masterListView;
+
+    private SectionedView detailSetupSectionedView;
 
     private VBox detailVBox;
     private VBox setupVBox;
@@ -40,9 +43,13 @@ public class SystemsSetupStepView extends SectionedView
         detailVBox = new VBox();
         setupVBox = new VBox();
 
+        detailSetupSectionedView = new SectionedView();
+        detailSetupSectionedView.createCenterSection("Detail", detailVBox);
+        detailSetupSectionedView.createCenterSection("Setup", setupVBox);
+        detailSetupSectionedView.setCenterSectionOrientation(Orientation.VERTICAL);
+
         this.createCenterSection("Master", masterListView);
-        this.createCenterSection("Detail", detailVBox);
-        this.createCenterSection("Setup", setupVBox);
+        this.createCenterSection("SetupDetail", detailSetupSectionedView);
 
         masterListView.setTitle("Available Systems");
         masterListView.setIcon(DEFAULT_ICON);

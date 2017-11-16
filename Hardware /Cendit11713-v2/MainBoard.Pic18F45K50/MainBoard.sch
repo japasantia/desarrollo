@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:MainBoard-rescue
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
@@ -55,7 +56,7 @@ F 3 "" H 3400 1450 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L POWER_CON #CON01
+L POWER_CON-RESCUE-MainBoard #CON01
 U 1 1 5996E2AE
 P 1000 2000
 F 0 "#CON01" H 850 2800 60  0001 C CNN
@@ -66,7 +67,7 @@ F 3 "" H 1000 2000 60  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L USB_CON CON2
+L USB_CON-RESCUE-MainBoard CON2
 U 1 1 5996E56B
 P 1000 3000
 F 0 "CON2" H 700 3750 60  0000 C CNN
