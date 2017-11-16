@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 
 import javafx.scene.Node;
 
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import ve.gob.cendit.cenditlab.control.System;
 import ve.gob.cendit.cenditlab.control.Task;
@@ -13,6 +14,10 @@ import ve.gob.cendit.cenditlab.ui.base.ViewType;
 
 public class SystemsSetupStepView extends SectionedView
 {
+    private static final Image DEFAULT_ICON =
+            new Image(SystemsSetupStepView.class.getResource("/ve/gob/cendit/cenditlab/ui/images/system-icon.png").toExternalForm());
+
+
     private ComponentListView<System> masterListView;
 
     private VBox detailVBox;
@@ -40,7 +45,7 @@ public class SystemsSetupStepView extends SectionedView
         this.createCenterSection("Setup", setupVBox);
 
         masterListView.setTitle("Available Systems");
-        masterListView.setIcon("images/system-icon.png");
+        masterListView.setIcon(DEFAULT_ICON);
         masterListView.setItems(FXCollections.<System>observableArrayList());
         masterListView.enableMultipleSelection(true);
 

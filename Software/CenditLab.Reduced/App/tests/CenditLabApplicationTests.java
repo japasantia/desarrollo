@@ -39,10 +39,10 @@ public class CenditLabApplicationTests extends Application
 
         SystemsSetupStep systemsSetupStep = new SystemsSetupStep("Systems Setup", nfa, asd);
         TasksSetupStep tasksSetupStep = new TasksSetupStep("Tasks Setup", nfa, asd);
-        TasksExecutionStep tasksExecutionStep = new TasksExecutionStep("Tasks Execution", nfa, asd);
+        //TasksExecutionStep tasksExecutionStep = new TasksExecutionStep("Tasks Execution", nfa, asd);
 
         measurementManager = new MeasurementManager("Noise Figure Measurement System",
-                systemsSetupStep, tasksSetupStep, tasksExecutionStep);
+                systemsSetupStep, tasksSetupStep/*, tasksExecutionStep*/);
         measurementBarView = new MeasurementBarView(measurementManager);
     }
 

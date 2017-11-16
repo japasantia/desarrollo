@@ -6,19 +6,33 @@
 <?import javafx.scene.image.*?>
 
 <?import ve.gob.cendit.cenditlab.ui.ImageButton?>
-<?import ve.gob.cendit.cenditlab.ui.ImageLabel?>
+<?import ve.gob.cendit.cenditlab.ui.IconLabel?>
 
 <fx:root type="ToolBar"  minWidth="300.0" maxHeight="1.7976931348623157E308" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
 <!-- <ToolBar minWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"> -->
     <items>
-        <ImageButton fx:id="playImageButton" image="@../images/play-icon.png" text=""/>
-        <ImageButton fx:id="stopImageButton" image="@../images/stop-icon.png" text=""/>
+        <ImageButton fx:id="playImageButton" text="">
+            <Image url="@../images/play-icon.png"/>
+        </ImageButton>
+
+        <ImageButton fx:id="stopImageButton" text="">
+            <Image url="@../images/play-icon.png"/>
+        </ImageButton>
 
         <Separator orientation="VERTICAL" />
 
-        <ImageLabel image="@../images/green-led-on-icon.png" text="Ready"/>
-        <ImageLabel image="@../images/red-led-off-icon.png" text="Stop"/>
-        <ImageLabel image="@../images/warning-icon.png" text="Warning"/>
+        <IconLabel text="Ready">
+            <Image url="@../images/green-led-on-icon.png"/>
+        </IconLabel>
+
+        <IconLabel text="Stop">
+            <Image url="@../images/red-led-off-icon.png"/>
+        </IconLabel>
+
+        <IconLabel text="Warning">
+            <Image url="@../images/warning-icon.png"/>
+        </IconLabel>
+
     </items>
 <!-- </ToolBar> -->
 </fx:root>

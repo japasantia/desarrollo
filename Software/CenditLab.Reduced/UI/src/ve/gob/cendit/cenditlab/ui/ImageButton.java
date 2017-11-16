@@ -1,7 +1,5 @@
 package ve.gob.cendit.cenditlab.ui;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -19,12 +17,12 @@ public class ImageButton extends Button
         ViewLoader.load(FXML_URL, this, this);
     }
 
-    public void setImage(String imageUrl)
+    public void setImage(Image image)
     {
-        if (imageUrl != null)
+        if (image != null)
         {
             iconImageView.setDisable(false);
-            iconImageView.setImage(new Image(imageUrl));
+            iconImageView.setImage(image);
         }
         else
         {
@@ -32,8 +30,8 @@ public class ImageButton extends Button
         }
     }
 
-    public String getImage()
+    public Image getImage()
     {
-        return null;
+        return iconImageView.getImage();
     }
 }

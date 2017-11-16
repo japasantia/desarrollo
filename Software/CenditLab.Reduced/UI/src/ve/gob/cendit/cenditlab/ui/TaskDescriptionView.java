@@ -55,17 +55,22 @@ public class TaskDescriptionView extends GridPane
         taskNameLabel.setText(value != null ? value : DEFAULT_TASK_NAME);
     }
 
-    public void setIcon(String iconUrl)
+    public void setIcon(Image image)
     {
-        if (iconUrl != null)
+        if (image != null)
         {
             taskIconImageView.setDisable(false);
-            taskIconImageView.setImage(new Image(getClass().getResource(iconUrl).toExternalForm()));
+            taskIconImageView.setImage(image);
         }
         else
         {
             taskIconImageView.setDisable(true);
         }
+    }
+
+    public Image getImage()
+    {
+        return taskIconImageView.getImage();
     }
 }
 

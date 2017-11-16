@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import ve.gob.cendit.cenditlab.ui.ExecutionToolbar?>
-<?import ve.gob.cendit.cenditlab.ui.ImageLabel?>
+<?import ve.gob.cendit.cenditlab.ui.IconLabel?>
 
 <fx:root type="GridPane" hgap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="5.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
 <!-- <GridPane hgap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="5.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"> -->
@@ -36,15 +36,17 @@
                 <Font size="14.0" />
             </font>
         </Label>
-
+        <!--
         <ExecutionToolbar fx:id="taskExecutionToolbar" GridPane.columnIndex="2" GridPane.rowIndex="0" maxHeight="Infinity" />
 
         <FlowPane fx:id="taskIndicatorsFlowPane" maxWidth="1.7976931348623157E308" GridPane.columnSpan="3" GridPane.rowIndex="1">
             <children>
-                <ImageLabel image="@../images/warning-icon.png"/>
+                <IconLabel>
+                    <Image url="@../images/warning-icon.png"/>
+                </IconLabel>
             </children>
         </FlowPane>
-
+        -->
     </children>
 
     <padding>

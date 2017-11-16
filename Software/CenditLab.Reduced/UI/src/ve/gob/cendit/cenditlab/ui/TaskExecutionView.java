@@ -55,12 +55,12 @@ public class TaskExecutionView extends GridPane
         taskNameLabel.setText(value != null ? value : DEFAULT_TASK_NAME);
     }
 
-    public void setIcon(String iconUrl)
+    public void setIcon(Image iconImage)
     {
-        if (iconUrl != null)
+        if (iconImage != null)
         {
             taskIconImageView.setDisable(false);
-            taskIconImageView.setImage(new Image(getClass().getResource(iconUrl).toExternalForm()));
+            taskIconImageView.setImage(iconImage);
         }
         else
         {

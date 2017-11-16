@@ -1,6 +1,7 @@
 package ve.gob.cendit.cenditlab.systems;
 
 import javafx.scene.Node;
+import javafx.scene.image.Image;
 import ve.gob.cendit.cenditlab.control.MeasurementManager;
 import ve.gob.cendit.cenditlab.control.System;
 import ve.gob.cendit.cenditlab.control.Task;
@@ -12,7 +13,13 @@ public class AttenuatorSwitchDriver11713 extends System
 {
     private static final String NAME = "Attenuator and Switch Driver 11713";
     private static final String DESCRIPTION = "Attenuator and switch controller and driver";
-    private static final String ICON_URL = "images/asd11713c.jpg";
+
+    private static final Image ICON_IMAGE =
+            new Image(NoiseFigureAnalyzer8975A.class.getResource("/ve/gob/cendit/cenditlab/ui/images/asd11713c.jpg").toExternalForm());
+
+    private final Image TASK_ICON_IMAGE =
+            new Image(NoiseFigureAnalyzer8975A.class.getResource("/ve/gob/cendit/cenditlab/ui/images/task-icon.jpg").toExternalForm());
+
 
     private static final ComponentViewFactory viewFactory = ComponentViewFactory.get();
 
@@ -24,7 +31,7 @@ public class AttenuatorSwitchDriver11713 extends System
 
     public AttenuatorSwitchDriver11713()
     {
-        super(NAME, DESCRIPTION, ICON_URL);
+        super(NAME, DESCRIPTION, ICON_IMAGE);
     }
 
     @Override
@@ -55,11 +62,11 @@ public class AttenuatorSwitchDriver11713 extends System
     {
         private static final String NAME = "Attenuation Setter";
         private static final String DESCRIPTION = "Sets attenuation on the device";
-        private static final String ICON_URL = "images/task-icon.jpg";
+
 
         public SetAttenuationTask()
         {
-            super(NAME, DESCRIPTION, ICON_URL);
+            super(NAME, DESCRIPTION, TASK_ICON_IMAGE);
         }
 
         @Override
@@ -94,11 +101,10 @@ public class AttenuatorSwitchDriver11713 extends System
     {
         private static final String NAME = "Change Switch State";
         private static final String DESCRIPTION = "Change switch state on selected switch";
-        private static final String ICON_URL = "images/task-icon.jpg";
 
         public SetSwitchStateTask()
         {
-            super(NAME, DESCRIPTION, ICON_URL);
+            super(NAME, DESCRIPTION, TASK_ICON_IMAGE);
         }
 
         @Override

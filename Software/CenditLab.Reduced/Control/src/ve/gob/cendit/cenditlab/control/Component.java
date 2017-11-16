@@ -1,15 +1,16 @@
 package ve.gob.cendit.cenditlab.control;
 
 import javafx.scene.Node;
+import javafx.scene.image.Image;
 import ve.gob.cendit.cenditlab.ui.base.ViewType;
 
 public abstract class Component
 {
     private String name;
     private String description;
-    private String iconUrl;
+    private Image iconImage;
 
-    public Component(String name, String description, String iconUrl)
+    public Component(String name, String description, Image iconImage)
     {
         if (name == null || description == null)
         {
@@ -18,12 +19,7 @@ public abstract class Component
 
         this.name = name;
         this.description = description;
-        this.iconUrl = iconUrl;
-
-        /*
-        this.name = (name != null ? name : "Component");
-        this.description = (description != null ? description : "");
-        */
+        this.iconImage = iconImage;
     }
 
     public String getName()
@@ -34,7 +30,7 @@ public abstract class Component
     {
         return description;
     }
-    public String getIcon() { return iconUrl; }
+    public Image getIcon() { return iconImage; }
 
     public abstract Node getView(ViewType viewType);
     public abstract Node getView(String viewId);

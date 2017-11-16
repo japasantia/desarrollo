@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<?import ve.gob.cendit.cenditlab.ui.ImageLabel?>
+<?import ve.gob.cendit.cenditlab.ui.IconLabel?>
 
 <fx:root type="GridPane"  hgap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="5.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
 <!-- <GridPane hgap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="5.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"> -->
@@ -36,8 +36,17 @@
 
         <FlowPane fx:id="taskIndicatorsFlowPane" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="0">
             <children>
-                <ImageLabel image="@../images/green-led-on-icon.png" text="Ready"/>
-                <ImageLabel image="@../images/warning-icon.png" text=""/>
+                <IconLabel text="Ready">
+                    <image>
+                        <Image url="@../images/green-led-on-icon.png"/>
+                    </image>
+                </IconLabel>
+
+                <IconLabel text="">
+                    <image>
+                        <Image url="@../images/green-led-on-icon.png"/>
+                    </image>
+                </IconLabel>
             </children>
         </FlowPane>
     </children>

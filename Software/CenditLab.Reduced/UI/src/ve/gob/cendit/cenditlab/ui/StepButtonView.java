@@ -28,15 +28,20 @@ public class StepButtonView extends ToggleButton
         setMeasurementStep(step);
     }
 
-    public StepButtonView(String caption, String imageUrl)
+    public StepButtonView(String caption, Image image)
     {
         ViewLoader.load(FXML_URL, this, this);
 
         this.setText((caption != null ? caption : ""));
 
-        if (imageUrl != null)
+        if (image != null)
         {
-            iconImageView.setImage(new Image(imageUrl));
+            iconImageView.setDisable(false);
+            iconImageView.setImage(image);
+        }
+        else
+        {
+            iconImageView.setDisable(true);
         }
     }
 

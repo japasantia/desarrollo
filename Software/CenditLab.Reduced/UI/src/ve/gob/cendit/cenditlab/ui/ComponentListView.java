@@ -30,7 +30,7 @@ public class ComponentListView<T extends Component> extends TitledPane
     @FXML
     private ListView<T> containerListView;
 
-    private String viewType = ViewType.LIST_ICON.toString();
+    private ViewType viewType = ViewType.LIST_ICON;
 
     public ComponentListView()
     {
@@ -49,12 +49,12 @@ public class ComponentListView<T extends Component> extends TitledPane
         return this.getText();
     }
 
-    public void setIcon(String iconUrl)
+    public void setIcon(Image image)
     {
-        if (iconUrl != null)
+        if (image != null)
         {
             iconImageView.setVisible(true);
-            iconImageView.setImage(new Image(getClass().getResource(iconUrl).toExternalForm()));
+            iconImageView.setImage(image);
         }
         else
         {
@@ -62,19 +62,14 @@ public class ComponentListView<T extends Component> extends TitledPane
         }
     }
 
+    public Image getImage()
+    {
+        return iconImageView.getImage();
+    }
+
     public void setViewType(ViewType value)
     {
-        setViewType(viewType);
-    }
-
-    public void setViewType(String value)
-    {
         viewType = value;
-    }
-
-    public String getViewType()
-    {
-        return viewType;
     }
 
     public void enableMultipleSelection(boolean value)
@@ -146,9 +141,10 @@ public class ComponentListView<T extends Component> extends TitledPane
                 return;
 
             // TODO: revisar por elemento null
-            Node node = componentItem.getView(ViewType.LIST_ICON);
+            Node node = componentItem.getView(viewType);
 
-            setGraphic(node);
+            if (node != null)
+                setGraphic(node);
         }
     }
 }
