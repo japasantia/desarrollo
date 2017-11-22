@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:MainBoard-rescue
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
@@ -28,8 +27,18 @@ LIBS:linear
 LIBS:regul
 LIBS:74xx
 LIBS:cmos4000
+LIBS:eSim_Analog
+LIBS:eSim_Devices
+LIBS:eSim_Digital
+LIBS:eSim_Hybrid
+LIBS:eSim_Miscellaneous
+LIBS:eSim_Power
+LIBS:eSim_Sources
+LIBS:eSim_Subckt
+LIBS:eSim_User
+LIBS:eSim_Plot
+LIBS:eSim_PSpice
 LIBS:CenditBasic
-LIBS:MainBoard-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -796,13 +805,13 @@ VDD_3V
 $Comp
 L PCF85263A U3
 U 1 1 5A027CF7
-P 9700 1250
-F 0 "U3" H 9850 1650 60  0000 C CNN
-F 1 "PCF85263A" H 9850 1050 60  0000 C CNN
-F 2 "CenditFootprints:PCF85263A_SO8" H 9700 1250 60  0001 C CNN
-F 3 "" H 9700 1250 60  0001 C CNN
-	1    9700 1250
-	-1   0    0    -1  
+P 9400 1250
+F 0 "U3" H 9550 1650 60  0000 C CNN
+F 1 "PCF85263A" H 9550 1050 60  0000 C CNN
+F 2 "CenditFootprints:PCF85263A_SO8" H 9400 1250 60  0001 C CNN
+F 3 "" H 9400 1250 60  0001 C CNN
+	1    9400 1250
+	1    0    0    -1  
 $EndComp
 $Comp
 L Crystal_Small Y2
