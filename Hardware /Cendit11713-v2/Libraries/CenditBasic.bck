@@ -1,5 +1,35 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP PA1297NL
+D Transformer, single primary, single secondary
+K transformer coil magnet
+$ENDCMP
+#
+$CMP PA2547NL
+D Transformer, single primary, single secondary
+K transformer coil magnet
+$ENDCMP
+#
+$CMP PA2653NL
+D Transformer, single primary, single secondary
+K transformer coil magnet
+$ENDCMP
+#
+$CMP PA2804NL
+D Transformer, single primary, single secondary
+K transformer coil magnet
+$ENDCMP
+#
+$CMP PA3856.003NL
+D Transformer, single primary, single secondary
+K transformer coil magnet
+$ENDCMP
+#
+$CMP PA3965.002NL
+D Transformer, single primary, single secondary
+K transformer coil magnet
+$ENDCMP
+#
 $CMP XFRMR_PA2653NL
 D TEZ0.5/D/x-x, 0.5VA, Dual Secondary, Cast Resin Transformer, PCB
 K 0.5VA PCB Transformer Dual Secondary

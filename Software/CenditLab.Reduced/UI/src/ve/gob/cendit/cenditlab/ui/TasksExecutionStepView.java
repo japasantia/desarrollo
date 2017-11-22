@@ -5,7 +5,6 @@ import javafx.scene.Node;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
-import ve.gob.cendit.cenditlab.control.System;
 import ve.gob.cendit.cenditlab.control.Task;
 import ve.gob.cendit.cenditlab.ui.base.ViewType;
 
@@ -13,9 +12,9 @@ public class TasksExecutionStepView extends SectionedView
 {
     private SectionedView resultsStatusSectionedView;
 
-    private ComponentListView<Task> executionListView;
+    private HeaderComponentListView<Task> executionListView;
 
-    private ComponentListView<Task> resultsListView;
+    private HeaderComponentListView<Task> resultsListView;
 
     private VBox statusVBox;
 
@@ -35,10 +34,10 @@ public class TasksExecutionStepView extends SectionedView
     {
         resultsStatusSectionedView = new SectionedView();
 
-        executionListView = new ComponentListView<>();
+        executionListView = new HeaderComponentListView<>();
         executionListView.setCellFactory(listView -> new ExecutionListCell());
 
-        resultsListView = new ComponentListView<>();
+        resultsListView = new HeaderComponentListView<>();
 
         statusVBox = new VBox();
         ScrollPane scrollPane = new ScrollPane(statusVBox);

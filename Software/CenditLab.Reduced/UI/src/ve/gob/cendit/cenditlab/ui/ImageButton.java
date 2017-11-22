@@ -15,6 +15,10 @@ public class ImageButton extends Button
     public ImageButton()
     {
         ViewLoader.load(FXML_URL, this, this);
+
+        iconImageView.fitWidthProperty().bind(this.prefWidthProperty());
+        iconImageView.fitHeightProperty().bind(this.prefHeightProperty());
+
     }
 
     public void setImage(Image image)

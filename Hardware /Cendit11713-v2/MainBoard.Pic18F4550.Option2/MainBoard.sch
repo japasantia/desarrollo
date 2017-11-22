@@ -28,7 +28,6 @@ LIBS:linear
 LIBS:regul
 LIBS:74xx
 LIBS:cmos4000
-LIBS:PIC18F4550-I_P
 LIBS:CenditBasic
 LIBS:MainBoard-cache
 EELAYER 25 0
@@ -134,17 +133,6 @@ F 1 "0.1uF" H 3010 6820 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3000 6900 50  0001 C CNN
 F 3 "" H 3000 6900 50  0001 C CNN
 	1    3000 6900
-	1    0    0    -1  
-$EndComp
-$Comp
-L C_Small C3
-U 1 1 59971B35
-P 3400 6900
-F 0 "C3" H 3410 6970 50  0000 L CNN
-F 1 "0.1uF" H 3410 6820 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3400 6900 50  0001 C CNN
-F 3 "" H 3400 6900 50  0001 C CNN
-	1    3400 6900
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -884,8 +872,6 @@ Entry Wire Line
 Entry Wire Line
 	7950 1550 8050 1650
 Entry Wire Line
-	7950 1650 8050 1750
-Entry Wire Line
 	7950 1750 8050 1850
 Entry Wire Line
 	7950 1950 8050 2050
@@ -1204,8 +1190,6 @@ Wire Wire Line
 Connection ~ 2400 6600
 Wire Wire Line
 	3800 6600 3800 6800
-Wire Wire Line
-	3400 6800 3400 6600
 Connection ~ 3400 6600
 Wire Wire Line
 	3000 6800 3000 6600
@@ -1223,8 +1207,6 @@ Connection ~ 2700 7250
 Wire Wire Line
 	3000 7000 3000 7250
 Connection ~ 3000 7250
-Wire Wire Line
-	3400 7000 3400 7250
 Connection ~ 3400 7250
 Connection ~ 3800 6600
 Wire Wire Line
@@ -1449,8 +1431,6 @@ Wire Wire Line
 	8350 1550 8050 1550
 Wire Wire Line
 	8350 1650 8050 1650
-Wire Wire Line
-	8050 1750 8350 1750
 Wire Wire Line
 	8350 1850 8050 1850
 Wire Wire Line
@@ -1893,7 +1873,7 @@ GND_PWR
 Text Label 8100 1550 0    39   ~ 0
 VCC_5V
 Text Label 8100 1750 0    39   ~ 0
-VCC_3V
+VDD_3V
 Text Label 8100 1650 0    39   ~ 0
 DGND
 Text Label 3500 3150 0    39   ~ 0
@@ -1905,13 +1885,13 @@ DGND
 Text Label 3500 3350 0    39   ~ 0
 VPWR
 Text Label 3500 3250 0    39   ~ 0
-GNDPWR
+GND_PWR
 Text Label 1500 1900 0    39   ~ 0
-GNDPWR
+GND_PWR
 Text Label 2700 3250 0    39   ~ 0
 VPWR
 Text Label 2700 3150 0    39   ~ 0
-GNDPWR
+GND_PWR
 Text Label 2700 3050 0    39   ~ 0
 VCC_5V
 Text Label 2700 2850 0    39   ~ 0
@@ -2651,4 +2631,23 @@ F 3 "" H 1750 1500 50  0001 C CNN
 	1    1750 1500
 	0    -1   -1   0   
 $EndComp
+$Comp
+L CP C3
+U 1 1 5A1099C4
+P 3400 6900
+F 0 "C3" H 3425 7000 50  0000 L CNN
+F 1 "1uF" H 3425 6800 50  0000 L CNN
+F 2 "Capacitors_SMD:C_1206_HandSoldering" H 3438 6750 50  0001 C CNN
+F 3 "" H 3400 6900 50  0000 C CNN
+	1    3400 6900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3400 6750 3400 6600
+Wire Wire Line
+	3400 7050 3400 7250
+Entry Wire Line
+	7950 1650 8050 1750
+Wire Wire Line
+	8350 1750 8050 1750
 $EndSCHEMATC

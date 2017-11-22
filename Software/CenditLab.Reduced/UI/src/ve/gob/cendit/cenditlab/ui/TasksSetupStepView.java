@@ -65,7 +65,7 @@ public class TasksSetupStepView extends SectionedView
     {
         for (System system : systems)
         {
-            ComponentListView<Task> tasksListView = new ComponentListView<>();
+            HeaderComponentListView<Task> tasksListView = new HeaderComponentListView<>();
 
             tasksListView.setOnListSelectionChanged(this::onTaskSelected);
 

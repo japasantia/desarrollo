@@ -3,7 +3,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -30,6 +32,7 @@ public class ViewTests extends Application
         // setupContainerViewTest();
         // basicFrequencySetupTest();
         // genericMainViewTest();
+        componentViewTests();
     }
 
     public void setupViewTest()
@@ -159,10 +162,38 @@ public class ViewTests extends Application
                 800, 600);
     }
 
+    private static void componentViewTests()
+    {
+        VBox containerVBox = new VBox();
+
+        Image iconImage =
+                new Image(ViewTests.class.getResource("/ve/gob/cendit/cenditlab/ui/images/multimeter.png" ).toExternalForm());
+        HeaderView headerView =
+                new HeaderView("Header View", iconImage);
+        containerVBox.getChildren().add(headerView);
+
+        ScrollPane scrollPane = new ScrollPane(containerVBox);
+
+        for (int i = 0; i < 10; i++)
+        {
+            ComponentIconView componentIconView = new ComponentIconView();
+            componentIconView.setName(String.format("Component %d", i));
+            componentIconView.setDescription(String.format("This is the component %d", i));
+            componentIconView.setSelected(i % 2 == 0);
+            containerVBox.getChildren().addAll(componentIconView);
+        }
+
+
+        showView(scrollPane, "CenditLab.Reduced | Component Views Tests",
+                800, 600);
+    }
+
     private static void showView(Parent root, String title, double width, double height)
     {
         stage.setScene(new Scene(root, width, height));
         stage.setTitle(title);
         stage.show();
     }
+
+
 }

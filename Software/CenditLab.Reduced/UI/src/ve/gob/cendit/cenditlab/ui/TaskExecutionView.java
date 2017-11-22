@@ -21,7 +21,7 @@ public class TaskExecutionView extends GridPane
     private Label taskNameLabel;
 
     @FXML
-    private FlowPane taskIndicatorsFlowPane;
+    private ExecutionToolbar executionToolbar;
 
     private Task task;
 
@@ -66,5 +66,10 @@ public class TaskExecutionView extends GridPane
         {
             taskIconImageView.setDisable(true);
         }
+    }
+
+    public ExecutionToolbar getExecutionToolbar()
+    {
+        return executionToolbar;
     }
 }

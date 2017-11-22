@@ -1,70 +1,33 @@
 package ve.gob.cendit.cenditlab.ui;
 
-
 import javafx.beans.value.ChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TitledPane;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.util.Callback;
 import ve.gob.cendit.cenditlab.control.Component;
 import ve.gob.cendit.cenditlab.ui.base.ViewType;
 
-public class ComponentListView<T extends Component> extends TitledPane
+public class ComponentListView<T extends Component> extends ListView<T>
 {
-    private static final String FXML_URL = "fxml/generic-list-view.fxml";
+    private static final String FXML_URL = "fxml/component-list-view.fxml";
 
-    private static final String DEFAULT_ICON_URL = "images/task-icon.jpg";
     private static final String DEFAULT_TITLE = "";
 
-    @FXML
-    private ImageView iconImageView;
-
-    @FXML
-    private ListView<T> containerListView;
-
     private ViewType viewType = ViewType.LIST_ICON;
+
+    private EventHandler<MouseEvent> onItemClickedHandler;
+
+    private T[] components;
 
     public ComponentListView()
     {
         ViewLoader.load(FXML_URL, this, this);
 
-        setCellFactory(listView -> new ComponentListCell());
-    }
-
-    public void setTitle(String value)
-    {
-        this.setText(value != null ? value : DEFAULT_TITLE);
-    }
-
-    public String getTitle()
-    {
-        return this.getText();
-    }
-
-    public void setIcon(Image image)
-    {
-        if (image != null)
-        {
-            iconImageView.setVisible(true);
-            iconImageView.setImage(image);
-        }
-        else
-        {
-            iconImageView.setVisible(false);
-        }
-    }
-
-    public Image getImage()
-    {
-        return iconImageView.getImage();
+        this.setCellFactory(listView -> new ComponentListCell());
     }
 
     public void setViewType(ViewType value)
@@ -74,55 +37,43 @@ public class ComponentListView<T extends Component> extends TitledPane
 
     public void enableMultipleSelection(boolean value)
     {
-        containerListView.getSelectionModel()
+        this.getSelectionModel()
                 .setSelectionMode(value ? SelectionMode.MULTIPLE : SelectionMode.SINGLE);
     }
 
-    public void setItems(ObservableList<T> list)
+    public void setComponents(T... components)
     {
-        if (list != null)
+        this.getItems().clear();
+
+        addComponents(components);
+    }
+
+    public void addComponents(T... components)
+    {
+        if (components != null)
         {
-            containerListView.setItems(list);
-        }
-        else
-        {
-           clearItems();
+            this.getItems().addAll(components);
         }
     }
 
-    public ObservableList<T> getItems()
+    public T getSelectedItem()
     {
-        return containerListView.getItems();
-    }
-
-    public void clearItems()
-    {
-        containerListView.getItems().clear();
-    }
-
-    public Component getSelectedItem()
-    {
-        return containerListView.getSelectionModel().getSelectedItem();
+        return this.getSelectionModel().getSelectedItem();
     }
 
     public ObservableList<T> getSelectedItems()
     {
-        return containerListView.getSelectionModel().getSelectedItems();
+        return this.getSelectionModel().getSelectedItems();
     }
 
-    public void setCellFactory(Callback<ListView<T>, ListCell<T>> callback)
+    public void setOnListItemClicked(EventHandler<MouseEvent> eventHandler)
     {
-        containerListView.setCellFactory(callback);
-    }
-
-    public void setOnListClicked(EventHandler<MouseEvent> eventHandler)
-    {
-        containerListView.setOnMouseClicked(eventHandler);
+       onItemClickedHandler = eventHandler;
     }
 
     public void setOnListSelectionChanged(ChangeListener<T> listener)
     {
-        containerListView.getSelectionModel()
+        this.getSelectionModel()
                 .selectedItemProperty()
                 .addListener(listener);
     }
@@ -144,7 +95,13 @@ public class ComponentListView<T extends Component> extends TitledPane
             Node node = componentItem.getView(viewType);
 
             if (node != null)
+            {
                 setGraphic(node);
+                node.setOnMouseClicked(event ->
+                {
+                    onItemClickedHandler.handle(event);
+                });
+            }
         }
     }
 }
