@@ -6,14 +6,10 @@ EESchema-LIBRARY Version 2.3
 DEF C C 0 10 N Y 1 F N
 F0 "C" 25 100 50 H V L CNN
 F1 "C" 25 -100 50 H V L CNN
-F2 "" 38 -150 50 H V C CNN
-F3 "" 0 0 50 H V C CNN
+F2 "" 38 -150 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
 $FPLIST
- C?
- C_????_*
- C_????
- SMD*_c
- Capacitor*
+ C_*
 $ENDFPLIST
 DRAW
 P 2 0 1 20 -80 -30 80 -30 N
@@ -25,16 +21,16 @@ ENDDEF
 #
 # CONN_01X09
 #
-DEF CONN_01X09 P 0 40 Y N 1 F N
-F0 "P" 0 500 50 H V C CNN
+DEF CONN_01X09 J 0 40 Y N 1 F N
+F0 "J" 0 500 50 H V C CNN
 F1 "CONN_01X09" 100 0 50 V V C CNN
-F2 "" 0 0 50 H V C CNN
-F3 "" 0 0 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
 $FPLIST
- Pin_Header_Straight_1X09
- Pin_Header_Angled_1X09
- Socket_Strip_Straight_1X09
- Socket_Strip_Angled_1X09
+ Pin_Header_Straight_1X*
+ Pin_Header_Angled_1X*
+ Socket_Strip_Straight_1X*
+ Socket_Strip_Angled_1X*
 $ENDFPLIST
 DRAW
 S -50 -395 10 -405 0 1 0 N
@@ -64,16 +60,10 @@ ENDDEF
 DEF CP C 0 10 N Y 1 F N
 F0 "C" 25 100 50 H V L CNN
 F1 "CP" 25 -100 50 H V L CNN
-F2 "" 38 -150 50 H V C CNN
-F3 "" 0 0 50 H V C CNN
+F2 "" 38 -150 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
 $FPLIST
- CP*
- C_Axial*
- C_Radial*
- TantalC*
- C*elec
- c_elec*
- SMD*_Pol
+ CP_*
 $ENDFPLIST
 DRAW
 S -90 20 -90 40 0 1 0 N
@@ -93,8 +83,8 @@ ENDDEF
 DEF GNDPWR #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -200 50 H I C CNN
 F1 "GNDPWR" 0 -130 50 H V C CNN
-F2 "" 0 -50 50 H V C CNN
-F3 "" 0 -50 50 H V C CNN
+F2 "" 0 -50 50 H I C CNN
+F3 "" 0 -50 50 H I C CNN
 DRAW
 P 2 0 1 0 0 -50 0 0 N
 P 3 0 1 8 -40 -50 -50 -80 -50 -80 N
@@ -113,12 +103,12 @@ DEF MC33996EKR2 U 0 40 Y Y 1 L N
 F0 "U" -223 1106 50 H V L BNN
 F1 "MC33996EKR2" -191 -1369 50 H V L BNN
 F2 "SOIC65P1030X265-32N" 0 0 50 H I L BNN
-F3 "1000" 0 0 50 H I L BNN
-F4 "MC33996EKR2" 0 0 50 H I L BNN "MP"
-F5 "Unavailable" 0 0 50 H I L BNN "Availability"
-F6 "SOIC-32 Freescale Semiconductor" 0 0 50 H I L BNN "Package"
-F7 "7.23 USD" 0 0 50 H I L BNN "Price"
-F8 "Freescale Semiconductor" 0 0 50 H I L BNN "MF"
+F3 "Power Switch Lo Side 0.9A 32-Pin SOIC W EP T/R" 0 0 50 H I L BNN
+F4 "7.23 USD" 0 0 50 H I L BNN "Price"
+F5 "NXP Semiconductors" 0 0 50 H I L BNN "MF"
+F6 "SOIC-32 NXP Semiconductors" 0 0 50 H I L BNN "Package"
+F7 "Unavailable" 0 0 50 H I L BNN "Availability"
+F8 "MC33996EK/R2" 0 0 50 H I L BNN "MP"
 DRAW
 P 2 0 0 16 -500 -1200 500 -1200 N
 P 2 0 0 16 -500 1000 -500 -1200 N
@@ -165,8 +155,8 @@ ENDDEF
 DEF VCC #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
 F1 "VCC" 0 150 50 H V C CNN
-F2 "" 0 0 50 H V C CNN
-F3 "" 0 0 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
 DRAW
 C 0 75 25 0 1 0 N
 P 2 0 1 0 0 0 0 50 N
@@ -200,8 +190,8 @@ ENDDEF
 DEF VPP #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
 F1 "VPP" 0 150 50 H V C CNN
-F2 "" 0 0 50 H V C CNN
-F3 "" 0 0 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
 DRAW
 P 2 0 1 0 -30 50 0 100 N
 P 2 0 1 0 0 0 0 100 N

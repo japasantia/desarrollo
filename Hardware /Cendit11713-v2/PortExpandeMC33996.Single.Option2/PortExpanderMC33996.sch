@@ -32,16 +32,16 @@ LIBS:MC33996EKR2
 LIBS:PortExpanderMC33996-cache
 EELAYER 25 0
 EELAYER END
-$Descr A4 11693 8268
+$Descr USLetter 11000 8500
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
-Comment3 ""
+Title "Expansor de puertos Viking"
+Date "2017-11-23"
+Rev "Rev 1"
+Comp "CENDIT"
+Comment1 "Jose Arias"
+Comment2 "Proyecto TEG"
+Comment3 "UCV"
 Comment4 ""
 $EndDescr
 $Comp
@@ -487,7 +487,7 @@ F 3 "" H 4850 2250 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 Wire Bus Line
-	2450 1750 2450 3100
+	2450 1100 2450 3100
 Wire Wire Line
 	2000 2100 1900 2100
 Wire Wire Line
@@ -791,4 +791,6 @@ F 3 "" H 1300 2900 47  0001 C CNN
 	1    1300 2900
 	-1   0    0    -1  
 $EndComp
+Wire Bus Line
+	2450 1100 4650 1100
 $EndSCHEMATC

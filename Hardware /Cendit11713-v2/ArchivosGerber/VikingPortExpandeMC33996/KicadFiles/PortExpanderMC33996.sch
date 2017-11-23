@@ -32,16 +32,16 @@ LIBS:MC33996EKR2
 LIBS:PortExpanderMC33996-cache
 EELAYER 25 0
 EELAYER END
-$Descr A4 11693 8268
+$Descr USLetter 11000 8500
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
-Comment3 ""
+Title "Expansor de puertos Viking"
+Date "2017-11-23"
+Rev "Rev 1"
+Comp "CENDIT"
+Comment1 "Jose Arias"
+Comment2 "Proyecto TEG"
+Comment3 "UCV"
 Comment4 ""
 $EndDescr
 $Comp
@@ -299,7 +299,7 @@ U 1 1 59BB0FF4
 P 1550 4950
 F 0 "C1" H 1575 5050 50  0000 L CNN
 F 1 "10uF" H 1575 4850 50  0000 L CNN
-F 2 "Capacitors_SMD:c_elec_3x5.3" H 1588 4800 50  0001 C CNN
+F 2 "Capacitors_SMD:C_1206_HandSoldering" H 1588 4800 50  0001 C CNN
 F 3 "" H 1550 4950 50  0001 C CNN
 	1    1550 4950
 	1    0    0    -1  
@@ -487,7 +487,7 @@ F 3 "" H 4850 2250 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 Wire Bus Line
-	2450 1750 2450 3100
+	2450 1100 2450 3100
 Wire Wire Line
 	2000 2100 1900 2100
 Wire Wire Line
@@ -544,7 +544,7 @@ U 1 1 59DD3E8B
 P 2400 4950
 F 0 "C3" H 2425 5050 50  0000 L CNN
 F 1 "10uF" H 2425 4850 50  0000 L CNN
-F 2 "Capacitors_SMD:c_elec_3x5.3" H 2438 4800 50  0001 C CNN
+F 2 "Capacitors_SMD:C_1206_HandSoldering" H 2438 4800 50  0001 C CNN
 F 3 "" H 2400 4950 50  0001 C CNN
 	1    2400 4950
 	1    0    0    -1  
@@ -640,21 +640,8 @@ Wire Wire Line
 	2000 3450 2000 3250
 Wire Wire Line
 	1950 3550 1650 3550
-$Comp
-L R_Small R1
-U 1 1 59DED0AD
-P 4500 3600
-F 0 "R1" H 4530 3620 50  0000 L CNN
-F 1 "RL" H 4530 3560 50  0000 L CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" H 4500 3600 50  0001 C CNN
-F 3 "" H 4500 3600 50  0000 C CNN
-	1    4500 3600
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
-	4500 3350 4500 3500
-Wire Wire Line
-	4500 3700 4500 3950
+	4500 3350 4500 3950
 $Comp
 L CONN_01X09 P1
 U 1 1 59DED448
@@ -681,7 +668,7 @@ Wire Wire Line
 	4850 2250 5000 2250
 Wire Wire Line
 	5000 2150 4900 2150
-Text Label 4500 3800 0    60   ~ 0
+Text Label 2600 3950 0    60   ~ 0
 MISO
 Entry Wire Line
 	2450 3850 2550 3950
@@ -748,37 +735,37 @@ Text Label 4350 3050 0    60   ~ 0
 P14
 Text Label 4350 3150 0    60   ~ 0
 P15
-Text Label 4800 1450 0    60   ~ 0
+Text Label 4800 2050 0    60   ~ 0
 P0
-Text Label 4800 1550 0    60   ~ 0
+Text Label 4800 1950 0    60   ~ 0
 P1
-Text Label 4800 1650 0    60   ~ 0
+Text Label 4800 1850 0    60   ~ 0
 P2
 Text Label 4800 1750 0    60   ~ 0
 P3
-Text Label 4800 1850 0    60   ~ 0
+Text Label 4800 1650 0    60   ~ 0
 P4
-Text Label 4800 1950 0    60   ~ 0
+Text Label 4800 1550 0    60   ~ 0
 P5
-Text Label 4800 2050 0    60   ~ 0
+Text Label 4800 1450 0    60   ~ 0
 P6
-Text Label 4800 2450 0    60   ~ 0
+Text Label 4800 3250 0    60   ~ 0
 P7
-Text Label 4800 2550 0    60   ~ 0
+Text Label 4800 3150 0    60   ~ 0
 P8
-Text Label 4800 2650 0    60   ~ 0
+Text Label 4800 3050 0    60   ~ 0
 P9
-Text Label 4800 2750 0    60   ~ 0
+Text Label 4800 2950 0    60   ~ 0
 P10
 Text Label 4800 2850 0    60   ~ 0
 P11
-Text Label 4800 2950 0    60   ~ 0
+Text Label 4800 2750 0    60   ~ 0
 P12
-Text Label 4800 3050 0    60   ~ 0
+Text Label 4800 2650 0    60   ~ 0
 P13
-Text Label 4800 3150 0    60   ~ 0
+Text Label 4800 2550 0    60   ~ 0
 P14
-Text Label 4800 3250 0    60   ~ 0
+Text Label 4800 2450 0    60   ~ 0
 P15
 Wire Wire Line
 	1650 4150 1900 4150
@@ -804,4 +791,6 @@ F 3 "" H 1300 2900 47  0001 C CNN
 	1    1300 2900
 	-1   0    0    -1  
 $EndComp
+Wire Bus Line
+	2450 1100 4650 1100
 $EndSCHEMATC

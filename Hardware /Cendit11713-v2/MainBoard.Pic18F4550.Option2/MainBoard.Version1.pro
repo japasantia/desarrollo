@@ -1,10 +1,6 @@
-update=mié 22 nov 2017 08:46:16 VET
+update=jue 23 nov 2017 15:22:40 VET
 version=1
-last_client=eeschema
-[general]
-version=1
-RootSch=
-BoardNm=
+last_client=kicad
 [pcbnew]
 version=1
 LastNetListRead=
@@ -71,4 +67,6 @@ LibName37=eSim_User
 LibName38=eSim_Plot
 LibName39=eSim_PSpice
 LibName40=/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
+[general]
+version=1
 
