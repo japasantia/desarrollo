@@ -1,4 +1,4 @@
-update=mar 07 nov 2017 09:48:23 -04
+update=mar 28 nov 2017 08:52:17 VET
 version=1
 last_client=kicad
 [pcbnew]
@@ -60,4 +60,14 @@ LibName30=/home/jarias/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/Ce
 LibName31=/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
 [general]
 version=1
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
 
