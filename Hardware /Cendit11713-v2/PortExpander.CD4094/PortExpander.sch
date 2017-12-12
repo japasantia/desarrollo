@@ -1,0 +1,144 @@
+EESchema Schematic File Version 2
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:eSim_Analog
+LIBS:eSim_Devices
+LIBS:eSim_Digital
+LIBS:eSim_Hybrid
+LIBS:eSim_Miscellaneous
+LIBS:eSim_Power
+LIBS:eSim_Sources
+LIBS:eSim_Subckt
+LIBS:eSim_User
+LIBS:eSim_Plot
+LIBS:eSim_PSpice
+LIBS:CenditBasic
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L CD4094BE U?
+U 1 1 5A305280
+P 3100 2275
+F 0 "U?" H 3100 2825 50  0000 L BNN
+F 1 "CD4094BE" H 2954 1363 50  0000 L BNN
+F 2 "DIP254P762X508-16" H 3100 1225 50  0001 L BNN
+F 3 "CD4094BE" H 2650 1225 50  0001 L BNN
+	1    3100 2275
+	1    0    0    -1  
+$EndComp
+$Comp
+L ULN2003A U?
+U 1 1 5A3052DF
+P 4500 2475
+F 0 "U?" H 4500 3000 50  0000 C CNN
+F 1 "ULN2003A" H 4500 2925 50  0000 C CNN
+F 2 "" H 4550 1825 50  0001 L CNN
+F 3 "" H 4600 2375 50  0001 C CNN
+	1    4500 2475
+	1    0    0    -1  
+$EndComp
+$Comp
+L GNDPWR #PWR?
+U 1 1 5A305443
+P 2300 2950
+F 0 "#PWR?" H 2300 2750 50  0001 C CNN
+F 1 "GNDPWR" H 2300 2820 50  0000 C CNN
+F 2 "" H 2300 2900 50  0001 C CNN
+F 3 "" H 2300 2900 50  0001 C CNN
+	1    2300 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L VDD #PWR?
+U 1 1 5A305467
+P 2325 1875
+F 0 "#PWR?" H 2325 1725 50  0001 C CNN
+F 1 "VDD" H 2325 2025 50  0000 C CNN
+F 2 "" H 2325 1875 50  0001 C CNN
+F 3 "" H 2325 1875 50  0001 C CNN
+	1    2325 1875
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 5A3054BF
+P 3050 5750
+F 0 "C?" H 3075 5850 50  0000 L CNN
+F 1 "C" H 3075 5650 50  0000 L CNN
+F 2 "" H 3088 5600 50  0001 C CNN
+F 3 "" H 3050 5750 50  0001 C CNN
+	1    3050 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L CP C?
+U 1 1 5A30557F
+P 2725 5750
+F 0 "C?" H 2750 5850 50  0000 L CNN
+F 1 "CP" H 2750 5650 50  0000 L CNN
+F 2 "" H 2763 5600 50  0001 C CNN
+F 3 "" H 2725 5750 50  0001 C CNN
+	1    2725 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L GNDPWR #PWR?
+U 1 1 5A3057AA
+P 4500 3300
+F 0 "#PWR?" H 4500 3100 50  0001 C CNN
+F 1 "GNDPWR" H 4500 3170 50  0000 C CNN
+F 2 "" H 4500 3250 50  0001 C CNN
+F 3 "" H 4500 3250 50  0001 C CNN
+	1    4500 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L VDD #PWR?
+U 1 1 5A305851
+P 5025 2975
+F 0 "#PWR?" H 5025 2825 50  0001 C CNN
+F 1 "VDD" V 5025 3200 50  0000 C CNN
+F 2 "" H 5025 2975 50  0001 C CNN
+F 3 "" H 5025 2975 50  0001 C CNN
+	1    5025 2975
+	0    1    1    0   
+$EndComp
+$EndSCHEMATC
