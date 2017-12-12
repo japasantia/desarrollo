@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>C:/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/PowerSupply.Regulator/Regulator.sch</source>
+    <date>05-12-2017 10:11:26 p.m.</date>
+    <tool>Eeschema 4.0.6</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Etapa de salida fuente conmutada + regulador LDO</title>
+        <company>CENDIT</company>
+        <rev>Rev 0.1</rev>
+        <date>2017-12-05</date>
+        <source>Regulator.sch</source>
+        <comment number="1" value="correo@josearias.com.ve"/>
+        <comment number="2" value="Jose Arias"/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="U1">
+      <value>SP34063A</value>
+      <footprint>CenditFootprints2:SP34063AEN-L&amp;slash_TR</footprint>
+      <libsource lib="Regulator-cache" part="SP34063A"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A20AC76</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>SPX29152</value>
+      <footprint>CenditFootprints2:SPX29152T5-TO-263-5</footprint>
+      <libsource lib="Regulator-cache" part="SPX29152T5-L-5-0"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A20ACA0</tstamp>
+    </comp>
+    <comp ref="RS1">
+      <value>0.20</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <libsource lib="device" part="R_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A20D425</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>100uF@50V</value>
+      <footprint>CenditFootprints2:C_Radial_D8_L13_P3.8</footprint>
+      <libsource lib="device" part="CP"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A20D4BF</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>1.0k</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A20D51A</tstamp>
+    </comp>
+    <comp ref="L1">
+      <value>220uH</value>
+      <footprint>CenditFootprints2:INDUCTOR_LCM1060</footprint>
+      <libsource lib="device" part="L_Core_Ferrite"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A20D5A3</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>2.0k</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A20D9D6</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>0.3nF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A210559</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>4.3k</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A211471</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>3.0k</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A2114C5</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>470uF@10V</value>
+      <footprint>CenditFootprints2:C_Radial_D8_L13_P3.8</footprint>
+      <libsource lib="device" part="CP"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A211A03</tstamp>
+    </comp>
+    <comp ref="L2">
+      <value>1uH</value>
+      <footprint>CenditFootprints2:INDUCTOR_LKS0745</footprint>
+      <libsource lib="device" part="L_Core_Ferrite"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A211FC5</tstamp>
+    </comp>
+    <comp ref="C5">
+      <value>100uF@10V</value>
+      <footprint>CenditFootprints2:C_Radial_D8_L13_P3.8</footprint>
+      <libsource lib="device" part="CP"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A2120D2</tstamp>
+    </comp>
+    <comp ref="C7">
+      <value>100uF@10V</value>
+      <footprint>CenditFootprints2:C_Radial_D8_L13_P3.8</footprint>
+      <libsource lib="device" part="CP"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A21779F</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>SPHV24-01ETG</value>
+      <footprint>CenditFootprints2:SPHV24-SOD882</footprint>
+      <libsource lib="device" part="D_Zener_ALT"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A26E690</tstamp>
+    </comp>
+    <comp ref="P1">
+      <value>PWR_IN_2P</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x02</footprint>
+      <libsource lib="conn" part="CONN_01X02"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A2744B5</tstamp>
+    </comp>
+    <comp ref="D3">
+      <value>LED</value>
+      <footprint>LEDs:LED_0805</footprint>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A278086</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>330</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <libsource lib="device" part="R_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A2781FE</tstamp>
+    </comp>
+    <comp ref="P2">
+      <value>PWR_OUT_4P</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x04</footprint>
+      <libsource lib="conn" part="CONN_01X04"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A27BEFE</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <libsource lib="device" part="R_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A27DDAF</tstamp>
+    </comp>
+    <comp ref="C9">
+      <value>1uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <libsource lib="device" part="C_Small"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A27F0E4</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>100nF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A2880A1</tstamp>
+    </comp>
+    <comp ref="C8">
+      <value>100nF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A288ECE</tstamp>
+    </comp>
+    <comp ref="C6">
+      <value>100nF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <libsource lib="device" part="C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A2895D0</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>DST5100S</value>
+      <footprint>CenditFootprints2:DST5100S-TO-277B</footprint>
+      <libsource lib="device" part="D_Zener_ALT"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5A27023C</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="device" part="C">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_01X02">
+      <description>Connector, single row, 01x02, pin header</description>
+      <footprints>
+        <fp>Pin_Header_Straight_1X*</fp>
+        <fp>Pin_Header_Angled_1X*</fp>
+        <fp>Socket_Strip_Straight_1X*</fp>
+        <fp>Socket_Strip_Angled_1X*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">CONN_01X02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_01X04">
+      <description>Connector, single row, 01x04, pin header</description>
+      <footprints>
+        <fp>Pin_Header_Straight_1X*</fp>
+        <fp>Pin_Header_Angled_1X*</fp>
+        <fp>Socket_Strip_Straight_1X*</fp>
+        <fp>Socket_Strip_Angled_1X*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">CONN_01X04</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+        <pin num="4" name="P4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="CP">
+      <description>Polarised capacitor</description>
+      <footprints>
+        <fp>CP_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CP</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="C_Small">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="D_Zener_ALT">
+      <description>Zener Diode, alternativ symbol</description>
+      <docs>https://en.wikipedia.org/wiki/Zener_diode</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*SingleDiode</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Zener_ALT</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="LED">
+      <description>LED generic</description>
+      <footprints>
+        <fp>LED*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="L_Core_Ferrite">
+      <description>Inductor with Ferrite Core</description>
+      <footprints>
+        <fp>Choke_*</fp>
+        <fp>*Coil*</fp>
+        <fp>Inductor_*</fp>
+        <fp>L_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">L_Core_Ferrite</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="R_Small">
+      <description>Resistor, small symbol</description>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Regulator-cache" part="SP34063A">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">SP34063A</field>
+      </fields>
+      <pins>
+        <pin num="1" name="SWITCH_COLLECTOR" type="openCol"/>
+        <pin num="2" name="SWITCH_EMITTER" type="openEm"/>
+        <pin num="3" name="TIMMING_CAPACITOR" type="input"/>
+        <pin num="4" name="GND" type="power_in"/>
+        <pin num="5" name="COMP_INVERT_INPUT" type="input"/>
+        <pin num="6" name="VCC" type="power_in"/>
+        <pin num="7" name="IPK_SENSE" type="power_in"/>
+        <pin num="8" name="DRIVER_COLLECTOR" type="openCol"/>
+      </pins>
+    </libpart>
+    <libpart lib="Regulator-cache" part="SPX29152T5-L-5-0">
+      <footprints>
+        <fp>TO-263-5_VAR-BA</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">SPX29152T5-L-5-0</field>
+        <field name="Footprint">TO-263-5_VAR-BA</field>
+      </fields>
+      <pins>
+        <pin num="1" name="ENABLE" type="unspc"/>
+        <pin num="2" name="INPUT" type="unspc"/>
+        <pin num="3" name="GND" type="unspc"/>
+        <pin num="4" name="OUTPUT" type="unspc"/>
+        <pin num="5" name="ADJUST" type="unspc"/>
+        <pin num="6" name="EPAD" type="unspc"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="device">
+      <uri>C:\Program Files\KiCad\share\kicad\library\device.lib</uri>
+    </library>
+    <library logical="conn">
+      <uri>C:\Program Files\KiCad\share\kicad\library\conn.lib</uri>
+    </library>
+    <library logical="Regulator-cache">
+      <uri>C:\PasantiaCendit\Desarrollo\Hardware \Cendit11713-v2\PowerSupply.Regulator\Regulator-cache.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/VREG">
+      <node ref="L2" pin="2"/>
+      <node ref="C6" pin="1"/>
+      <node ref="U2" pin="2"/>
+      <node ref="R2" pin="1"/>
+      <node ref="C5" pin="1"/>
+      <node ref="P2" pin="3"/>
+      <node ref="R4" pin="2"/>
+    </net>
+    <net code="2" name="/ENABLE">
+      <node ref="U2" pin="1"/>
+      <node ref="P2" pin="4"/>
+      <node ref="R4" pin="1"/>
+      <node ref="C9" pin="1"/>
+    </net>
+    <net code="3" name="/VDC_5.0V">
+      <node ref="C8" pin="1"/>
+      <node ref="R5" pin="2"/>
+      <node ref="U2" pin="4"/>
+      <node ref="P2" pin="1"/>
+      <node ref="C7" pin="1"/>
+    </net>
+    <net code="4" name="GNDPWR">
+      <node ref="P2" pin="2"/>
+      <node ref="C5" pin="2"/>
+      <node ref="C8" pin="2"/>
+      <node ref="C6" pin="2"/>
+      <node ref="P1" pin="2"/>
+      <node ref="D2" pin="2"/>
+      <node ref="C7" pin="2"/>
+      <node ref="R3" pin="1"/>
+      <node ref="C1" pin="2"/>
+      <node ref="U2" pin="3"/>
+      <node ref="U1" pin="4"/>
+      <node ref="D3" pin="1"/>
+      <node ref="R6" pin="1"/>
+      <node ref="C4" pin="2"/>
+      <node ref="C3" pin="2"/>
+      <node ref="C2" pin="2"/>
+      <node ref="C9" pin="2"/>
+      <node ref="D1" pin="2"/>
+    </net>
+    <net code="5" name="Net-(D3-Pad2)">
+      <node ref="R2" pin="2"/>
+      <node ref="D3" pin="2"/>
+    </net>
+    <net code="6" name="/VDC_24V">
+      <node ref="RS1" pin="2"/>
+      <node ref="C2" pin="1"/>
+      <node ref="C1" pin="1"/>
+      <node ref="D2" pin="1"/>
+      <node ref="U1" pin="6"/>
+      <node ref="P1" pin="1"/>
+    </net>
+    <net code="7" name="Net-(C3-Pad1)">
+      <node ref="C3" pin="1"/>
+      <node ref="U1" pin="3"/>
+    </net>
+    <net code="8" name="Net-(D1-Pad1)">
+      <node ref="U1" pin="2"/>
+      <node ref="D1" pin="1"/>
+      <node ref="L1" pin="1"/>
+    </net>
+    <net code="9" name="Net-(R1-Pad2)">
+      <node ref="R3" pin="2"/>
+      <node ref="U1" pin="5"/>
+      <node ref="R1" pin="2"/>
+    </net>
+    <net code="10" name="Net-(U2-Pad6)">
+      <node ref="U2" pin="6"/>
+    </net>
+    <net code="11" name="Net-(RS1-Pad1)">
+      <node ref="U1" pin="1"/>
+      <node ref="U1" pin="7"/>
+      <node ref="U1" pin="8"/>
+      <node ref="RS1" pin="1"/>
+    </net>
+    <net code="12" name="Net-(R5-Pad1)">
+      <node ref="R6" pin="2"/>
+      <node ref="R5" pin="1"/>
+      <node ref="U2" pin="5"/>
+    </net>
+    <net code="13" name="Net-(C4-Pad1)">
+      <node ref="C4" pin="1"/>
+      <node ref="L2" pin="1"/>
+      <node ref="L1" pin="2"/>
+      <node ref="R1" pin="1"/>
+    </net>
+  </nets>
+</export>
