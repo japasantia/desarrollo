@@ -1,4 +1,4 @@
-update=mar 12 dic 2017 20:55:52 -04
+update=mié 13 dic 2017 12:00:15 VET
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,8 +23,6 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=/home/jarias/Escritorio/Pasantia/Desarrollo/CadModels/LibreriaKicad
@@ -71,4 +69,6 @@ LibName39=eSim_Plot
 LibName40=eSim_PSpice
 LibName41=/mnt/local/PasantiaCendit/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
 LibName42=/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/Libraries/CenditBasic
+[general]
+version=1
 

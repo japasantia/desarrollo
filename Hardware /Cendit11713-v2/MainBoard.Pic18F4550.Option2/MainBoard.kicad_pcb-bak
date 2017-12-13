@@ -3,7 +3,7 @@
   (general
     (links 226)
     (no_connects 0)
-    (area 134.519999 39.972001 264.898 144.880001)
+    (area 0 0 0 0)
     (thickness 1.6)
     (drawings 7)
     (tracks 1215)
@@ -15,7 +15,7 @@
   (page A4)
   (layers
     (0 F.Cu signal)
-    (31 B.Cu signal hide)
+    (31 B.Cu signal)
     (32 B.Adhes user)
     (33 F.Adhes user)
     (34 B.Paste user)
@@ -91,9 +91,9 @@
       (subtractmaskfromsilk false)
       (outputformat 1)
       (mirror false)
-      (drillshape 1)
+      (drillshape 0)
       (scaleselection 1)
-      (outputdirectory ""))
+      (outputdirectory "/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/ArchivosGerber/MainBoard/GerberFiles/"))
   )
 
   (net 0 "")

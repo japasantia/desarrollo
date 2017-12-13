@@ -1,7 +1,7 @@
 (export (version D)
   (design
-    (source "/home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/MainBoard.Pic18F4550.Option2/MainBoard.sch")
-    (date "jue 23 nov 2017 15:01:06 VET")
+    (source "/home/jarias/Escritorio/PasantiaHardware /Cendit11713-v2/MainBoard.Pic18F4550.Option2/MainBoard.sch")
+    (date "mié 13 dic 2017 08:38:26 VET")
     (tool "Eeschema 4.0.6-e0-6349~53~ubuntu14.04.1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -142,7 +142,7 @@
       (sheetpath (names /) (tstamps /))
       (tstamp 59E6D45C))
     (comp (ref C8)
-      (value 1uF)
+      (value 0.1uF)
       (footprint Capacitors_SMD:C_1206_HandSoldering)
       (libsource (lib device) (part C_Small))
       (sheetpath (names /) (tstamps /))

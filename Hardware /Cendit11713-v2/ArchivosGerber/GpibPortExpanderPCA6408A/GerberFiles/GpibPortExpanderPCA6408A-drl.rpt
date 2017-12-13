@@ -1,5 +1,5 @@
-Drill report for /home/jarias/Escritorio/Pasantia/Desarrollo/Hardware /Cendit11713-v2/GpibPortExpanderPCA6408A.Option2/GpibPortExpanderPCA6408A.kicad_pcb
-Created on mar 28 nov 2017 08:29:52 VET
+Drill report for /home/jarias/Escritorio/PasantiaHardware /Cendit11713-v2/GpibPortExpanderPCA6408A.Option2/GpibPortExpanderPCA6408A.kicad_pcb
+Created on mié 13 dic 2017 09:41:44 VET
 
 Copper Layer Stackup:
     =============================================================
@@ -10,10 +10,10 @@ Copper Layer Stackup:
 Drill file 'GpibPortExpanderPCA6408A.drl' contains
     plated through holes:
     =============================================================
-    T1  0,40mm  0,016"  (46 holes)
+    T1  0,40mm  0,016"  (47 holes)
     T2  1,02mm  0,040"  (31 holes)
 
-    Total plated holes count 77
+    Total plated holes count 78
 
 
 Drill file 'GpibPortExpanderPCA6408A-NPTH.drl' contains

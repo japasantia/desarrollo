@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:MainBoard.Version1-rescue
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
@@ -39,6 +40,7 @@ LIBS:eSim_User
 LIBS:eSim_Plot
 LIBS:eSim_PSpice
 LIBS:CenditBasic
+LIBS:MainBoard.Version1-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -2215,7 +2217,7 @@ Wire Wire Line
 Wire Wire Line
 	1650 6800 1500 6800
 $Comp
-L POWER_BUS CON1
+L POWER_BUS-RESCUE-MainBoard.Version1 CON1
 U 1 1 5A0A188A
 P 700 1950
 F 0 "CON1" H 500 3100 60  0000 C CNN

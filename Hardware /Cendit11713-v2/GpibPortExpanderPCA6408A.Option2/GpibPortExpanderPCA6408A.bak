@@ -32,16 +32,16 @@ LIBS:CenditBasic
 LIBS:GpibPortExpanderPCA6408A-cache
 EELAYER 25 0
 EELAYER END
-$Descr A4 11693 8268
+$Descr USLetter 11000 8500
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
-Comment3 ""
+Title "Tarjeta para interfaz con bus GPIB"
+Date "2017-11-28"
+Rev "1.0"
+Comp "CENDIT"
+Comment1 "Basada en IC PCA6408, expansor de puertos serial SPI a paralelo"
+Comment2 "correo@josearias.com.ve"
+Comment3 "Jose Arias"
 Comment4 ""
 $EndDescr
 $Comp

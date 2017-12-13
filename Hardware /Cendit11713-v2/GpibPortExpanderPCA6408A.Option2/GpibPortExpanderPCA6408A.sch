@@ -1083,7 +1083,6 @@ Wire Wire Line
 Connection ~ 6650 3150
 Wire Wire Line
 	6750 3050 6650 3050
-Connection ~ 6650 3050
 Wire Wire Line
 	1700 3550 1950 3550
 Wire Wire Line
